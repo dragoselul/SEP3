@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Cinema_Exercise.iml" filepath="$PROJECT_DIR$/Cinema_Exercise.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tier1/tier1.iml" filepath="$PROJECT_DIR$/tier1/tier1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tier2/tier2.iml" filepath="$PROJECT_DIR$/tier2/tier2.iml" />
     </modules>
   </component>
 </project>
