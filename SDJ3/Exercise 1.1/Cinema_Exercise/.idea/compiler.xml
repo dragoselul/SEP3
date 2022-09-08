@@ -12,7 +12,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="tier1" target="17" />
-      <module name="tier2" target="17" />
+      <module name="tier2" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

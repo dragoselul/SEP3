@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ffea78b-65ca-4bd4-b9a5-438cd183e3d9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/tier1/src/main/java/com/example/tier1/remote/RemoteModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tier2/src/main/java/com/example/tier2/remote/RemoteModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
