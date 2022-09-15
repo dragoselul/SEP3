@@ -1,4 +1,4 @@
-package com.example.tier1.model;
+package model;
 
 public class Room {
 }

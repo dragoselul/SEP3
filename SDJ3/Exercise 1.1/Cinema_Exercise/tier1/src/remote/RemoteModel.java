@@ -1,4 +1,4 @@
-package com.example.tier1.remote;
+package remote;
 
 public interface RemoteModel {
 
