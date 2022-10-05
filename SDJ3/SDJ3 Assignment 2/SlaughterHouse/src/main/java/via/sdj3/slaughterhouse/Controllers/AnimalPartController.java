@@ -7,6 +7,7 @@ import via.sdj3.slaughterhouse.Services.AnimalPartService;
 
 import java.util.List;
 
+@RestController
 @RequestMapping(path = "via/sdj3/animalPart")
 public class AnimalPartController {
 
