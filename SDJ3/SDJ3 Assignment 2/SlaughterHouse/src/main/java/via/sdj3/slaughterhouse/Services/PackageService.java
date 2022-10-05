@@ -39,10 +39,10 @@ public class PackageService{
     @Transactional
     public void updatePackage(int packageId, ArrayList<Integer> trayIds, boolean isReturned){
         Package packages = packageRepository.findById(packageId).orElseThrow(()-> new IllegalStateException("Package does not exist"));
-        if (trayIds!= 0 && !Objects.equals(packages.getTrayIds()), trayIds)
+        if (trayIds.size()!= 0 )
             packages.setTrayIds(trayIds);
 
-        if (isReturned != true, && Objects.equals(isReturned, packages.isReturned()))
-            packages.isReturned(isReturned);
+        if (isReturned != true && Objects.equals(isReturned, packages.isReturned()))
+            packages.isReturned();
     }
 }
