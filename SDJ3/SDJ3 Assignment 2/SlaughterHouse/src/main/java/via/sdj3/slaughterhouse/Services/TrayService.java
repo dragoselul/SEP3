@@ -30,7 +30,7 @@ public class TrayService{
 
     public void updateTray(int trayId, int animalPartId, String typeOfPart, double maxCapacity){
         Tray tray = trayRepository.findById(trayId).orElseThrow(()-> new IllegalStateException("Tray does not exist!"));
-        if (animalPartId != 0 && animalPartId > 0 && !Objects.equals(tray.getAnimalPartId(), animalPartId))
+        if (animalPartId != 0 &&  !Objects.equals(tray.getAnimalPartId(), animalPartId))
             tray.setAnimalPartId(animalPartId);
 
         if (typeOfPart !=null && typeOfPart != tray.getTypeOfPart())
