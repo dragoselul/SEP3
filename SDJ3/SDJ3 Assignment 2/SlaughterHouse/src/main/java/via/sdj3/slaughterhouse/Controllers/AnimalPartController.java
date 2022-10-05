@@ -21,7 +21,7 @@ public class AnimalPartController {
     @GetMapping
     public List<AnimalPart> getAnimalPart()
     {
-        return animalPartService.getAnimals();
+        return animalPartService.getAnimalParts();
     }
 
     @PostMapping
