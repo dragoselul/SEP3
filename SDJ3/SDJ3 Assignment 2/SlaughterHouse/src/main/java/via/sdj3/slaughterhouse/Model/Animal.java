@@ -1,8 +1,8 @@
 package via.sdj3.slaughterhouse.Model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "Animals")
@@ -20,23 +20,30 @@ public class Animal {
     private int id;
     private String species;
     private double weight;
+
+    private String origin;
+
+    private LocalDate doa;
     @Transient
     private ArrayList<AnimalPart> parts;
 
     public Animal() {
     }
 
-    public Animal(int id, String species, double weight, ArrayList<AnimalPart> parts) {
+    public Animal(int id, String species, double weight, ArrayList<AnimalPart> parts, String origin, LocalDate doa) {
         this.id = id;
         this.species = species;
         this.weight = weight;
         this.parts = parts;
+        this.origin = origin;
+        this.doa = doa;
     }
 
-    public Animal(String species, double weight, ArrayList<AnimalPart> parts) {
+    public Animal(String species, double weight, ArrayList<AnimalPart> parts, String origin, LocalDate doa) {
         this.species = species;
         this.weight = weight;
         this.parts = parts;
+        this.doa = doa;
     }
 
     public int getId() {
@@ -69,5 +76,21 @@ public class Animal {
 
     public void setParts(ArrayList<AnimalPart> parts) {
         this.parts = parts;
+    }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
+    public LocalDate getDoa() {
+        return doa;
+    }
+
+    public void setDoa(LocalDate doa) {
+        this.doa = doa;
     }
 }

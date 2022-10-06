@@ -38,8 +38,8 @@ public class AnimalPartController {
     }
 
     @PutMapping(path = "{animalPartId}")
-    public void updateAnimalPart(@PathVariable("animalPartId") int animalPartId, @RequestParam(required = false) String animalType, @RequestParam(required = false) double weight )
+    public void updateAnimalPart(@PathVariable("animalPartId") int animalPartId, @RequestParam(required = false) String animalType, @RequestParam(required = false) double weight, @RequestParam(required = false) String partDescription)
     {
-        animalPartService.updateAnimalPart(animalPartId,animalType,weight);
+        animalPartService.updateAnimalPart(animalPartId,animalType,weight,partDescription);
     }
 }

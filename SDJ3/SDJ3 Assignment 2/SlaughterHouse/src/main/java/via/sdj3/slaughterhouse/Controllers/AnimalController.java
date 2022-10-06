@@ -6,6 +6,7 @@ import via.sdj3.slaughterhouse.Model.Animal;
 import via.sdj3.slaughterhouse.Model.AnimalPart;
 import via.sdj3.slaughterhouse.Services.AnimalService;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class AnimalController {
     }
 
     @PutMapping(path = "{animalId}")
-    public void updateAnimal(@PathVariable("animalId") int animalId, @RequestParam(required = false) String species, @RequestParam(required = false) double weight, @RequestParam(required = false) ArrayList<AnimalPart> parts){
-        animalService.updateAnimal(animalId,species,weight,parts);
+    public void updateAnimal(@PathVariable("animalId") int animalId, @RequestParam(required = false) String species, @RequestParam(required = false) double weight, @RequestParam(required = false) ArrayList<AnimalPart> parts,@RequestParam(required = false) String origin,@RequestParam(required = false) LocalDate doa){
+        animalService.updateAnimal(animalId,species,weight,parts, origin,doa);
     }
 }

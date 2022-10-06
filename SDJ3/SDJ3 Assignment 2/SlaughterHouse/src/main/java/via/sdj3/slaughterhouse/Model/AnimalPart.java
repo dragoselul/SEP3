@@ -7,30 +7,33 @@ import javax.persistence.*;
 public class AnimalPart {
     @Id
     @SequenceGenerator(
-            name = "animal_sequnce",
-            sequenceName = "animal_sequence",
+            name = "animalPart_sequnce",
+            sequenceName = "animalPart_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "animal_sequence"
+            generator = "animalPart_sequence"
     )
     private int animalPartId;
     private String animalType;
     private double weight;
+    private String partDescription;
 
     public AnimalPart() {
     }
 
-    public AnimalPart(int animalPartId, String animalType, double weight) {
+    public AnimalPart(int animalPartId, String animalType, double weight, String partDescription) {
         this.animalPartId = animalPartId;
         this.animalType = animalType;
         this.weight = weight;
+        this.partDescription = partDescription;
     }
 
-    public AnimalPart(String animalType, double weight) {
+    public AnimalPart(String animalType, double weight, String partDescription) {
         this.animalType = animalType;
         this.weight = weight;
+        this.partDescription = partDescription;
     }
 
     public int getAnimalPartId() {
@@ -55,5 +58,13 @@ public class AnimalPart {
 
     public void setWeight(double weight) {
         this.weight = weight;
+    }
+
+    public String getPartDescription() {
+        return partDescription;
+    }
+
+    public void setPartDescription(String partDescription) {
+        this.partDescription = partDescription;
     }
 }

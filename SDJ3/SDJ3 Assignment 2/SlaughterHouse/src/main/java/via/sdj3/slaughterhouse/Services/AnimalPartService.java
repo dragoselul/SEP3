@@ -39,12 +39,14 @@ public class AnimalPartService
         animalPartRepository.deleteById(animalPartId);
     }
 
-    public void updateAnimalPart(int animalPartId, String animalType, double weight )
+    public void updateAnimalPart(int animalPartId, String animalType, double weight , String partDescription)
     {
         AnimalPart animalpart = animalPartRepository.findById(animalPartId).orElseThrow(() -> new IllegalArgumentException("Animal part does not exist"));
         if (animalType!=null && animalType.length() > 0 && !Objects.equals(animalpart.getAnimalType(),animalType))
             animalpart.setAnimalType(animalType);
         if (weight > 0 && !Objects.equals(animalpart.getWeight(),weight))
             animalpart.setWeight(weight);
+        if (partDescription!=null && partDescription.length() > 0 && !Objects.equals(animalpart.getPartDescription(),partDescription))
+            animalpart.setPartDescription(partDescription);
     }
 }

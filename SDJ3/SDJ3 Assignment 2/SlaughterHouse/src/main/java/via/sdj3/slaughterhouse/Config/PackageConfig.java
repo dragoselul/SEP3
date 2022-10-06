@@ -7,9 +7,13 @@ import via.sdj3.slaughterhouse.Repositories.TrayRepository;
 
 @Configuration
 public class PackageConfig {
+    /*
     @Bean
     CommandLineRunner commandLineRunner(TrayRepository trayRepository) {
         return args -> {
+            //
         };
     }
+
+     */
 }

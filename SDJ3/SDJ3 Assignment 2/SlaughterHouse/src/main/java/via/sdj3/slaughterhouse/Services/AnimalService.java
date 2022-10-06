@@ -7,6 +7,7 @@ import via.sdj3.slaughterhouse.Model.Animal;
 import via.sdj3.slaughterhouse.Model.AnimalPart;
 import via.sdj3.slaughterhouse.Repositories.AnimalRepository;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -37,7 +38,7 @@ public class AnimalService {
     }
 
     @Transactional
-    public void updateAnimal(int animalId, String species, double weight, ArrayList<AnimalPart> parts) {
+    public void updateAnimal(int animalId, String species, double weight, ArrayList<AnimalPart> parts, String origin, LocalDate doa) {
         Animal animal = animalRepository.findById(animalId).orElseThrow(()-> new IllegalStateException("Animal does not exist"));
         if(species!=null && species.length() > 0 && !Objects.equals(animal.getSpecies(),species))
             animal.setSpecies(species);
@@ -45,5 +46,9 @@ public class AnimalService {
             animal.setWeight(weight);
         if(parts != null && parts.size()>0 && Objects.equals(parts,animal.getParts()))
             animal.setParts(parts);
+        if(origin != null && origin.length()>0 && Objects.equals(origin,animal.getOrigin()))
+            animal.setOrigin(origin);
+        if(doa != null && Objects.equals(doa,animal.getDoa()))
+            animal.setDoa(doa);
     }
 }

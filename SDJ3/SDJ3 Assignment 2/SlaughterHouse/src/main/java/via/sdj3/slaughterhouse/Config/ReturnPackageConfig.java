@@ -8,10 +8,14 @@ import via.sdj3.slaughterhouse.Repositories.AnimalRepository;
 @Configuration
 public class ReturnPackageConfig
 {
+    /*
     @Bean
     CommandLineRunner commandLineRunner(AnimalRepository animalRepository) {
         return args -> {
-
+//
         };
     }
+
+     */
+
 }
