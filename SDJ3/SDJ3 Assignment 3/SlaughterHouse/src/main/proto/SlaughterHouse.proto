@@ -1,0 +1,63 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "via.sdj3.slaughterhouse.protobuf";
+//Service definition
+
+service SlaughterHouse {
+  rpc retrieveRegNumber(Package) returns (RegistrationNumbers);
+  rpc retrievePackage(Animal) returns (Packages);
+}
+
+message Package {
+  int32 packageId = 1;
+  bool isReturned = 2;
+}
+
+message Animal {
+  int32 id = 1;
+  string species = 2;
+  double weight = 3;
+  string origin = 4;
+  message LocalDate {
+    int32 year = 1;
+    int32 month = 2;
+    int32 day = 3;
+  }
+  LocalDate doa = 5;
+}
+
+message AnimalPart {
+  int32 animalPartId = 1;
+  string animalType = 2;
+  double weight = 3;
+  string partDescription = 4;
+}
+
+message Tray {
+  int32 trayId = 1;
+  string typeOfPart = 2;
+  double maxCapacity = 3;
+}
+
+message PartFromAnimal {
+  int32 animalId = 1;
+  int32 animalPartId = 2;
+}
+
+message TrayWithParts {
+  int32 trayId = 1;
+  int32 animalPartId = 2;
+}
+
+message PackagesWithTrays {
+  int32 packageId = 1;
+  int32 trayId = 2;
+}
+
+message Packages {
+  repeated Package packages = 1;
+}
+
+message RegistrationNumbers {
+  repeated int32 animalRegNumbers = 1;
+}
