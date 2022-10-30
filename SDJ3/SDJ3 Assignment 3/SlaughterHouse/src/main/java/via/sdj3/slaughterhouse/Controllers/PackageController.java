@@ -3,9 +3,8 @@ package via.sdj3.slaughterhouse.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import via.sdj3.slaughterhouse.Model.Package;
-import via.sdj3.slaughterhouse.Services.PackageService;
+import via.sdj3.slaughterhouse.Repositories.Services.PackageService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController

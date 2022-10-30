@@ -4,7 +4,7 @@ package via.sdj3.slaughterhouse.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import via.sdj3.slaughterhouse.Model.ReturnPackage;
-import via.sdj3.slaughterhouse.Services.ReturnPackageService;
+import via.sdj3.slaughterhouse.Repositories.Services.ReturnPackageService;
 
 import java.util.List;
 

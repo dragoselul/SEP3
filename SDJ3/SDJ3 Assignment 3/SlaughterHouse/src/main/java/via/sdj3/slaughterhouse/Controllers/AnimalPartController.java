@@ -3,7 +3,7 @@ package via.sdj3.slaughterhouse.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import via.sdj3.slaughterhouse.Model.AnimalPart;
-import via.sdj3.slaughterhouse.Services.AnimalPartService;
+import via.sdj3.slaughterhouse.Repositories.Services.AnimalPartService;
 
 import java.util.List;
 

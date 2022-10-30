@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import via.sdj3.slaughterhouse.Model.Animal;
 import via.sdj3.slaughterhouse.Model.AnimalPart;
-import via.sdj3.slaughterhouse.Services.AnimalService;
+import via.sdj3.slaughterhouse.Repositories.Services.AnimalService;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

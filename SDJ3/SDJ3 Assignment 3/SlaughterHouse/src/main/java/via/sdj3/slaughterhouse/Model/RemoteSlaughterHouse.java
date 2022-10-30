@@ -4,10 +4,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import via.sdj3.slaughterhouse.Interface.SlaughterHouse;
-import via.sdj3.slaughterhouse.Services.AnimalPartService;
-import via.sdj3.slaughterhouse.Services.AnimalService;
-import via.sdj3.slaughterhouse.Services.PackageService;
-import via.sdj3.slaughterhouse.Services.TrayService;
+import via.sdj3.slaughterhouse.Repositories.Services.AnimalPartService;
+import via.sdj3.slaughterhouse.Repositories.Services.AnimalService;
+import via.sdj3.slaughterhouse.Repositories.Services.PackageService;
+import via.sdj3.slaughterhouse.Repositories.Services.TrayService;
 import via.sdj3.slaughterhouse.protobuf.Animal;
 import via.sdj3.slaughterhouse.protobuf.Package;
 import via.sdj3.slaughterhouse.protobuf.Packages;
@@ -43,16 +43,17 @@ public class RemoteSlaughterHouse implements SlaughterHouse {
             }
         }
         AnimalPart animalPart;
-        int l = 0;
+        List<Integer> regNumbers = new ArrayList<>();
         for (int i = 0; i < animalPartService.getAnimalParts().size(); i++) {
             animalPart = animalPartService.getAnimalParts().get(i);
             for (int k = 0; k < j; k++) {
                 if(animalPart.getTrayId() == traysInsidePackage[k]) {
-                    registrationNumbers = RegistrationNumbers.newBuilder().setAnimalRegNumbers(l,animalPart.getAnimalProviderId()).build();
-                    l++;
+
+                    regNumbers.add(animalPart.getAnimalProviderId());
                 }
             }
         }
+        registrationNumbers = RegistrationNumbers.newBuilder().addAllAnimalRegNumbers(regNumbers).build();
     return registrationNumbers;
     }
 

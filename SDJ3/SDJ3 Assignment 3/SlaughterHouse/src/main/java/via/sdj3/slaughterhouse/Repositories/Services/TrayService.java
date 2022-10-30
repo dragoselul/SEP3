@@ -1,4 +1,4 @@
-package via.sdj3.slaughterhouse.Services;
+package via.sdj3.slaughterhouse.Repositories.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
