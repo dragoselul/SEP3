@@ -36,12 +36,8 @@ public class PackageService{
         packageRepository.deleteById(packageId);
     }
 
-    @Transactional
-    public void updatePackage(int packageId, ArrayList<Integer> trayIds, boolean isReturned){
+    public void updatePackage(int packageId, boolean isReturned){
         Package packages = packageRepository.findById(packageId).orElseThrow(()-> new IllegalStateException("Package does not exist"));
-        if (trayIds.size()!= 0 )
-            packages.setTrayIds(trayIds);
-
         if (isReturned != true && Objects.equals(isReturned, packages.isReturned()))
             packages.isReturned();
     }

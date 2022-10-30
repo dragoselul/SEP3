@@ -19,23 +19,27 @@ public class Tray {
     private int trayId;
     private String typeOfPart;
     private double maxCapacity;
+
+    private int packageId;
     @Transient
     private ArrayList<AnimalPart> animalParts;
 
     public Tray() {
     }
 
-    public Tray(int trayId, ArrayList<AnimalPart> animalParts, String typeOfPart, double maxCapacity) {
+    public Tray(int trayId, ArrayList<AnimalPart> animalParts, String typeOfPart, double maxCapacity, int packageId) {
         this.trayId = trayId;
         this.animalParts = animalParts;
         this.typeOfPart = typeOfPart;
         this.maxCapacity = maxCapacity;
+        this.packageId = packageId;
     }
 
-    public Tray(ArrayList<AnimalPart> animalParts, String typeOfPart, double maxCapacity) {
+    public Tray(ArrayList<AnimalPart> animalParts, String typeOfPart, double maxCapacity, int packageId) {
         this.animalParts = animalParts;
         this.typeOfPart = typeOfPart;
         this.maxCapacity = maxCapacity;
+        this.packageId = packageId;
     }
 
     public int getTrayId() {
@@ -76,5 +80,13 @@ public class Tray {
 
     public void setMaxCapacity(double maxCapacity) {
         this.maxCapacity = maxCapacity;
+    }
+
+    public int getPackageId() {
+        return packageId;
+    }
+
+    public void setPackageId(int packageId) {
+        this.packageId = packageId;
     }
 }

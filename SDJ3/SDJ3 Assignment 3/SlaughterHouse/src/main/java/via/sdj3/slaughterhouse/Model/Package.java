@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 @Entity
 @Table(name="Packages")
-public abstract class Package {
+public class Package {
     @Id
     @SequenceGenerator(
             name = "package_sequnce",

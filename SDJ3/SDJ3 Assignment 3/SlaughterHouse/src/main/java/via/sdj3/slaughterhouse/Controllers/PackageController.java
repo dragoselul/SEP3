@@ -34,7 +34,7 @@ public class PackageController{
     }
 
     @PutMapping(path = "{packageId}")
-    public void updatePackage(@PathVariable("packageId") int packageId, @RequestParam(required = false) ArrayList<Integer> trayIds, @RequestParam(required = false) boolean isReturned){
-        packageService.updatePackage(packageId, trayIds, isReturned);
+    public void updatePackage(@PathVariable("packageId") int packageId, @RequestParam(required = false) boolean isReturned){
+        packageService.updatePackage(packageId, isReturned);
     }
 }

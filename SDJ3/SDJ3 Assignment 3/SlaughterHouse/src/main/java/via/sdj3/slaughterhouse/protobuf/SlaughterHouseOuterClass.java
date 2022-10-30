@@ -40,21 +40,6 @@ public final class SlaughterHouseOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Tray_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_PartFromAnimal_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_PartFromAnimal_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_TrayWithParts_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_TrayWithParts_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_PackagesWithTrays_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_PackagesWithTrays_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Packages_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -82,18 +67,13 @@ public final class SlaughterHouseOuterClass {
       "lPart\022\024\n\014animalPartId\030\001 \001(\005\022\022\n\nanimalTyp" +
       "e\030\002 \001(\t\022\016\n\006weight\030\003 \001(\001\022\027\n\017partDescripti" +
       "on\030\004 \001(\t\"?\n\004Tray\022\016\n\006trayId\030\001 \001(\005\022\022\n\ntype" +
-      "OfPart\030\002 \001(\t\022\023\n\013maxCapacity\030\003 \001(\001\"8\n\016Par" +
-      "tFromAnimal\022\020\n\010animalId\030\001 \001(\005\022\024\n\014animalP" +
-      "artId\030\002 \001(\005\"5\n\rTrayWithParts\022\016\n\006trayId\030\001" +
-      " \001(\005\022\024\n\014animalPartId\030\002 \001(\005\"6\n\021PackagesWi" +
-      "thTrays\022\021\n\tpackageId\030\001 \001(\005\022\016\n\006trayId\030\002 \001" +
-      "(\005\"&\n\010Packages\022\032\n\010packages\030\001 \003(\0132\010.Packa" +
-      "ge\"/\n\023RegistrationNumbers\022\030\n\020animalRegNu" +
-      "mbers\030\001 \003(\0052l\n\016SlaughterHouse\0223\n\021retriev" +
-      "eRegNumber\022\010.Package\032\024.RegistrationNumbe" +
-      "rs\022%\n\017retrievePackage\022\007.Animal\032\t.Package" +
-      "sB$\n via.sdj3.slaughterhouse.protobufP\001b" +
-      "\006proto3"
+      "OfPart\030\002 \001(\t\022\023\n\013maxCapacity\030\003 \001(\001\"&\n\010Pac" +
+      "kages\022\032\n\010packages\030\001 \003(\0132\010.Package\"/\n\023Reg" +
+      "istrationNumbers\022\030\n\020animalRegNumbers\030\001 \003" +
+      "(\0052l\n\016SlaughterHouse\0223\n\021retrieveRegNumbe" +
+      "r\022\010.Package\032\024.RegistrationNumbers\022%\n\017ret" +
+      "rievePackage\022\007.Animal\032\t.PackagesB$\n via." +
+      "sdj3.slaughterhouse.protobufP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -129,32 +109,14 @@ public final class SlaughterHouseOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Tray_descriptor,
         new java.lang.String[] { "TrayId", "TypeOfPart", "MaxCapacity", });
-    internal_static_PartFromAnimal_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_PartFromAnimal_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_PartFromAnimal_descriptor,
-        new java.lang.String[] { "AnimalId", "AnimalPartId", });
-    internal_static_TrayWithParts_descriptor =
-      getDescriptor().getMessageTypes().get(5);
-    internal_static_TrayWithParts_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_TrayWithParts_descriptor,
-        new java.lang.String[] { "TrayId", "AnimalPartId", });
-    internal_static_PackagesWithTrays_descriptor =
-      getDescriptor().getMessageTypes().get(6);
-    internal_static_PackagesWithTrays_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_PackagesWithTrays_descriptor,
-        new java.lang.String[] { "PackageId", "TrayId", });
     internal_static_Packages_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_Packages_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Packages_descriptor,
         new java.lang.String[] { "Packages", });
     internal_static_RegistrationNumbers_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_RegistrationNumbers_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RegistrationNumbers_descriptor,

@@ -39,21 +39,6 @@ message Tray {
   double maxCapacity = 3;
 }
 
-message PartFromAnimal {
-  int32 animalId = 1;
-  int32 animalPartId = 2;
-}
-
-message TrayWithParts {
-  int32 trayId = 1;
-  int32 animalPartId = 2;
-}
-
-message PackagesWithTrays {
-  int32 packageId = 1;
-  int32 trayId = 2;
-}
-
 message Packages {
   repeated Package packages = 1;
 }

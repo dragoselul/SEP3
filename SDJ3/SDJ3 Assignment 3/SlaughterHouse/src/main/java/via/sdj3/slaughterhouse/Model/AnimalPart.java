@@ -19,21 +19,27 @@ public class AnimalPart {
     private String animalType;
     private double weight;
     private String partDescription;
+    private int animalProviderId;
+    private int trayId;
 
     public AnimalPart() {
     }
 
-    public AnimalPart(int animalPartId, String animalType, double weight, String partDescription) {
+    public AnimalPart(int animalPartId, String animalType, double weight, String partDescription, int animalProviderId, int trayId) {
         this.animalPartId = animalPartId;
         this.animalType = animalType;
         this.weight = weight;
         this.partDescription = partDescription;
+        this.animalProviderId = animalProviderId;
+        this.trayId = trayId;
     }
 
-    public AnimalPart(String animalType, double weight, String partDescription) {
+    public AnimalPart(String animalType, double weight, String partDescription, int animalProviderId, int trayId) {
         this.animalType = animalType;
         this.weight = weight;
         this.partDescription = partDescription;
+        this.animalProviderId = animalProviderId;
+        this.trayId = trayId;
     }
 
     public int getAnimalPartId() {
@@ -66,5 +72,21 @@ public class AnimalPart {
 
     public void setPartDescription(String partDescription) {
         this.partDescription = partDescription;
+    }
+
+    public int getAnimalProviderId() {
+        return animalProviderId;
+    }
+    public void setAnimalProviderId(int animalProviderId)
+    {
+        this.animalProviderId = animalProviderId;
+    }
+
+    public int getTrayId() {
+        return trayId;
+    }
+    public void setTrayId(int trayId)
+    {
+        this.trayId = trayId;
     }
 }

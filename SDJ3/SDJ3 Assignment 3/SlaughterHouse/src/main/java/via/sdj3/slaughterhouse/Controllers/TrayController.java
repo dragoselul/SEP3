@@ -2,9 +2,9 @@ package via.sdj3.slaughterhouse.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import via.sdj3.slaughterhouse.Model.Animal;
 import via.sdj3.slaughterhouse.Model.AnimalPart;
 import via.sdj3.slaughterhouse.Model.Tray;
-import via.sdj3.slaughterhouse.Services.AnimalService;
 import via.sdj3.slaughterhouse.Services.TrayService;
 
 import java.util.List;
@@ -24,14 +24,20 @@ public class TrayController{
         trayService.addTray(trayId);
     }
 
+    @GetMapping
+    public List<Tray> getTrays() {
+        return trayService.getTrays();
+    }
+
+
     @DeleteMapping(path = "{trayId}")
     public void deleteTray(@PathVariable("trayId") int trayId){
         trayService.deleteTray(trayId);
     }
 
     @PutMapping(path = "{trayId}")
-    public void updateTray(@PathVariable("trayId") int trayId, @RequestParam(required = false) AnimalPart animalParts, @RequestParam(required = false) String typeOfPart, @RequestParam(required = false) double maxCapacity){
-        trayService.updateTray(trayId, animalParts, typeOfPart, maxCapacity);
+    public void updateTray(@PathVariable("trayId") int trayId, @RequestParam(required = false) AnimalPart animalParts, @RequestParam(required = false) String typeOfPart, @RequestParam(required = false) double maxCapacity, @RequestParam(required = false) int packageId){
+        trayService.updateTray(trayId, animalParts, typeOfPart, maxCapacity,packageId);
     }
 
 }

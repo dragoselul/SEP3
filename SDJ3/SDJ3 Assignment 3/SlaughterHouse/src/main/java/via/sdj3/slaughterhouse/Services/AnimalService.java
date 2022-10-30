@@ -15,7 +15,6 @@ import java.util.Objects;
 @Service
 public class AnimalService {
     private final AnimalRepository animalRepository;
-
     @Autowired
     public AnimalService(AnimalRepository animalRepository) {
         this.animalRepository = animalRepository;
