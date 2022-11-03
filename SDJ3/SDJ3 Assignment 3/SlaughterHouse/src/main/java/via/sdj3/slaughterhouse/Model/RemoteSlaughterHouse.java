@@ -48,7 +48,6 @@ public class RemoteSlaughterHouse implements SlaughterHouse {
             animalPart = animalPartService.getAnimalParts().get(i);
             for (int k = 0; k < j; k++) {
                 if(animalPart.getTrayId() == traysInsidePackage[k]) {
-
                     regNumbers.add(animalPart.getAnimalProviderId());
                 }
             }
