@@ -20,18 +20,25 @@ public class ProductService implements IProductService {
         this.productRepository = productRepository;
     }
 
+    @Override
     public List<Product> getProducts(){
        return productRepository.findAll();
     }
 
+    @Override
     public Product createProduct(Product product){
         return productRepository.save(product);
     }
+
     @Override
     public Product getProductById(Long id) throws Exception{
         Optional<Product> opt = productRepository.findById(id);
-        if(opt.get() == null)
+        if(opt.isEmpty())
             throw new Exception("No product with id " + id.toString() + " was found");
         return opt.get();
+    }
+    @Override
+    public void deleteById(Long id) {
+        productRepository.deleteById(id);
     }
 }
