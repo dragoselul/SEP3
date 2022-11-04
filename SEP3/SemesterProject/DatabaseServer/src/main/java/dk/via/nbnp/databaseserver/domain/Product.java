@@ -1,5 +1,8 @@
 package dk.via.nbnp.databaseserver.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonTypeResolver;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -18,12 +21,20 @@ public class Product {
             generator = "product_sequence"
     )
     private Long id;
+
     private String name;
+
     private String description;
+
     private Double price;
+
     private String currency;
+
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private LocalDateTime dateOfAdding;
+
     private String category;
+
     private String status;
 
     public Product(){}
@@ -37,6 +48,7 @@ public class Product {
         this.category = category;
         this.status = status;
     }
+
     public Long getId() {
         return id;
     }
@@ -63,5 +75,19 @@ public class Product {
     }
     public String getCurrency() {
         return currency;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", currency='" + currency + '\'' +
+                ", dateOfAdding=" + dateOfAdding +
+                ", category='" + category + '\'' +
+                ", status='" + status + '\'' +
+                '}';
     }
 }

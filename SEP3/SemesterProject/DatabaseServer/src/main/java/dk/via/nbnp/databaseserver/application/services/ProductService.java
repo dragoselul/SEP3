@@ -4,10 +4,10 @@ import dk.via.nbnp.databaseserver.application.DAOInterfaces.ProductRepository;
 import dk.via.nbnp.databaseserver.application.serviceInterfaces.IProductService;
 import dk.via.nbnp.databaseserver.domain.Product;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService implements IProductService {
@@ -24,4 +24,14 @@ public class ProductService implements IProductService {
        return productRepository.findAll();
     }
 
+    public Product createProduct(Product product){
+        return productRepository.save(product);
+    }
+    @Override
+    public Product getProductById(Long id) throws Exception{
+        Optional<Product> opt = productRepository.findById(id);
+        if(opt.get() == null)
+            throw new Exception("No product with id " + id.toString() + " was found");
+        return opt.get();
+    }
 }

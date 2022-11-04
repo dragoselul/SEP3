@@ -9,5 +9,6 @@ import java.util.List;
 public interface IProductService {
 
     List<Product> getProducts();
-
+    Product createProduct(Product product);
+    Product getProductById(Long id) throws Exception;
 }
