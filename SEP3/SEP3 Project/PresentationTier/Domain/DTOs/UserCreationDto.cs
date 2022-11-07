@@ -1,21 +1,30 @@
-﻿namespace Domain.DTOs;
+﻿using System.Data;
+using Domain.Models;
+
+namespace Domain.DTOs;
 
 public class UserCreationDto
 {
-    public string FirstName { get; }
-    public string LastName { get; }
+    public string FirstName { get;}
+    public string LastName { get;}
     public string Email { get; }
     public string Password { get; }
     public string PhoneNumber { get; }
     public bool Gender { get; }
+    public DateTime Dor { get; }
 
-    public UserCreationDto(string userName, string lastName, string email, string password, string phoneNumber, bool gender)
+    public List<Items> ItemsList { get; }
+
+    public UserCreationDto(string firstName, string lastName, string email, string password, string phoneNumber, bool gender, DateTime dor, List<Items> itemsList)
     {
-        FirstName = userName;
+        FirstName = firstName;
         LastName = lastName;
         Email = email;
         Password = password;
         PhoneNumber = phoneNumber;
         Gender = gender;
+        Dor = dor;
+        ItemsList = itemsList;
+
     }
 }

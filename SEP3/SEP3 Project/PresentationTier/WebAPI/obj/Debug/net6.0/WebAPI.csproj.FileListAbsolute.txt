@@ -58,3 +58,4 @@ C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\WebAPI\o
 C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\WebAPI\obj\Debug\net6.0\WebAPI.pdb
 C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\WebAPI\obj\Debug\net6.0\WebAPI.genruntimeconfig.cache
 C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\WebAPI\obj\Debug\net6.0\ref\WebAPI.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\WebAPI\bin\Debug\net6.0\data.json

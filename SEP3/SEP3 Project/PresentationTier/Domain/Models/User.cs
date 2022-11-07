@@ -2,7 +2,7 @@
 
 public class User
 {
-    public int id { get; set; }
+    public int Id { get; set; }
     public string firstName { get; set; }
     public string lastName { get; set; }
     public string email { get; set; }
@@ -11,6 +11,6 @@ public class User
     public bool gender { get; set; }
     public DateTime dor { get; set; }
 
-    public List<Items> Items { get; set; }
-    
+    public List<Items> ItemsList { get; set; }
+
 }

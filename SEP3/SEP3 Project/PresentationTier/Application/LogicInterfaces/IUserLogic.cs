@@ -1,9 +1,10 @@
 ﻿using Domain.DTOs;
 using Domain.Models;
 
-namespace Application.DaoInterfaces;
+namespace Application.LogicInterfaces;
 
 public interface IUserLogic
 {
-    Task<User> CreateAsync(UserCreationDto userToCreate);
+    public Task<User> CreateAsync(UserCreationDto dto);
+    public Task<IEnumerable<User>> GetAsync(SearchUserParametersDto searchParameters);
 }

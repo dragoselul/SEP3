@@ -1,4 +1,5 @@
 ﻿using Application.DaoInterfaces;
+using Domain.DTOs;
 using Domain.Models;
 
 namespace FileData.DAOs;
@@ -17,11 +18,11 @@ public class UserFileDao : IUserDao
         int userId = 1;
         if (context.Users.Any())
         {
-            userId = context.Users.Max(u => u.id);
+            userId = context.Users.Max(u => u.Id);
             userId++;
         }
 
-        user.id = userId;
+        user.Id = userId;
 
         context.Users.Add(user);
         context.SaveChanges();
@@ -29,11 +30,22 @@ public class UserFileDao : IUserDao
         return Task.FromResult(user);
     }
 
-    public Task<User?> GetByNameAsync(string userName)
+    public Task<User?> GetByUsernameAsync(string userName)
     {
         User? existing = context.Users.FirstOrDefault(u =>
             u.firstName.Equals(userName, StringComparison.OrdinalIgnoreCase)
         );
         return Task.FromResult(existing);
+    }
+
+    public Task<IEnumerable<User>> GetAsync(SearchUserParametersDto searchParameters)
+    {
+        IEnumerable<User> users = context.Users.AsEnumerable();
+        if (searchParameters.UsernameContains != null)
+        {
+            users = context.Users.Where(u => u.firstName.Contains(searchParameters.UsernameContains, StringComparison.OrdinalIgnoreCase));
+        }
+
+        return Task.FromResult(users);
     }
 }
