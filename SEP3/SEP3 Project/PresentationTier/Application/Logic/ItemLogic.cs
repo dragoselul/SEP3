@@ -31,6 +31,11 @@ public class ItemLogic : IItemLogic
         return created;
     }
 
+    public Task<IEnumerable<Item>> GetAsync(SearchItemParametersDto searchParameters)
+    {
+        return itemDao.GetAsync(searchParameters);
+    }
+
     private void ValidateTodo(ItemCreationDto dto)
     {
         if (string.IsNullOrEmpty(dto.Name)) throw new Exception("Title cannot be empty.");

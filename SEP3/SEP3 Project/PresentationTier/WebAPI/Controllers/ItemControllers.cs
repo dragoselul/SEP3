@@ -31,4 +31,22 @@ public class ItemController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
+    
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Item>>> GetAsync([FromQuery] string? firstName,
+        [FromQuery] string? lastName, [FromQuery] string? name, [FromQuery]  string? description,
+        [FromQuery] int contactId, [FromQuery] double pricing)
+    {
+        try
+        {
+            SearchItemParametersDto parameters = new(firstName, lastName, name, description, contactId, pricing);
+            var todos = await todoLogic.GetAsync(parameters);
+            return Ok(todos);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
 }
