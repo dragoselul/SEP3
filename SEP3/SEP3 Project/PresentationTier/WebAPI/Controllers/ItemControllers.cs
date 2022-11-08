@@ -35,11 +35,11 @@ public class ItemController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Item>>> GetAsync([FromQuery] string? firstName,
         [FromQuery] string? lastName, [FromQuery] string? name, [FromQuery]  string? description,
-        [FromQuery] int contactId, [FromQuery] double pricing)
+        [FromQuery] int contactId, [FromQuery] double pricing, [FromQuery] bool isSold)
     {
         try
         {
-            SearchItemParametersDto parameters = new(firstName, lastName, name, description, contactId, pricing);
+            SearchItemParametersDto parameters = new(firstName, lastName, name, description, contactId, pricing, isSold);
             var todos = await todoLogic.GetAsync(parameters);
             return Ok(todos);
         }

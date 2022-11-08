@@ -7,6 +7,8 @@ public class Item
     public string Description { get; set; }
     public User Contact { get; set; }
     public double Pricing { get; set; }
+    
+    public bool IsSold { get; }
     //public byte[] Photos { get; set; }
 
     public Item(int id, string name, string description, User contact, double pricing)
