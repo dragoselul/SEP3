@@ -12,14 +12,15 @@ public class Product {
 
     @Id
     @SequenceGenerator(
-            name="product_sequence",
-            sequenceName = "product_sequence",
+            name="product_id_sequence",
+            sequenceName = "product_id_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "product_sequence"
+            generator = "product_id_sequence"
     )
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;

@@ -299,7 +299,7 @@ public final class ProductServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return dk.via.nbnp.databaseserver.protobuf.Service.getDescriptor();
+      return dk.via.nbnp.databaseserver.protobuf.ProductOuterClass.getDescriptor();
     }
 
     @java.lang.Override

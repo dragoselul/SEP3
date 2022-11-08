@@ -12,7 +12,7 @@ import java.util.List;
 public class ProductConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(ProductRepository repository){
+    CommandLineRunner productCommandLineRunner(ProductRepository repository){
         return args -> {
             Product product = new Product(
                     "IPhone 8 Pro",
