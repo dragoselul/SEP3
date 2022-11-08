@@ -3,10 +3,20 @@ option java_multiple_files = true;
 option java_package = "dk.via.nbnp.databaseserver.protobuf";
 
 service ProductService {
-  rpc getProduct(ProductDTO) returns (Product);
+  rpc getProduct(SearchProductDTO) returns (Product);
+  rpc createProduct(CreateProductDTO) returns (Product);
 }
 
-message ProductDTO {
+message CreateProductDTO {
+  string name = 2;
+  string description = 3;
+  double price = 4;
+  string currency = 5;
+  string category = 6;
+  string status = 7;
+}
+
+message SearchProductDTO {
   int64 id = 1;
 }
 

@@ -3,8 +3,8 @@
 
 package dk.via.nbnp.databaseserver.protobuf;
 
-public interface ProductDTOOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:ProductDTO)
+public interface SearchProductDTOOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:SearchProductDTO)
     com.google.protobuf.MessageOrBuilder {
 
   /**

@@ -15,10 +15,15 @@ public final class Service {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ProductDTO_descriptor;
+    internal_static_CreateProductDTO_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ProductDTO_fieldAccessorTable;
+      internal_static_CreateProductDTO_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SearchProductDTO_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SearchProductDTO_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Product_descriptor;
   static final 
@@ -38,30 +43,40 @@ public final class Service {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\rservice.proto\"\030\n\nProductDTO\022\n\n\002id\030\001 \001(" +
-      "\003\"\202\002\n\007Product\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022" +
-      "\023\n\013description\030\003 \001(\t\022\r\n\005price\030\004 \001(\001\022\020\n\010c" +
-      "urrency\030\005 \001(\t\022,\n\014dateOfAdding\030\006 \001(\0132\026.Pr" +
-      "oduct.LocalDateTime\022\020\n\010category\030\007 \001(\t\022\016\n" +
-      "\006status\030\010 \001(\t\032W\n\rLocalDateTime\022\014\n\004year\030\001" +
-      " \001(\005\022\r\n\005month\030\002 \001(\005\022\013\n\003day\030\003 \001(\005\022\014\n\004hour" +
-      "\030\004 \001(\005\022\016\n\006minute\030\005 \001(\00525\n\016ProductService" +
-      "\022#\n\ngetProduct\022\013.ProductDTO\032\010.ProductB\'\n" +
-      "#dk.via.nbnp.databaseserver.protobufP\001b\006" +
-      "proto3"
+      "\n\rservice.proto\"x\n\020CreateProductDTO\022\014\n\004n" +
+      "ame\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\r\n\005price\030" +
+      "\004 \001(\001\022\020\n\010currency\030\005 \001(\t\022\020\n\010category\030\006 \001(" +
+      "\t\022\016\n\006status\030\007 \001(\t\"\036\n\020SearchProductDTO\022\n\n" +
+      "\002id\030\001 \001(\003\"\202\002\n\007Product\022\n\n\002id\030\001 \001(\003\022\014\n\004nam" +
+      "e\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\r\n\005price\030\004 " +
+      "\001(\001\022\020\n\010currency\030\005 \001(\t\022,\n\014dateOfAdding\030\006 " +
+      "\001(\0132\026.Product.LocalDateTime\022\020\n\010category\030" +
+      "\007 \001(\t\022\016\n\006status\030\010 \001(\t\032W\n\rLocalDateTime\022\014" +
+      "\n\004year\030\001 \001(\005\022\r\n\005month\030\002 \001(\005\022\013\n\003day\030\003 \001(\005" +
+      "\022\014\n\004hour\030\004 \001(\005\022\016\n\006minute\030\005 \001(\0052i\n\016Produc" +
+      "tService\022)\n\ngetProduct\022\021.SearchProductDT" +
+      "O\032\010.Product\022,\n\rcreateProduct\022\021.CreatePro" +
+      "ductDTO\032\010.ProductB\'\n#dk.via.nbnp.databas" +
+      "eserver.protobufP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_ProductDTO_descriptor =
+    internal_static_CreateProductDTO_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_ProductDTO_fieldAccessorTable = new
+    internal_static_CreateProductDTO_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ProductDTO_descriptor,
+        internal_static_CreateProductDTO_descriptor,
+        new java.lang.String[] { "Name", "Description", "Price", "Currency", "Category", "Status", });
+    internal_static_SearchProductDTO_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_SearchProductDTO_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SearchProductDTO_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_Product_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_Product_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Product_descriptor,

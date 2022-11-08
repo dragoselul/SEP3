@@ -4,25 +4,25 @@
 package dk.via.nbnp.databaseserver.protobuf;
 
 /**
- * Protobuf type {@code ProductDTO}
+ * Protobuf type {@code SearchProductDTO}
  */
-public final class ProductDTO extends
+public final class SearchProductDTO extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:ProductDTO)
-    ProductDTOOrBuilder {
+    // @@protoc_insertion_point(message_implements:SearchProductDTO)
+    SearchProductDTOOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use ProductDTO.newBuilder() to construct.
-  private ProductDTO(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use SearchProductDTO.newBuilder() to construct.
+  private SearchProductDTO(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private ProductDTO() {
+  private SearchProductDTO() {
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new ProductDTO();
+    return new SearchProductDTO();
   }
 
   @java.lang.Override
@@ -30,7 +30,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ProductDTO(
+  private SearchProductDTO(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -76,15 +76,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return dk.via.nbnp.databaseserver.protobuf.Service.internal_static_ProductDTO_descriptor;
+    return dk.via.nbnp.databaseserver.protobuf.Service.internal_static_SearchProductDTO_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return dk.via.nbnp.databaseserver.protobuf.Service.internal_static_ProductDTO_fieldAccessorTable
+    return dk.via.nbnp.databaseserver.protobuf.Service.internal_static_SearchProductDTO_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            dk.via.nbnp.databaseserver.protobuf.ProductDTO.class, dk.via.nbnp.databaseserver.protobuf.ProductDTO.Builder.class);
+            dk.via.nbnp.databaseserver.protobuf.SearchProductDTO.class, dk.via.nbnp.databaseserver.protobuf.SearchProductDTO.Builder.class);
   }
 
   public static final int ID_FIELD_NUMBER = 1;
@@ -138,10 +138,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof dk.via.nbnp.databaseserver.protobuf.ProductDTO)) {
+    if (!(obj instanceof dk.via.nbnp.databaseserver.protobuf.SearchProductDTO)) {
       return super.equals(obj);
     }
-    dk.via.nbnp.databaseserver.protobuf.ProductDTO other = (dk.via.nbnp.databaseserver.protobuf.ProductDTO) obj;
+    dk.via.nbnp.databaseserver.protobuf.SearchProductDTO other = (dk.via.nbnp.databaseserver.protobuf.SearchProductDTO) obj;
 
     if (getId()
         != other.getId()) return false;
@@ -164,69 +164,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static dk.via.nbnp.databaseserver.protobuf.ProductDTO parseFrom(
+  public static dk.via.nbnp.databaseserver.protobuf.SearchProductDTO parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dk.via.nbnp.databaseserver.protobuf.ProductDTO parseFrom(
+  public static dk.via.nbnp.databaseserver.protobuf.SearchProductDTO parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dk.via.nbnp.databaseserver.protobuf.ProductDTO parseFrom(
+  public static dk.via.nbnp.databaseserver.protobuf.SearchProductDTO parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dk.via.nbnp.databaseserver.protobuf.ProductDTO parseFrom(
+  public static dk.via.nbnp.databaseserver.protobuf.SearchProductDTO parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dk.via.nbnp.databaseserver.protobuf.ProductDTO parseFrom(byte[] data)
+  public static dk.via.nbnp.databaseserver.protobuf.SearchProductDTO parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dk.via.nbnp.databaseserver.protobuf.ProductDTO parseFrom(
+  public static dk.via.nbnp.databaseserver.protobuf.SearchProductDTO parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dk.via.nbnp.databaseserver.protobuf.ProductDTO parseFrom(java.io.InputStream input)
+  public static dk.via.nbnp.databaseserver.protobuf.SearchProductDTO parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static dk.via.nbnp.databaseserver.protobuf.ProductDTO parseFrom(
+  public static dk.via.nbnp.databaseserver.protobuf.SearchProductDTO parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static dk.via.nbnp.databaseserver.protobuf.ProductDTO parseDelimitedFrom(java.io.InputStream input)
+  public static dk.via.nbnp.databaseserver.protobuf.SearchProductDTO parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static dk.via.nbnp.databaseserver.protobuf.ProductDTO parseDelimitedFrom(
+  public static dk.via.nbnp.databaseserver.protobuf.SearchProductDTO parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static dk.via.nbnp.databaseserver.protobuf.ProductDTO parseFrom(
+  public static dk.via.nbnp.databaseserver.protobuf.SearchProductDTO parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static dk.via.nbnp.databaseserver.protobuf.ProductDTO parseFrom(
+  public static dk.via.nbnp.databaseserver.protobuf.SearchProductDTO parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -239,7 +239,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(dk.via.nbnp.databaseserver.protobuf.ProductDTO prototype) {
+  public static Builder newBuilder(dk.via.nbnp.databaseserver.protobuf.SearchProductDTO prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -255,26 +255,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code ProductDTO}
+   * Protobuf type {@code SearchProductDTO}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:ProductDTO)
-      dk.via.nbnp.databaseserver.protobuf.ProductDTOOrBuilder {
+      // @@protoc_insertion_point(builder_implements:SearchProductDTO)
+      dk.via.nbnp.databaseserver.protobuf.SearchProductDTOOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return dk.via.nbnp.databaseserver.protobuf.Service.internal_static_ProductDTO_descriptor;
+      return dk.via.nbnp.databaseserver.protobuf.Service.internal_static_SearchProductDTO_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return dk.via.nbnp.databaseserver.protobuf.Service.internal_static_ProductDTO_fieldAccessorTable
+      return dk.via.nbnp.databaseserver.protobuf.Service.internal_static_SearchProductDTO_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              dk.via.nbnp.databaseserver.protobuf.ProductDTO.class, dk.via.nbnp.databaseserver.protobuf.ProductDTO.Builder.class);
+              dk.via.nbnp.databaseserver.protobuf.SearchProductDTO.class, dk.via.nbnp.databaseserver.protobuf.SearchProductDTO.Builder.class);
     }
 
-    // Construct using dk.via.nbnp.databaseserver.protobuf.ProductDTO.newBuilder()
+    // Construct using dk.via.nbnp.databaseserver.protobuf.SearchProductDTO.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -300,17 +300,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return dk.via.nbnp.databaseserver.protobuf.Service.internal_static_ProductDTO_descriptor;
+      return dk.via.nbnp.databaseserver.protobuf.Service.internal_static_SearchProductDTO_descriptor;
     }
 
     @java.lang.Override
-    public dk.via.nbnp.databaseserver.protobuf.ProductDTO getDefaultInstanceForType() {
-      return dk.via.nbnp.databaseserver.protobuf.ProductDTO.getDefaultInstance();
+    public dk.via.nbnp.databaseserver.protobuf.SearchProductDTO getDefaultInstanceForType() {
+      return dk.via.nbnp.databaseserver.protobuf.SearchProductDTO.getDefaultInstance();
     }
 
     @java.lang.Override
-    public dk.via.nbnp.databaseserver.protobuf.ProductDTO build() {
-      dk.via.nbnp.databaseserver.protobuf.ProductDTO result = buildPartial();
+    public dk.via.nbnp.databaseserver.protobuf.SearchProductDTO build() {
+      dk.via.nbnp.databaseserver.protobuf.SearchProductDTO result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -318,8 +318,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public dk.via.nbnp.databaseserver.protobuf.ProductDTO buildPartial() {
-      dk.via.nbnp.databaseserver.protobuf.ProductDTO result = new dk.via.nbnp.databaseserver.protobuf.ProductDTO(this);
+    public dk.via.nbnp.databaseserver.protobuf.SearchProductDTO buildPartial() {
+      dk.via.nbnp.databaseserver.protobuf.SearchProductDTO result = new dk.via.nbnp.databaseserver.protobuf.SearchProductDTO(this);
       result.id_ = id_;
       onBuilt();
       return result;
@@ -359,16 +359,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof dk.via.nbnp.databaseserver.protobuf.ProductDTO) {
-        return mergeFrom((dk.via.nbnp.databaseserver.protobuf.ProductDTO)other);
+      if (other instanceof dk.via.nbnp.databaseserver.protobuf.SearchProductDTO) {
+        return mergeFrom((dk.via.nbnp.databaseserver.protobuf.SearchProductDTO)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(dk.via.nbnp.databaseserver.protobuf.ProductDTO other) {
-      if (other == dk.via.nbnp.databaseserver.protobuf.ProductDTO.getDefaultInstance()) return this;
+    public Builder mergeFrom(dk.via.nbnp.databaseserver.protobuf.SearchProductDTO other) {
+      if (other == dk.via.nbnp.databaseserver.protobuf.SearchProductDTO.getDefaultInstance()) return this;
       if (other.getId() != 0L) {
         setId(other.getId());
       }
@@ -387,11 +387,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      dk.via.nbnp.databaseserver.protobuf.ProductDTO parsedMessage = null;
+      dk.via.nbnp.databaseserver.protobuf.SearchProductDTO parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (dk.via.nbnp.databaseserver.protobuf.ProductDTO) e.getUnfinishedMessage();
+        parsedMessage = (dk.via.nbnp.databaseserver.protobuf.SearchProductDTO) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -444,41 +444,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:ProductDTO)
+    // @@protoc_insertion_point(builder_scope:SearchProductDTO)
   }
 
-  // @@protoc_insertion_point(class_scope:ProductDTO)
-  private static final dk.via.nbnp.databaseserver.protobuf.ProductDTO DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:SearchProductDTO)
+  private static final dk.via.nbnp.databaseserver.protobuf.SearchProductDTO DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new dk.via.nbnp.databaseserver.protobuf.ProductDTO();
+    DEFAULT_INSTANCE = new dk.via.nbnp.databaseserver.protobuf.SearchProductDTO();
   }
 
-  public static dk.via.nbnp.databaseserver.protobuf.ProductDTO getDefaultInstance() {
+  public static dk.via.nbnp.databaseserver.protobuf.SearchProductDTO getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<ProductDTO>
-      PARSER = new com.google.protobuf.AbstractParser<ProductDTO>() {
+  private static final com.google.protobuf.Parser<SearchProductDTO>
+      PARSER = new com.google.protobuf.AbstractParser<SearchProductDTO>() {
     @java.lang.Override
-    public ProductDTO parsePartialFrom(
+    public SearchProductDTO parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ProductDTO(input, extensionRegistry);
+      return new SearchProductDTO(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<ProductDTO> parser() {
+  public static com.google.protobuf.Parser<SearchProductDTO> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<ProductDTO> getParserForType() {
+  public com.google.protobuf.Parser<SearchProductDTO> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public dk.via.nbnp.databaseserver.protobuf.ProductDTO getDefaultInstanceForType() {
+  public dk.via.nbnp.databaseserver.protobuf.SearchProductDTO getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
