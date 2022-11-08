@@ -21,7 +21,26 @@ public class ProductService extends ProductServiceGrpc.ProductServiceImplBase {
     public ProductService(ProductRepository productRepository){
         this.productRepository = productRepository;
     }
-    
+    @Override
+    public void createProduct(CreateProductDTO request, StreamObserver<Product> responseObserver) {
+
+//        dk.via.nbnp.databaseserver.domain.Product product = new dk.via.nbnp.databaseserver.domain.Product(
+//                request.getName(),
+//                request.getDescription(),
+//                request.getPrice(),
+//                request.getCurrency(),
+//                request.getCategory(),
+//                request.getStatus());
+//
+//        product = productRepository.save(product);
+//
+////        Product newProduct = Product.newBuilder()
+////                .setId(product.getId())
+////                .set
+//
+//        responseObserver.onNext();
+
+    }
     @Override
     public void getProduct(SearchProductDTO request, StreamObserver<Product> responseObserver) {
         Optional<dk.via.nbnp.databaseserver.domain.Product> daoResponse = productRepository.findById(request.getId());
