@@ -1,0 +1,15 @@
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\HttpClients\bin\Debug\net6.0\HttpClients.deps.json
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\HttpClients\bin\Debug\net6.0\HttpClients.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\HttpClients\bin\Debug\net6.0\HttpClients.pdb
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\HttpClients\bin\Debug\net6.0\Domain.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\HttpClients\bin\Debug\net6.0\Domain.pdb
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\HttpClients\obj\Debug\net6.0\HttpClients.csproj.AssemblyReference.cache
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\HttpClients\obj\Debug\net6.0\HttpClients.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\HttpClients\obj\Debug\net6.0\HttpClients.AssemblyInfoInputs.cache
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\HttpClients\obj\Debug\net6.0\HttpClients.AssemblyInfo.cs
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\HttpClients\obj\Debug\net6.0\HttpClients.csproj.CoreCompileInputs.cache
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\HttpClients\obj\Debug\net6.0\HttpClients.csproj.CopyComplete
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\HttpClients\obj\Debug\net6.0\HttpClients.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\HttpClients\obj\Debug\net6.0\refint\HttpClients.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\HttpClients\obj\Debug\net6.0\HttpClients.pdb
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\HttpClients\obj\Debug\net6.0\ref\HttpClients.dll
