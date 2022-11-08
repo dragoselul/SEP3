@@ -21,10 +21,7 @@ public class ProductService extends ProductServiceGrpc.ProductServiceImplBase {
     public ProductService(ProductRepository productRepository){
         this.productRepository = productRepository;
     }
-    @Override
-    public void createProduct(CreateProductDTO request, StreamObserver<Product> responseObserver) {
-        super.createProduct(request, responseObserver);
-    }
+    
     @Override
     public void getProduct(SearchProductDTO request, StreamObserver<Product> responseObserver) {
         Optional<dk.via.nbnp.databaseserver.domain.Product> daoResponse = productRepository.findById(request.getId());
