@@ -11,6 +11,6 @@ public class User
     public bool gender { get; set; }
     public DateTime dor { get; set; }
 
-    public List<Items> ItemsList { get; set; }
+    public List<Item> ItemsList { get; set; }
 
 }

@@ -5,5 +5,5 @@ namespace FileData;
 public class DataContainer
 {
     public ICollection<User> Users { get; set; }
-    public ICollection<Items> ItemsCollection { get; set; }
+    public ICollection<Item> Items { get; set; }
 }

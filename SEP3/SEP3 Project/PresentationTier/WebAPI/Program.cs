@@ -15,6 +15,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<FileContext>();
 builder.Services.AddScoped<IUserDao, UserFileDao>();
 builder.Services.AddScoped<IUserLogic, UserLogic>();
+builder.Services.AddScoped<IItemDao, ItemFileDao>();
+builder.Services.AddScoped<IItemLogic, ItemLogic>();
 
 var app = builder.Build();
 

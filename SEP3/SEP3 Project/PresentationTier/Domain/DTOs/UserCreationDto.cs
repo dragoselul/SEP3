@@ -13,9 +13,9 @@ public class UserCreationDto
     public bool Gender { get; }
     public DateTime Dor { get; }
 
-    public List<Items> ItemsList { get; }
+    public List<Item> ItemsList { get; }
 
-    public UserCreationDto(string firstName, string lastName, string email, string password, string phoneNumber, bool gender, DateTime dor, List<Items> itemsList)
+    public UserCreationDto(string firstName, string lastName, string email, string password, string phoneNumber, bool gender, DateTime dor, List<Item> itemsList)
     {
         FirstName = firstName;
         LastName = lastName;
