@@ -1,0 +1,32 @@
+syntax = "proto4";
+option java_multiple_files = true;
+option java_package = "dk.via.nbnp.databaseserver.protobuf";
+
+service UserService {
+  rpc getUser(SearchUserDTO) returns (User);
+  rpc createUser(CreateUserDTO) returns (User);
+}
+
+message CreateUserDTO{
+  string firstName = 1;
+  string lastName = 2;
+  string email = 3;
+  string password = 4;
+  string phoneNumber = 5;
+  bool gender = 6;
+}
+
+message SearchUserDTO {
+  int64 id = 1;
+  string firstName = 2;
+}
+
+  message LocalDateTime {
+    int32 year = 1;
+    int32 month = 2;
+    int32 day = 3;
+    int32 hour = 4;
+    int32 minute = 5;
+  }
+  LocalDateTime dateOfAdding = 6;
+}
