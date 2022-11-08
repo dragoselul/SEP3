@@ -7,4 +7,6 @@ public interface IItemLogic
 {
     Task<Item> CreateAsync(ItemCreationDto dto);
     Task<IEnumerable<Item>> GetAsync(SearchItemParametersDto searchParameters);
+    
+    Task UpdateAsync(ItemUpdateDto todo);
 }
