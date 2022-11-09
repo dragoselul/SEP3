@@ -88,6 +88,19 @@ private static final long serialVersionUID = 0L;
             gender_ = input.readBool();
             break;
           }
+          case 58: {
+            dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder subBuilder = null;
+            if (dor_ != null) {
+              subBuilder = dor_.toBuilder();
+            }
+            dor_ = input.readMessage(dk.via.nbnp.databaseserver.protobuf.LocalDateTime.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(dor_);
+              dor_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -323,6 +336,32 @@ private static final long serialVersionUID = 0L;
     return gender_;
   }
 
+  public static final int DOR_FIELD_NUMBER = 7;
+  private dk.via.nbnp.databaseserver.protobuf.LocalDateTime dor_;
+  /**
+   * <code>.LocalDateTime dor = 7;</code>
+   * @return Whether the dor field is set.
+   */
+  @java.lang.Override
+  public boolean hasDor() {
+    return dor_ != null;
+  }
+  /**
+   * <code>.LocalDateTime dor = 7;</code>
+   * @return The dor.
+   */
+  @java.lang.Override
+  public dk.via.nbnp.databaseserver.protobuf.LocalDateTime getDor() {
+    return dor_ == null ? dk.via.nbnp.databaseserver.protobuf.LocalDateTime.getDefaultInstance() : dor_;
+  }
+  /**
+   * <code>.LocalDateTime dor = 7;</code>
+   */
+  @java.lang.Override
+  public dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder getDorOrBuilder() {
+    return getDor();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -355,6 +394,9 @@ private static final long serialVersionUID = 0L;
     if (gender_ != false) {
       output.writeBool(6, gender_);
     }
+    if (dor_ != null) {
+      output.writeMessage(7, getDor());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -383,6 +425,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(6, gender_);
     }
+    if (dor_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(7, getDor());
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -410,6 +456,11 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPhoneNumber())) return false;
     if (getGender()
         != other.getGender()) return false;
+    if (hasDor() != other.hasDor()) return false;
+    if (hasDor()) {
+      if (!getDor()
+          .equals(other.getDor())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -434,6 +485,10 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + GENDER_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getGender());
+    if (hasDor()) {
+      hash = (37 * hash) + DOR_FIELD_NUMBER;
+      hash = (53 * hash) + getDor().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -579,6 +634,12 @@ private static final long serialVersionUID = 0L;
 
       gender_ = false;
 
+      if (dorBuilder_ == null) {
+        dor_ = null;
+      } else {
+        dor_ = null;
+        dorBuilder_ = null;
+      }
       return this;
     }
 
@@ -611,6 +672,11 @@ private static final long serialVersionUID = 0L;
       result.password_ = password_;
       result.phoneNumber_ = phoneNumber_;
       result.gender_ = gender_;
+      if (dorBuilder_ == null) {
+        result.dor_ = dor_;
+      } else {
+        result.dor_ = dorBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -681,6 +747,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getGender() != false) {
         setGender(other.getGender());
+      }
+      if (other.hasDor()) {
+        mergeDor(other.getDor());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1120,6 +1189,125 @@ private static final long serialVersionUID = 0L;
       gender_ = false;
       onChanged();
       return this;
+    }
+
+    private dk.via.nbnp.databaseserver.protobuf.LocalDateTime dor_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.nbnp.databaseserver.protobuf.LocalDateTime, dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder, dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder> dorBuilder_;
+    /**
+     * <code>.LocalDateTime dor = 7;</code>
+     * @return Whether the dor field is set.
+     */
+    public boolean hasDor() {
+      return dorBuilder_ != null || dor_ != null;
+    }
+    /**
+     * <code>.LocalDateTime dor = 7;</code>
+     * @return The dor.
+     */
+    public dk.via.nbnp.databaseserver.protobuf.LocalDateTime getDor() {
+      if (dorBuilder_ == null) {
+        return dor_ == null ? dk.via.nbnp.databaseserver.protobuf.LocalDateTime.getDefaultInstance() : dor_;
+      } else {
+        return dorBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.LocalDateTime dor = 7;</code>
+     */
+    public Builder setDor(dk.via.nbnp.databaseserver.protobuf.LocalDateTime value) {
+      if (dorBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        dor_ = value;
+        onChanged();
+      } else {
+        dorBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.LocalDateTime dor = 7;</code>
+     */
+    public Builder setDor(
+        dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder builderForValue) {
+      if (dorBuilder_ == null) {
+        dor_ = builderForValue.build();
+        onChanged();
+      } else {
+        dorBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.LocalDateTime dor = 7;</code>
+     */
+    public Builder mergeDor(dk.via.nbnp.databaseserver.protobuf.LocalDateTime value) {
+      if (dorBuilder_ == null) {
+        if (dor_ != null) {
+          dor_ =
+            dk.via.nbnp.databaseserver.protobuf.LocalDateTime.newBuilder(dor_).mergeFrom(value).buildPartial();
+        } else {
+          dor_ = value;
+        }
+        onChanged();
+      } else {
+        dorBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.LocalDateTime dor = 7;</code>
+     */
+    public Builder clearDor() {
+      if (dorBuilder_ == null) {
+        dor_ = null;
+        onChanged();
+      } else {
+        dor_ = null;
+        dorBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.LocalDateTime dor = 7;</code>
+     */
+    public dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder getDorBuilder() {
+      
+      onChanged();
+      return getDorFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.LocalDateTime dor = 7;</code>
+     */
+    public dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder getDorOrBuilder() {
+      if (dorBuilder_ != null) {
+        return dorBuilder_.getMessageOrBuilder();
+      } else {
+        return dor_ == null ?
+            dk.via.nbnp.databaseserver.protobuf.LocalDateTime.getDefaultInstance() : dor_;
+      }
+    }
+    /**
+     * <code>.LocalDateTime dor = 7;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.nbnp.databaseserver.protobuf.LocalDateTime, dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder, dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder> 
+        getDorFieldBuilder() {
+      if (dorBuilder_ == null) {
+        dorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            dk.via.nbnp.databaseserver.protobuf.LocalDateTime, dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder, dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder>(
+                getDor(),
+                getParentForChildren(),
+                isClean());
+        dor_ = null;
+      }
+      return dorBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

@@ -68,17 +68,29 @@ public interface UserOrBuilder extends
   boolean getGender();
 
   /**
-   * <code>.User.LocalDateTime dateOfRegistration = 7;</code>
+   * <code>string password = 7;</code>
+   * @return The password.
+   */
+  java.lang.String getPassword();
+  /**
+   * <code>string password = 7;</code>
+   * @return The bytes for password.
+   */
+  com.google.protobuf.ByteString
+      getPasswordBytes();
+
+  /**
+   * <code>.LocalDateTime dateOfRegistration = 8;</code>
    * @return Whether the dateOfRegistration field is set.
    */
   boolean hasDateOfRegistration();
   /**
-   * <code>.User.LocalDateTime dateOfRegistration = 7;</code>
+   * <code>.LocalDateTime dateOfRegistration = 8;</code>
    * @return The dateOfRegistration.
    */
-  dk.via.nbnp.databaseserver.protobuf.User.LocalDateTime getDateOfRegistration();
+  dk.via.nbnp.databaseserver.protobuf.LocalDateTime getDateOfRegistration();
   /**
-   * <code>.User.LocalDateTime dateOfRegistration = 7;</code>
+   * <code>.LocalDateTime dateOfRegistration = 8;</code>
    */
-  dk.via.nbnp.databaseserver.protobuf.User.LocalDateTimeOrBuilder getDateOfRegistrationOrBuilder();
+  dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder getDateOfRegistrationOrBuilder();
 }

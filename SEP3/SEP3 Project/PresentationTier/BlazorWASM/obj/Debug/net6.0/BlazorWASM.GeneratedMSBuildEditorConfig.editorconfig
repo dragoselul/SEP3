@@ -11,53 +11,53 @@ build_property.EnableTrimAnalyzer = true
 build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = BlazorWASM
 build_property.RootNamespace = BlazorWASM
-build_property.ProjectDir = C:\Users\chiri\Documents\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\
+build_property.ProjectDir = D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\chiri\Documents\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM
+build_property.MSBuildProjectDirectory = D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/chiri/Documents/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/App.razor]
+[D:/VIA/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chiri/Documents/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/Pages/Computers.razor]
+[D:/VIA/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/Pages/Computers.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcHV0ZXJzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chiri/Documents/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/Pages/Counter.razor]
+[D:/VIA/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chiri/Documents/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/Pages/CreateUser.razor]
+[D:/VIA/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/Pages/CreateUser.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlVXNlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chiri/Documents/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/Pages/FetchData.razor]
+[D:/VIA/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/Pages/FetchData.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chiri/Documents/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/Pages/Marketplace.razor]
+[D:/VIA/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/Pages/Marketplace.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFya2V0cGxhY2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chiri/Documents/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/Shared/SurveyPrompt.razor]
+[D:/VIA/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chiri/Documents/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/_Imports.razor]
+[D:/VIA/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chiri/Documents/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/Pages/Index.razor]
+[D:/VIA/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-ge7fcwz0nr
 
-[C:/Users/chiri/Documents/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/Shared/MainLayout.razor]
+[D:/VIA/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-jk00ermrez
 
-[C:/Users/chiri/Documents/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/Shared/NavMenu.razor]
+[D:/VIA/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-69rflur3ak

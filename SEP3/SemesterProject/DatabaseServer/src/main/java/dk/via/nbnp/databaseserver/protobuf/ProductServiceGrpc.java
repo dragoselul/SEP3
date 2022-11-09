@@ -76,6 +76,37 @@ public final class ProductServiceGrpc {
     return getCreateProductMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.CreateProductDTO,
+      dk.via.nbnp.databaseserver.protobuf.Product> getUpdateProductMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "updateProduct",
+      requestType = dk.via.nbnp.databaseserver.protobuf.CreateProductDTO.class,
+      responseType = dk.via.nbnp.databaseserver.protobuf.Product.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.CreateProductDTO,
+      dk.via.nbnp.databaseserver.protobuf.Product> getUpdateProductMethod() {
+    io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.CreateProductDTO, dk.via.nbnp.databaseserver.protobuf.Product> getUpdateProductMethod;
+    if ((getUpdateProductMethod = ProductServiceGrpc.getUpdateProductMethod) == null) {
+      synchronized (ProductServiceGrpc.class) {
+        if ((getUpdateProductMethod = ProductServiceGrpc.getUpdateProductMethod) == null) {
+          ProductServiceGrpc.getUpdateProductMethod = getUpdateProductMethod =
+              io.grpc.MethodDescriptor.<dk.via.nbnp.databaseserver.protobuf.CreateProductDTO, dk.via.nbnp.databaseserver.protobuf.Product>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "updateProduct"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.nbnp.databaseserver.protobuf.CreateProductDTO.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.nbnp.databaseserver.protobuf.Product.getDefaultInstance()))
+              .setSchemaDescriptor(new ProductServiceMethodDescriptorSupplier("updateProduct"))
+              .build();
+        }
+      }
+    }
+    return getUpdateProductMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -138,6 +169,13 @@ public final class ProductServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateProductMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void updateProduct(dk.via.nbnp.databaseserver.protobuf.CreateProductDTO request,
+        io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Product> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateProductMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -154,6 +192,13 @@ public final class ProductServiceGrpc {
                 dk.via.nbnp.databaseserver.protobuf.CreateProductDTO,
                 dk.via.nbnp.databaseserver.protobuf.Product>(
                   this, METHODID_CREATE_PRODUCT)))
+          .addMethod(
+            getUpdateProductMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                dk.via.nbnp.databaseserver.protobuf.CreateProductDTO,
+                dk.via.nbnp.databaseserver.protobuf.Product>(
+                  this, METHODID_UPDATE_PRODUCT)))
           .build();
     }
   }
@@ -187,6 +232,14 @@ public final class ProductServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateProductMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void updateProduct(dk.via.nbnp.databaseserver.protobuf.CreateProductDTO request,
+        io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Product> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getUpdateProductMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -215,6 +268,13 @@ public final class ProductServiceGrpc {
     public dk.via.nbnp.databaseserver.protobuf.Product createProduct(dk.via.nbnp.databaseserver.protobuf.CreateProductDTO request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateProductMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public dk.via.nbnp.databaseserver.protobuf.Product updateProduct(dk.via.nbnp.databaseserver.protobuf.CreateProductDTO request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getUpdateProductMethod(), getCallOptions(), request);
     }
   }
 
@@ -247,10 +307,19 @@ public final class ProductServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreateProductMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<dk.via.nbnp.databaseserver.protobuf.Product> updateProduct(
+        dk.via.nbnp.databaseserver.protobuf.CreateProductDTO request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getUpdateProductMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_PRODUCT = 0;
   private static final int METHODID_CREATE_PRODUCT = 1;
+  private static final int METHODID_UPDATE_PRODUCT = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -275,6 +344,10 @@ public final class ProductServiceGrpc {
           break;
         case METHODID_CREATE_PRODUCT:
           serviceImpl.createProduct((dk.via.nbnp.databaseserver.protobuf.CreateProductDTO) request,
+              (io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Product>) responseObserver);
+          break;
+        case METHODID_UPDATE_PRODUCT:
+          serviceImpl.updateProduct((dk.via.nbnp.databaseserver.protobuf.CreateProductDTO) request,
               (io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Product>) responseObserver);
           break;
         default:
@@ -340,6 +413,7 @@ public final class ProductServiceGrpc {
               .setSchemaDescriptor(new ProductServiceFileDescriptorSupplier())
               .addMethod(getGetProductMethod())
               .addMethod(getCreateProductMethod())
+              .addMethod(getUpdateProductMethod())
               .build();
         }
       }

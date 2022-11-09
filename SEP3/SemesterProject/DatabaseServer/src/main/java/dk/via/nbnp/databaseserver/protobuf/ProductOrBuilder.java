@@ -14,83 +14,83 @@ public interface ProductOrBuilder extends
   long getId();
 
   /**
-   * <code>string name = 2;</code>
+   * <code>int64 ownerId = 2;</code>
+   * @return The ownerId.
+   */
+  long getOwnerId();
+
+  /**
+   * <code>string name = 3;</code>
    * @return The name.
    */
   java.lang.String getName();
   /**
-   * <code>string name = 2;</code>
+   * <code>string name = 3;</code>
    * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
-   * <code>string description = 3;</code>
+   * <code>string description = 4;</code>
    * @return The description.
    */
   java.lang.String getDescription();
   /**
-   * <code>string description = 3;</code>
+   * <code>string description = 4;</code>
    * @return The bytes for description.
    */
   com.google.protobuf.ByteString
       getDescriptionBytes();
 
   /**
-   * <code>double price = 4;</code>
+   * <code>double price = 5;</code>
    * @return The price.
    */
   double getPrice();
 
   /**
-   * <code>string currency = 5;</code>
+   * <code>string currency = 6;</code>
    * @return The currency.
    */
   java.lang.String getCurrency();
   /**
-   * <code>string currency = 5;</code>
+   * <code>string currency = 6;</code>
    * @return The bytes for currency.
    */
   com.google.protobuf.ByteString
       getCurrencyBytes();
 
   /**
-   * <code>.Product.LocalDateTime dateOfAdding = 6;</code>
+   * <code>.Product.LocalDateTime dateOfAdding = 7;</code>
    * @return Whether the dateOfAdding field is set.
    */
   boolean hasDateOfAdding();
   /**
-   * <code>.Product.LocalDateTime dateOfAdding = 6;</code>
+   * <code>.Product.LocalDateTime dateOfAdding = 7;</code>
    * @return The dateOfAdding.
    */
   dk.via.nbnp.databaseserver.protobuf.Product.LocalDateTime getDateOfAdding();
   /**
-   * <code>.Product.LocalDateTime dateOfAdding = 6;</code>
+   * <code>.Product.LocalDateTime dateOfAdding = 7;</code>
    */
   dk.via.nbnp.databaseserver.protobuf.Product.LocalDateTimeOrBuilder getDateOfAddingOrBuilder();
 
   /**
-   * <code>string category = 7;</code>
+   * <code>string category = 8;</code>
    * @return The category.
    */
   java.lang.String getCategory();
   /**
-   * <code>string category = 7;</code>
+   * <code>string category = 8;</code>
    * @return The bytes for category.
    */
   com.google.protobuf.ByteString
       getCategoryBytes();
 
   /**
-   * <code>string status = 8;</code>
+   * <code>bool status = 9;</code>
    * @return The status.
    */
-  java.lang.String getStatus();
-  /**
-   * <code>string status = 8;</code>
-   * @return The bytes for status.
-   */
-  com.google.protobuf.ByteString
-      getStatusBytes();
+  boolean getStatus();
 }

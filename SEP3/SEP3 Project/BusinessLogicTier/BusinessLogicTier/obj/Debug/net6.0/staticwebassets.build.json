@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "jO6w2H6H2VFqz7H3WCMuCYmnc8OGmNl2gKMG7uQdviU=",
+  "Source": "BusinessLogicTier",
+  "BasePath": "_content/BusinessLogicTier",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -12,4 +12,46 @@ public interface SearchProductDTOOrBuilder extends
    * @return The id.
    */
   long getId();
+
+  /**
+   * <code>int64 ownerId = 2;</code>
+   * @return The ownerId.
+   */
+  long getOwnerId();
+
+  /**
+   * <code>string name = 3;</code>
+   * @return The name.
+   */
+  java.lang.String getName();
+  /**
+   * <code>string name = 3;</code>
+   * @return The bytes for name.
+   */
+  com.google.protobuf.ByteString
+      getNameBytes();
+
+  /**
+   * <code>string description = 4;</code>
+   * @return The description.
+   */
+  java.lang.String getDescription();
+  /**
+   * <code>string description = 4;</code>
+   * @return The bytes for description.
+   */
+  com.google.protobuf.ByteString
+      getDescriptionBytes();
+
+  /**
+   * <code>double price = 5;</code>
+   * @return The price.
+   */
+  double getPrice();
+
+  /**
+   * <code>bool status = 6;</code>
+   * @return The status.
+   */
+  boolean getStatus();
 }
