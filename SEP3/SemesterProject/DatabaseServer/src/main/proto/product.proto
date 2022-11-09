@@ -1,0 +1,39 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "dk.via.nbnp.databaseserver.protobuf";
+
+service ProductService {
+  rpc getProduct(SearchProductDTO) returns (Product);
+  rpc createProduct(CreateProductDTO) returns (Product);
+}
+
+message CreateProductDTO {
+  string name = 2;
+  string description = 3;
+  double price = 4;
+  string currency = 5;
+  string category = 6;
+  string status = 7;
+}
+
+message SearchProductDTO {
+  int64 id = 1;
+}
+
+message Product {
+  int64 id = 1;
+  string name = 2;
+  string description = 3;
+  double price = 4;
+  string currency = 5;
+  message LocalDateTime {
+    int32 year = 1;
+    int32 month = 2;
+    int32 day = 3;
+    int32 hour = 4;
+    int32 minute = 5;
+  }
+  LocalDateTime dateOfAdding = 6;
+  string category = 7;
+  string status = 8;
+}
