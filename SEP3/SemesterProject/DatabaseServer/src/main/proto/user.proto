@@ -14,10 +14,21 @@ message CreateUserDTO{
   string password = 4;
   string phoneNumber = 5;
   bool gender = 6;
+  LocalDateTime dor = 7;
 }
 
 message SearchUserDTO {
   int64 id = 1;
+  string firstName = 2;
+  string lastName =3;
+}
+
+message LocalDateTime {
+  int32 year = 1;
+  int32 month = 2;
+  int32 day = 3;
+  int32 hour = 4;
+  int32 minute = 5;
 }
 
 message User {
@@ -27,12 +38,6 @@ message User {
   string email = 4;
   string phoneNumber = 5;
   bool gender = 6;
-  message LocalDateTime {
-    int32 year = 1;
-    int32 month = 2;
-    int32 day = 3;
-    int32 hour = 4;
-    int32 minute = 5;
-  }
-  LocalDateTime dateOfRegistration = 7;
+  string password = 7;
+  LocalDateTime dateOfRegistration = 8;
 }

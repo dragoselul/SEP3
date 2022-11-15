@@ -36,11 +36,11 @@ public class Product {
 
     private String category;
 
-    private String status;
+    private boolean status;
 
     public Product(){}
 
-    public Product(String name, String description, Double price, String currency, String category, String status) {
+    public Product(String name, String description, Double price, String currency, String category, boolean status) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -71,7 +71,7 @@ public class Product {
     public String getCategory() {
         return category;
     }
-    public String getStatus() {
+    public boolean getStatus() {
         return status;
     }
     public String getCurrency() {

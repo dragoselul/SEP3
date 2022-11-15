@@ -1,15 +1,14 @@
 package dk.via.nbnp.databaseserver.application.services;
 
 import dk.via.nbnp.databaseserver.application.DAOInterfaces.UserRepository;
-import dk.via.nbnp.databaseserver.protobuf.CreateUserDTO;
-import dk.via.nbnp.databaseserver.protobuf.SearchUserDTO;
-import dk.via.nbnp.databaseserver.protobuf.User;
-import dk.via.nbnp.databaseserver.protobuf.UserServiceGrpc;
+import dk.via.nbnp.databaseserver.protobuf.*;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.swing.text.html.Option;
+import java.awt.*;
+import java.util.ArrayList;
 import java.util.Optional;
 
 @GRpcService
@@ -25,13 +24,24 @@ public class UserService extends UserServiceGrpc.UserServiceImplBase {
 
     @Override
     public void getUser(SearchUserDTO request, StreamObserver<User> responseObserver) {
-        Optional<dk.via.nbnp.databaseserver.domain.User> daoResponse = userRepository.findById(request.getId());
-
-        if(daoResponse.isEmpty()){
-            System.out.println("User with this Id was not found");
+        ArrayList<dk.via.nbnp.databaseserver.domain.User> users = new ArrayList<>(userRepository.findAll());
+        if(users.isEmpty()){
+            System.out.println("User was not found");
         }else{
-            dk.via.nbnp.databaseserver.domain.User user = daoResponse.get();
-            User.LocalDateTime dateOfRegistration = User.LocalDateTime.newBuilder()
+            dk.via.nbnp.databaseserver.domain.User user = null;
+            for (int i = 0; i < users.size(); i++) {
+                if(users.get(i).getFirstName().equals(request.getFirstName()) && users.get(i).getLastName().equals(request.getLastName())) {
+                    user = users.get(i);
+                    i = users.size();
+                }
+            }
+            if(user == null)
+                try {
+                    throw new Exception("There is no user with these credentials!");
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            LocalDateTime dateOfRegistration = LocalDateTime.newBuilder()
                     .setYear(user.getDateOfRegistration().getYear())
                     .setMonth(user.getDateOfRegistration().getMonthValue())
                     .setDay(user.getDateOfRegistration().getDayOfMonth())

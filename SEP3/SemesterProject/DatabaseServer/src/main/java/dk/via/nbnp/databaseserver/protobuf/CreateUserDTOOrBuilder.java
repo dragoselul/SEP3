@@ -72,4 +72,19 @@ public interface CreateUserDTOOrBuilder extends
    * @return The gender.
    */
   boolean getGender();
+
+  /**
+   * <code>.LocalDateTime dor = 7;</code>
+   * @return Whether the dor field is set.
+   */
+  boolean hasDor();
+  /**
+   * <code>.LocalDateTime dor = 7;</code>
+   * @return The dor.
+   */
+  dk.via.nbnp.databaseserver.protobuf.LocalDateTime getDor();
+  /**
+   * <code>.LocalDateTime dor = 7;</code>
+   */
+  dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder getDorOrBuilder();
 }

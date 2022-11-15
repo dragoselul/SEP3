@@ -20,7 +20,7 @@ public class ProductConfig {
                     500.0,
                     "DKK",
                     "Electronics",
-                    "Available"
+                    false
             );
 
             Product product2 = new Product(
@@ -29,7 +29,7 @@ public class ProductConfig {
                     1500.0,
                     "DKK",
                     "Electronics",
-                    "Available"
+                    false
             );
 
             repository.saveAll(List.of(product, product2));

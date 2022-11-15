@@ -25,15 +25,15 @@ public final class UserOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_SearchUserDTO_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_LocalDateTime_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_LocalDateTime_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_User_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_User_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_User_LocalDateTime_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_User_LocalDateTime_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -43,17 +43,19 @@ public final class UserOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nuser.proto\"z\n\rCreateUserDTO\022\021\n\tfirstNa" +
-      "me\030\001 \001(\t\022\020\n\010lastName\030\002 \001(\t\022\r\n\005email\030\003 \001(" +
-      "\t\022\020\n\010password\030\004 \001(\t\022\023\n\013phoneNumber\030\005 \001(\t" +
-      "\022\016\n\006gender\030\006 \001(\010\"\033\n\rSearchUserDTO\022\n\n\002id\030" +
-      "\001 \001(\003\"\365\001\n\004User\022\n\n\002id\030\001 \001(\003\022\021\n\tfirstName\030" +
-      "\002 \001(\t\022\020\n\010lastName\030\003 \001(\t\022\r\n\005email\030\004 \001(\t\022\023" +
-      "\n\013phoneNumber\030\005 \001(\t\022\016\n\006gender\030\006 \001(\010\022/\n\022d" +
-      "ateOfRegistration\030\007 \001(\0132\023.User.LocalDate" +
-      "Time\032W\n\rLocalDateTime\022\014\n\004year\030\001 \001(\005\022\r\n\005m" +
-      "onth\030\002 \001(\005\022\013\n\003day\030\003 \001(\005\022\014\n\004hour\030\004 \001(\005\022\016\n" +
-      "\006minute\030\005 \001(\0052T\n\013UserService\022 \n\007getUser\022" +
+      "\n\nuser.proto\"\227\001\n\rCreateUserDTO\022\021\n\tfirstN" +
+      "ame\030\001 \001(\t\022\020\n\010lastName\030\002 \001(\t\022\r\n\005email\030\003 \001" +
+      "(\t\022\020\n\010password\030\004 \001(\t\022\023\n\013phoneNumber\030\005 \001(" +
+      "\t\022\016\n\006gender\030\006 \001(\010\022\033\n\003dor\030\007 \001(\0132\016.LocalDa" +
+      "teTime\"@\n\rSearchUserDTO\022\n\n\002id\030\001 \001(\003\022\021\n\tf" +
+      "irstName\030\002 \001(\t\022\020\n\010lastName\030\003 \001(\t\"W\n\rLoca" +
+      "lDateTime\022\014\n\004year\030\001 \001(\005\022\r\n\005month\030\002 \001(\005\022\013" +
+      "\n\003day\030\003 \001(\005\022\014\n\004hour\030\004 \001(\005\022\016\n\006minute\030\005 \001(" +
+      "\005\"\251\001\n\004User\022\n\n\002id\030\001 \001(\003\022\021\n\tfirstName\030\002 \001(" +
+      "\t\022\020\n\010lastName\030\003 \001(\t\022\r\n\005email\030\004 \001(\t\022\023\n\013ph" +
+      "oneNumber\030\005 \001(\t\022\016\n\006gender\030\006 \001(\010\022\020\n\010passw" +
+      "ord\030\007 \001(\t\022*\n\022dateOfRegistration\030\010 \001(\0132\016." +
+      "LocalDateTime2T\n\013UserService\022 \n\007getUser\022" +
       "\016.SearchUserDTO\032\005.User\022#\n\ncreateUser\022\016.C" +
       "reateUserDTO\032\005.UserB\'\n#dk.via.nbnp.datab" +
       "aseserver.protobufP\001b\006proto3"
@@ -67,25 +69,25 @@ public final class UserOuterClass {
     internal_static_CreateUserDTO_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CreateUserDTO_descriptor,
-        new java.lang.String[] { "FirstName", "LastName", "Email", "Password", "PhoneNumber", "Gender", });
+        new java.lang.String[] { "FirstName", "LastName", "Email", "Password", "PhoneNumber", "Gender", "Dor", });
     internal_static_SearchUserDTO_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_SearchUserDTO_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SearchUserDTO_descriptor,
-        new java.lang.String[] { "Id", });
-    internal_static_User_descriptor =
+        new java.lang.String[] { "Id", "FirstName", "LastName", });
+    internal_static_LocalDateTime_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_LocalDateTime_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_LocalDateTime_descriptor,
+        new java.lang.String[] { "Year", "Month", "Day", "Hour", "Minute", });
+    internal_static_User_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_User_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_User_descriptor,
-        new java.lang.String[] { "Id", "FirstName", "LastName", "Email", "PhoneNumber", "Gender", "DateOfRegistration", });
-    internal_static_User_LocalDateTime_descriptor =
-      internal_static_User_descriptor.getNestedTypes().get(0);
-    internal_static_User_LocalDateTime_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_User_LocalDateTime_descriptor,
-        new java.lang.String[] { "Year", "Month", "Day", "Hour", "Minute", });
+        new java.lang.String[] { "Id", "FirstName", "LastName", "Email", "PhoneNumber", "Gender", "Password", "DateOfRegistration", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

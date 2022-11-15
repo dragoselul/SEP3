@@ -1,0 +1,42 @@
+syntax = "proto3";
+option csharp_namespace = "gRPCClient";
+
+service UserService {
+  rpc getUser(SearchUserDTO) returns (User);
+  rpc createUser(CreateUserDTO) returns (User);
+}
+
+message CreateUserDTO{
+  string firstName = 1;
+  string lastName = 2;
+  string email = 3;
+  string password = 4;
+  string phoneNumber = 5;
+  bool gender = 6;
+  LocalDateTime dor = 7;
+}
+
+message SearchUserDTO {
+  int64 id = 1;
+  string firstName = 2;
+  string lastName =3;
+}
+
+message LocalDateTime {
+  int32 year = 1;
+  int32 month = 2;
+  int32 day = 3;
+  int32 hour = 4;
+  int32 minute = 5;
+}
+
+message User {
+  int64 id = 1;
+  string firstName = 2;
+  string lastName = 3;
+  string email = 4;
+  string phoneNumber = 5;
+  bool gender = 6;
+  string password = 7;
+  LocalDateTime dateOfRegistration = 8;
+}
