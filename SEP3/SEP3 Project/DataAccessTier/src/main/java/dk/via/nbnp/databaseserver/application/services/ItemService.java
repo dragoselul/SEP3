@@ -89,26 +89,13 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
 
     }
 
+    @Override
+    public void updateItem(CreateItemDTO request, StreamObserver<Item> responseObserver) {
+        super.updateItem(request, responseObserver);
+    }
 
-    //    @Override
-//    public List<Item> getItems(){
-//       return ItemRepository.findAll();
-//    }
-//
-//    @Override
-//    public Item createItem(Item Item){
-//        return ItemRepository.save(Item);
-//    }
-//
-//    @Override
-//    public Item getItemById(Long id) throws Exception{
-//        Optional<Item> opt = ItemRepository.findById(id);
-//        if(opt.isEmpty())
-//            throw new Exception("No Item with id " + id.toString() + " was found");
-//        return opt.get();
-//    }
-//    @Override
-//    public void deleteById(Long id) {
-//        ItemRepository.deleteById(id);
-//    }
+    @Override
+    public void deleteItem(SearchItemDTO request, StreamObserver<Item> responseObserver) {
+        super.deleteItem(request, responseObserver);
+    }
 }

@@ -6,6 +6,7 @@ service ItemService {
   rpc getItem(SearchItemDTO) returns (Item);
   rpc createItem(CreateItemDTO) returns (Item);
   rpc updateItem(CreateItemDTO) returns (Item);
+  rpc deleteItem(SearchItemDTO) returns (Item);
 }
 
 message CreateItemDTO {

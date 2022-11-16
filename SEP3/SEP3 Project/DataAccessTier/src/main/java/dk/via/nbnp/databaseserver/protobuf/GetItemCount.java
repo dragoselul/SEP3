@@ -76,13 +76,12 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-        return dk.via.nbnp.databaseserver.protobuf.ItemOuterClass.internal_static_GetItemCount_descriptor;
+    return dk.via.nbnp.databaseserver.protobuf.ItemOuterClass.internal_static_GetItemCount_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-
     return dk.via.nbnp.databaseserver.protobuf.ItemOuterClass.internal_static_GetItemCount_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             dk.via.nbnp.databaseserver.protobuf.GetItemCount.class, dk.via.nbnp.databaseserver.protobuf.GetItemCount.Builder.class);
@@ -265,12 +264,13 @@ private static final long serialVersionUID = 0L;
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return dk.via.nbnp.databaseserver.protobuf.ItemOuterClass.internal_static_GetItemCount_descriptor;
-}
+    }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return dk.via.nbnp.databaseserver.protobuf.ItemOuterClass.internal_static_GetItemCount_fieldAccessorTable.ensureFieldAccessorsInitialized(
+      return dk.via.nbnp.databaseserver.protobuf.ItemOuterClass.internal_static_GetItemCount_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
               dk.via.nbnp.databaseserver.protobuf.GetItemCount.class, dk.via.nbnp.databaseserver.protobuf.GetItemCount.Builder.class);
     }
 

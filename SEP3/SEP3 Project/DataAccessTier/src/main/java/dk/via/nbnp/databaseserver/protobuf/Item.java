@@ -133,13 +133,13 @@ private static final long serialVersionUID = 0L;
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return dk.via.nbnp.databaseserver.protobuf.ItemOuterClass.internal_static_Item_descriptor;
- }
+  }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
     return dk.via.nbnp.databaseserver.protobuf.ItemOuterClass.internal_static_Item_fieldAccessorTable
-     .ensureFieldAccessorsInitialized(
+        .ensureFieldAccessorsInitialized(
             dk.via.nbnp.databaseserver.protobuf.Item.class, dk.via.nbnp.databaseserver.protobuf.Item.Builder.class);
   }
 
@@ -271,13 +271,13 @@ private static final long serialVersionUID = 0L;
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return dk.via.nbnp.databaseserver.protobuf.ItemOuterClass.internal_static_Item_LocalDateTime_descriptor;
-   }
+    }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return dk.via.nbnp.databaseserver.protobuf.ItemOuterClass.internal_static_Item_LocalDateTime_fieldAccessorTable
-  .ensureFieldAccessorsInitialized(
+          .ensureFieldAccessorsInitialized(
               dk.via.nbnp.databaseserver.protobuf.Item.LocalDateTime.class, dk.via.nbnp.databaseserver.protobuf.Item.LocalDateTime.Builder.class);
     }
 
@@ -544,15 +544,14 @@ private static final long serialVersionUID = 0L;
         dk.via.nbnp.databaseserver.protobuf.Item.LocalDateTimeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-
         return dk.via.nbnp.databaseserver.protobuf.ItemOuterClass.internal_static_Item_LocalDateTime_descriptor;
-    }
+      }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return dk.via.nbnp.databaseserver.protobuf.ItemOuterClass.internal_static_Item_LocalDateTime_fieldAccessorTable
-           .ensureFieldAccessorsInitialized(
+            .ensureFieldAccessorsInitialized(
                 dk.via.nbnp.databaseserver.protobuf.Item.LocalDateTime.class, dk.via.nbnp.databaseserver.protobuf.Item.LocalDateTime.Builder.class);
       }
 
@@ -590,9 +589,8 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-
         return dk.via.nbnp.databaseserver.protobuf.ItemOuterClass.internal_static_Item_LocalDateTime_descriptor;
-}
+      }
 
       @java.lang.Override
       public dk.via.nbnp.databaseserver.protobuf.Item.LocalDateTime getDefaultInstanceForType() {
@@ -1396,13 +1394,13 @@ private static final long serialVersionUID = 0L;
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return dk.via.nbnp.databaseserver.protobuf.ItemOuterClass.internal_static_Item_descriptor;
-  }
+    }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return dk.via.nbnp.databaseserver.protobuf.ItemOuterClass.internal_static_Item_fieldAccessorTable
-   .ensureFieldAccessorsInitialized(
+          .ensureFieldAccessorsInitialized(
               dk.via.nbnp.databaseserver.protobuf.Item.class, dk.via.nbnp.databaseserver.protobuf.Item.Builder.class);
     }
 
