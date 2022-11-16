@@ -10,3 +10,15 @@ D:\VIA\SEP3\SEP3\SEP3 Project\BusinessLogicTier\Domain\obj\Debug\net6.0\Domain.d
 D:\VIA\SEP3\SEP3\SEP3 Project\BusinessLogicTier\Domain\obj\Debug\net6.0\refint\Domain.dll
 D:\VIA\SEP3\SEP3\SEP3 Project\BusinessLogicTier\Domain\obj\Debug\net6.0\Domain.pdb
 D:\VIA\SEP3\SEP3\SEP3 Project\BusinessLogicTier\Domain\obj\Debug\net6.0\ref\Domain.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\Domain\bin\Debug\net6.0\Domain.deps.json
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\Domain\bin\Debug\net6.0\Domain.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\Domain\bin\Debug\net6.0\Domain.pdb
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\Domain\obj\Debug\net6.0\Domain.csproj.AssemblyReference.cache
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\Domain\obj\Debug\net6.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\Domain\obj\Debug\net6.0\Domain.AssemblyInfoInputs.cache
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\Domain\obj\Debug\net6.0\Domain.AssemblyInfo.cs
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\Domain\obj\Debug\net6.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\Domain\obj\Debug\net6.0\Domain.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\Domain\obj\Debug\net6.0\refint\Domain.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\Domain\obj\Debug\net6.0\Domain.pdb
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\Domain\obj\Debug\net6.0\ref\Domain.dll
