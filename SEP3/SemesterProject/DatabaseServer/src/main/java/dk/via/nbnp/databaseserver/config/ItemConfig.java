@@ -1,7 +1,7 @@
 package dk.via.nbnp.databaseserver.config;
 
-import dk.via.nbnp.databaseserver.application.DAOInterfaces.ProductRepository;
-import dk.via.nbnp.databaseserver.domain.Product;
+import dk.via.nbnp.databaseserver.application.DAOInterfaces.ItemRepository;
+import dk.via.nbnp.databaseserver.domain.Item;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,12 +9,12 @@ import org.springframework.context.annotation.Configuration;
 import java.util.List;
 
 @Configuration
-public class ProductConfig {
+public class ItemConfig {
 
     @Bean
-    CommandLineRunner productCommandLineRunner(ProductRepository repository){
+    CommandLineRunner itemCommandLineRunner(ItemRepository repository){
         return args -> {
-            Product product = new Product(
+            Item item = new Item(
                     "IPhone 8 Pro",
                     "Functioning Iphone 8 Pro, used for 4 years",
                     500.0,
@@ -23,7 +23,7 @@ public class ProductConfig {
                     false
             );
 
-            Product product2 = new Product(
+            Item item2 = new Item(
                     "IPhone 11 Pro",
                     "Functioning Iphone 11 Pro, used for half a year",
                     1500.0,
@@ -32,7 +32,7 @@ public class ProductConfig {
                     false
             );
 
-            repository.saveAll(List.of(product, product2));
+            repository.saveAll(List.of(item, item2));
 
         };
     }

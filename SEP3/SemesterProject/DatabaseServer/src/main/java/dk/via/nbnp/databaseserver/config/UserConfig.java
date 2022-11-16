@@ -1,6 +1,5 @@
 package dk.via.nbnp.databaseserver.config;
 
-import dk.via.nbnp.databaseserver.application.DAOInterfaces.ProductRepository;
 import dk.via.nbnp.databaseserver.application.DAOInterfaces.UserRepository;
 import dk.via.nbnp.databaseserver.domain.Product;
 import dk.via.nbnp.databaseserver.domain.User;

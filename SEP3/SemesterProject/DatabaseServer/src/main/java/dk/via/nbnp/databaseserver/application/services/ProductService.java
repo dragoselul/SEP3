@@ -1,6 +1,6 @@
 package dk.via.nbnp.databaseserver.application.services;
 
-import dk.via.nbnp.databaseserver.application.DAOInterfaces.ProductRepository;
+import dk.via.nbnp.databaseserver.application.DAOInterfaces.ItemRepository;
 import dk.via.nbnp.databaseserver.protobuf.CreateProductDTO;
 import dk.via.nbnp.databaseserver.protobuf.Product;
 import dk.via.nbnp.databaseserver.protobuf.ProductServiceGrpc;
@@ -15,10 +15,10 @@ import java.util.Optional;
 public class ProductService extends ProductServiceGrpc.ProductServiceImplBase {
 
     @Autowired
-    private final ProductRepository productRepository;
+    private final ItemRepository productRepository;
 
     @Autowired
-    public ProductService(ProductRepository productRepository){
+    public ProductService(ItemRepository productRepository){
         this.productRepository = productRepository;
     }
     @Override

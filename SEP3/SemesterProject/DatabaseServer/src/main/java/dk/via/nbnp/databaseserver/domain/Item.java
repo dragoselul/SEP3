@@ -1,24 +1,23 @@
 package dk.via.nbnp.databaseserver.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonTypeResolver;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Table
-public class Product {
+public class Item {
 
     @Id
     @SequenceGenerator(
-            name="product_id_sequence",
-            sequenceName = "product_id_sequence",
+            name="item_id_sequence",
+            sequenceName = "item_id_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "product_id_sequence"
+            generator = "item_id_sequence"
     )
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -38,9 +37,9 @@ public class Product {
 
     private boolean status;
 
-    public Product(){}
+    public Item(){}
 
-    public Product(String name, String description, Double price, String currency, String category, boolean status) {
+    public Item(String name, String description, Double price, String currency, String category, boolean status) {
         this.name = name;
         this.description = description;
         this.price = price;
