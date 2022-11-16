@@ -13,4 +13,6 @@ public class User
 
     public List<Item> ItemsList { get; init; }
 
+    public int SecurityLevel { get; set; }
+
 }
