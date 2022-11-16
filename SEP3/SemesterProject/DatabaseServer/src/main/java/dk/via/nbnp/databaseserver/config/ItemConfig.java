@@ -12,9 +12,15 @@ import java.util.List;
 public class ItemConfig {
 
     @Bean
+<<<<<<< Updated upstream:SEP3/SemesterProject/DatabaseServer/src/main/java/dk/via/nbnp/databaseserver/config/ItemConfig.java
     CommandLineRunner itemCommandLineRunner(ItemRepository repository){
         return args -> {
             Item item = new Item(
+=======
+    CommandLineRunner productCommandLineRunner(ItemRepository repository){
+        return args -> {
+            Item product = new Item(
+>>>>>>> Stashed changes:SEP3/SEP3 Project/DataAccessTier/src/main/java/dk/via/nbnp/databaseserver/config/ProductConfig.java
                     "IPhone 8 Pro",
                     "Functioning Iphone 8 Pro, used for 4 years",
                     500.0,
@@ -23,7 +29,11 @@ public class ItemConfig {
                     false
             );
 
+<<<<<<< Updated upstream:SEP3/SemesterProject/DatabaseServer/src/main/java/dk/via/nbnp/databaseserver/config/ItemConfig.java
             Item item2 = new Item(
+=======
+            Item product2 = new Item(
+>>>>>>> Stashed changes:SEP3/SEP3 Project/DataAccessTier/src/main/java/dk/via/nbnp/databaseserver/config/ProductConfig.java
                     "IPhone 11 Pro",
                     "Functioning Iphone 11 Pro, used for half a year",
                     1500.0,

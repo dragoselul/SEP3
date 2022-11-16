@@ -6,7 +6,7 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.39.0)",
-    comments = "Source: product.proto")
+    comments = "Source: item.proto")
 public final class ItemServiceGrpc {
 
   private ItemServiceGrpc() {}
@@ -107,6 +107,37 @@ public final class ItemServiceGrpc {
     return getUpdateItemMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.SearchItemDTO,
+      dk.via.nbnp.databaseserver.protobuf.Item> getDeleteItemMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "deleteItem",
+      requestType = dk.via.nbnp.databaseserver.protobuf.SearchItemDTO.class,
+      responseType = dk.via.nbnp.databaseserver.protobuf.Item.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.SearchItemDTO,
+      dk.via.nbnp.databaseserver.protobuf.Item> getDeleteItemMethod() {
+    io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.SearchItemDTO, dk.via.nbnp.databaseserver.protobuf.Item> getDeleteItemMethod;
+    if ((getDeleteItemMethod = ItemServiceGrpc.getDeleteItemMethod) == null) {
+      synchronized (ItemServiceGrpc.class) {
+        if ((getDeleteItemMethod = ItemServiceGrpc.getDeleteItemMethod) == null) {
+          ItemServiceGrpc.getDeleteItemMethod = getDeleteItemMethod =
+              io.grpc.MethodDescriptor.<dk.via.nbnp.databaseserver.protobuf.SearchItemDTO, dk.via.nbnp.databaseserver.protobuf.Item>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "deleteItem"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.nbnp.databaseserver.protobuf.SearchItemDTO.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.nbnp.databaseserver.protobuf.Item.getDefaultInstance()))
+              .setSchemaDescriptor(new ItemServiceMethodDescriptorSupplier("deleteItem"))
+              .build();
+        }
+      }
+    }
+    return getDeleteItemMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -176,6 +207,13 @@ public final class ItemServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateItemMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void deleteItem(dk.via.nbnp.databaseserver.protobuf.SearchItemDTO request,
+        io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Item> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteItemMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -199,6 +237,13 @@ public final class ItemServiceGrpc {
                 dk.via.nbnp.databaseserver.protobuf.CreateItemDTO,
                 dk.via.nbnp.databaseserver.protobuf.Item>(
                   this, METHODID_UPDATE_ITEM)))
+          .addMethod(
+            getDeleteItemMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                dk.via.nbnp.databaseserver.protobuf.SearchItemDTO,
+                dk.via.nbnp.databaseserver.protobuf.Item>(
+                  this, METHODID_DELETE_ITEM)))
           .build();
     }
   }
@@ -240,6 +285,14 @@ public final class ItemServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateItemMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void deleteItem(dk.via.nbnp.databaseserver.protobuf.SearchItemDTO request,
+        io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Item> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getDeleteItemMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -275,6 +328,13 @@ public final class ItemServiceGrpc {
     public dk.via.nbnp.databaseserver.protobuf.Item updateItem(dk.via.nbnp.databaseserver.protobuf.CreateItemDTO request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateItemMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public dk.via.nbnp.databaseserver.protobuf.Item deleteItem(dk.via.nbnp.databaseserver.protobuf.SearchItemDTO request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getDeleteItemMethod(), getCallOptions(), request);
     }
   }
 
@@ -315,11 +375,20 @@ public final class ItemServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateItemMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<dk.via.nbnp.databaseserver.protobuf.Item> deleteItem(
+        dk.via.nbnp.databaseserver.protobuf.SearchItemDTO request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getDeleteItemMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_ITEM = 0;
   private static final int METHODID_CREATE_ITEM = 1;
   private static final int METHODID_UPDATE_ITEM = 2;
+  private static final int METHODID_DELETE_ITEM = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -350,6 +419,10 @@ public final class ItemServiceGrpc {
           serviceImpl.updateItem((dk.via.nbnp.databaseserver.protobuf.CreateItemDTO) request,
               (io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Item>) responseObserver);
           break;
+        case METHODID_DELETE_ITEM:
+          serviceImpl.deleteItem((dk.via.nbnp.databaseserver.protobuf.SearchItemDTO) request,
+              (io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Item>) responseObserver);
+          break;
         default:
           throw new AssertionError();
       }
@@ -372,7 +445,7 @@ public final class ItemServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return dk.via.nbnp.databaseserver.protobuf.Product.getDescriptor();
+      return dk.via.nbnp.databaseserver.protobuf.ItemOuterClass.getDescriptor();
     }
 
     @java.lang.Override
@@ -414,6 +487,7 @@ public final class ItemServiceGrpc {
               .addMethod(getGetItemMethod())
               .addMethod(getCreateItemMethod())
               .addMethod(getUpdateItemMethod())
+              .addMethod(getDeleteItemMethod())
               .build();
         }
       }
