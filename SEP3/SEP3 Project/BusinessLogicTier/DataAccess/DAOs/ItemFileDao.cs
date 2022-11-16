@@ -3,6 +3,7 @@ using Domain.DTOs;
 using Domain.Models;
 using Grpc.Net.Client;
 using gRPCClient;
+using Item = Domain.Models.Item;
 
 namespace FileData.DAOs;
 
@@ -10,7 +11,7 @@ public class ItemFileDao : IItemDao
 {
     private readonly GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:6565");
 
-    private ProductService.ProductServiceClient? ClientItem;
+    private ItemService.ItemServiceClient? ClientItem;
 
     public ItemFileDao()
     {
@@ -19,7 +20,7 @@ public class ItemFileDao : IItemDao
 
     public async Task<Item> CreateAsync(Item item)
     {
-        await ClientItem.createProductAsync(new CreateProductDTO
+        await ClientItem.createItemAsync(new CreateItemDTO
         {
             Category = item.Category,
             Currency = item.Currency,
@@ -38,20 +39,20 @@ public class ItemFileDao : IItemDao
         {
             while (true)
             {
-                Product? product = ClientItem.getProductAsync(new SearchProductDTO { Name = "", Id = 0})
+                gRPCClient.Item? item = ClientItem.getItemAsync(new SearchItemDTO() { Name = "", Id = 0})
                     .ResponseAsync.Result;
-                Item? item = new()
+                Item? toSend = new()
                 {
-                    Id = (int)product.Id,
-                    Category = product.Category,
-                    Pricing = product.Price,
-                    OwnerId = (int)product.OwnerId,
-                    Currency = product.Currency,
-                    Description = product.Description,
-                    IsSold = product.Status,
-                    Name = product.Name
+                    Id = (int)item.Id,
+                    Category = item.Category,
+                    Pricing = item.Price,
+                    OwnerId = (int)item.OwnerId,
+                    Currency = item.Currency,
+                    Description = item.Description,
+                    IsSold = item.Status,
+                    Name = item.Name
                 };
-                items.Add(item);
+                items.Add(toSend);
             }
         }
         catch (Exception e)
@@ -69,20 +70,20 @@ public class ItemFileDao : IItemDao
         {
             while (true)
             {
-                Product? product = ClientItem.getProductAsync(new SearchProductDTO { Id = 0, OwnerId = (long)searchParams.ContactId, Name = searchParams.Name, Description = searchParams.Description, Price = (double)searchParams.Pricing ,Status = (bool)searchParams.IsSold})
+                gRPCClient.Item? item = ClientItem.getItemAsync(new SearchItemDTO() { Id = 0, OwnerId = (long)searchParams.ContactId, Name = searchParams.Name, Description = searchParams.Description, Price = (double)searchParams.Pricing ,Status = (bool)searchParams.IsSold})
                     .ResponseAsync.Result;
-                Item? item = new()
+                Item? toSend = new()
                 {
-                    Id = (int)product.Id,
-                    Category = product.Category,
-                    Pricing = product.Price,
-                    OwnerId = (int)product.OwnerId,
-                    Currency = product.Currency,
-                    Description = product.Description,
-                    IsSold = product.Status,
-                    Name = product.Name
+                    Id = (int)item.Id,
+                    Category = item.Category,
+                    Pricing = item.Price,
+                    OwnerId = (int)item.OwnerId,
+                    Currency = item.Currency,
+                    Description = item.Description,
+                    IsSold = item.Status,
+                    Name = item.Name
                 };
-                items.Add(item);
+                items.Add(toSend);
             }
         }
         catch (Exception e)
@@ -94,43 +95,32 @@ public class ItemFileDao : IItemDao
     
     public async Task<Item> GetByIdAsync(int id)
     {
-        Product? product = ClientItem.getProductAsync(new SearchProductDTO { Id = id, OwnerId = 0, Name = "", Description = "", Price = 0 ,Status = false})
+        gRPCClient.Item? item  = ClientItem.getItemAsync(new SearchItemDTO { Id = id, OwnerId = 0, Name = "", Description = "", Price = 0 ,Status = false})
             .ResponseAsync.Result;
-        Item? item = new()
+        Item? toSend = new()
         {
-            Id = (int)product.Id,
-            Category = product.Category,
-            Pricing = product.Price,
-            OwnerId = (int)product.OwnerId,
-            Currency = product.Currency,
-            Description = product.Description,
-            IsSold = product.Status,
-            Name = product.Name
+            Id = (int)item.Id,
+            Category = item.Category,
+            Pricing = item.Price,
+            OwnerId = (int)item.OwnerId,
+            Currency = item.Currency,
+            Description = item.Description,
+            IsSold = item.Status,
+            Name = item.Name
         };
-        return await Task.FromResult(item);
+        return await Task.FromResult(toSend);
     }
 
     public async Task UpdateAsync(Item toUpdate)
     {
-        Product? product = ClientItem.getProductAsync(new SearchProductDTO { Id = toUpdate.Id, OwnerId = toUpdate.OwnerId, Name = toUpdate.Name, Description = toUpdate.Description, Price = toUpdate.Pricing ,Status = toUpdate.IsSold})
+        gRPCClient.Item? item = ClientItem.getItemAsync(new SearchItemDTO { Id = toUpdate.Id, OwnerId = toUpdate.OwnerId, Name = toUpdate.Name, Description = toUpdate.Description, Price = toUpdate.Pricing ,Status = toUpdate.IsSold})
             .ResponseAsync.Result;
-        Item? item = new()
-        {
-            Id = (int)product.Id,
-            Category = product.Category,
-            Pricing = product.Price,
-            OwnerId = (int)product.OwnerId,
-            Currency = product.Currency,
-            Description = product.Description,
-            IsSold = product.Status,
-            Name = product.Name
-        };        
         if (item == null)
         {
             throw new Exception($"Item with id {toUpdate.Id} does not exist!");
         }
 
-        ClientItem.updateProduct(new CreateProductDTO
+        await ClientItem.updateItemAsync(new CreateItemDTO()
         {
             Name = toUpdate.Name,
             Category = toUpdate.Category,
