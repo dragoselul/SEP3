@@ -24,24 +24,25 @@ namespace gRPCClient {
     static UserReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFwcm90b3MvdXNlci5wcm90byKXAQoNQ3JlYXRlVXNlckRUTxIRCglmaXJz",
-            "dE5hbWUYASABKAkSEAoIbGFzdE5hbWUYAiABKAkSDQoFZW1haWwYAyABKAkS",
-            "EAoIcGFzc3dvcmQYBCABKAkSEwoLcGhvbmVOdW1iZXIYBSABKAkSDgoGZ2Vu",
-            "ZGVyGAYgASgIEhsKA2RvchgHIAEoCzIOLkxvY2FsRGF0ZVRpbWUiQAoNU2Vh",
-            "cmNoVXNlckRUTxIKCgJpZBgBIAEoAxIRCglmaXJzdE5hbWUYAiABKAkSEAoI",
-            "bGFzdE5hbWUYAyABKAkiVwoNTG9jYWxEYXRlVGltZRIMCgR5ZWFyGAEgASgF",
-            "Eg0KBW1vbnRoGAIgASgFEgsKA2RheRgDIAEoBRIMCgRob3VyGAQgASgFEg4K",
-            "Bm1pbnV0ZRgFIAEoBSKpAQoEVXNlchIKCgJpZBgBIAEoAxIRCglmaXJzdE5h",
-            "bWUYAiABKAkSEAoIbGFzdE5hbWUYAyABKAkSDQoFZW1haWwYBCABKAkSEwoL",
-            "cGhvbmVOdW1iZXIYBSABKAkSDgoGZ2VuZGVyGAYgASgIEhAKCHBhc3N3b3Jk",
-            "GAcgASgJEioKEmRhdGVPZlJlZ2lzdHJhdGlvbhgIIAEoCzIOLkxvY2FsRGF0",
-            "ZVRpbWUyVAoLVXNlclNlcnZpY2USIAoHZ2V0VXNlchIOLlNlYXJjaFVzZXJE",
-            "VE8aBS5Vc2VyEiMKCmNyZWF0ZVVzZXISDi5DcmVhdGVVc2VyRFRPGgUuVXNl",
+            "ChFwcm90b3MvdXNlci5wcm90byJ6Cg1DcmVhdGVVc2VyRFRPEhEKCWZpcnN0",
+            "TmFtZRgBIAEoCRIQCghsYXN0TmFtZRgCIAEoCRINCgVlbWFpbBgDIAEoCRIQ",
+            "CghwYXNzd29yZBgEIAEoCRITCgtwaG9uZU51bWJlchgFIAEoCRIOCgZnZW5k",
+            "ZXIYBiABKAgiQAoNU2VhcmNoVXNlckRUTxIKCgJpZBgBIAEoAxIRCglmaXJz",
+            "dE5hbWUYAiABKAkSEAoIbGFzdE5hbWUYAyABKAkiVwoNTG9jYWxEYXRlVGlt",
+            "ZRIMCgR5ZWFyGAEgASgFEg0KBW1vbnRoGAIgASgFEgsKA2RheRgDIAEoBRIM",
+            "CgRob3VyGAQgASgFEg4KBm1pbnV0ZRgFIAEoBSKpAQoEVXNlchIKCgJpZBgB",
+            "IAEoAxIRCglmaXJzdE5hbWUYAiABKAkSEAoIbGFzdE5hbWUYAyABKAkSDQoF",
+            "ZW1haWwYBCABKAkSEwoLcGhvbmVOdW1iZXIYBSABKAkSDgoGZ2VuZGVyGAYg",
+            "ASgIEhAKCHBhc3N3b3JkGAcgASgJEioKEmRhdGVPZlJlZ2lzdHJhdGlvbhgI",
+            "IAEoCzIOLkxvY2FsRGF0ZVRpbWUyngEKC1VzZXJTZXJ2aWNlEiMKCmNyZWF0",
+            "ZVVzZXISDi5DcmVhdGVVc2VyRFRPGgUuVXNlchIgCgdnZXRVc2VyEg4uU2Vh",
+            "cmNoVXNlckRUTxoFLlVzZXISIwoKdXBkYXRlVXNlchIOLkNyZWF0ZVVzZXJE",
+            "VE8aBS5Vc2VyEiMKCmRlbGV0ZVVzZXISDi5TZWFyY2hVc2VyRFRPGgUuVXNl",
             "ckINqgIKZ1JQQ0NsaWVudGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.CreateUserDTO), global::gRPCClient.CreateUserDTO.Parser, new[]{ "FirstName", "LastName", "Email", "Password", "PhoneNumber", "Gender", "Dor" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.CreateUserDTO), global::gRPCClient.CreateUserDTO.Parser, new[]{ "FirstName", "LastName", "Email", "Password", "PhoneNumber", "Gender" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.SearchUserDTO), global::gRPCClient.SearchUserDTO.Parser, new[]{ "Id", "FirstName", "LastName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.LocalDateTime), global::gRPCClient.LocalDateTime.Parser, new[]{ "Year", "Month", "Day", "Hour", "Minute" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.User), global::gRPCClient.User.Parser, new[]{ "Id", "FirstName", "LastName", "Email", "PhoneNumber", "Gender", "Password", "DateOfRegistration" }, null, null, null, null)
@@ -91,7 +92,6 @@ namespace gRPCClient {
       password_ = other.password_;
       phoneNumber_ = other.phoneNumber_;
       gender_ = other.gender_;
-      dor_ = other.dor_ != null ? other.dor_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -173,18 +173,6 @@ namespace gRPCClient {
       }
     }
 
-    /// <summary>Field number for the "dor" field.</summary>
-    public const int DorFieldNumber = 7;
-    private global::gRPCClient.LocalDateTime dor_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::gRPCClient.LocalDateTime Dor {
-      get { return dor_; }
-      set {
-        dor_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -206,7 +194,6 @@ namespace gRPCClient {
       if (Password != other.Password) return false;
       if (PhoneNumber != other.PhoneNumber) return false;
       if (Gender != other.Gender) return false;
-      if (!object.Equals(Dor, other.Dor)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -220,7 +207,6 @@ namespace gRPCClient {
       if (Password.Length != 0) hash ^= Password.GetHashCode();
       if (PhoneNumber.Length != 0) hash ^= PhoneNumber.GetHashCode();
       if (Gender != false) hash ^= Gender.GetHashCode();
-      if (dor_ != null) hash ^= Dor.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -263,10 +249,6 @@ namespace gRPCClient {
         output.WriteRawTag(48);
         output.WriteBool(Gender);
       }
-      if (dor_ != null) {
-        output.WriteRawTag(58);
-        output.WriteMessage(Dor);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -301,10 +283,6 @@ namespace gRPCClient {
         output.WriteRawTag(48);
         output.WriteBool(Gender);
       }
-      if (dor_ != null) {
-        output.WriteRawTag(58);
-        output.WriteMessage(Dor);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -332,9 +310,6 @@ namespace gRPCClient {
       }
       if (Gender != false) {
         size += 1 + 1;
-      }
-      if (dor_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Dor);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -365,12 +340,6 @@ namespace gRPCClient {
       }
       if (other.Gender != false) {
         Gender = other.Gender;
-      }
-      if (other.dor_ != null) {
-        if (dor_ == null) {
-          Dor = new global::gRPCClient.LocalDateTime();
-        }
-        Dor.MergeFrom(other.Dor);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -411,13 +380,6 @@ namespace gRPCClient {
             Gender = input.ReadBool();
             break;
           }
-          case 58: {
-            if (dor_ == null) {
-              Dor = new global::gRPCClient.LocalDateTime();
-            }
-            input.ReadMessage(Dor);
-            break;
-          }
         }
       }
     #endif
@@ -455,13 +417,6 @@ namespace gRPCClient {
           }
           case 48: {
             Gender = input.ReadBool();
-            break;
-          }
-          case 58: {
-            if (dor_ == null) {
-              Dor = new global::gRPCClient.LocalDateTime();
-            }
-            input.ReadMessage(Dor);
             break;
           }
         }

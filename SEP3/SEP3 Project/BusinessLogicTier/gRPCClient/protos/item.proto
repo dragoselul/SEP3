@@ -1,13 +1,14 @@
 syntax = "proto3";
 option csharp_namespace = "gRPCClient";
 
-service ProductService {
-  rpc getProduct(SearchProductDTO) returns (Product);
-  rpc createProduct(CreateProductDTO) returns (Product);
-  rpc updateProduct(CreateProductDTO) returns (Product);
+service ItemService {
+  rpc getItem(SearchItemDTO) returns (Item);
+  rpc createItem(CreateItemDTO) returns (Item);
+  rpc updateItem(CreateItemDTO) returns (Item);
+  rpc deleteItem(SearchItemDTO) returns (Item);
 }
 
-message CreateProductDTO {
+message CreateItemDTO {
   string name = 2;
   string description = 3;
   double price = 4;
@@ -16,7 +17,7 @@ message CreateProductDTO {
   string status = 7;
 }
 
-message SearchProductDTO {
+message SearchItemDTO {
   int64 id = 1;
   int64 ownerId = 2;
   string name = 3;
@@ -29,7 +30,7 @@ message GetItemCount {
   int64 count = 1;
 }
 
-message Product {
+message Item {
   int64 id = 1;
   int64 ownerId = 2;
   string name = 3;

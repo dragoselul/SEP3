@@ -26,14 +26,6 @@ public class UserFileDao : IUserDao
             Gender = user.gender,
             Password = user.password,
             PhoneNumber = user.phoneNumber,
-            Dor = new LocalDateTime
-            {
-                Day = user.dor.Day,
-                Month = user.dor.Month,
-                Year = user.dor.Year,
-                Hour = user.dor.Hour,
-                Minute = user.dor.Minute
-            }
         });
 
         return await Task.FromResult(user);
@@ -66,9 +58,7 @@ public class UserFileDao : IUserDao
     public Task<List<User>> GetAsync(SearchUserParametersDto searchParameters)
     {
         List<User> users = new();
-        try
-        {
-            for (int i = 0; i < 2; i++)
+        while(true)
             {
                 gRPCClient.User? gRPC = ClientUser.getUserAsync(new SearchUserDTO
                 {
@@ -88,15 +78,10 @@ public class UserFileDao : IUserDao
                     dor = new(gRPC.DateOfRegistration.Year, gRPC.DateOfRegistration.Month, gRPC.DateOfRegistration.Day,
                         gRPC.DateOfRegistration.Hour, gRPC.DateOfRegistration.Minute, 0)
                 };
+                if(user is null)
+                    break;
                 users.Add(user);
             }
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
-
         return Task.FromResult(users);
     }
     

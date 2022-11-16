@@ -46,11 +46,19 @@ namespace gRPCClient {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::gRPCClient.SearchUserDTO> __Marshaller_SearchUserDTO = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::gRPCClient.SearchUserDTO.Parser));
+    static readonly grpc::Marshaller<global::gRPCClient.CreateUserDTO> __Marshaller_CreateUserDTO = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::gRPCClient.CreateUserDTO.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::gRPCClient.User> __Marshaller_User = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::gRPCClient.User.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::gRPCClient.CreateUserDTO> __Marshaller_CreateUserDTO = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::gRPCClient.CreateUserDTO.Parser));
+    static readonly grpc::Marshaller<global::gRPCClient.SearchUserDTO> __Marshaller_SearchUserDTO = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::gRPCClient.SearchUserDTO.Parser));
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::gRPCClient.CreateUserDTO, global::gRPCClient.User> __Method_createUser = new grpc::Method<global::gRPCClient.CreateUserDTO, global::gRPCClient.User>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "createUser",
+        __Marshaller_CreateUserDTO,
+        __Marshaller_User);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::gRPCClient.SearchUserDTO, global::gRPCClient.User> __Method_getUser = new grpc::Method<global::gRPCClient.SearchUserDTO, global::gRPCClient.User>(
@@ -61,11 +69,19 @@ namespace gRPCClient {
         __Marshaller_User);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::gRPCClient.CreateUserDTO, global::gRPCClient.User> __Method_createUser = new grpc::Method<global::gRPCClient.CreateUserDTO, global::gRPCClient.User>(
+    static readonly grpc::Method<global::gRPCClient.CreateUserDTO, global::gRPCClient.User> __Method_updateUser = new grpc::Method<global::gRPCClient.CreateUserDTO, global::gRPCClient.User>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "createUser",
+        "updateUser",
         __Marshaller_CreateUserDTO,
+        __Marshaller_User);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::gRPCClient.SearchUserDTO, global::gRPCClient.User> __Method_deleteUser = new grpc::Method<global::gRPCClient.SearchUserDTO, global::gRPCClient.User>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "deleteUser",
+        __Marshaller_SearchUserDTO,
         __Marshaller_User);
 
     /// <summary>Service descriptor</summary>
@@ -102,6 +118,26 @@ namespace gRPCClient {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::gRPCClient.User createUser(global::gRPCClient.CreateUserDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return createUser(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::gRPCClient.User createUser(global::gRPCClient.CreateUserDTO request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_createUser, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::gRPCClient.User> createUserAsync(global::gRPCClient.CreateUserDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return createUserAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::gRPCClient.User> createUserAsync(global::gRPCClient.CreateUserDTO request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_createUser, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::gRPCClient.User getUser(global::gRPCClient.SearchUserDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return getUser(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -122,24 +158,44 @@ namespace gRPCClient {
         return CallInvoker.AsyncUnaryCall(__Method_getUser, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::gRPCClient.User createUser(global::gRPCClient.CreateUserDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::gRPCClient.User updateUser(global::gRPCClient.CreateUserDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return createUser(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return updateUser(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::gRPCClient.User createUser(global::gRPCClient.CreateUserDTO request, grpc::CallOptions options)
+      public virtual global::gRPCClient.User updateUser(global::gRPCClient.CreateUserDTO request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_createUser, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_updateUser, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::gRPCClient.User> createUserAsync(global::gRPCClient.CreateUserDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::gRPCClient.User> updateUserAsync(global::gRPCClient.CreateUserDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return createUserAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return updateUserAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::gRPCClient.User> createUserAsync(global::gRPCClient.CreateUserDTO request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::gRPCClient.User> updateUserAsync(global::gRPCClient.CreateUserDTO request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_createUser, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_updateUser, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::gRPCClient.User deleteUser(global::gRPCClient.SearchUserDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return deleteUser(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::gRPCClient.User deleteUser(global::gRPCClient.SearchUserDTO request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_deleteUser, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::gRPCClient.User> deleteUserAsync(global::gRPCClient.SearchUserDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return deleteUserAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::gRPCClient.User> deleteUserAsync(global::gRPCClient.SearchUserDTO request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_deleteUser, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
