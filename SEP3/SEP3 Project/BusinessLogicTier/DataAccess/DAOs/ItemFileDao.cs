@@ -10,7 +10,7 @@ public class ItemFileDao : IItemDao
 {
     private readonly GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:6565");
 
-    private ProductService.ProductServiceClient? ClientItem;
+    private ItemService.? ClientItem;
 
     public ItemFileDao()
     {
@@ -19,7 +19,7 @@ public class ItemFileDao : IItemDao
 
     public async Task<Item> CreateAsync(Item item)
     {
-        await ClientItem.createProductAsync(new CreateProductDTO
+        await ClientItem.createProductAsync(new CreateItemDto
         {
             Category = item.Category,
             Currency = item.Currency,
