@@ -43,22 +43,23 @@ public final class UserOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nuser.proto\"\227\001\n\rCreateUserDTO\022\021\n\tfirstN" +
-      "ame\030\001 \001(\t\022\020\n\010lastName\030\002 \001(\t\022\r\n\005email\030\003 \001" +
-      "(\t\022\020\n\010password\030\004 \001(\t\022\023\n\013phoneNumber\030\005 \001(" +
-      "\t\022\016\n\006gender\030\006 \001(\010\022\033\n\003dor\030\007 \001(\0132\016.LocalDa" +
-      "teTime\"@\n\rSearchUserDTO\022\n\n\002id\030\001 \001(\003\022\021\n\tf" +
-      "irstName\030\002 \001(\t\022\020\n\010lastName\030\003 \001(\t\"W\n\rLoca" +
-      "lDateTime\022\014\n\004year\030\001 \001(\005\022\r\n\005month\030\002 \001(\005\022\013" +
-      "\n\003day\030\003 \001(\005\022\014\n\004hour\030\004 \001(\005\022\016\n\006minute\030\005 \001(" +
-      "\005\"\251\001\n\004User\022\n\n\002id\030\001 \001(\003\022\021\n\tfirstName\030\002 \001(" +
-      "\t\022\020\n\010lastName\030\003 \001(\t\022\r\n\005email\030\004 \001(\t\022\023\n\013ph" +
-      "oneNumber\030\005 \001(\t\022\016\n\006gender\030\006 \001(\010\022\020\n\010passw" +
-      "ord\030\007 \001(\t\022*\n\022dateOfRegistration\030\010 \001(\0132\016." +
-      "LocalDateTime2T\n\013UserService\022 \n\007getUser\022" +
-      "\016.SearchUserDTO\032\005.User\022#\n\ncreateUser\022\016.C" +
-      "reateUserDTO\032\005.UserB\'\n#dk.via.nbnp.datab" +
-      "aseserver.protobufP\001b\006proto3"
+      "\n\nuser.proto\"z\n\rCreateUserDTO\022\021\n\tfirstNa" +
+      "me\030\001 \001(\t\022\020\n\010lastName\030\002 \001(\t\022\r\n\005email\030\003 \001(" +
+      "\t\022\020\n\010password\030\004 \001(\t\022\023\n\013phoneNumber\030\005 \001(\t" +
+      "\022\016\n\006gender\030\006 \001(\010\"@\n\rSearchUserDTO\022\n\n\002id\030" +
+      "\001 \001(\003\022\021\n\tfirstName\030\002 \001(\t\022\020\n\010lastName\030\003 \001" +
+      "(\t\"W\n\rLocalDateTime\022\014\n\004year\030\001 \001(\005\022\r\n\005mon" +
+      "th\030\002 \001(\005\022\013\n\003day\030\003 \001(\005\022\014\n\004hour\030\004 \001(\005\022\016\n\006m" +
+      "inute\030\005 \001(\005\"\251\001\n\004User\022\n\n\002id\030\001 \001(\003\022\021\n\tfirs" +
+      "tName\030\002 \001(\t\022\020\n\010lastName\030\003 \001(\t\022\r\n\005email\030\004" +
+      " \001(\t\022\023\n\013phoneNumber\030\005 \001(\t\022\016\n\006gender\030\006 \001(" +
+      "\010\022\020\n\010password\030\007 \001(\t\022*\n\022dateOfRegistratio" +
+      "n\030\010 \001(\0132\016.LocalDateTime2\236\001\n\013UserService\022" +
+      "#\n\ncreateUser\022\016.CreateUserDTO\032\005.User\022 \n\007" +
+      "getUser\022\016.SearchUserDTO\032\005.User\022#\n\nupdate" +
+      "User\022\016.CreateUserDTO\032\005.User\022#\n\ndeleteUse" +
+      "r\022\016.SearchUserDTO\032\005.UserB\'\n#dk.via.nbnp." +
+      "databaseserver.protobufP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -69,7 +70,7 @@ public final class UserOuterClass {
     internal_static_CreateUserDTO_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CreateUserDTO_descriptor,
-        new java.lang.String[] { "FirstName", "LastName", "Email", "Password", "PhoneNumber", "Gender", "Dor", });
+        new java.lang.String[] { "FirstName", "LastName", "Email", "Password", "PhoneNumber", "Gender", });
     internal_static_SearchUserDTO_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_SearchUserDTO_fieldAccessorTable = new
