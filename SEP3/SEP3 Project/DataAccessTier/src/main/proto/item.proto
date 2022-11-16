@@ -1,12 +1,11 @@
 syntax = "proto3";
-option csharp_namespace = "gRPCClient";
-
+option java_multiple_files = true;
+option java_package = "dk.via.nbnp.databaseserver.protobuf";
 
 service ItemService {
   rpc getItem(SearchItemDTO) returns (Item);
   rpc createItem(CreateItemDTO) returns (Item);
   rpc updateItem(CreateItemDTO) returns (Item);
-  rpc deleteItem(SearchItemDTO) returns (Item);
 }
 
 message CreateItemDTO {
