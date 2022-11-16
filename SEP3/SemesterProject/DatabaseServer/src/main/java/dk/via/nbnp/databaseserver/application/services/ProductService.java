@@ -1,10 +1,7 @@
 package dk.via.nbnp.databaseserver.application.services;
 
 import dk.via.nbnp.databaseserver.application.DAOInterfaces.ItemRepository;
-import dk.via.nbnp.databaseserver.protobuf.CreateProductDTO;
-import dk.via.nbnp.databaseserver.protobuf.Product;
-import dk.via.nbnp.databaseserver.protobuf.ProductServiceGrpc;
-import dk.via.nbnp.databaseserver.protobuf.SearchProductDTO;
+import dk.via.nbnp.databaseserver.protobuf.*;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +21,7 @@ public class ProductService extends ProductServiceGrpc.ProductServiceImplBase {
     @Override
     public void createProduct(CreateProductDTO request, StreamObserver<Product> responseObserver) {
 
-//        dk.via.nbnp.databaseserver.domain.Product product = new dk.via.nbnp.databaseserver.domain.Product(
+//        dk.via.nbnp.databaseserver.domain.Item product = new dk.via.nbnp.databaseserver.domain.Item(
 //                request.getName(),
 //                request.getDescription(),
 //                request.getPrice(),
@@ -43,22 +40,22 @@ public class ProductService extends ProductServiceGrpc.ProductServiceImplBase {
     }
     @Override
     public void getProduct(SearchProductDTO request, StreamObserver<Product> responseObserver) {
-        Optional<dk.via.nbnp.databaseserver.domain.Product> daoResponse = productRepository.findById(request.getId());
+        Optional<dk.via.nbnp.databaseserver.domain.Item> daoResponse = productRepository.findById(request.getId());
 
         if(daoResponse.isEmpty()){
             System.out.println("Product with this ID was not found");
         }else{
-            dk.via.nbnp.databaseserver.domain.Product product = daoResponse.get();
+            dk.via.nbnp.databaseserver.domain.Item product = daoResponse.get();
 
-            Product.LocalDateTime dateTime =
-                    Product.LocalDateTime.newBuilder()
+            Item.LocalDateTime dateTime =
+                    Item.LocalDateTime.newBuilder()
                             .setDay(product.getDateOfAdding().getDayOfMonth())
                             .setMonth(product.getDateOfAdding().getMonthValue())
                             .setYear(product.getDateOfAdding().getYear())
                             .setHour(product.getDateOfAdding().getHour())
                             .setMinute(product.getDateOfAdding().getMinute()).build();
 
-            Product toSend = Product.newBuilder()
+            Item toSend = Item.newBuilder()
                     .setId(product.getId())
                     .setName(product.getName())
                     .setDescription(product.getDescription())
