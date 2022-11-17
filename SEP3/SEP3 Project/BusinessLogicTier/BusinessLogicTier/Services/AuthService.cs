@@ -17,11 +17,11 @@ public class AuthService : IAuthService
             ["email"] = email,
             ["password"] = password
         };
-        var uri = QueryHelpers.AddQueryString("https://localhost:7171/Users", query);
+        var uri = QueryHelpers.AddQueryString("https://localhost:7171/Users/Login", query);
         HttpResponseMessage response = await Client.GetAsync(uri);
         string content = response.Content.ReadAsStringAsync().Result;
-        List<User>? users = JsonConvert.DeserializeObject<List<User>>(content);
-        User? user = users[0];
+        User? user = JsonConvert.DeserializeObject<User>(content);
+        Console.WriteLine(user.password);
         if (user is null)
         {
             throw new Exception("Email not found");

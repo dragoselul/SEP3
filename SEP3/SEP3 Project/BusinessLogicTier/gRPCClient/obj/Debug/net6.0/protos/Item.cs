@@ -24,35 +24,35 @@ namespace gRPCClient {
     static ItemReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFwcm90b3MvaXRlbS5wcm90byJ1Cg1DcmVhdGVJdGVtRFRPEgwKBG5hbWUY",
-            "AiABKAkSEwoLZGVzY3JpcHRpb24YAyABKAkSDQoFcHJpY2UYBCABKAESEAoI",
-            "Y3VycmVuY3kYBSABKAkSEAoIY2F0ZWdvcnkYBiABKAkSDgoGc3RhdHVzGAcg",
-            "ASgIIoEBCg1VcGRhdGVJdGVtRFRPEgoKAmlkGAEgASgDEgwKBG5hbWUYAiAB",
-            "KAkSEwoLZGVzY3JpcHRpb24YAyABKAkSDQoFcHJpY2UYBCABKAESEAoIY3Vy",
-            "cmVuY3kYBSABKAkSEAoIY2F0ZWdvcnkYBiABKAkSDgoGc3RhdHVzGAcgASgI",
-            "Im4KDVNlYXJjaEl0ZW1EVE8SCgoCaWQYASABKAMSDwoHb3duZXJJZBgCIAEo",
-            "AxIMCgRuYW1lGAMgASgJEhMKC2Rlc2NyaXB0aW9uGAQgASgJEg0KBXByaWNl",
-            "GAUgASgBEg4KBnN0YXR1cxgGIAEoCCIdCgxHZXRJdGVtQ291bnQSDQoFY291",
-            "bnQYASABKAMijQIKBEl0ZW0SCgoCaWQYASABKAMSDwoHb3duZXJJZBgCIAEo",
-            "AxIMCgRuYW1lGAMgASgJEhMKC2Rlc2NyaXB0aW9uGAQgASgJEg0KBXByaWNl",
-            "GAUgASgBEhAKCGN1cnJlbmN5GAYgASgJEikKDGRhdGVPZkFkZGluZxgHIAEo",
-            "CzITLkl0ZW0uTG9jYWxEYXRlVGltZRIQCghjYXRlZ29yeRgIIAEoCRIOCgZz",
-            "dGF0dXMYCSABKAgaVwoNTG9jYWxEYXRlVGltZRIMCgR5ZWFyGAEgASgFEg0K",
-            "BW1vbnRoGAIgASgFEgsKA2RheRgDIAEoBRIMCgRob3VyGAQgASgFEg4KBm1p",
-            "bnV0ZRgFIAEoBTLHAQoLSXRlbVNlcnZpY2USIwoIZ2V0SXRlbXMSDi5TZWFy",
-            "Y2hJdGVtRFRPGgUuSXRlbTABEiQKC2dldEl0ZW1CeUlkEg4uU2VhcmNoSXRl",
-            "bURUTxoFLkl0ZW0SIwoKY3JlYXRlSXRlbRIOLkNyZWF0ZUl0ZW1EVE8aBS5J",
-            "dGVtEiMKCnVwZGF0ZUl0ZW0SDi5VcGRhdGVJdGVtRFRPGgUuSXRlbRIjCgpk",
-            "ZWxldGVJdGVtEg4uU2VhcmNoSXRlbURUTxoFLkl0ZW1CDaoCCmdSUENDbGll",
-            "bnRiBnByb3RvMw=="));
+            "ChFwcm90b3MvaXRlbS5wcm90bxoRcHJvdG9zL3VzZXIucHJvdG8ihgEKDUNy",
+            "ZWF0ZUl0ZW1EVE8SDwoHb3duZXJJZBgBIAEoAxIMCgRuYW1lGAIgASgJEhMK",
+            "C2Rlc2NyaXB0aW9uGAMgASgJEg0KBXByaWNlGAQgASgBEhAKCGN1cnJlbmN5",
+            "GAUgASgJEhAKCGNhdGVnb3J5GAYgASgJEg4KBnN0YXR1cxgHIAEoCCKSAQoN",
+            "VXBkYXRlSXRlbURUTxIKCgJpZBgBIAEoAxIPCgdvd25lcklkGAIgASgDEgwK",
+            "BG5hbWUYAyABKAkSEwoLZGVzY3JpcHRpb24YBCABKAkSDQoFcHJpY2UYBSAB",
+            "KAESEAoIY3VycmVuY3kYBiABKAkSEAoIY2F0ZWdvcnkYByABKAkSDgoGc3Rh",
+            "dHVzGAggASgIIm4KDVNlYXJjaEl0ZW1EVE8SCgoCaWQYASABKAMSDwoHb3du",
+            "ZXJJZBgCIAEoAxIMCgRuYW1lGAMgASgJEhMKC2Rlc2NyaXB0aW9uGAQgASgJ",
+            "Eg0KBXByaWNlGAUgASgBEg4KBnN0YXR1cxgGIAEoCCIdCgxHZXRJdGVtQ291",
+            "bnQSDQoFY291bnQYASABKAMitAEKBEl0ZW0SCgoCaWQYASABKAMSFAoFb3du",
+            "ZXIYAiABKAsyBS5Vc2VyEgwKBG5hbWUYAyABKAkSEwoLZGVzY3JpcHRpb24Y",
+            "BCABKAkSDQoFcHJpY2UYBSABKAESEAoIY3VycmVuY3kYBiABKAkSJAoMZGF0",
+            "ZU9mQWRkaW5nGAcgASgLMg4uTG9jYWxEYXRlVGltZRIQCghjYXRlZ29yeRgI",
+            "IAEoCRIOCgZzdGF0dXMYCSABKAgy8wEKC0l0ZW1TZXJ2aWNlEiMKCmNyZWF0",
+            "ZUl0ZW0SDi5DcmVhdGVJdGVtRFRPGgUuSXRlbRIjCghnZXRJdGVtcxIOLlNl",
+            "YXJjaEl0ZW1EVE8aBS5JdGVtMAESKgoPZ2V0SXRlbXNCeU93bmVyEg4uU2Vh",
+            "cmNoSXRlbURUTxoFLkl0ZW0wARIkCgtnZXRJdGVtQnlJZBIOLlNlYXJjaEl0",
+            "ZW1EVE8aBS5JdGVtEiMKCnVwZGF0ZUl0ZW0SDi5VcGRhdGVJdGVtRFRPGgUu",
+            "SXRlbRIjCgpkZWxldGVJdGVtEg4uU2VhcmNoSXRlbURUTxoFLkl0ZW1CDaoC",
+            "CmdSUENDbGllbnRiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { },
+          new pbr::FileDescriptor[] { global::gRPCClient.UserReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.CreateItemDTO), global::gRPCClient.CreateItemDTO.Parser, new[]{ "Name", "Description", "Price", "Currency", "Category", "Status" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.UpdateItemDTO), global::gRPCClient.UpdateItemDTO.Parser, new[]{ "Id", "Name", "Description", "Price", "Currency", "Category", "Status" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.CreateItemDTO), global::gRPCClient.CreateItemDTO.Parser, new[]{ "OwnerId", "Name", "Description", "Price", "Currency", "Category", "Status" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.UpdateItemDTO), global::gRPCClient.UpdateItemDTO.Parser, new[]{ "Id", "OwnerId", "Name", "Description", "Price", "Currency", "Category", "Status" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.SearchItemDTO), global::gRPCClient.SearchItemDTO.Parser, new[]{ "Id", "OwnerId", "Name", "Description", "Price", "Status" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.GetItemCount), global::gRPCClient.GetItemCount.Parser, new[]{ "Count" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.Item), global::gRPCClient.Item.Parser, new[]{ "Id", "OwnerId", "Name", "Description", "Price", "Currency", "DateOfAdding", "Category", "Status" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.Item.Types.LocalDateTime), global::gRPCClient.Item.Types.LocalDateTime.Parser, new[]{ "Year", "Month", "Day", "Hour", "Minute" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.Item), global::gRPCClient.Item.Parser, new[]{ "Id", "Owner", "Name", "Description", "Price", "Currency", "DateOfAdding", "Category", "Status" }, null, null, null, null)
           }));
     }
     #endregion
@@ -93,6 +93,7 @@ namespace gRPCClient {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CreateItemDTO(CreateItemDTO other) : this() {
+      ownerId_ = other.ownerId_;
       name_ = other.name_;
       description_ = other.description_;
       price_ = other.price_;
@@ -106,6 +107,18 @@ namespace gRPCClient {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CreateItemDTO Clone() {
       return new CreateItemDTO(this);
+    }
+
+    /// <summary>Field number for the "ownerId" field.</summary>
+    public const int OwnerIdFieldNumber = 1;
+    private long ownerId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long OwnerId {
+      get { return ownerId_; }
+      set {
+        ownerId_ = value;
+      }
     }
 
     /// <summary>Field number for the "name" field.</summary>
@@ -195,6 +208,7 @@ namespace gRPCClient {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (OwnerId != other.OwnerId) return false;
       if (Name != other.Name) return false;
       if (Description != other.Description) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Price, other.Price)) return false;
@@ -208,6 +222,7 @@ namespace gRPCClient {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (OwnerId != 0L) hash ^= OwnerId.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Description.Length != 0) hash ^= Description.GetHashCode();
       if (Price != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Price);
@@ -232,6 +247,10 @@ namespace gRPCClient {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (OwnerId != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(OwnerId);
+      }
       if (Name.Length != 0) {
         output.WriteRawTag(18);
         output.WriteString(Name);
@@ -266,6 +285,10 @@ namespace gRPCClient {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (OwnerId != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(OwnerId);
+      }
       if (Name.Length != 0) {
         output.WriteRawTag(18);
         output.WriteString(Name);
@@ -300,6 +323,9 @@ namespace gRPCClient {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (OwnerId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(OwnerId);
+      }
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
@@ -329,6 +355,9 @@ namespace gRPCClient {
     public void MergeFrom(CreateItemDTO other) {
       if (other == null) {
         return;
+      }
+      if (other.OwnerId != 0L) {
+        OwnerId = other.OwnerId;
       }
       if (other.Name.Length != 0) {
         Name = other.Name;
@@ -363,6 +392,10 @@ namespace gRPCClient {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+          case 8: {
+            OwnerId = input.ReadInt64();
+            break;
+          }
           case 18: {
             Name = input.ReadString();
             break;
@@ -402,6 +435,10 @@ namespace gRPCClient {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
+          case 8: {
+            OwnerId = input.ReadInt64();
+            break;
+          }
           case 18: {
             Name = input.ReadString();
             break;
@@ -468,6 +505,7 @@ namespace gRPCClient {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public UpdateItemDTO(UpdateItemDTO other) : this() {
       id_ = other.id_;
+      ownerId_ = other.ownerId_;
       name_ = other.name_;
       description_ = other.description_;
       price_ = other.price_;
@@ -495,8 +533,20 @@ namespace gRPCClient {
       }
     }
 
+    /// <summary>Field number for the "ownerId" field.</summary>
+    public const int OwnerIdFieldNumber = 2;
+    private long ownerId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long OwnerId {
+      get { return ownerId_; }
+      set {
+        ownerId_ = value;
+      }
+    }
+
     /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 2;
+    public const int NameFieldNumber = 3;
     private string name_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -508,7 +558,7 @@ namespace gRPCClient {
     }
 
     /// <summary>Field number for the "description" field.</summary>
-    public const int DescriptionFieldNumber = 3;
+    public const int DescriptionFieldNumber = 4;
     private string description_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -520,7 +570,7 @@ namespace gRPCClient {
     }
 
     /// <summary>Field number for the "price" field.</summary>
-    public const int PriceFieldNumber = 4;
+    public const int PriceFieldNumber = 5;
     private double price_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -532,7 +582,7 @@ namespace gRPCClient {
     }
 
     /// <summary>Field number for the "currency" field.</summary>
-    public const int CurrencyFieldNumber = 5;
+    public const int CurrencyFieldNumber = 6;
     private string currency_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -544,7 +594,7 @@ namespace gRPCClient {
     }
 
     /// <summary>Field number for the "category" field.</summary>
-    public const int CategoryFieldNumber = 6;
+    public const int CategoryFieldNumber = 7;
     private string category_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -556,7 +606,7 @@ namespace gRPCClient {
     }
 
     /// <summary>Field number for the "status" field.</summary>
-    public const int StatusFieldNumber = 7;
+    public const int StatusFieldNumber = 8;
     private bool status_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -583,6 +633,7 @@ namespace gRPCClient {
         return true;
       }
       if (Id != other.Id) return false;
+      if (OwnerId != other.OwnerId) return false;
       if (Name != other.Name) return false;
       if (Description != other.Description) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Price, other.Price)) return false;
@@ -597,6 +648,7 @@ namespace gRPCClient {
     public override int GetHashCode() {
       int hash = 1;
       if (Id != 0L) hash ^= Id.GetHashCode();
+      if (OwnerId != 0L) hash ^= OwnerId.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Description.Length != 0) hash ^= Description.GetHashCode();
       if (Price != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Price);
@@ -625,28 +677,32 @@ namespace gRPCClient {
         output.WriteRawTag(8);
         output.WriteInt64(Id);
       }
+      if (OwnerId != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(OwnerId);
+      }
       if (Name.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteString(Name);
       }
       if (Description.Length != 0) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(34);
         output.WriteString(Description);
       }
       if (Price != 0D) {
-        output.WriteRawTag(33);
+        output.WriteRawTag(41);
         output.WriteDouble(Price);
       }
       if (Currency.Length != 0) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(50);
         output.WriteString(Currency);
       }
       if (Category.Length != 0) {
-        output.WriteRawTag(50);
+        output.WriteRawTag(58);
         output.WriteString(Category);
       }
       if (Status != false) {
-        output.WriteRawTag(56);
+        output.WriteRawTag(64);
         output.WriteBool(Status);
       }
       if (_unknownFields != null) {
@@ -663,28 +719,32 @@ namespace gRPCClient {
         output.WriteRawTag(8);
         output.WriteInt64(Id);
       }
+      if (OwnerId != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(OwnerId);
+      }
       if (Name.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteString(Name);
       }
       if (Description.Length != 0) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(34);
         output.WriteString(Description);
       }
       if (Price != 0D) {
-        output.WriteRawTag(33);
+        output.WriteRawTag(41);
         output.WriteDouble(Price);
       }
       if (Currency.Length != 0) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(50);
         output.WriteString(Currency);
       }
       if (Category.Length != 0) {
-        output.WriteRawTag(50);
+        output.WriteRawTag(58);
         output.WriteString(Category);
       }
       if (Status != false) {
-        output.WriteRawTag(56);
+        output.WriteRawTag(64);
         output.WriteBool(Status);
       }
       if (_unknownFields != null) {
@@ -699,6 +759,9 @@ namespace gRPCClient {
       int size = 0;
       if (Id != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Id);
+      }
+      if (OwnerId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(OwnerId);
       }
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
@@ -732,6 +795,9 @@ namespace gRPCClient {
       }
       if (other.Id != 0L) {
         Id = other.Id;
+      }
+      if (other.OwnerId != 0L) {
+        OwnerId = other.OwnerId;
       }
       if (other.Name.Length != 0) {
         Name = other.Name;
@@ -770,27 +836,31 @@ namespace gRPCClient {
             Id = input.ReadInt64();
             break;
           }
-          case 18: {
-            Name = input.ReadString();
+          case 16: {
+            OwnerId = input.ReadInt64();
             break;
           }
           case 26: {
+            Name = input.ReadString();
+            break;
+          }
+          case 34: {
             Description = input.ReadString();
             break;
           }
-          case 33: {
+          case 41: {
             Price = input.ReadDouble();
             break;
           }
-          case 42: {
+          case 50: {
             Currency = input.ReadString();
             break;
           }
-          case 50: {
+          case 58: {
             Category = input.ReadString();
             break;
           }
-          case 56: {
+          case 64: {
             Status = input.ReadBool();
             break;
           }
@@ -813,27 +883,31 @@ namespace gRPCClient {
             Id = input.ReadInt64();
             break;
           }
-          case 18: {
-            Name = input.ReadString();
+          case 16: {
+            OwnerId = input.ReadInt64();
             break;
           }
           case 26: {
+            Name = input.ReadString();
+            break;
+          }
+          case 34: {
             Description = input.ReadString();
             break;
           }
-          case 33: {
+          case 41: {
             Price = input.ReadDouble();
             break;
           }
-          case 42: {
+          case 50: {
             Currency = input.ReadString();
             break;
           }
-          case 50: {
+          case 58: {
             Category = input.ReadString();
             break;
           }
-          case 56: {
+          case 64: {
             Status = input.ReadBool();
             break;
           }
@@ -1442,7 +1516,7 @@ namespace gRPCClient {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public Item(Item other) : this() {
       id_ = other.id_;
-      ownerId_ = other.ownerId_;
+      owner_ = other.owner_ != null ? other.owner_.Clone() : null;
       name_ = other.name_;
       description_ = other.description_;
       price_ = other.price_;
@@ -1471,15 +1545,15 @@ namespace gRPCClient {
       }
     }
 
-    /// <summary>Field number for the "ownerId" field.</summary>
-    public const int OwnerIdFieldNumber = 2;
-    private long ownerId_;
+    /// <summary>Field number for the "owner" field.</summary>
+    public const int OwnerFieldNumber = 2;
+    private global::gRPCClient.User owner_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public long OwnerId {
-      get { return ownerId_; }
+    public global::gRPCClient.User Owner {
+      get { return owner_; }
       set {
-        ownerId_ = value;
+        owner_ = value;
       }
     }
 
@@ -1533,10 +1607,10 @@ namespace gRPCClient {
 
     /// <summary>Field number for the "dateOfAdding" field.</summary>
     public const int DateOfAddingFieldNumber = 7;
-    private global::gRPCClient.Item.Types.LocalDateTime dateOfAdding_;
+    private global::gRPCClient.LocalDateTime dateOfAdding_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::gRPCClient.Item.Types.LocalDateTime DateOfAdding {
+    public global::gRPCClient.LocalDateTime DateOfAdding {
       get { return dateOfAdding_; }
       set {
         dateOfAdding_ = value;
@@ -1583,7 +1657,7 @@ namespace gRPCClient {
         return true;
       }
       if (Id != other.Id) return false;
-      if (OwnerId != other.OwnerId) return false;
+      if (!object.Equals(Owner, other.Owner)) return false;
       if (Name != other.Name) return false;
       if (Description != other.Description) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Price, other.Price)) return false;
@@ -1599,7 +1673,7 @@ namespace gRPCClient {
     public override int GetHashCode() {
       int hash = 1;
       if (Id != 0L) hash ^= Id.GetHashCode();
-      if (OwnerId != 0L) hash ^= OwnerId.GetHashCode();
+      if (owner_ != null) hash ^= Owner.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Description.Length != 0) hash ^= Description.GetHashCode();
       if (Price != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Price);
@@ -1629,9 +1703,9 @@ namespace gRPCClient {
         output.WriteRawTag(8);
         output.WriteInt64(Id);
       }
-      if (OwnerId != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(OwnerId);
+      if (owner_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Owner);
       }
       if (Name.Length != 0) {
         output.WriteRawTag(26);
@@ -1675,9 +1749,9 @@ namespace gRPCClient {
         output.WriteRawTag(8);
         output.WriteInt64(Id);
       }
-      if (OwnerId != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(OwnerId);
+      if (owner_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Owner);
       }
       if (Name.Length != 0) {
         output.WriteRawTag(26);
@@ -1720,8 +1794,8 @@ namespace gRPCClient {
       if (Id != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Id);
       }
-      if (OwnerId != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(OwnerId);
+      if (owner_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Owner);
       }
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
@@ -1759,8 +1833,11 @@ namespace gRPCClient {
       if (other.Id != 0L) {
         Id = other.Id;
       }
-      if (other.OwnerId != 0L) {
-        OwnerId = other.OwnerId;
+      if (other.owner_ != null) {
+        if (owner_ == null) {
+          Owner = new global::gRPCClient.User();
+        }
+        Owner.MergeFrom(other.Owner);
       }
       if (other.Name.Length != 0) {
         Name = other.Name;
@@ -1776,7 +1853,7 @@ namespace gRPCClient {
       }
       if (other.dateOfAdding_ != null) {
         if (dateOfAdding_ == null) {
-          DateOfAdding = new global::gRPCClient.Item.Types.LocalDateTime();
+          DateOfAdding = new global::gRPCClient.LocalDateTime();
         }
         DateOfAdding.MergeFrom(other.DateOfAdding);
       }
@@ -1805,8 +1882,11 @@ namespace gRPCClient {
             Id = input.ReadInt64();
             break;
           }
-          case 16: {
-            OwnerId = input.ReadInt64();
+          case 18: {
+            if (owner_ == null) {
+              Owner = new global::gRPCClient.User();
+            }
+            input.ReadMessage(Owner);
             break;
           }
           case 26: {
@@ -1827,7 +1907,7 @@ namespace gRPCClient {
           }
           case 58: {
             if (dateOfAdding_ == null) {
-              DateOfAdding = new global::gRPCClient.Item.Types.LocalDateTime();
+              DateOfAdding = new global::gRPCClient.LocalDateTime();
             }
             input.ReadMessage(DateOfAdding);
             break;
@@ -1859,8 +1939,11 @@ namespace gRPCClient {
             Id = input.ReadInt64();
             break;
           }
-          case 16: {
-            OwnerId = input.ReadInt64();
+          case 18: {
+            if (owner_ == null) {
+              Owner = new global::gRPCClient.User();
+            }
+            input.ReadMessage(Owner);
             break;
           }
           case 26: {
@@ -1881,7 +1964,7 @@ namespace gRPCClient {
           }
           case 58: {
             if (dateOfAdding_ == null) {
-              DateOfAdding = new global::gRPCClient.Item.Types.LocalDateTime();
+              DateOfAdding = new global::gRPCClient.LocalDateTime();
             }
             input.ReadMessage(DateOfAdding);
             break;
@@ -1898,351 +1981,6 @@ namespace gRPCClient {
       }
     }
     #endif
-
-    #region Nested types
-    /// <summary>Container for nested types declared in the Item message type.</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static partial class Types {
-      public sealed partial class LocalDateTime : pb::IMessage<LocalDateTime>
-      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          , pb::IBufferMessage
-      #endif
-      {
-        private static readonly pb::MessageParser<LocalDateTime> _parser = new pb::MessageParser<LocalDateTime>(() => new LocalDateTime());
-        private pb::UnknownFieldSet _unknownFields;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public static pb::MessageParser<LocalDateTime> Parser { get { return _parser; } }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public static pbr::MessageDescriptor Descriptor {
-          get { return global::gRPCClient.Item.Descriptor.NestedTypes[0]; }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        pbr::MessageDescriptor pb::IMessage.Descriptor {
-          get { return Descriptor; }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public LocalDateTime() {
-          OnConstruction();
-        }
-
-        partial void OnConstruction();
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public LocalDateTime(LocalDateTime other) : this() {
-          year_ = other.year_;
-          month_ = other.month_;
-          day_ = other.day_;
-          hour_ = other.hour_;
-          minute_ = other.minute_;
-          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public LocalDateTime Clone() {
-          return new LocalDateTime(this);
-        }
-
-        /// <summary>Field number for the "year" field.</summary>
-        public const int YearFieldNumber = 1;
-        private int year_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public int Year {
-          get { return year_; }
-          set {
-            year_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "month" field.</summary>
-        public const int MonthFieldNumber = 2;
-        private int month_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public int Month {
-          get { return month_; }
-          set {
-            month_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "day" field.</summary>
-        public const int DayFieldNumber = 3;
-        private int day_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public int Day {
-          get { return day_; }
-          set {
-            day_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "hour" field.</summary>
-        public const int HourFieldNumber = 4;
-        private int hour_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public int Hour {
-          get { return hour_; }
-          set {
-            hour_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "minute" field.</summary>
-        public const int MinuteFieldNumber = 5;
-        private int minute_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public int Minute {
-          get { return minute_; }
-          set {
-            minute_ = value;
-          }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public override bool Equals(object other) {
-          return Equals(other as LocalDateTime);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public bool Equals(LocalDateTime other) {
-          if (ReferenceEquals(other, null)) {
-            return false;
-          }
-          if (ReferenceEquals(other, this)) {
-            return true;
-          }
-          if (Year != other.Year) return false;
-          if (Month != other.Month) return false;
-          if (Day != other.Day) return false;
-          if (Hour != other.Hour) return false;
-          if (Minute != other.Minute) return false;
-          return Equals(_unknownFields, other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public override int GetHashCode() {
-          int hash = 1;
-          if (Year != 0) hash ^= Year.GetHashCode();
-          if (Month != 0) hash ^= Month.GetHashCode();
-          if (Day != 0) hash ^= Day.GetHashCode();
-          if (Hour != 0) hash ^= Hour.GetHashCode();
-          if (Minute != 0) hash ^= Minute.GetHashCode();
-          if (_unknownFields != null) {
-            hash ^= _unknownFields.GetHashCode();
-          }
-          return hash;
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public override string ToString() {
-          return pb::JsonFormatter.ToDiagnosticString(this);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public void WriteTo(pb::CodedOutputStream output) {
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          output.WriteRawMessage(this);
-        #else
-          if (Year != 0) {
-            output.WriteRawTag(8);
-            output.WriteInt32(Year);
-          }
-          if (Month != 0) {
-            output.WriteRawTag(16);
-            output.WriteInt32(Month);
-          }
-          if (Day != 0) {
-            output.WriteRawTag(24);
-            output.WriteInt32(Day);
-          }
-          if (Hour != 0) {
-            output.WriteRawTag(32);
-            output.WriteInt32(Hour);
-          }
-          if (Minute != 0) {
-            output.WriteRawTag(40);
-            output.WriteInt32(Minute);
-          }
-          if (_unknownFields != null) {
-            _unknownFields.WriteTo(output);
-          }
-        #endif
-        }
-
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-          if (Year != 0) {
-            output.WriteRawTag(8);
-            output.WriteInt32(Year);
-          }
-          if (Month != 0) {
-            output.WriteRawTag(16);
-            output.WriteInt32(Month);
-          }
-          if (Day != 0) {
-            output.WriteRawTag(24);
-            output.WriteInt32(Day);
-          }
-          if (Hour != 0) {
-            output.WriteRawTag(32);
-            output.WriteInt32(Hour);
-          }
-          if (Minute != 0) {
-            output.WriteRawTag(40);
-            output.WriteInt32(Minute);
-          }
-          if (_unknownFields != null) {
-            _unknownFields.WriteTo(ref output);
-          }
-        }
-        #endif
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public int CalculateSize() {
-          int size = 0;
-          if (Year != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(Year);
-          }
-          if (Month != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(Month);
-          }
-          if (Day != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(Day);
-          }
-          if (Hour != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(Hour);
-          }
-          if (Minute != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(Minute);
-          }
-          if (_unknownFields != null) {
-            size += _unknownFields.CalculateSize();
-          }
-          return size;
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public void MergeFrom(LocalDateTime other) {
-          if (other == null) {
-            return;
-          }
-          if (other.Year != 0) {
-            Year = other.Year;
-          }
-          if (other.Month != 0) {
-            Month = other.Month;
-          }
-          if (other.Day != 0) {
-            Day = other.Day;
-          }
-          if (other.Hour != 0) {
-            Hour = other.Hour;
-          }
-          if (other.Minute != 0) {
-            Minute = other.Minute;
-          }
-          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public void MergeFrom(pb::CodedInputStream input) {
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          input.ReadRawMessage(this);
-        #else
-          uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-            switch(tag) {
-              default:
-                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-                break;
-              case 8: {
-                Year = input.ReadInt32();
-                break;
-              }
-              case 16: {
-                Month = input.ReadInt32();
-                break;
-              }
-              case 24: {
-                Day = input.ReadInt32();
-                break;
-              }
-              case 32: {
-                Hour = input.ReadInt32();
-                break;
-              }
-              case 40: {
-                Minute = input.ReadInt32();
-                break;
-              }
-            }
-          }
-        #endif
-        }
-
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-          uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-            switch(tag) {
-              default:
-                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-                break;
-              case 8: {
-                Year = input.ReadInt32();
-                break;
-              }
-              case 16: {
-                Month = input.ReadInt32();
-                break;
-              }
-              case 24: {
-                Day = input.ReadInt32();
-                break;
-              }
-              case 32: {
-                Hour = input.ReadInt32();
-                break;
-              }
-              case 40: {
-                Minute = input.ReadInt32();
-                break;
-              }
-            }
-          }
-        }
-        #endif
-
-      }
-
-    }
-    #endregion
 
   }
 

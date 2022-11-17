@@ -46,13 +46,21 @@ namespace gRPCClient {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::gRPCClient.SearchItemDTO> __Marshaller_SearchItemDTO = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::gRPCClient.SearchItemDTO.Parser));
+    static readonly grpc::Marshaller<global::gRPCClient.CreateItemDTO> __Marshaller_CreateItemDTO = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::gRPCClient.CreateItemDTO.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::gRPCClient.Item> __Marshaller_Item = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::gRPCClient.Item.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::gRPCClient.CreateItemDTO> __Marshaller_CreateItemDTO = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::gRPCClient.CreateItemDTO.Parser));
+    static readonly grpc::Marshaller<global::gRPCClient.SearchItemDTO> __Marshaller_SearchItemDTO = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::gRPCClient.SearchItemDTO.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::gRPCClient.UpdateItemDTO> __Marshaller_UpdateItemDTO = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::gRPCClient.UpdateItemDTO.Parser));
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::gRPCClient.CreateItemDTO, global::gRPCClient.Item> __Method_createItem = new grpc::Method<global::gRPCClient.CreateItemDTO, global::gRPCClient.Item>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "createItem",
+        __Marshaller_CreateItemDTO,
+        __Marshaller_Item);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::gRPCClient.SearchItemDTO, global::gRPCClient.Item> __Method_getItems = new grpc::Method<global::gRPCClient.SearchItemDTO, global::gRPCClient.Item>(
@@ -63,19 +71,19 @@ namespace gRPCClient {
         __Marshaller_Item);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::gRPCClient.SearchItemDTO, global::gRPCClient.Item> __Method_getItemsByOwner = new grpc::Method<global::gRPCClient.SearchItemDTO, global::gRPCClient.Item>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "getItemsByOwner",
+        __Marshaller_SearchItemDTO,
+        __Marshaller_Item);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::gRPCClient.SearchItemDTO, global::gRPCClient.Item> __Method_getItemById = new grpc::Method<global::gRPCClient.SearchItemDTO, global::gRPCClient.Item>(
         grpc::MethodType.Unary,
         __ServiceName,
         "getItemById",
         __Marshaller_SearchItemDTO,
-        __Marshaller_Item);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::gRPCClient.CreateItemDTO, global::gRPCClient.Item> __Method_createItem = new grpc::Method<global::gRPCClient.CreateItemDTO, global::gRPCClient.Item>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "createItem",
-        __Marshaller_CreateItemDTO,
         __Marshaller_Item);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
@@ -128,6 +136,26 @@ namespace gRPCClient {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::gRPCClient.Item createItem(global::gRPCClient.CreateItemDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return createItem(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::gRPCClient.Item createItem(global::gRPCClient.CreateItemDTO request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_createItem, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::gRPCClient.Item> createItemAsync(global::gRPCClient.CreateItemDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return createItemAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::gRPCClient.Item> createItemAsync(global::gRPCClient.CreateItemDTO request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_createItem, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncServerStreamingCall<global::gRPCClient.Item> getItems(global::gRPCClient.SearchItemDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return getItems(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -136,6 +164,16 @@ namespace gRPCClient {
       public virtual grpc::AsyncServerStreamingCall<global::gRPCClient.Item> getItems(global::gRPCClient.SearchItemDTO request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_getItems, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncServerStreamingCall<global::gRPCClient.Item> getItemsByOwner(global::gRPCClient.SearchItemDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return getItemsByOwner(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncServerStreamingCall<global::gRPCClient.Item> getItemsByOwner(global::gRPCClient.SearchItemDTO request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_getItemsByOwner, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::gRPCClient.Item getItemById(global::gRPCClient.SearchItemDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -156,26 +194,6 @@ namespace gRPCClient {
       public virtual grpc::AsyncUnaryCall<global::gRPCClient.Item> getItemByIdAsync(global::gRPCClient.SearchItemDTO request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_getItemById, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::gRPCClient.Item createItem(global::gRPCClient.CreateItemDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return createItem(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::gRPCClient.Item createItem(global::gRPCClient.CreateItemDTO request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_createItem, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::gRPCClient.Item> createItemAsync(global::gRPCClient.CreateItemDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return createItemAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::gRPCClient.Item> createItemAsync(global::gRPCClient.CreateItemDTO request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_createItem, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::gRPCClient.Item updateItem(global::gRPCClient.UpdateItemDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))

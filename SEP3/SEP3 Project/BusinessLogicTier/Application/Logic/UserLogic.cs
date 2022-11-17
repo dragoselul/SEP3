@@ -41,6 +41,11 @@ public class UserLogic : IUserLogic
         return created;
     }
 
+    public Task<User?> GetLoginAsync(UserLoginDto loginDto)
+    {
+        return userDao.GetLoginAsync(loginDto);
+    }
+
     public Task<List<User>> GetAsync(SearchUserParametersDto searchParameters)
     {
         return userDao.GetAsync(searchParameters);

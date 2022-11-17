@@ -51,6 +51,26 @@ public class UsersController : ControllerBase
         }
     }
     
+    [HttpGet ("Login")]
+    public async Task<ActionResult<User>> GetLoginAsync([FromQuery] string? email, [FromQuery] string? password)
+    {
+        try
+        {
+            UserLoginDto parameters = new()
+            {
+                Email = email,
+                Password = password
+            };
+            User? users = await userLogic.GetLoginAsync(parameters);
+            return Ok(users);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
+    
     [HttpGet("{id:int}")]
     public async Task<ActionResult<User>> GetByIdAsync([FromRoute] int id)
     {

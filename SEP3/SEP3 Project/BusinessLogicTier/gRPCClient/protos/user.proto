@@ -2,11 +2,17 @@ syntax = "proto3";
 option csharp_namespace = "gRPCClient";
 
 service UserService {
+  rpc login(LoginUserDTO) returns (User);
   rpc createUser(CreateUserDTO) returns (User);
   rpc getUsers(SearchUserDTO) returns (stream User);
   rpc getUserById(SearchUserDTO) returns (User);
   rpc updateUser(CreateUserDTO) returns (User);
   rpc deleteUser(SearchUserDTO) returns (User);
+}
+
+message LoginUserDTO{
+  string email = 1;
+  string password = 2;
 }
 
 message CreateUserDTO{
@@ -39,6 +45,5 @@ message User {
   string email = 4;
   string phoneNumber = 5;
   bool gender = 6;
-  string password = 7;
   LocalDateTime dateOfRegistration = 8;
 }

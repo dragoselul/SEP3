@@ -77,7 +77,7 @@ public class UserFileDao : IUserDao
                     lastName = response.LastName,
                     email = response.Email,
                     gender = response.Gender,
-                    password = response.Password,
+                    password = "",
                     phoneNumber = response.PhoneNumber,
                     dor = new(response.DateOfRegistration.Year, response.DateOfRegistration.Month,
                         response.DateOfRegistration.Day,
@@ -103,7 +103,7 @@ public class UserFileDao : IUserDao
                     lastName = response.LastName,
                     email = response.Email,
                     gender = response.Gender,
-                    password = response.Password,
+                    password = "",
                     phoneNumber = response.PhoneNumber,
                     dor = new(response.DateOfRegistration.Year, response.DateOfRegistration.Month,
                         response.DateOfRegistration.Day,
@@ -129,7 +129,7 @@ public class UserFileDao : IUserDao
                     lastName = response.LastName,
                     email = response.Email,
                     gender = response.Gender,
-                    password = response.Password,
+                    password = "",
                     phoneNumber = response.PhoneNumber,
                     dor = new(response.DateOfRegistration.Year, response.DateOfRegistration.Month,
                         response.DateOfRegistration.Day,
@@ -159,10 +159,33 @@ public class UserFileDao : IUserDao
             lastName = gRPC.LastName,
             email = gRPC.Email,
             gender = gRPC.Gender,
-            password = gRPC.Password,
+            password = "",
             phoneNumber = gRPC.PhoneNumber,
             dor = new(gRPC.DateOfRegistration.Year, gRPC.DateOfRegistration.Month, gRPC.DateOfRegistration.Day,
                 gRPC.DateOfRegistration.Hour, gRPC.DateOfRegistration.Minute, 0)
+        };
+        return await Task.FromResult(user);
+    }
+
+    public async Task<User?> GetLoginAsync(UserLoginDto loginDto)
+    {
+        LoginUserDTO loginUserDto = new LoginUserDTO
+        {
+            Email = loginDto.Email,
+            Password = loginDto.Password
+        };
+        gRPCClient.User? login = ClientUser.login(loginUserDto);
+        User? user = new()
+        {
+            Id = (int)login.Id,
+            firstName = login.FirstName,
+            lastName = login.LastName,
+            email = login.Email,
+            gender = login.Gender,
+            password = "",
+            phoneNumber = login.PhoneNumber,
+            dor = new(login.DateOfRegistration.Year, login.DateOfRegistration.Month, login.DateOfRegistration.Day,
+                login.DateOfRegistration.Hour, login.DateOfRegistration.Minute, 0)
         };
         return await Task.FromResult(user);
     }

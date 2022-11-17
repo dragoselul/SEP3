@@ -24,35 +24,263 @@ namespace gRPCClient {
     static UserReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFwcm90b3MvdXNlci5wcm90byJ6Cg1DcmVhdGVVc2VyRFRPEhEKCWZpcnN0",
-            "TmFtZRgBIAEoCRIQCghsYXN0TmFtZRgCIAEoCRINCgVlbWFpbBgDIAEoCRIQ",
-            "CghwYXNzd29yZBgEIAEoCRITCgtwaG9uZU51bWJlchgFIAEoCRIOCgZnZW5k",
-            "ZXIYBiABKAgiQAoNU2VhcmNoVXNlckRUTxIKCgJpZBgBIAEoAxIRCglmaXJz",
-            "dE5hbWUYAiABKAkSEAoIbGFzdE5hbWUYAyABKAkiVwoNTG9jYWxEYXRlVGlt",
-            "ZRIMCgR5ZWFyGAEgASgFEg0KBW1vbnRoGAIgASgFEgsKA2RheRgDIAEoBRIM",
-            "CgRob3VyGAQgASgFEg4KBm1pbnV0ZRgFIAEoBSKpAQoEVXNlchIKCgJpZBgB",
-            "IAEoAxIRCglmaXJzdE5hbWUYAiABKAkSEAoIbGFzdE5hbWUYAyABKAkSDQoF",
-            "ZW1haWwYBCABKAkSEwoLcGhvbmVOdW1iZXIYBSABKAkSDgoGZ2VuZGVyGAYg",
-            "ASgIEhAKCHBhc3N3b3JkGAcgASgJEioKEmRhdGVPZlJlZ2lzdHJhdGlvbhgI",
-            "IAEoCzIOLkxvY2FsRGF0ZVRpbWUyxwEKC1VzZXJTZXJ2aWNlEiMKCmNyZWF0",
-            "ZVVzZXISDi5DcmVhdGVVc2VyRFRPGgUuVXNlchIjCghnZXRVc2VycxIOLlNl",
-            "YXJjaFVzZXJEVE8aBS5Vc2VyMAESJAoLZ2V0VXNlckJ5SWQSDi5TZWFyY2hV",
-            "c2VyRFRPGgUuVXNlchIjCgp1cGRhdGVVc2VyEg4uQ3JlYXRlVXNlckRUTxoF",
-            "LlVzZXISIwoKZGVsZXRlVXNlchIOLlNlYXJjaFVzZXJEVE8aBS5Vc2VyQg2q",
-            "AgpnUlBDQ2xpZW50YgZwcm90bzM="));
+            "ChFwcm90b3MvdXNlci5wcm90byIvCgxMb2dpblVzZXJEVE8SDQoFZW1haWwY",
+            "ASABKAkSEAoIcGFzc3dvcmQYAiABKAkiegoNQ3JlYXRlVXNlckRUTxIRCglm",
+            "aXJzdE5hbWUYASABKAkSEAoIbGFzdE5hbWUYAiABKAkSDQoFZW1haWwYAyAB",
+            "KAkSEAoIcGFzc3dvcmQYBCABKAkSEwoLcGhvbmVOdW1iZXIYBSABKAkSDgoG",
+            "Z2VuZGVyGAYgASgIIkAKDVNlYXJjaFVzZXJEVE8SCgoCaWQYASABKAMSEQoJ",
+            "Zmlyc3ROYW1lGAIgASgJEhAKCGxhc3ROYW1lGAMgASgJIlcKDUxvY2FsRGF0",
+            "ZVRpbWUSDAoEeWVhchgBIAEoBRINCgVtb250aBgCIAEoBRILCgNkYXkYAyAB",
+            "KAUSDAoEaG91chgEIAEoBRIOCgZtaW51dGUYBSABKAUilwEKBFVzZXISCgoC",
+            "aWQYASABKAMSEQoJZmlyc3ROYW1lGAIgASgJEhAKCGxhc3ROYW1lGAMgASgJ",
+            "Eg0KBWVtYWlsGAQgASgJEhMKC3Bob25lTnVtYmVyGAUgASgJEg4KBmdlbmRl",
+            "chgGIAEoCBIqChJkYXRlT2ZSZWdpc3RyYXRpb24YCCABKAsyDi5Mb2NhbERh",
+            "dGVUaW1lMuYBCgtVc2VyU2VydmljZRIdCgVsb2dpbhINLkxvZ2luVXNlckRU",
+            "TxoFLlVzZXISIwoKY3JlYXRlVXNlchIOLkNyZWF0ZVVzZXJEVE8aBS5Vc2Vy",
+            "EiMKCGdldFVzZXJzEg4uU2VhcmNoVXNlckRUTxoFLlVzZXIwARIkCgtnZXRV",
+            "c2VyQnlJZBIOLlNlYXJjaFVzZXJEVE8aBS5Vc2VyEiMKCnVwZGF0ZVVzZXIS",
+            "Di5DcmVhdGVVc2VyRFRPGgUuVXNlchIjCgpkZWxldGVVc2VyEg4uU2VhcmNo",
+            "VXNlckRUTxoFLlVzZXJCDaoCCmdSUENDbGllbnRiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.LoginUserDTO), global::gRPCClient.LoginUserDTO.Parser, new[]{ "Email", "Password" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.CreateUserDTO), global::gRPCClient.CreateUserDTO.Parser, new[]{ "FirstName", "LastName", "Email", "Password", "PhoneNumber", "Gender" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.SearchUserDTO), global::gRPCClient.SearchUserDTO.Parser, new[]{ "Id", "FirstName", "LastName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.LocalDateTime), global::gRPCClient.LocalDateTime.Parser, new[]{ "Year", "Month", "Day", "Hour", "Minute" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.User), global::gRPCClient.User.Parser, new[]{ "Id", "FirstName", "LastName", "Email", "PhoneNumber", "Gender", "Password", "DateOfRegistration" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.User), global::gRPCClient.User.Parser, new[]{ "Id", "FirstName", "LastName", "Email", "PhoneNumber", "Gender", "DateOfRegistration" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
+  public sealed partial class LoginUserDTO : pb::IMessage<LoginUserDTO>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<LoginUserDTO> _parser = new pb::MessageParser<LoginUserDTO>(() => new LoginUserDTO());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<LoginUserDTO> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::gRPCClient.UserReflection.Descriptor.MessageTypes[0]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public LoginUserDTO() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public LoginUserDTO(LoginUserDTO other) : this() {
+      email_ = other.email_;
+      password_ = other.password_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public LoginUserDTO Clone() {
+      return new LoginUserDTO(this);
+    }
+
+    /// <summary>Field number for the "email" field.</summary>
+    public const int EmailFieldNumber = 1;
+    private string email_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Email {
+      get { return email_; }
+      set {
+        email_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "password" field.</summary>
+    public const int PasswordFieldNumber = 2;
+    private string password_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Password {
+      get { return password_; }
+      set {
+        password_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as LoginUserDTO);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(LoginUserDTO other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Email != other.Email) return false;
+      if (Password != other.Password) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Email.Length != 0) hash ^= Email.GetHashCode();
+      if (Password.Length != 0) hash ^= Password.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Email.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Email);
+      }
+      if (Password.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Password);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Email.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Email);
+      }
+      if (Password.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Password);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Email.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Email);
+      }
+      if (Password.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Password);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(LoginUserDTO other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Email.Length != 0) {
+        Email = other.Email;
+      }
+      if (other.Password.Length != 0) {
+        Password = other.Password;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Email = input.ReadString();
+            break;
+          }
+          case 18: {
+            Password = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Email = input.ReadString();
+            break;
+          }
+          case 18: {
+            Password = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class CreateUserDTO : pb::IMessage<CreateUserDTO>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -67,7 +295,7 @@ namespace gRPCClient {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::gRPCClient.UserReflection.Descriptor.MessageTypes[0]; }
+      get { return global::gRPCClient.UserReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -441,7 +669,7 @@ namespace gRPCClient {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::gRPCClient.UserReflection.Descriptor.MessageTypes[1]; }
+      get { return global::gRPCClient.UserReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -704,7 +932,7 @@ namespace gRPCClient {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::gRPCClient.UserReflection.Descriptor.MessageTypes[2]; }
+      get { return global::gRPCClient.UserReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1041,7 +1269,7 @@ namespace gRPCClient {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::gRPCClient.UserReflection.Descriptor.MessageTypes[3]; }
+      get { return global::gRPCClient.UserReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1067,7 +1295,6 @@ namespace gRPCClient {
       email_ = other.email_;
       phoneNumber_ = other.phoneNumber_;
       gender_ = other.gender_;
-      password_ = other.password_;
       dateOfRegistration_ = other.dateOfRegistration_ != null ? other.dateOfRegistration_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -1150,18 +1377,6 @@ namespace gRPCClient {
       }
     }
 
-    /// <summary>Field number for the "password" field.</summary>
-    public const int PasswordFieldNumber = 7;
-    private string password_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Password {
-      get { return password_; }
-      set {
-        password_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     /// <summary>Field number for the "dateOfRegistration" field.</summary>
     public const int DateOfRegistrationFieldNumber = 8;
     private global::gRPCClient.LocalDateTime dateOfRegistration_;
@@ -1195,7 +1410,6 @@ namespace gRPCClient {
       if (Email != other.Email) return false;
       if (PhoneNumber != other.PhoneNumber) return false;
       if (Gender != other.Gender) return false;
-      if (Password != other.Password) return false;
       if (!object.Equals(DateOfRegistration, other.DateOfRegistration)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -1210,7 +1424,6 @@ namespace gRPCClient {
       if (Email.Length != 0) hash ^= Email.GetHashCode();
       if (PhoneNumber.Length != 0) hash ^= PhoneNumber.GetHashCode();
       if (Gender != false) hash ^= Gender.GetHashCode();
-      if (Password.Length != 0) hash ^= Password.GetHashCode();
       if (dateOfRegistration_ != null) hash ^= DateOfRegistration.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1254,10 +1467,6 @@ namespace gRPCClient {
         output.WriteRawTag(48);
         output.WriteBool(Gender);
       }
-      if (Password.Length != 0) {
-        output.WriteRawTag(58);
-        output.WriteString(Password);
-      }
       if (dateOfRegistration_ != null) {
         output.WriteRawTag(66);
         output.WriteMessage(DateOfRegistration);
@@ -1296,10 +1505,6 @@ namespace gRPCClient {
         output.WriteRawTag(48);
         output.WriteBool(Gender);
       }
-      if (Password.Length != 0) {
-        output.WriteRawTag(58);
-        output.WriteString(Password);
-      }
       if (dateOfRegistration_ != null) {
         output.WriteRawTag(66);
         output.WriteMessage(DateOfRegistration);
@@ -1331,9 +1536,6 @@ namespace gRPCClient {
       }
       if (Gender != false) {
         size += 1 + 1;
-      }
-      if (Password.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Password);
       }
       if (dateOfRegistration_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(DateOfRegistration);
@@ -1367,9 +1569,6 @@ namespace gRPCClient {
       }
       if (other.Gender != false) {
         Gender = other.Gender;
-      }
-      if (other.Password.Length != 0) {
-        Password = other.Password;
       }
       if (other.dateOfRegistration_ != null) {
         if (dateOfRegistration_ == null) {
@@ -1416,10 +1615,6 @@ namespace gRPCClient {
             Gender = input.ReadBool();
             break;
           }
-          case 58: {
-            Password = input.ReadString();
-            break;
-          }
           case 66: {
             if (dateOfRegistration_ == null) {
               DateOfRegistration = new global::gRPCClient.LocalDateTime();
@@ -1464,10 +1659,6 @@ namespace gRPCClient {
           }
           case 48: {
             Gender = input.ReadBool();
-            break;
-          }
-          case 58: {
-            Password = input.ReadString();
             break;
           }
           case 66: {
