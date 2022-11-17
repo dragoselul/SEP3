@@ -22,7 +22,7 @@ public class UserLogic : IUserLogic
             LastName = dto.LastName
         };
         List<User>? existing = await userDao.GetAsync(searchUserParametersDto);
-        if (existing != null)
+        if (existing == null)
             throw new Exception("Username already taken!");
 
         ValidateData(dto);
@@ -33,9 +33,7 @@ public class UserLogic : IUserLogic
             email = dto.Email,
             password = dto.Password,
             phoneNumber = dto.PhoneNumber,
-            gender = dto.Gender,
-            dor = dto.Dor,
-            ItemsList = dto.ItemsList
+            gender = dto.Gender
         };
         
         User created = await userDao.CreateAsync(toCreate);

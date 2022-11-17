@@ -20,7 +20,6 @@ private static final long serialVersionUID = 0L;
     description_ = "";
     currency_ = "";
     category_ = "";
-    status_ = "";
   }
 
   @java.lang.Override
@@ -53,6 +52,11 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
+          case 8: {
+
+            ownerId_ = input.readInt64();
+            break;
+          }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
@@ -82,10 +86,9 @@ private static final long serialVersionUID = 0L;
             category_ = s;
             break;
           }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 56: {
 
-            status_ = s;
+            status_ = input.readBool();
             break;
           }
           default: {
@@ -120,6 +123,17 @@ private static final long serialVersionUID = 0L;
     return dk.via.nbnp.databaseserver.protobuf.ItemOuterClass.internal_static_CreateItemDTO_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             dk.via.nbnp.databaseserver.protobuf.CreateItemDTO.class, dk.via.nbnp.databaseserver.protobuf.CreateItemDTO.Builder.class);
+  }
+
+  public static final int OWNERID_FIELD_NUMBER = 1;
+  private long ownerId_;
+  /**
+   * <code>int64 ownerId = 1;</code>
+   * @return The ownerId.
+   */
+  @java.lang.Override
+  public long getOwnerId() {
+    return ownerId_;
   }
 
   public static final int NAME_FIELD_NUMBER = 2;
@@ -286,41 +300,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATUS_FIELD_NUMBER = 7;
-  private volatile java.lang.Object status_;
+  private boolean status_;
   /**
-   * <code>string status = 7;</code>
+   * <code>bool status = 7;</code>
    * @return The status.
    */
   @java.lang.Override
-  public java.lang.String getStatus() {
-    java.lang.Object ref = status_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      status_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string status = 7;</code>
-   * @return The bytes for status.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getStatusBytes() {
-    java.lang.Object ref = status_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      status_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public boolean getStatus() {
+    return status_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -337,6 +324,9 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (ownerId_ != 0L) {
+      output.writeInt64(1, ownerId_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
     }
@@ -352,8 +342,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(category_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, category_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, status_);
+    if (status_ != false) {
+      output.writeBool(7, status_);
     }
     unknownFields.writeTo(output);
   }
@@ -364,6 +354,10 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (ownerId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(1, ownerId_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
     }
@@ -380,8 +374,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(category_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, category_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, status_);
+    if (status_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(7, status_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -398,6 +393,8 @@ private static final long serialVersionUID = 0L;
     }
     dk.via.nbnp.databaseserver.protobuf.CreateItemDTO other = (dk.via.nbnp.databaseserver.protobuf.CreateItemDTO) obj;
 
+    if (getOwnerId()
+        != other.getOwnerId()) return false;
     if (!getName()
         .equals(other.getName())) return false;
     if (!getDescription()
@@ -409,8 +406,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCurrency())) return false;
     if (!getCategory()
         .equals(other.getCategory())) return false;
-    if (!getStatus()
-        .equals(other.getStatus())) return false;
+    if (getStatus()
+        != other.getStatus()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -422,6 +419,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + OWNERID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getOwnerId());
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
@@ -434,7 +434,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + CATEGORY_FIELD_NUMBER;
     hash = (53 * hash) + getCategory().hashCode();
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
-    hash = (53 * hash) + getStatus().hashCode();
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getStatus());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -568,6 +569,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      ownerId_ = 0L;
+
       name_ = "";
 
       description_ = "";
@@ -578,7 +581,7 @@ private static final long serialVersionUID = 0L;
 
       category_ = "";
 
-      status_ = "";
+      status_ = false;
 
       return this;
     }
@@ -606,6 +609,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public dk.via.nbnp.databaseserver.protobuf.CreateItemDTO buildPartial() {
       dk.via.nbnp.databaseserver.protobuf.CreateItemDTO result = new dk.via.nbnp.databaseserver.protobuf.CreateItemDTO(this);
+      result.ownerId_ = ownerId_;
       result.name_ = name_;
       result.description_ = description_;
       result.price_ = price_;
@@ -660,6 +664,9 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(dk.via.nbnp.databaseserver.protobuf.CreateItemDTO other) {
       if (other == dk.via.nbnp.databaseserver.protobuf.CreateItemDTO.getDefaultInstance()) return this;
+      if (other.getOwnerId() != 0L) {
+        setOwnerId(other.getOwnerId());
+      }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
         onChanged();
@@ -679,9 +686,8 @@ private static final long serialVersionUID = 0L;
         category_ = other.category_;
         onChanged();
       }
-      if (!other.getStatus().isEmpty()) {
-        status_ = other.status_;
-        onChanged();
+      if (other.getStatus() != false) {
+        setStatus(other.getStatus());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -709,6 +715,37 @@ private static final long serialVersionUID = 0L;
           mergeFrom(parsedMessage);
         }
       }
+      return this;
+    }
+
+    private long ownerId_ ;
+    /**
+     * <code>int64 ownerId = 1;</code>
+     * @return The ownerId.
+     */
+    @java.lang.Override
+    public long getOwnerId() {
+      return ownerId_;
+    }
+    /**
+     * <code>int64 ownerId = 1;</code>
+     * @param value The ownerId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOwnerId(long value) {
+      
+      ownerId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 ownerId = 1;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOwnerId() {
+      
+      ownerId_ = 0L;
+      onChanged();
       return this;
     }
 
@@ -1047,78 +1084,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object status_ = "";
+    private boolean status_ ;
     /**
-     * <code>string status = 7;</code>
+     * <code>bool status = 7;</code>
      * @return The status.
      */
-    public java.lang.String getStatus() {
-      java.lang.Object ref = status_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        status_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override
+    public boolean getStatus() {
+      return status_;
     }
     /**
-     * <code>string status = 7;</code>
-     * @return The bytes for status.
-     */
-    public com.google.protobuf.ByteString
-        getStatusBytes() {
-      java.lang.Object ref = status_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        status_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string status = 7;</code>
+     * <code>bool status = 7;</code>
      * @param value The status to set.
      * @return This builder for chaining.
      */
-    public Builder setStatus(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setStatus(boolean value) {
+      
       status_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string status = 7;</code>
+     * <code>bool status = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
       
-      status_ = getDefaultInstance().getStatus();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string status = 7;</code>
-     * @param value The bytes for status to set.
-     * @return This builder for chaining.
-     */
-    public Builder setStatusBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      status_ = value;
+      status_ = false;
       onChanged();
       return this;
     }

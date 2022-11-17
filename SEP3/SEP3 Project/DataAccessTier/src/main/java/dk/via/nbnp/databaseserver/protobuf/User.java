@@ -20,7 +20,6 @@ private static final long serialVersionUID = 0L;
     lastName_ = "";
     email_ = "";
     phoneNumber_ = "";
-    password_ = "";
   }
 
   @java.lang.Override
@@ -85,12 +84,6 @@ private static final long serialVersionUID = 0L;
           case 48: {
 
             gender_ = input.readBool();
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            password_ = s;
             break;
           }
           case 66: {
@@ -314,44 +307,6 @@ private static final long serialVersionUID = 0L;
     return gender_;
   }
 
-  public static final int PASSWORD_FIELD_NUMBER = 7;
-  private volatile java.lang.Object password_;
-  /**
-   * <code>string password = 7;</code>
-   * @return The password.
-   */
-  @java.lang.Override
-  public java.lang.String getPassword() {
-    java.lang.Object ref = password_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      password_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string password = 7;</code>
-   * @return The bytes for password.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getPasswordBytes() {
-    java.lang.Object ref = password_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      password_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
   public static final int DATEOFREGISTRATION_FIELD_NUMBER = 8;
   private dk.via.nbnp.databaseserver.protobuf.LocalDateTime dateOfRegistration_;
   /**
@@ -410,9 +365,6 @@ private static final long serialVersionUID = 0L;
     if (gender_ != false) {
       output.writeBool(6, gender_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, password_);
-    }
     if (dateOfRegistration_ != null) {
       output.writeMessage(8, getDateOfRegistration());
     }
@@ -445,9 +397,6 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(6, gender_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, password_);
-    }
     if (dateOfRegistration_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getDateOfRegistration());
@@ -479,8 +428,6 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPhoneNumber())) return false;
     if (getGender()
         != other.getGender()) return false;
-    if (!getPassword()
-        .equals(other.getPassword())) return false;
     if (hasDateOfRegistration() != other.hasDateOfRegistration()) return false;
     if (hasDateOfRegistration()) {
       if (!getDateOfRegistration()
@@ -511,8 +458,6 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + GENDER_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getGender());
-    hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
-    hash = (53 * hash) + getPassword().hashCode();
     if (hasDateOfRegistration()) {
       hash = (37 * hash) + DATEOFREGISTRATION_FIELD_NUMBER;
       hash = (53 * hash) + getDateOfRegistration().hashCode();
@@ -662,8 +607,6 @@ private static final long serialVersionUID = 0L;
 
       gender_ = false;
 
-      password_ = "";
-
       if (dateOfRegistrationBuilder_ == null) {
         dateOfRegistration_ = null;
       } else {
@@ -702,7 +645,6 @@ private static final long serialVersionUID = 0L;
       result.email_ = email_;
       result.phoneNumber_ = phoneNumber_;
       result.gender_ = gender_;
-      result.password_ = password_;
       if (dateOfRegistrationBuilder_ == null) {
         result.dateOfRegistration_ = dateOfRegistration_;
       } else {
@@ -777,10 +719,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getGender() != false) {
         setGender(other.getGender());
-      }
-      if (!other.getPassword().isEmpty()) {
-        password_ = other.password_;
-        onChanged();
       }
       if (other.hasDateOfRegistration()) {
         mergeDateOfRegistration(other.getDateOfRegistration());
@@ -1176,82 +1114,6 @@ private static final long serialVersionUID = 0L;
     public Builder clearGender() {
       
       gender_ = false;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object password_ = "";
-    /**
-     * <code>string password = 7;</code>
-     * @return The password.
-     */
-    public java.lang.String getPassword() {
-      java.lang.Object ref = password_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        password_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string password = 7;</code>
-     * @return The bytes for password.
-     */
-    public com.google.protobuf.ByteString
-        getPasswordBytes() {
-      java.lang.Object ref = password_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        password_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string password = 7;</code>
-     * @param value The password to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPassword(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      password_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string password = 7;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearPassword() {
-      
-      password_ = getDefaultInstance().getPassword();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string password = 7;</code>
-     * @param value The bytes for password to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPasswordBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      password_ = value;
       onChanged();
       return this;
     }

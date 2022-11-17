@@ -14,6 +14,37 @@ public final class UserServiceGrpc {
   public static final String SERVICE_NAME = "UserService";
 
   // Static method descriptors that strictly reflect the proto.
+  private static volatile io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.LoginUserDTO,
+      dk.via.nbnp.databaseserver.protobuf.User> getLoginMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "login",
+      requestType = dk.via.nbnp.databaseserver.protobuf.LoginUserDTO.class,
+      responseType = dk.via.nbnp.databaseserver.protobuf.User.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.LoginUserDTO,
+      dk.via.nbnp.databaseserver.protobuf.User> getLoginMethod() {
+    io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.LoginUserDTO, dk.via.nbnp.databaseserver.protobuf.User> getLoginMethod;
+    if ((getLoginMethod = UserServiceGrpc.getLoginMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getLoginMethod = UserServiceGrpc.getLoginMethod) == null) {
+          UserServiceGrpc.getLoginMethod = getLoginMethod =
+              io.grpc.MethodDescriptor.<dk.via.nbnp.databaseserver.protobuf.LoginUserDTO, dk.via.nbnp.databaseserver.protobuf.User>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "login"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.nbnp.databaseserver.protobuf.LoginUserDTO.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.nbnp.databaseserver.protobuf.User.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("login"))
+              .build();
+        }
+      }
+    }
+    return getLoginMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.CreateUserDTO,
       dk.via.nbnp.databaseserver.protobuf.User> getCreateUserMethod;
 
@@ -219,6 +250,13 @@ public final class UserServiceGrpc {
 
     /**
      */
+    public void login(dk.via.nbnp.databaseserver.protobuf.LoginUserDTO request,
+        io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.User> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getLoginMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void createUser(dk.via.nbnp.databaseserver.protobuf.CreateUserDTO request,
         io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.User> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateUserMethod(), responseObserver);
@@ -254,6 +292,13 @@ public final class UserServiceGrpc {
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
+          .addMethod(
+            getLoginMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                dk.via.nbnp.databaseserver.protobuf.LoginUserDTO,
+                dk.via.nbnp.databaseserver.protobuf.User>(
+                  this, METHODID_LOGIN)))
           .addMethod(
             getCreateUserMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -305,6 +350,14 @@ public final class UserServiceGrpc {
     protected UserServiceStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new UserServiceStub(channel, callOptions);
+    }
+
+    /**
+     */
+    public void login(dk.via.nbnp.databaseserver.protobuf.LoginUserDTO request,
+        io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.User> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getLoginMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -364,6 +417,13 @@ public final class UserServiceGrpc {
 
     /**
      */
+    public dk.via.nbnp.databaseserver.protobuf.User login(dk.via.nbnp.databaseserver.protobuf.LoginUserDTO request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getLoginMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public dk.via.nbnp.databaseserver.protobuf.User createUser(dk.via.nbnp.databaseserver.protobuf.CreateUserDTO request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateUserMethod(), getCallOptions(), request);
@@ -415,6 +475,14 @@ public final class UserServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<dk.via.nbnp.databaseserver.protobuf.User> login(
+        dk.via.nbnp.databaseserver.protobuf.LoginUserDTO request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getLoginMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<dk.via.nbnp.databaseserver.protobuf.User> createUser(
         dk.via.nbnp.databaseserver.protobuf.CreateUserDTO request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -446,11 +514,12 @@ public final class UserServiceGrpc {
     }
   }
 
-  private static final int METHODID_CREATE_USER = 0;
-  private static final int METHODID_GET_USERS = 1;
-  private static final int METHODID_GET_USER_BY_ID = 2;
-  private static final int METHODID_UPDATE_USER = 3;
-  private static final int METHODID_DELETE_USER = 4;
+  private static final int METHODID_LOGIN = 0;
+  private static final int METHODID_CREATE_USER = 1;
+  private static final int METHODID_GET_USERS = 2;
+  private static final int METHODID_GET_USER_BY_ID = 3;
+  private static final int METHODID_UPDATE_USER = 4;
+  private static final int METHODID_DELETE_USER = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -469,6 +538,10 @@ public final class UserServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_LOGIN:
+          serviceImpl.login((dk.via.nbnp.databaseserver.protobuf.LoginUserDTO) request,
+              (io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.User>) responseObserver);
+          break;
         case METHODID_CREATE_USER:
           serviceImpl.createUser((dk.via.nbnp.databaseserver.protobuf.CreateUserDTO) request,
               (io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.User>) responseObserver);
@@ -550,6 +623,7 @@ public final class UserServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new UserServiceFileDescriptorSupplier())
+              .addMethod(getLoginMethod())
               .addMethod(getCreateUserMethod())
               .addMethod(getGetUsersMethod())
               .addMethod(getGetUserByIdMethod())

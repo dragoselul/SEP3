@@ -22,11 +22,11 @@ public class UserFileDao : IUserDao
         await ClientUser.createUserAsync(new CreateUserDTO
         {
             FirstName = user.firstName,
-            Email = user.email,
             LastName = user.lastName,
-            Gender = user.gender,
+            Email = user.email,
             Password = user.password,
-            PhoneNumber = user.phoneNumber,
+            Gender = user.gender,
+            PhoneNumber = user.phoneNumber
         });
 
         return await Task.FromResult(user);

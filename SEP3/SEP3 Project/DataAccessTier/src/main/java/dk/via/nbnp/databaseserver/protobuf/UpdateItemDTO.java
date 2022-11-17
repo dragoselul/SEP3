@@ -20,7 +20,6 @@ private static final long serialVersionUID = 0L;
     description_ = "";
     currency_ = "";
     category_ = "";
-    status_ = "";
   }
 
   @java.lang.Override
@@ -58,39 +57,43 @@ private static final long serialVersionUID = 0L;
             id_ = input.readInt64();
             break;
           }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 16: {
 
-            name_ = s;
+            ownerId_ = input.readInt64();
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
+            name_ = s;
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
             description_ = s;
             break;
           }
-          case 33: {
+          case 41: {
 
             price_ = input.readDouble();
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            currency_ = s;
             break;
           }
           case 50: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            category_ = s;
+            currency_ = s;
             break;
           }
           case 58: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            status_ = s;
+            category_ = s;
+            break;
+          }
+          case 64: {
+
+            status_ = input.readBool();
             break;
           }
           default: {
@@ -138,10 +141,21 @@ private static final long serialVersionUID = 0L;
     return id_;
   }
 
-  public static final int NAME_FIELD_NUMBER = 2;
+  public static final int OWNERID_FIELD_NUMBER = 2;
+  private long ownerId_;
+  /**
+   * <code>int64 ownerId = 2;</code>
+   * @return The ownerId.
+   */
+  @java.lang.Override
+  public long getOwnerId() {
+    return ownerId_;
+  }
+
+  public static final int NAME_FIELD_NUMBER = 3;
   private volatile java.lang.Object name_;
   /**
-   * <code>string name = 2;</code>
+   * <code>string name = 3;</code>
    * @return The name.
    */
   @java.lang.Override
@@ -158,7 +172,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string name = 2;</code>
+   * <code>string name = 3;</code>
    * @return The bytes for name.
    */
   @java.lang.Override
@@ -176,10 +190,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int DESCRIPTION_FIELD_NUMBER = 3;
+  public static final int DESCRIPTION_FIELD_NUMBER = 4;
   private volatile java.lang.Object description_;
   /**
-   * <code>string description = 3;</code>
+   * <code>string description = 4;</code>
    * @return The description.
    */
   @java.lang.Override
@@ -196,7 +210,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string description = 3;</code>
+   * <code>string description = 4;</code>
    * @return The bytes for description.
    */
   @java.lang.Override
@@ -214,10 +228,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int PRICE_FIELD_NUMBER = 4;
+  public static final int PRICE_FIELD_NUMBER = 5;
   private double price_;
   /**
-   * <code>double price = 4;</code>
+   * <code>double price = 5;</code>
    * @return The price.
    */
   @java.lang.Override
@@ -225,10 +239,10 @@ private static final long serialVersionUID = 0L;
     return price_;
   }
 
-  public static final int CURRENCY_FIELD_NUMBER = 5;
+  public static final int CURRENCY_FIELD_NUMBER = 6;
   private volatile java.lang.Object currency_;
   /**
-   * <code>string currency = 5;</code>
+   * <code>string currency = 6;</code>
    * @return The currency.
    */
   @java.lang.Override
@@ -245,7 +259,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string currency = 5;</code>
+   * <code>string currency = 6;</code>
    * @return The bytes for currency.
    */
   @java.lang.Override
@@ -263,10 +277,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CATEGORY_FIELD_NUMBER = 6;
+  public static final int CATEGORY_FIELD_NUMBER = 7;
   private volatile java.lang.Object category_;
   /**
-   * <code>string category = 6;</code>
+   * <code>string category = 7;</code>
    * @return The category.
    */
   @java.lang.Override
@@ -283,7 +297,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string category = 6;</code>
+   * <code>string category = 7;</code>
    * @return The bytes for category.
    */
   @java.lang.Override
@@ -301,42 +315,15 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int STATUS_FIELD_NUMBER = 7;
-  private volatile java.lang.Object status_;
+  public static final int STATUS_FIELD_NUMBER = 8;
+  private boolean status_;
   /**
-   * <code>string status = 7;</code>
+   * <code>bool status = 8;</code>
    * @return The status.
    */
   @java.lang.Override
-  public java.lang.String getStatus() {
-    java.lang.Object ref = status_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      status_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string status = 7;</code>
-   * @return The bytes for status.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getStatusBytes() {
-    java.lang.Object ref = status_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      status_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public boolean getStatus() {
+    return status_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -356,23 +343,26 @@ private static final long serialVersionUID = 0L;
     if (id_ != 0L) {
       output.writeInt64(1, id_);
     }
+    if (ownerId_ != 0L) {
+      output.writeInt64(2, ownerId_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, name_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, description_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, description_);
     }
     if (java.lang.Double.doubleToRawLongBits(price_) != 0) {
-      output.writeDouble(4, price_);
+      output.writeDouble(5, price_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(currency_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, currency_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, currency_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(category_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, category_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, category_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, status_);
+    if (status_ != false) {
+      output.writeBool(8, status_);
     }
     unknownFields.writeTo(output);
   }
@@ -387,24 +377,29 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(1, id_);
     }
+    if (ownerId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(2, ownerId_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, name_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, description_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, description_);
     }
     if (java.lang.Double.doubleToRawLongBits(price_) != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(4, price_);
+        .computeDoubleSize(5, price_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(currency_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, currency_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, currency_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(category_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, category_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, category_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, status_);
+    if (status_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(8, status_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -423,6 +418,8 @@ private static final long serialVersionUID = 0L;
 
     if (getId()
         != other.getId()) return false;
+    if (getOwnerId()
+        != other.getOwnerId()) return false;
     if (!getName()
         .equals(other.getName())) return false;
     if (!getDescription()
@@ -434,8 +431,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCurrency())) return false;
     if (!getCategory()
         .equals(other.getCategory())) return false;
-    if (!getStatus()
-        .equals(other.getStatus())) return false;
+    if (getStatus()
+        != other.getStatus()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -450,6 +447,9 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getId());
+    hash = (37 * hash) + OWNERID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getOwnerId());
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
@@ -462,7 +462,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + CATEGORY_FIELD_NUMBER;
     hash = (53 * hash) + getCategory().hashCode();
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
-    hash = (53 * hash) + getStatus().hashCode();
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getStatus());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -598,6 +599,8 @@ private static final long serialVersionUID = 0L;
       super.clear();
       id_ = 0L;
 
+      ownerId_ = 0L;
+
       name_ = "";
 
       description_ = "";
@@ -608,7 +611,7 @@ private static final long serialVersionUID = 0L;
 
       category_ = "";
 
-      status_ = "";
+      status_ = false;
 
       return this;
     }
@@ -637,6 +640,7 @@ private static final long serialVersionUID = 0L;
     public dk.via.nbnp.databaseserver.protobuf.UpdateItemDTO buildPartial() {
       dk.via.nbnp.databaseserver.protobuf.UpdateItemDTO result = new dk.via.nbnp.databaseserver.protobuf.UpdateItemDTO(this);
       result.id_ = id_;
+      result.ownerId_ = ownerId_;
       result.name_ = name_;
       result.description_ = description_;
       result.price_ = price_;
@@ -694,6 +698,9 @@ private static final long serialVersionUID = 0L;
       if (other.getId() != 0L) {
         setId(other.getId());
       }
+      if (other.getOwnerId() != 0L) {
+        setOwnerId(other.getOwnerId());
+      }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
         onChanged();
@@ -713,9 +720,8 @@ private static final long serialVersionUID = 0L;
         category_ = other.category_;
         onChanged();
       }
-      if (!other.getStatus().isEmpty()) {
-        status_ = other.status_;
-        onChanged();
+      if (other.getStatus() != false) {
+        setStatus(other.getStatus());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -777,9 +783,40 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private long ownerId_ ;
+    /**
+     * <code>int64 ownerId = 2;</code>
+     * @return The ownerId.
+     */
+    @java.lang.Override
+    public long getOwnerId() {
+      return ownerId_;
+    }
+    /**
+     * <code>int64 ownerId = 2;</code>
+     * @param value The ownerId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOwnerId(long value) {
+      
+      ownerId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 ownerId = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOwnerId() {
+      
+      ownerId_ = 0L;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object name_ = "";
     /**
-     * <code>string name = 2;</code>
+     * <code>string name = 3;</code>
      * @return The name.
      */
     public java.lang.String getName() {
@@ -795,7 +832,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 2;</code>
+     * <code>string name = 3;</code>
      * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
@@ -812,7 +849,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 2;</code>
+     * <code>string name = 3;</code>
      * @param value The name to set.
      * @return This builder for chaining.
      */
@@ -827,7 +864,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 2;</code>
+     * <code>string name = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
@@ -837,7 +874,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 2;</code>
+     * <code>string name = 3;</code>
      * @param value The bytes for name to set.
      * @return This builder for chaining.
      */
@@ -855,7 +892,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object description_ = "";
     /**
-     * <code>string description = 3;</code>
+     * <code>string description = 4;</code>
      * @return The description.
      */
     public java.lang.String getDescription() {
@@ -871,7 +908,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string description = 3;</code>
+     * <code>string description = 4;</code>
      * @return The bytes for description.
      */
     public com.google.protobuf.ByteString
@@ -888,7 +925,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string description = 3;</code>
+     * <code>string description = 4;</code>
      * @param value The description to set.
      * @return This builder for chaining.
      */
@@ -903,7 +940,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string description = 3;</code>
+     * <code>string description = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
@@ -913,7 +950,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string description = 3;</code>
+     * <code>string description = 4;</code>
      * @param value The bytes for description to set.
      * @return This builder for chaining.
      */
@@ -931,7 +968,7 @@ private static final long serialVersionUID = 0L;
 
     private double price_ ;
     /**
-     * <code>double price = 4;</code>
+     * <code>double price = 5;</code>
      * @return The price.
      */
     @java.lang.Override
@@ -939,7 +976,7 @@ private static final long serialVersionUID = 0L;
       return price_;
     }
     /**
-     * <code>double price = 4;</code>
+     * <code>double price = 5;</code>
      * @param value The price to set.
      * @return This builder for chaining.
      */
@@ -950,7 +987,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>double price = 4;</code>
+     * <code>double price = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearPrice() {
@@ -962,7 +999,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object currency_ = "";
     /**
-     * <code>string currency = 5;</code>
+     * <code>string currency = 6;</code>
      * @return The currency.
      */
     public java.lang.String getCurrency() {
@@ -978,7 +1015,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string currency = 5;</code>
+     * <code>string currency = 6;</code>
      * @return The bytes for currency.
      */
     public com.google.protobuf.ByteString
@@ -995,7 +1032,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string currency = 5;</code>
+     * <code>string currency = 6;</code>
      * @param value The currency to set.
      * @return This builder for chaining.
      */
@@ -1010,7 +1047,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string currency = 5;</code>
+     * <code>string currency = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearCurrency() {
@@ -1020,7 +1057,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string currency = 5;</code>
+     * <code>string currency = 6;</code>
      * @param value The bytes for currency to set.
      * @return This builder for chaining.
      */
@@ -1038,7 +1075,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object category_ = "";
     /**
-     * <code>string category = 6;</code>
+     * <code>string category = 7;</code>
      * @return The category.
      */
     public java.lang.String getCategory() {
@@ -1054,7 +1091,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string category = 6;</code>
+     * <code>string category = 7;</code>
      * @return The bytes for category.
      */
     public com.google.protobuf.ByteString
@@ -1071,7 +1108,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string category = 6;</code>
+     * <code>string category = 7;</code>
      * @param value The category to set.
      * @return This builder for chaining.
      */
@@ -1086,7 +1123,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string category = 6;</code>
+     * <code>string category = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearCategory() {
@@ -1096,7 +1133,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string category = 6;</code>
+     * <code>string category = 7;</code>
      * @param value The bytes for category to set.
      * @return This builder for chaining.
      */
@@ -1112,78 +1149,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object status_ = "";
+    private boolean status_ ;
     /**
-     * <code>string status = 7;</code>
+     * <code>bool status = 8;</code>
      * @return The status.
      */
-    public java.lang.String getStatus() {
-      java.lang.Object ref = status_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        status_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override
+    public boolean getStatus() {
+      return status_;
     }
     /**
-     * <code>string status = 7;</code>
-     * @return The bytes for status.
-     */
-    public com.google.protobuf.ByteString
-        getStatusBytes() {
-      java.lang.Object ref = status_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        status_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string status = 7;</code>
+     * <code>bool status = 8;</code>
      * @param value The status to set.
      * @return This builder for chaining.
      */
-    public Builder setStatus(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setStatus(boolean value) {
+      
       status_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string status = 7;</code>
+     * <code>bool status = 8;</code>
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
       
-      status_ = getDefaultInstance().getStatus();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string status = 7;</code>
-     * @param value The bytes for status to set.
-     * @return This builder for chaining.
-     */
-    public Builder setStatusBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      status_ = value;
+      status_ = false;
       onChanged();
       return this;
     }
