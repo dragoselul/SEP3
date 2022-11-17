@@ -27,7 +27,7 @@ public class ItemFileDao : IItemDao
             Description = item.Description,
             Name = item.Name,
             Price = item.Pricing,
-            Status = item.IsSold.ToString()
+            Status = item.IsSold
         });
         return await Task.FromResult(item);
     }
@@ -39,8 +39,7 @@ public class ItemFileDao : IItemDao
         {
             while (true)
             {
-                gRPCClient.Item? item = ClientItem.getItemAsync(new SearchItemDTO() { Name = "", Id = 0})
-                    .ResponseAsync.Result;
+                gRPCClient.Item? item = ClientItem.getItems(new SearchItemDTO() { Name = "", Id = 0}).ResponseStream.Current;
                 Item? toSend = new()
                 {
                     Id = (int)item.Id,
@@ -70,8 +69,8 @@ public class ItemFileDao : IItemDao
         {
             while (true)
             {
-                gRPCClient.Item? item = ClientItem.getItemAsync(new SearchItemDTO() { Id = 0, OwnerId = (long)searchParams.ContactId, Name = searchParams.Name, Description = searchParams.Description, Price = (double)searchParams.Pricing ,Status = (bool)searchParams.IsSold})
-                    .ResponseAsync.Result;
+                gRPCClient.Item? item = ClientItem.getItems(new SearchItemDTO() { Id = 0, OwnerId = (long)searchParams.ContactId, Name = searchParams.Name, Description = searchParams.Description, Price = (double)searchParams.Pricing ,Status = (bool)searchParams.IsSold})
+                    .ResponseStream.Current;
                 Item? toSend = new()
                 {
                     Id = (int)item.Id,
@@ -95,7 +94,7 @@ public class ItemFileDao : IItemDao
     
     public async Task<Item> GetByIdAsync(int id)
     {
-        gRPCClient.Item? item  = ClientItem.getItemAsync(new SearchItemDTO { Id = id, OwnerId = 0, Name = "", Description = "", Price = 0 ,Status = false})
+        gRPCClient.Item? item  = ClientItem.getItemByIdAsync(new SearchItemDTO { Id = id, OwnerId = 0, Name = "", Description = "", Price = 0 ,Status = false})
             .ResponseAsync.Result;
         Item? toSend = new()
         {
@@ -113,21 +112,21 @@ public class ItemFileDao : IItemDao
 
     public async Task UpdateAsync(Item toUpdate)
     {
-        gRPCClient.Item? item = ClientItem.getItemAsync(new SearchItemDTO { Id = toUpdate.Id, OwnerId = toUpdate.OwnerId, Name = toUpdate.Name, Description = toUpdate.Description, Price = toUpdate.Pricing ,Status = toUpdate.IsSold})
+        gRPCClient.Item? item = ClientItem.getItemByIdAsync(new SearchItemDTO { Id = toUpdate.Id, OwnerId = toUpdate.OwnerId, Name = toUpdate.Name, Description = toUpdate.Description, Price = toUpdate.Pricing ,Status = toUpdate.IsSold})
             .ResponseAsync.Result;
         if (item == null)
         {
             throw new Exception($"Item with id {toUpdate.Id} does not exist!");
         }
 
-        await ClientItem.updateItemAsync(new CreateItemDTO()
+        await ClientItem.updateItemAsync(new UpdateItemDTO()
         {
             Name = toUpdate.Name,
             Category = toUpdate.Category,
             Price = toUpdate.Pricing,
             Currency = toUpdate.Currency,
             Description = toUpdate.Description,
-            Status = toUpdate.IsSold.ToString()
+            Status = toUpdate.IsSold
         });
     }
 
