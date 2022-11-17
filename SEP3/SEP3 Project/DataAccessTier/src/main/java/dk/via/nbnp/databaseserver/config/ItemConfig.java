@@ -20,7 +20,8 @@ public class ItemConfig {
                     500.0,
                     "DKK",
                     "Electronics",
-                    false
+                    false,
+                    null
             );
 
             Item item2 = new Item(
@@ -29,7 +30,8 @@ public class ItemConfig {
                     1500.0,
                     "DKK",
                     "Electronics",
-                    false
+                    false,
+                    null
             );
 
             repository.saveAll(List.of(item, item2));
