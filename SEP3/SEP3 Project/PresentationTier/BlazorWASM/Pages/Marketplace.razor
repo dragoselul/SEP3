@@ -1,19 +1,25 @@
 ﻿@page "/Marketplace"
-<h3>ChadList Marketplace</h3>
-
 <div class="container">
-                <div class="row my-5">
-                  <div class="col-12 mt-3 blue"><h1 class="text-center">Items</h1></div>
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-12 mt-3 blue">
+                <h1 class="text-center">Items</h1></div>
+        </div>
+        <div class="row my-5 align-center border border-2 rounded-top">
+            <div class="row">
+                <div class="col-lg-4 text-center justify-content-center">
+                    <ItemCard Image="../Images/kompai.jpg" Name="Gaming PC" Price="69.420" FullNameSeller="John White"></ItemCard>    
                 </div>
-              
-                <div class="row my-5 align-center">
-                    <div class="col-12 col-sm-6 col-xl-3 px-5 text-center justify-content-center my-5"><a href="computers"><img src="Images/kompai.jpg" class="img-fluid" alt="kompai"></a><h1>Computers</h1><h5 class="gray"><p id="demo"></p>price</h5></div>
-                    <div class="col-12 col-sm-6 col-xl-3 px-5 text-center justify-content-center my-5"><a href="telefonai.html"><img src="Images/telefonai.jpg" class="img-fluid" alt="telefonai"></a><h1>Phones</h1><h5 class="gray">price</h5></div>
-                    <div class="col-12 col-sm-6 col-xl-3 px-5 text-center justify-content-center my-5"><a href="garsas.html"><img src="Images/garsas.jpg" class="img-fluid" alt="garsas"></a><h1>Speakers</h1><h5 class="gray">price </h5></div>
-                    <div class="col-12 col-sm-6 col-xl-3 px-5 text-center justify-content-center my-5"><a href="namai.html"><img src="Images/namai.jpg" class="img-fluid" alt="vaizdas"></a><h1>Ladders</h1><h5 class="gray">price</h5></div>
+                <div class="col-lg-4 text-center justify-content-center">
+                    <ItemCard Image="../Images/kompai.jpg" Name="Gaming PC" Price="69.420" FullNameSeller="John White"></ItemCard>    
                 </div>
-                    
+                <div class="col-lg-4 text-center justify-content-center">
+                    <ItemCard Image="../Images/kompai.jpg" Name="Gaming PC" Price="69.420" FullNameSeller="John White"></ItemCard>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
             
 
 @code {

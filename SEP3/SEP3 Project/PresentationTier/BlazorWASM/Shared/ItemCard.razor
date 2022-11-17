@@ -1,0 +1,28 @@
+﻿<div class="card m-2">
+ <div class="card-body">
+     <div class="card-text text-center">
+        <img class="card-img-top img-fluid" src="@Image" alt="Card image cap">
+        <h5>@Name</h5>
+    </div>
+    <div>
+        <h6 class="card-text"><b>Price</b>: <small>@Price</small>$</h6>
+        <h6 class="card-text"><b>Seller Name</b>: <small>@FullNameSeller</small></h6>
+    </div>
+         
+ </div>
+</div>
+
+@code {
+
+   [Parameter]
+   public string Name {get; set;}
+
+   [Parameter]
+   public string Image {get; set;}
+
+   [Parameter]
+   public double Price { get; set; }
+    
+    [Parameter]
+    public string FullNameSeller {get; set;}
+}
