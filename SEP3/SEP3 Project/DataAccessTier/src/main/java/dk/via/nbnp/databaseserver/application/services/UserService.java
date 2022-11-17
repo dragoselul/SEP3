@@ -18,53 +18,87 @@ public class UserService extends UserServiceGrpc.UserServiceImplBase {
     private final UserRepository userRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository){
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    @Override
-    public void getUser(SearchUserDTO request, StreamObserver<User> responseObserver) {
-        ArrayList<dk.via.nbnp.databaseserver.domain.User> users = new ArrayList<>(userRepository.findAll());
-        if(users.isEmpty()){
-            System.out.println("User was not found");
-        }else{
-            dk.via.nbnp.databaseserver.domain.User user = null;
-            for (int i = 0; i < users.size(); i++) {
-                if(users.get(i).getFirstName().equals(request.getFirstName()) && users.get(i).getLastName().equals(request.getLastName())) {
-                    user = users.get(i);
-                    i = users.size();
-                }
-            }
-            if(user == null)
-                try {
-                    throw new Exception("There is no user with these credentials!");
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
-            LocalDateTime dateOfRegistration = LocalDateTime.newBuilder()
-                    .setYear(user.getDateOfRegistration().getYear())
-                    .setMonth(user.getDateOfRegistration().getMonthValue())
-                    .setDay(user.getDateOfRegistration().getDayOfMonth())
-                    .setHour(user.getDateOfRegistration().getHour())
-                    .setMinute(user.getDateOfRegistration().getMinute())
+  /*  @Override
+    public void serverSideStreamingGetListStockQuotes(Stock request, StreamObserver<StockQuote> responseObserver) {
+        for (int i = 1; i <= 5; i++) {
+            StockQuote stockQuote = StockQuote.newBuilder()
+                    .setPrice(fetchStockPriceBid(request))
+                    .setOfferNumber(i)
+                    .setDescription("Price for stock:" + request.getTickerSymbol())
                     .build();
-
-            User toSend = User.newBuilder()
-                    .setId(user.getId())
-                    .setFirstName(user.getFirstName())
-                    .setLastName(user.getLastName())
-                    .setEmail(user.getEmail())
-                    .setPhoneNumber(user.getPhoneNumber())
-                    .setGender(user.isGender())
-                    .setDateOfRegistration(dateOfRegistration)
-                    .build();
-
-            responseObserver.onNext(toSend);
-            responseObserver.onCompleted();
-
+            responseObserver.onNext(stockQuote);
         }
+        responseObserver.onCompleted();
+    }
 
+   */
 
+    @Override
+    public void getUsers(SearchUserDTO request, StreamObserver<User> responseObserver) {
+        ArrayList<dk.via.nbnp.databaseserver.domain.User> users = new ArrayList<>(userRepository.findAll());
+        dk.via.nbnp.databaseserver.domain.User user = null;
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getFirstName().equals(request.getFirstName()) || users.get(i).getLastName().equals(request.getLastName())) {
+                user = users.get(i);
+                LocalDateTime dateOfRegistration = LocalDateTime.newBuilder()
+                        .setYear(user.getDateOfRegistration().getYear())
+                        .setMonth(user.getDateOfRegistration().getMonthValue())
+                        .setDay(user.getDateOfRegistration().getDayOfMonth())
+                        .setHour(user.getDateOfRegistration().getHour())
+                        .setMinute(user.getDateOfRegistration().getMinute())
+                        .build();
+
+                User toSend = User.newBuilder()
+                        .setId(user.getId())
+                        .setFirstName(user.getFirstName())
+                        .setLastName(user.getLastName())
+                        .setEmail(user.getEmail())
+                        .setPhoneNumber(user.getPhoneNumber())
+                        .setGender(user.isGender())
+                        .setDateOfRegistration(dateOfRegistration)
+                        .build();
+                responseObserver.onNext(toSend);
+            }
+        }
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getUserById(SearchUserDTO request, StreamObserver<User> responseObserver) {
+        dk.via.nbnp.databaseserver.domain.User user = null;
+        user = userRepository.findById(request.getId()).get();
+        LocalDateTime dateOfRegistration = LocalDateTime.newBuilder()
+                .setYear(user.getDateOfRegistration().getYear())
+                .setMonth(user.getDateOfRegistration().getMonthValue())
+                .setDay(user.getDateOfRegistration().getDayOfMonth())
+                .setHour(user.getDateOfRegistration().getHour())
+                .setMinute(user.getDateOfRegistration().getMinute())
+                .build();
+        User toSend = User.newBuilder()
+                .setId(user.getId())
+                .setFirstName(user.getFirstName())
+                .setLastName(user.getLastName())
+                .setEmail(user.getEmail())
+                .setPhoneNumber(user.getPhoneNumber())
+                .setGender(user.isGender())
+                .setDateOfRegistration(dateOfRegistration)
+                .build();
+        responseObserver.onNext(toSend);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void updateUser(CreateUserDTO request, StreamObserver<User> responseObserver) {
+        super.updateUser(request, responseObserver);
+    }
+
+    @Override
+    public void deleteUser(SearchUserDTO request, StreamObserver<User> responseObserver) {
+        super.deleteUser(request, responseObserver);
     }
 
     @Override
@@ -92,5 +126,5 @@ public class UserService extends UserServiceGrpc.UserServiceImplBase {
         responseObserver.onNext(gRPCUser);
         responseObserver.onCompleted();
     }
-
 }
+

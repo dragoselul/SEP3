@@ -54,12 +54,13 @@ public final class UserOuterClass {
       "tName\030\002 \001(\t\022\020\n\010lastName\030\003 \001(\t\022\r\n\005email\030\004" +
       " \001(\t\022\023\n\013phoneNumber\030\005 \001(\t\022\016\n\006gender\030\006 \001(" +
       "\010\022\020\n\010password\030\007 \001(\t\022*\n\022dateOfRegistratio" +
-      "n\030\010 \001(\0132\016.LocalDateTime2\236\001\n\013UserService\022" +
-      "#\n\ncreateUser\022\016.CreateUserDTO\032\005.User\022 \n\007" +
-      "getUser\022\016.SearchUserDTO\032\005.User\022#\n\nupdate" +
-      "User\022\016.CreateUserDTO\032\005.User\022#\n\ndeleteUse" +
-      "r\022\016.SearchUserDTO\032\005.UserB\'\n#dk.via.nbnp." +
-      "databaseserver.protobufP\001b\006proto3"
+      "n\030\010 \001(\0132\016.LocalDateTime2\307\001\n\013UserService\022" +
+      "#\n\ncreateUser\022\016.CreateUserDTO\032\005.User\022#\n\010" +
+      "getUsers\022\016.SearchUserDTO\032\005.User0\001\022$\n\013get" +
+      "UserById\022\016.SearchUserDTO\032\005.User\022#\n\nupdat" +
+      "eUser\022\016.CreateUserDTO\032\005.User\022#\n\ndeleteUs" +
+      "er\022\016.SearchUserDTO\032\005.UserB\'\n#dk.via.nbnp" +
+      ".databaseserver.protobufP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

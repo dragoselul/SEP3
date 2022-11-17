@@ -15,34 +15,65 @@ public final class ItemServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.SearchItemDTO,
-      dk.via.nbnp.databaseserver.protobuf.Item> getGetItemMethod;
+      dk.via.nbnp.databaseserver.protobuf.Item> getGetItemsMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "getItem",
+      fullMethodName = SERVICE_NAME + '/' + "getItems",
       requestType = dk.via.nbnp.databaseserver.protobuf.SearchItemDTO.class,
       responseType = dk.via.nbnp.databaseserver.protobuf.Item.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
   public static io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.SearchItemDTO,
-      dk.via.nbnp.databaseserver.protobuf.Item> getGetItemMethod() {
-    io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.SearchItemDTO, dk.via.nbnp.databaseserver.protobuf.Item> getGetItemMethod;
-    if ((getGetItemMethod = ItemServiceGrpc.getGetItemMethod) == null) {
+      dk.via.nbnp.databaseserver.protobuf.Item> getGetItemsMethod() {
+    io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.SearchItemDTO, dk.via.nbnp.databaseserver.protobuf.Item> getGetItemsMethod;
+    if ((getGetItemsMethod = ItemServiceGrpc.getGetItemsMethod) == null) {
       synchronized (ItemServiceGrpc.class) {
-        if ((getGetItemMethod = ItemServiceGrpc.getGetItemMethod) == null) {
-          ItemServiceGrpc.getGetItemMethod = getGetItemMethod =
+        if ((getGetItemsMethod = ItemServiceGrpc.getGetItemsMethod) == null) {
+          ItemServiceGrpc.getGetItemsMethod = getGetItemsMethod =
               io.grpc.MethodDescriptor.<dk.via.nbnp.databaseserver.protobuf.SearchItemDTO, dk.via.nbnp.databaseserver.protobuf.Item>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getItem"))
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getItems"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   dk.via.nbnp.databaseserver.protobuf.SearchItemDTO.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   dk.via.nbnp.databaseserver.protobuf.Item.getDefaultInstance()))
-              .setSchemaDescriptor(new ItemServiceMethodDescriptorSupplier("getItem"))
+              .setSchemaDescriptor(new ItemServiceMethodDescriptorSupplier("getItems"))
               .build();
         }
       }
     }
-    return getGetItemMethod;
+    return getGetItemsMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.SearchItemDTO,
+      dk.via.nbnp.databaseserver.protobuf.Item> getGetItemByIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getItemById",
+      requestType = dk.via.nbnp.databaseserver.protobuf.SearchItemDTO.class,
+      responseType = dk.via.nbnp.databaseserver.protobuf.Item.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.SearchItemDTO,
+      dk.via.nbnp.databaseserver.protobuf.Item> getGetItemByIdMethod() {
+    io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.SearchItemDTO, dk.via.nbnp.databaseserver.protobuf.Item> getGetItemByIdMethod;
+    if ((getGetItemByIdMethod = ItemServiceGrpc.getGetItemByIdMethod) == null) {
+      synchronized (ItemServiceGrpc.class) {
+        if ((getGetItemByIdMethod = ItemServiceGrpc.getGetItemByIdMethod) == null) {
+          ItemServiceGrpc.getGetItemByIdMethod = getGetItemByIdMethod =
+              io.grpc.MethodDescriptor.<dk.via.nbnp.databaseserver.protobuf.SearchItemDTO, dk.via.nbnp.databaseserver.protobuf.Item>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getItemById"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.nbnp.databaseserver.protobuf.SearchItemDTO.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.nbnp.databaseserver.protobuf.Item.getDefaultInstance()))
+              .setSchemaDescriptor(new ItemServiceMethodDescriptorSupplier("getItemById"))
+              .build();
+        }
+      }
+    }
+    return getGetItemByIdMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.CreateItemDTO,
@@ -76,27 +107,27 @@ public final class ItemServiceGrpc {
     return getCreateItemMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.CreateItemDTO,
+  private static volatile io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.UpdateItemDTO,
       dk.via.nbnp.databaseserver.protobuf.Item> getUpdateItemMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "updateItem",
-      requestType = dk.via.nbnp.databaseserver.protobuf.CreateItemDTO.class,
+      requestType = dk.via.nbnp.databaseserver.protobuf.UpdateItemDTO.class,
       responseType = dk.via.nbnp.databaseserver.protobuf.Item.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.CreateItemDTO,
+  public static io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.UpdateItemDTO,
       dk.via.nbnp.databaseserver.protobuf.Item> getUpdateItemMethod() {
-    io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.CreateItemDTO, dk.via.nbnp.databaseserver.protobuf.Item> getUpdateItemMethod;
+    io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.UpdateItemDTO, dk.via.nbnp.databaseserver.protobuf.Item> getUpdateItemMethod;
     if ((getUpdateItemMethod = ItemServiceGrpc.getUpdateItemMethod) == null) {
       synchronized (ItemServiceGrpc.class) {
         if ((getUpdateItemMethod = ItemServiceGrpc.getUpdateItemMethod) == null) {
           ItemServiceGrpc.getUpdateItemMethod = getUpdateItemMethod =
-              io.grpc.MethodDescriptor.<dk.via.nbnp.databaseserver.protobuf.CreateItemDTO, dk.via.nbnp.databaseserver.protobuf.Item>newBuilder()
+              io.grpc.MethodDescriptor.<dk.via.nbnp.databaseserver.protobuf.UpdateItemDTO, dk.via.nbnp.databaseserver.protobuf.Item>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "updateItem"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  dk.via.nbnp.databaseserver.protobuf.CreateItemDTO.getDefaultInstance()))
+                  dk.via.nbnp.databaseserver.protobuf.UpdateItemDTO.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   dk.via.nbnp.databaseserver.protobuf.Item.getDefaultInstance()))
               .setSchemaDescriptor(new ItemServiceMethodDescriptorSupplier("updateItem"))
@@ -188,9 +219,16 @@ public final class ItemServiceGrpc {
 
     /**
      */
-    public void getItem(dk.via.nbnp.databaseserver.protobuf.SearchItemDTO request,
+    public void getItems(dk.via.nbnp.databaseserver.protobuf.SearchItemDTO request,
         io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Item> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetItemMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetItemsMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getItemById(dk.via.nbnp.databaseserver.protobuf.SearchItemDTO request,
+        io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Item> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetItemByIdMethod(), responseObserver);
     }
 
     /**
@@ -202,7 +240,7 @@ public final class ItemServiceGrpc {
 
     /**
      */
-    public void updateItem(dk.via.nbnp.databaseserver.protobuf.CreateItemDTO request,
+    public void updateItem(dk.via.nbnp.databaseserver.protobuf.UpdateItemDTO request,
         io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Item> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateItemMethod(), responseObserver);
     }
@@ -217,12 +255,19 @@ public final class ItemServiceGrpc {
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getGetItemMethod(),
+            getGetItemsMethod(),
+            io.grpc.stub.ServerCalls.asyncServerStreamingCall(
+              new MethodHandlers<
+                dk.via.nbnp.databaseserver.protobuf.SearchItemDTO,
+                dk.via.nbnp.databaseserver.protobuf.Item>(
+                  this, METHODID_GET_ITEMS)))
+          .addMethod(
+            getGetItemByIdMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 dk.via.nbnp.databaseserver.protobuf.SearchItemDTO,
                 dk.via.nbnp.databaseserver.protobuf.Item>(
-                  this, METHODID_GET_ITEM)))
+                  this, METHODID_GET_ITEM_BY_ID)))
           .addMethod(
             getCreateItemMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -234,7 +279,7 @@ public final class ItemServiceGrpc {
             getUpdateItemMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                dk.via.nbnp.databaseserver.protobuf.CreateItemDTO,
+                dk.via.nbnp.databaseserver.protobuf.UpdateItemDTO,
                 dk.via.nbnp.databaseserver.protobuf.Item>(
                   this, METHODID_UPDATE_ITEM)))
           .addMethod(
@@ -264,10 +309,18 @@ public final class ItemServiceGrpc {
 
     /**
      */
-    public void getItem(dk.via.nbnp.databaseserver.protobuf.SearchItemDTO request,
+    public void getItems(dk.via.nbnp.databaseserver.protobuf.SearchItemDTO request,
+        io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Item> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncServerStreamingCall(
+          getChannel().newCall(getGetItemsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getItemById(dk.via.nbnp.databaseserver.protobuf.SearchItemDTO request,
         io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Item> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getGetItemMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getGetItemByIdMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -280,7 +333,7 @@ public final class ItemServiceGrpc {
 
     /**
      */
-    public void updateItem(dk.via.nbnp.databaseserver.protobuf.CreateItemDTO request,
+    public void updateItem(dk.via.nbnp.databaseserver.protobuf.UpdateItemDTO request,
         io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Item> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateItemMethod(), getCallOptions()), request, responseObserver);
@@ -311,9 +364,17 @@ public final class ItemServiceGrpc {
 
     /**
      */
-    public dk.via.nbnp.databaseserver.protobuf.Item getItem(dk.via.nbnp.databaseserver.protobuf.SearchItemDTO request) {
+    public java.util.Iterator<dk.via.nbnp.databaseserver.protobuf.Item> getItems(
+        dk.via.nbnp.databaseserver.protobuf.SearchItemDTO request) {
+      return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
+          getChannel(), getGetItemsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public dk.via.nbnp.databaseserver.protobuf.Item getItemById(dk.via.nbnp.databaseserver.protobuf.SearchItemDTO request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getGetItemMethod(), getCallOptions(), request);
+          getChannel(), getGetItemByIdMethod(), getCallOptions(), request);
     }
 
     /**
@@ -325,7 +386,7 @@ public final class ItemServiceGrpc {
 
     /**
      */
-    public dk.via.nbnp.databaseserver.protobuf.Item updateItem(dk.via.nbnp.databaseserver.protobuf.CreateItemDTO request) {
+    public dk.via.nbnp.databaseserver.protobuf.Item updateItem(dk.via.nbnp.databaseserver.protobuf.UpdateItemDTO request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateItemMethod(), getCallOptions(), request);
     }
@@ -354,10 +415,10 @@ public final class ItemServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<dk.via.nbnp.databaseserver.protobuf.Item> getItem(
+    public com.google.common.util.concurrent.ListenableFuture<dk.via.nbnp.databaseserver.protobuf.Item> getItemById(
         dk.via.nbnp.databaseserver.protobuf.SearchItemDTO request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getGetItemMethod(), getCallOptions()), request);
+          getChannel().newCall(getGetItemByIdMethod(), getCallOptions()), request);
     }
 
     /**
@@ -371,7 +432,7 @@ public final class ItemServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<dk.via.nbnp.databaseserver.protobuf.Item> updateItem(
-        dk.via.nbnp.databaseserver.protobuf.CreateItemDTO request) {
+        dk.via.nbnp.databaseserver.protobuf.UpdateItemDTO request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateItemMethod(), getCallOptions()), request);
     }
@@ -385,10 +446,11 @@ public final class ItemServiceGrpc {
     }
   }
 
-  private static final int METHODID_GET_ITEM = 0;
-  private static final int METHODID_CREATE_ITEM = 1;
-  private static final int METHODID_UPDATE_ITEM = 2;
-  private static final int METHODID_DELETE_ITEM = 3;
+  private static final int METHODID_GET_ITEMS = 0;
+  private static final int METHODID_GET_ITEM_BY_ID = 1;
+  private static final int METHODID_CREATE_ITEM = 2;
+  private static final int METHODID_UPDATE_ITEM = 3;
+  private static final int METHODID_DELETE_ITEM = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -407,8 +469,12 @@ public final class ItemServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_GET_ITEM:
-          serviceImpl.getItem((dk.via.nbnp.databaseserver.protobuf.SearchItemDTO) request,
+        case METHODID_GET_ITEMS:
+          serviceImpl.getItems((dk.via.nbnp.databaseserver.protobuf.SearchItemDTO) request,
+              (io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Item>) responseObserver);
+          break;
+        case METHODID_GET_ITEM_BY_ID:
+          serviceImpl.getItemById((dk.via.nbnp.databaseserver.protobuf.SearchItemDTO) request,
               (io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Item>) responseObserver);
           break;
         case METHODID_CREATE_ITEM:
@@ -416,7 +482,7 @@ public final class ItemServiceGrpc {
               (io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Item>) responseObserver);
           break;
         case METHODID_UPDATE_ITEM:
-          serviceImpl.updateItem((dk.via.nbnp.databaseserver.protobuf.CreateItemDTO) request,
+          serviceImpl.updateItem((dk.via.nbnp.databaseserver.protobuf.UpdateItemDTO) request,
               (io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Item>) responseObserver);
           break;
         case METHODID_DELETE_ITEM:
@@ -484,7 +550,8 @@ public final class ItemServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new ItemServiceFileDescriptorSupplier())
-              .addMethod(getGetItemMethod())
+              .addMethod(getGetItemsMethod())
+              .addMethod(getGetItemByIdMethod())
               .addMethod(getCreateItemMethod())
               .addMethod(getUpdateItemMethod())
               .addMethod(getDeleteItemMethod())
