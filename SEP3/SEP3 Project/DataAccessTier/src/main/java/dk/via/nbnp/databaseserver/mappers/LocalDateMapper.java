@@ -2,7 +2,7 @@ package dk.via.nbnp.databaseserver.mappers;
 
 import dk.via.nbnp.databaseserver.protobuf.LocalDateTime;
 
-public class LocalDateMapper {
+public abstract class LocalDateMapper {
 
     public static LocalDateTime mapDomainToProto(java.time.LocalDateTime localDateTime){
         return LocalDateTime.newBuilder()

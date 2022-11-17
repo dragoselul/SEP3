@@ -41,6 +41,5 @@ message User {
   string email = 4;
   string phoneNumber = 5;
   bool gender = 6;
-  string password = 7;
   LocalDateTime dateOfRegistration = 8;
 }
