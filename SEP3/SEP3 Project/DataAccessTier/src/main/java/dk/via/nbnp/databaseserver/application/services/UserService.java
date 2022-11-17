@@ -1,6 +1,7 @@
 package dk.via.nbnp.databaseserver.application.services;
 
 import dk.via.nbnp.databaseserver.application.DAOInterfaces.UserRepository;
+import dk.via.nbnp.databaseserver.mappers.UserMapper;
 import dk.via.nbnp.databaseserver.protobuf.*;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
@@ -36,7 +37,22 @@ public class UserService extends UserServiceGrpc.UserServiceImplBase {
     }
 
    */
+    @Override
+    public void login(LoginUserDTO request, StreamObserver<User> responseObserver) {
+        String email = request.getEmail();
+        String password = request.getPassword();
 
+        //TODO Hash Password
+
+        Optional<dk.via.nbnp.databaseserver.domain.User> user = userRepository.findByEmailAndPassword(email, password);
+        if(user.isEmpty()){
+            System.out.println("Incorrect email or password");
+            responseObserver.onError(new Exception("Incorrect email or password"));
+        }else{
+            responseObserver.onNext(UserMapper.mapDomainToProto(user.get()));
+            responseObserver.onCompleted();
+        }
+    }
     @Override
     public void getUsers(SearchUserDTO request, StreamObserver<User> responseObserver) {
         ArrayList<dk.via.nbnp.databaseserver.domain.User> users = new ArrayList<>(userRepository.findAll());

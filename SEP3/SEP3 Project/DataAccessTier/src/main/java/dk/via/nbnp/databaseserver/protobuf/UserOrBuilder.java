@@ -68,18 +68,6 @@ public interface UserOrBuilder extends
   boolean getGender();
 
   /**
-   * <code>string password = 7;</code>
-   * @return The password.
-   */
-  java.lang.String getPassword();
-  /**
-   * <code>string password = 7;</code>
-   * @return The bytes for password.
-   */
-  com.google.protobuf.ByteString
-      getPasswordBytes();
-
-  /**
    * <code>.LocalDateTime dateOfRegistration = 8;</code>
    * @return Whether the dateOfRegistration field is set.
    */

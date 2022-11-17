@@ -5,7 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0856c37c-d76a-4696-a476-340c591405ca" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/services/ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/services/ItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/DAOInterfaces/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/DAOInterfaces/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/CreateItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/CreateItemDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/CreateItemDTOOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/CreateItemDTOOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/ItemOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/ItemOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/ItemOuterClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/ItemOuterClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/ItemServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/ItemServiceGrpc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/UpdateItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/UpdateItemDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/UpdateItemDTOOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/UpdateItemDTOOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/UserOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/UserOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/UserOuterClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/UserOuterClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/UserServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/UserServiceGrpc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/proto/user.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/user.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +118,7 @@
       <option name="presentableId" value="Default" />
       <updated>1668678833807</updated>
       <workItem from="1668678835531" duration="1152000" />
-      <workItem from="1668688235588" duration="1652000" />
+      <workItem from="1668688235588" duration="2642000" />
     </task>
     <servers />
   </component>
