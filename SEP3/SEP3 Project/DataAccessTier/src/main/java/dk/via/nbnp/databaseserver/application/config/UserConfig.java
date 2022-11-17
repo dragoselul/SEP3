@@ -1,6 +1,6 @@
-package dk.via.nbnp.databaseserver.config;
+package dk.via.nbnp.databaseserver.application.config;
 
-import dk.via.nbnp.databaseserver.application.DAOInterfaces.UserRepository;
+import dk.via.nbnp.databaseserver.daos.UserRepository;
 import dk.via.nbnp.databaseserver.domain.User;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

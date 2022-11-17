@@ -1,6 +1,6 @@
-package dk.via.nbnp.databaseserver.config;
+package dk.via.nbnp.databaseserver.application.config;
 
-import dk.via.nbnp.databaseserver.application.DAOInterfaces.ItemRepository;
+import dk.via.nbnp.databaseserver.daos.ItemRepository;
 import dk.via.nbnp.databaseserver.domain.Item;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -19,7 +19,7 @@ public class ItemConfig {
                     "Functioning Iphone 8 Pro, used for 4 years",
                     500.0,
                     "DKK",
-                    "Electronics",
+                    null,
                     false,
                     null
             );
@@ -29,7 +29,7 @@ public class ItemConfig {
                     "Functioning Iphone 11 Pro, used for half a year",
                     1500.0,
                     "DKK",
-                    "Electronics",
+                    null,
                     false,
                     null
             );
