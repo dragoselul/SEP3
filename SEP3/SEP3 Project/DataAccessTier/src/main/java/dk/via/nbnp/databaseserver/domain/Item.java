@@ -37,9 +37,13 @@ public class Item {
 
     private boolean status;
 
+    @ManyToOne
+    @JoinColumn(name = "ownerId")
+    private User owner;
+
     public Item(){}
 
-    public Item(String name, String description, Double price, String currency, String category, boolean status) {
+    public Item(String name, String description, Double price, String currency, String category, boolean status, User owner) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -47,10 +51,14 @@ public class Item {
         this.dateOfAdding = LocalDateTime.now();
         this.category = category;
         this.status = status;
+        this.owner = owner;
     }
 
     public Long getId() {
         return id;
+    }
+    public User getOwner() {
+        return owner;
     }
     public void setId(Long id) {
         this.id = id;

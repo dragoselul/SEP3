@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name="\"user\"")
@@ -36,6 +37,10 @@ public class User {
 
     @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private LocalDateTime dateOfRegistration;
+
+    @OneToMany
+    @JoinColumn(name="ownerId")
+    List<Item> itemsOwned;
 
     public User(){}
 
@@ -72,6 +77,9 @@ public class User {
     }
     public LocalDateTime getDateOfRegistration() {
         return dateOfRegistration;
+    }
+    public List<Item> getItemsOwned(){
+        return itemsOwned;
     }
 
     @Override
