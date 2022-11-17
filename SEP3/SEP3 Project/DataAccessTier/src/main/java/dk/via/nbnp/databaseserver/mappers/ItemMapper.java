@@ -1,10 +1,11 @@
 package dk.via.nbnp.databaseserver.mappers;
 
+import dk.via.nbnp.databaseserver.domain.Category;
 import dk.via.nbnp.databaseserver.domain.User;
 import dk.via.nbnp.databaseserver.protobuf.CreateItemDTO;
 import dk.via.nbnp.databaseserver.protobuf.Item;
 
-public class ItemMapper {
+public abstract class ItemMapper {
 
     public static Item mapDomainToProto(dk.via.nbnp.databaseserver.domain.Item item){
         return Item.newBuilder()
@@ -15,18 +16,18 @@ public class ItemMapper {
                 .setPrice(item.getPrice())
                 .setCurrency(item.getCurrency())
                 .setDateOfAdding(LocalDateMapper.mapDomainToProto(item.getDateOfAdding()))
-                .setCategory(item.getCategory())
+                .setCategory(item.getCategory().getName())
                 .setStatus(item.getStatus())
                 .build();
     }
 
-    public static dk.via.nbnp.databaseserver.domain.Item mapCreateDtoToDomain(CreateItemDTO item, User owner){
+    public static dk.via.nbnp.databaseserver.domain.Item mapCreateDtoToDomain(CreateItemDTO item, User owner, Category category){
         return new dk.via.nbnp.databaseserver.domain.Item(
                 item.getName(),
                 item.getDescription(),
                 item.getPrice(),
                 item.getCurrency(),
-                item.getCategory(),
+                category,
                 item.getStatus(),
                 owner
         );

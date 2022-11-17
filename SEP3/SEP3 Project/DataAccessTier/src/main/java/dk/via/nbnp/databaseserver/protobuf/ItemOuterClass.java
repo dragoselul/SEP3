@@ -48,35 +48,36 @@ public final class ItemOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nitem.proto\032\nuser.proto\"\206\001\n\rCreateItemD" +
-      "TO\022\017\n\007ownerId\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\023\n\013des" +
-      "cription\030\003 \001(\t\022\r\n\005price\030\004 \001(\001\022\020\n\010currenc" +
-      "y\030\005 \001(\t\022\020\n\010category\030\006 \001(\t\022\016\n\006status\030\007 \001(" +
-      "\010\"\222\001\n\rUpdateItemDTO\022\n\n\002id\030\001 \001(\003\022\017\n\007owner" +
-      "Id\030\002 \001(\003\022\014\n\004name\030\003 \001(\t\022\023\n\013description\030\004 " +
-      "\001(\t\022\r\n\005price\030\005 \001(\001\022\020\n\010currency\030\006 \001(\t\022\020\n\010" +
-      "category\030\007 \001(\t\022\016\n\006status\030\010 \001(\010\"n\n\rSearch" +
-      "ItemDTO\022\n\n\002id\030\001 \001(\003\022\017\n\007ownerId\030\002 \001(\003\022\014\n\004" +
-      "name\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\r\n\005price" +
-      "\030\005 \001(\001\022\016\n\006status\030\006 \001(\010\"\035\n\014GetItemCount\022\r" +
-      "\n\005count\030\001 \001(\003\"\264\001\n\004Item\022\n\n\002id\030\001 \001(\003\022\024\n\005ow" +
-      "ner\030\002 \001(\0132\005.User\022\014\n\004name\030\003 \001(\t\022\023\n\013descri" +
-      "ption\030\004 \001(\t\022\r\n\005price\030\005 \001(\001\022\020\n\010currency\030\006" +
-      " \001(\t\022$\n\014dateOfAdding\030\007 \001(\0132\016.LocalDateTi" +
-      "me\022\020\n\010category\030\010 \001(\t\022\016\n\006status\030\t \001(\0102\363\001\n" +
-      "\013ItemService\022#\n\ncreateItem\022\016.CreateItemD" +
-      "TO\032\005.Item\022#\n\010getItems\022\016.SearchItemDTO\032\005." +
-      "Item0\001\022*\n\017getItemsByOwner\022\016.SearchItemDT" +
-      "O\032\005.Item0\001\022$\n\013getItemById\022\016.SearchItemDT" +
-      "O\032\005.Item\022#\n\nupdateItem\022\016.UpdateItemDTO\032\005" +
-      ".Item\022#\n\ndeleteItem\022\016.SearchItemDTO\032\005.It" +
-      "emB\'\n#dk.via.nbnp.databaseserver.protobu" +
-      "fP\001b\006proto3"
+      "\n\nitem.proto\032\nuser.proto\032\016category.proto" +
+      "\"\206\001\n\rCreateItemDTO\022\017\n\007ownerId\030\001 \001(\003\022\014\n\004n" +
+      "ame\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\r\n\005price\030" +
+      "\004 \001(\001\022\020\n\010currency\030\005 \001(\t\022\020\n\010category\030\006 \001(" +
+      "\t\022\016\n\006status\030\007 \001(\010\"\222\001\n\rUpdateItemDTO\022\n\n\002i" +
+      "d\030\001 \001(\003\022\017\n\007ownerId\030\002 \001(\003\022\014\n\004name\030\003 \001(\t\022\023" +
+      "\n\013description\030\004 \001(\t\022\r\n\005price\030\005 \001(\001\022\020\n\010cu" +
+      "rrency\030\006 \001(\t\022\020\n\010category\030\007 \001(\t\022\016\n\006status" +
+      "\030\010 \001(\010\"n\n\rSearchItemDTO\022\n\n\002id\030\001 \001(\003\022\017\n\007o" +
+      "wnerId\030\002 \001(\003\022\014\n\004name\030\003 \001(\t\022\023\n\013descriptio" +
+      "n\030\004 \001(\t\022\r\n\005price\030\005 \001(\001\022\016\n\006status\030\006 \001(\010\"\035" +
+      "\n\014GetItemCount\022\r\n\005count\030\001 \001(\003\"\264\001\n\004Item\022\n" +
+      "\n\002id\030\001 \001(\003\022\024\n\005owner\030\002 \001(\0132\005.User\022\014\n\004name" +
+      "\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\r\n\005price\030\005 \001" +
+      "(\001\022\020\n\010currency\030\006 \001(\t\022$\n\014dateOfAdding\030\007 \001" +
+      "(\0132\016.LocalDateTime\022\020\n\010category\030\010 \001(\t\022\016\n\006" +
+      "status\030\t \001(\0102\363\001\n\013ItemService\022#\n\ncreateIt" +
+      "em\022\016.CreateItemDTO\032\005.Item\022#\n\010getItems\022\016." +
+      "SearchItemDTO\032\005.Item0\001\022*\n\017getItemsByOwne" +
+      "r\022\016.SearchItemDTO\032\005.Item0\001\022$\n\013getItemByI" +
+      "d\022\016.SearchItemDTO\032\005.Item\022#\n\nupdateItem\022\016" +
+      ".UpdateItemDTO\032\005.Item\022#\n\ndeleteItem\022\016.Se" +
+      "archItemDTO\032\005.ItemB\'\n#dk.via.nbnp.databa" +
+      "seserver.protobufP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           dk.via.nbnp.databaseserver.protobuf.UserOuterClass.getDescriptor(),
+          dk.via.nbnp.databaseserver.protobuf.CategoryOuterClass.getDescriptor(),
         });
     internal_static_CreateItemDTO_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -109,6 +110,7 @@ public final class ItemOuterClass {
         internal_static_Item_descriptor,
         new java.lang.String[] { "Id", "Owner", "Name", "Description", "Price", "Currency", "DateOfAdding", "Category", "Status", });
     dk.via.nbnp.databaseserver.protobuf.UserOuterClass.getDescriptor();
+    dk.via.nbnp.databaseserver.protobuf.CategoryOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

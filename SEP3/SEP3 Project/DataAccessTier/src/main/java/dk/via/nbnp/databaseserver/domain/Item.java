@@ -19,7 +19,6 @@ public class Item {
             strategy = GenerationType.SEQUENCE,
             generator = "item_id_sequence"
     )
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -30,12 +29,14 @@ public class Item {
 
     private String currency;
 
+    private boolean status;
+
     @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private LocalDateTime dateOfAdding;
 
-    private String category;
-
-    private boolean status;
+    @ManyToOne
+    @JoinColumn(name = "categoryId")
+    private Category category;
 
     @ManyToOne
     @JoinColumn(name = "ownerId")
@@ -43,7 +44,7 @@ public class Item {
 
     public Item(){}
 
-    public Item(String name, String description, Double price, String currency, String category, boolean status, User owner) {
+    public Item(String name, String description, Double price, String currency, Category category, boolean status, User owner) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -75,7 +76,7 @@ public class Item {
     public LocalDateTime getDateOfAdding() {
         return dateOfAdding;
     }
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
     public boolean getStatus() {

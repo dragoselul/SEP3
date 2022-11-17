@@ -1,4 +1,4 @@
-package dk.via.nbnp.databaseserver.application.DAOInterfaces;
+package dk.via.nbnp.databaseserver.daos;
 
 import dk.via.nbnp.databaseserver.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;

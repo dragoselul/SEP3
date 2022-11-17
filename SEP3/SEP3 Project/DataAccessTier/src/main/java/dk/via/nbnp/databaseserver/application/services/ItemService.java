@@ -1,14 +1,16 @@
 package dk.via.nbnp.databaseserver.application.services;
 
-import dk.via.nbnp.databaseserver.application.DAOInterfaces.ItemRepository;
-import dk.via.nbnp.databaseserver.application.DAOInterfaces.UserRepository;
+import dk.via.nbnp.databaseserver.daos.CategoryRepository;
+import dk.via.nbnp.databaseserver.daos.ItemRepository;
+import dk.via.nbnp.databaseserver.daos.UserRepository;
+import dk.via.nbnp.databaseserver.domain.Category;
 import dk.via.nbnp.databaseserver.mappers.ItemMapper;
 import dk.via.nbnp.databaseserver.protobuf.*;
 import io.grpc.stub.StreamObserver;
-import org.checkerframework.checker.nullness.Opt;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.swing.text.html.Option;
 import java.util.Optional;
 
 @GRpcService
@@ -18,23 +20,29 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
     private final ItemRepository itemRepository;
     @Autowired
     private final UserRepository userRepository;
+    @Autowired
+    private final CategoryRepository categoryRepository;
 
     @Autowired
-    public ItemService(ItemRepository itemRepository, UserRepository userRepository){
+    public ItemService(ItemRepository itemRepository, UserRepository userRepository, CategoryRepository categoryRepository){
         this.itemRepository = itemRepository;
         this.userRepository = userRepository;
+        this.categoryRepository = categoryRepository;
     }
 
     // TODO TEST
     @Override
     public void createItem(CreateItemDTO request, StreamObserver<Item> responseObserver) {
-
+        Optional<dk.via.nbnp.databaseserver.domain.Category> categoryResponse = categoryRepository.findById(request.getCategory());
         Optional<dk.via.nbnp.databaseserver.domain.User> daoResponse = userRepository.findById(request.getOwnerId());
         if(daoResponse.isEmpty()){
             System.out.println("User with this ownerId was not found");
             responseObserver.onError(new Exception("User with this ownerId was not found"));
+        }else if(categoryResponse.isEmpty()){
+            System.out.println("There is no such category as \""+ request.getCategory() + "\"");
+            responseObserver.onError(new Exception("There is no such category as \""+ request.getCategory() + "\""));
         }else{
-            dk.via.nbnp.databaseserver.domain.Item item = ItemMapper.mapCreateDtoToDomain(request, daoResponse.get());
+            dk.via.nbnp.databaseserver.domain.Item item = ItemMapper.mapCreateDtoToDomain(request, daoResponse.get(), categoryResponse.get());
             item = itemRepository.save(item);
             responseObserver.onNext(ItemMapper.mapDomainToProto(item));
             responseObserver.onCompleted();
@@ -64,10 +72,8 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
                             .setHour(item.getDateOfAdding().getHour())
                             .setMinute(item.getDateOfAdding().getMinute())
                             .build())
-                    .setCategory(item.getCategory())
+                    .setCategory(item.getCategory().getName())
                     .setStatus(item.getStatus()).build();
-
-
 
             responseObserver.onNext(toSend);
             responseObserver.onCompleted();
