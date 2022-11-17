@@ -44,13 +44,19 @@ public interface SearchItemDTOOrBuilder extends
       getDescriptionBytes();
 
   /**
-   * <code>double price = 5;</code>
-   * @return The price.
+   * <code>double minPrice = 5;</code>
+   * @return The minPrice.
    */
-  double getPrice();
+  double getMinPrice();
 
   /**
-   * <code>bool status = 6;</code>
+   * <code>double maxPrice = 6;</code>
+   * @return The maxPrice.
+   */
+  double getMaxPrice();
+
+  /**
+   * <code>bool status = 7;</code>
    * @return The status.
    */
   boolean getStatus();

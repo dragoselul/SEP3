@@ -1,12 +1,11 @@
 package dk.via.nbnp.databaseserver.application.services;
 
-import dk.via.nbnp.databaseserver.daos.CategoryRepository;
-import dk.via.nbnp.databaseserver.mappers.CategoryMapper;
+import dk.via.nbnp.databaseserver.repositories.CategoryRepository;
+import dk.via.nbnp.databaseserver.application.mappers.CategoryMapper;
 import dk.via.nbnp.databaseserver.protobuf.Category;
 import dk.via.nbnp.databaseserver.protobuf.CategoryServiceGrpc;
 import dk.via.nbnp.databaseserver.protobuf.Empty;
 import io.grpc.stub.StreamObserver;
-import org.checkerframework.checker.units.qual.A;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 

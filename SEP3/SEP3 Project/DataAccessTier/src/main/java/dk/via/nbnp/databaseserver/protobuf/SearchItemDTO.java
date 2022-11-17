@@ -74,10 +74,15 @@ private static final long serialVersionUID = 0L;
           }
           case 41: {
 
-            price_ = input.readDouble();
+            minPrice_ = input.readDouble();
             break;
           }
-          case 48: {
+          case 49: {
+
+            maxPrice_ = input.readDouble();
+            break;
+          }
+          case 56: {
 
             status_ = input.readBool();
             break;
@@ -214,21 +219,32 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int PRICE_FIELD_NUMBER = 5;
-  private double price_;
+  public static final int MINPRICE_FIELD_NUMBER = 5;
+  private double minPrice_;
   /**
-   * <code>double price = 5;</code>
-   * @return The price.
+   * <code>double minPrice = 5;</code>
+   * @return The minPrice.
    */
   @java.lang.Override
-  public double getPrice() {
-    return price_;
+  public double getMinPrice() {
+    return minPrice_;
   }
 
-  public static final int STATUS_FIELD_NUMBER = 6;
+  public static final int MAXPRICE_FIELD_NUMBER = 6;
+  private double maxPrice_;
+  /**
+   * <code>double maxPrice = 6;</code>
+   * @return The maxPrice.
+   */
+  @java.lang.Override
+  public double getMaxPrice() {
+    return maxPrice_;
+  }
+
+  public static final int STATUS_FIELD_NUMBER = 7;
   private boolean status_;
   /**
-   * <code>bool status = 6;</code>
+   * <code>bool status = 7;</code>
    * @return The status.
    */
   @java.lang.Override
@@ -262,11 +278,14 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, description_);
     }
-    if (java.lang.Double.doubleToRawLongBits(price_) != 0) {
-      output.writeDouble(5, price_);
+    if (java.lang.Double.doubleToRawLongBits(minPrice_) != 0) {
+      output.writeDouble(5, minPrice_);
+    }
+    if (java.lang.Double.doubleToRawLongBits(maxPrice_) != 0) {
+      output.writeDouble(6, maxPrice_);
     }
     if (status_ != false) {
-      output.writeBool(6, status_);
+      output.writeBool(7, status_);
     }
     unknownFields.writeTo(output);
   }
@@ -291,13 +310,17 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, description_);
     }
-    if (java.lang.Double.doubleToRawLongBits(price_) != 0) {
+    if (java.lang.Double.doubleToRawLongBits(minPrice_) != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(5, price_);
+        .computeDoubleSize(5, minPrice_);
+    }
+    if (java.lang.Double.doubleToRawLongBits(maxPrice_) != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeDoubleSize(6, maxPrice_);
     }
     if (status_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(6, status_);
+        .computeBoolSize(7, status_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -322,9 +345,12 @@ private static final long serialVersionUID = 0L;
         .equals(other.getName())) return false;
     if (!getDescription()
         .equals(other.getDescription())) return false;
-    if (java.lang.Double.doubleToLongBits(getPrice())
+    if (java.lang.Double.doubleToLongBits(getMinPrice())
         != java.lang.Double.doubleToLongBits(
-            other.getPrice())) return false;
+            other.getMinPrice())) return false;
+    if (java.lang.Double.doubleToLongBits(getMaxPrice())
+        != java.lang.Double.doubleToLongBits(
+            other.getMaxPrice())) return false;
     if (getStatus()
         != other.getStatus()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -348,9 +374,12 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
     hash = (53 * hash) + getDescription().hashCode();
-    hash = (37 * hash) + PRICE_FIELD_NUMBER;
+    hash = (37 * hash) + MINPRICE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getPrice()));
+        java.lang.Double.doubleToLongBits(getMinPrice()));
+    hash = (37 * hash) + MAXPRICE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        java.lang.Double.doubleToLongBits(getMaxPrice()));
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getStatus());
@@ -495,7 +524,9 @@ private static final long serialVersionUID = 0L;
 
       description_ = "";
 
-      price_ = 0D;
+      minPrice_ = 0D;
+
+      maxPrice_ = 0D;
 
       status_ = false;
 
@@ -529,7 +560,8 @@ private static final long serialVersionUID = 0L;
       result.ownerId_ = ownerId_;
       result.name_ = name_;
       result.description_ = description_;
-      result.price_ = price_;
+      result.minPrice_ = minPrice_;
+      result.maxPrice_ = maxPrice_;
       result.status_ = status_;
       onBuilt();
       return result;
@@ -593,8 +625,11 @@ private static final long serialVersionUID = 0L;
         description_ = other.description_;
         onChanged();
       }
-      if (other.getPrice() != 0D) {
-        setPrice(other.getPrice());
+      if (other.getMinPrice() != 0D) {
+        setMinPrice(other.getMinPrice());
+      }
+      if (other.getMaxPrice() != 0D) {
+        setMaxPrice(other.getMaxPrice());
       }
       if (other.getStatus() != false) {
         setStatus(other.getStatus());
@@ -842,40 +877,71 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private double price_ ;
+    private double minPrice_ ;
     /**
-     * <code>double price = 5;</code>
-     * @return The price.
+     * <code>double minPrice = 5;</code>
+     * @return The minPrice.
      */
     @java.lang.Override
-    public double getPrice() {
-      return price_;
+    public double getMinPrice() {
+      return minPrice_;
     }
     /**
-     * <code>double price = 5;</code>
-     * @param value The price to set.
+     * <code>double minPrice = 5;</code>
+     * @param value The minPrice to set.
      * @return This builder for chaining.
      */
-    public Builder setPrice(double value) {
+    public Builder setMinPrice(double value) {
       
-      price_ = value;
+      minPrice_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>double price = 5;</code>
+     * <code>double minPrice = 5;</code>
      * @return This builder for chaining.
      */
-    public Builder clearPrice() {
+    public Builder clearMinPrice() {
       
-      price_ = 0D;
+      minPrice_ = 0D;
+      onChanged();
+      return this;
+    }
+
+    private double maxPrice_ ;
+    /**
+     * <code>double maxPrice = 6;</code>
+     * @return The maxPrice.
+     */
+    @java.lang.Override
+    public double getMaxPrice() {
+      return maxPrice_;
+    }
+    /**
+     * <code>double maxPrice = 6;</code>
+     * @param value The maxPrice to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMaxPrice(double value) {
+      
+      maxPrice_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>double maxPrice = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMaxPrice() {
+      
+      maxPrice_ = 0D;
       onChanged();
       return this;
     }
 
     private boolean status_ ;
     /**
-     * <code>bool status = 6;</code>
+     * <code>bool status = 7;</code>
      * @return The status.
      */
     @java.lang.Override
@@ -883,7 +949,7 @@ private static final long serialVersionUID = 0L;
       return status_;
     }
     /**
-     * <code>bool status = 6;</code>
+     * <code>bool status = 7;</code>
      * @param value The status to set.
      * @return This builder for chaining.
      */
@@ -894,7 +960,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool status = 6;</code>
+     * <code>bool status = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearStatus() {

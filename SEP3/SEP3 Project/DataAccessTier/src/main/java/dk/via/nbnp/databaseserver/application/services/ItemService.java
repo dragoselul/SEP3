@@ -1,16 +1,15 @@
 package dk.via.nbnp.databaseserver.application.services;
 
-import dk.via.nbnp.databaseserver.daos.CategoryRepository;
-import dk.via.nbnp.databaseserver.daos.ItemRepository;
-import dk.via.nbnp.databaseserver.daos.UserRepository;
-import dk.via.nbnp.databaseserver.domain.Category;
-import dk.via.nbnp.databaseserver.mappers.ItemMapper;
+import dk.via.nbnp.databaseserver.repositories.CategoryRepository;
+import dk.via.nbnp.databaseserver.repositories.ItemRepository;
+import dk.via.nbnp.databaseserver.repositories.UserRepository;
+import dk.via.nbnp.databaseserver.application.mappers.ItemMapper;
 import dk.via.nbnp.databaseserver.protobuf.*;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.swing.text.html.Option;
+import java.util.List;
 import java.util.Optional;
 
 @GRpcService
@@ -30,7 +29,7 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
         this.categoryRepository = categoryRepository;
     }
 
-    // TODO TEST
+    // IMPLEMENTED
     @Override
     public void createItem(CreateItemDTO request, StreamObserver<Item> responseObserver) {
         Optional<dk.via.nbnp.databaseserver.domain.Category> categoryResponse = categoryRepository.findById(request.getCategory());
@@ -51,39 +50,30 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
     }
 
 
+    // TODO TO BE TESTED
     @Override
     public void getItems(SearchItemDTO request, StreamObserver<Item> responseObserver) {
-        Optional<dk.via.nbnp.databaseserver.domain.Item> daoResponse = itemRepository.findById(request.getId());
+        List<dk.via.nbnp.databaseserver.domain.Item> daoResponse = itemRepository.findAll();
 
-        if(daoResponse.isEmpty()){
-            System.out.println("Item with this ID was not found");
-        }else{
-            dk.via.nbnp.databaseserver.domain.Item item = daoResponse.get();
-            Item toSend = Item.newBuilder()
-                    .setId(item.getId())
-                    .setName(item.getName())
-                    .setDescription(item.getDescription())
-                    .setPrice(item.getPrice())
-                    .setCurrency(item.getCurrency())
-                    .setDateOfAdding(LocalDateTime.newBuilder()
-                            .setDay(item.getDateOfAdding().getDayOfMonth())
-                            .setMonth(item.getDateOfAdding().getMonthValue())
-                            .setYear(item.getDateOfAdding().getYear())
-                            .setHour(item.getDateOfAdding().getHour())
-                            .setMinute(item.getDateOfAdding().getMinute())
-                            .build())
-                    .setCategory(item.getCategory().getName())
-                    .setStatus(item.getStatus()).build();
-
-            responseObserver.onNext(toSend);
-            responseObserver.onCompleted();
-
+        for (dk.via.nbnp.databaseserver.domain.Item item : daoResponse) {
+            if(request.getName().equals("") || !item.getName().contains(request.getName()))
+                continue;
+            if(request.getDescription().equals("") || !item.getDescription().contains(request.getDescription()))
+                continue;
+            if(request.getMaxPrice() == 0.0 || item.getPrice() > request.getMaxPrice())
+                continue;
+            if(request.getMinPrice() < item.getPrice())
+                continue;
+            if(request.getStatus() != item.getStatus())
+                continue;
+            responseObserver.onNext(ItemMapper.mapDomainToProto(item));
         }
 
+        responseObserver.onCompleted();
 
     }
 
-    // TODO TEST
+    // IMPLEMENTED
     @Override
     public void getItemById(SearchItemDTO request, StreamObserver<Item> responseObserver) {
         Optional<dk.via.nbnp.databaseserver.domain.Item> daoResponse = itemRepository.findById(request.getId());
@@ -103,6 +93,6 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
 
     @Override
     public void deleteItem(SearchItemDTO request, StreamObserver<Item> responseObserver) {
-        super.deleteItem(request, responseObserver);
+        itemRepository.deleteById(request.getId());
     }
 }

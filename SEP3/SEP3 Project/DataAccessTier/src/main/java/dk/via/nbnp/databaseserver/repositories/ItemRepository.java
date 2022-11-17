@@ -1,4 +1,4 @@
-package dk.via.nbnp.databaseserver.daos;
+package dk.via.nbnp.databaseserver.repositories;
 
 import dk.via.nbnp.databaseserver.domain.Item;
 import org.springframework.data.jpa.repository.JpaRepository;

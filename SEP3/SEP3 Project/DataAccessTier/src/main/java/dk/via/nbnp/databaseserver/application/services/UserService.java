@@ -1,7 +1,7 @@
 package dk.via.nbnp.databaseserver.application.services;
 
-import dk.via.nbnp.databaseserver.daos.UserRepository;
-import dk.via.nbnp.databaseserver.mappers.UserMapper;
+import dk.via.nbnp.databaseserver.repositories.UserRepository;
+import dk.via.nbnp.databaseserver.application.mappers.UserMapper;
 import dk.via.nbnp.databaseserver.protobuf.*;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;

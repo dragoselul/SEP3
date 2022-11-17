@@ -1,4 +1,4 @@
-package dk.via.nbnp.databaseserver.mappers;
+package dk.via.nbnp.databaseserver.application.mappers;
 
 import dk.via.nbnp.databaseserver.domain.Category;
 import dk.via.nbnp.databaseserver.domain.User;

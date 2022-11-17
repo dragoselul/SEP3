@@ -1,6 +1,6 @@
 package dk.via.nbnp.databaseserver.application.config;
 
-import dk.via.nbnp.databaseserver.daos.CategoryRepository;
+import dk.via.nbnp.databaseserver.repositories.CategoryRepository;
 import dk.via.nbnp.databaseserver.domain.Category;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

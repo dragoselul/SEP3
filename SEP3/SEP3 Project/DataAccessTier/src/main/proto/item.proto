@@ -40,8 +40,9 @@ message SearchItemDTO {
   int64 ownerId = 2;
   string name = 3;
   string description = 4;
-  double price = 5;
-  bool status = 6;
+  double minPrice = 5;
+  double maxPrice = 6;
+  bool status = 7;
 }
 
 message GetItemCount {

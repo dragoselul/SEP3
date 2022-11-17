@@ -5,98 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0856c37c-d76a-4696-a476-340c591405ca" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/services/CategoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/daos/CategoryRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/domain/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/mappers/CategoryMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/proto/category.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Application/obj/Application.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Application/obj/Application.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Application/obj/Application.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Application/obj/Application.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Application/obj/Debug/net6.0/Application.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Application/obj/Debug/net6.0/Application.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Application/obj/Debug/net6.0/Application.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Application/obj/Debug/net6.0/Application.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Application/obj/Debug/net6.0/Application.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Application/obj/Debug/net6.0/Application.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Application/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Application/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Application/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Application/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Application/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Application/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Application/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Application/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/BusinessLogicTier/obj/BusinessLogicTier.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/BusinessLogicTier/obj/BusinessLogicTier.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/BusinessLogicTier/obj/BusinessLogicTier.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/BusinessLogicTier/obj/BusinessLogicTier.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/BusinessLogicTier/obj/Debug/net6.0/BusinessLogicTier.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/BusinessLogicTier/obj/Debug/net6.0/BusinessLogicTier.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/BusinessLogicTier/obj/Debug/net6.0/BusinessLogicTier.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/BusinessLogicTier/obj/Debug/net6.0/BusinessLogicTier.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/BusinessLogicTier/obj/Debug/net6.0/BusinessLogicTier.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/BusinessLogicTier/obj/Debug/net6.0/BusinessLogicTier.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/BusinessLogicTier/obj/Debug/net6.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/BusinessLogicTier/obj/Debug/net6.0/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/BusinessLogicTier/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/BusinessLogicTier/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/BusinessLogicTier/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/BusinessLogicTier/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/BusinessLogicTier/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/BusinessLogicTier/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/BusinessLogicTier/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/BusinessLogicTier/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/DataAccess/obj/DataAccess.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/DataAccess/obj/DataAccess.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/DataAccess/obj/DataAccess.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/DataAccess/obj/DataAccess.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/DataAccess/obj/Debug/net6.0/DataAccess.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/DataAccess/obj/Debug/net6.0/DataAccess.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/DataAccess/obj/Debug/net6.0/DataAccess.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/DataAccess/obj/Debug/net6.0/DataAccess.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/DataAccess/obj/Debug/net6.0/DataAccess.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/DataAccess/obj/Debug/net6.0/DataAccess.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/DataAccess/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/DataAccess/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/DataAccess/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/DataAccess/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/DataAccess/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/DataAccess/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/DataAccess/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/DataAccess/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Domain/obj/Debug/net6.0/Domain.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Domain/obj/Debug/net6.0/Domain.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Domain/obj/Debug/net6.0/Domain.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Domain/obj/Debug/net6.0/Domain.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Domain/obj/Debug/net6.0/Domain.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Domain/obj/Debug/net6.0/Domain.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Domain/obj/Domain.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Domain/obj/Domain.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Domain/obj/Domain.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Domain/obj/Domain.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Domain/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Domain/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Domain/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Domain/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Domain/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Domain/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Domain/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Domain/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Shared/obj/Debug/net6.0/Shared.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Shared/obj/Debug/net6.0/Shared.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Shared/obj/Debug/net6.0/Shared.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Shared/obj/Debug/net6.0/Shared.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Shared/obj/Debug/net6.0/Shared.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Shared/obj/Debug/net6.0/Shared.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Shared/obj/Shared.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Shared/obj/Shared.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Shared/obj/Shared.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Shared/obj/Shared.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Shared/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Shared/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Shared/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Shared/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Shared/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Shared/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/Shared/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/Shared/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/Debug/net6.0/gRPCClient.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/Debug/net6.0/gRPCClient.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/Debug/net6.0/gRPCClient.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/Debug/net6.0/gRPCClient.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/Debug/net6.0/gRPCClient.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/Debug/net6.0/gRPCClient.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/Debug/net6.0/protos/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/Debug/net6.0/protos/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/Debug/net6.0/protos/ItemGrpc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/Debug/net6.0/protos/ItemGrpc.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/Debug/net6.0/protos/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/Debug/net6.0/protos/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/Debug/net6.0/protos/UserGrpc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/Debug/net6.0/protos/UserGrpc.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/gRPCClient.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/gRPCClient.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/gRPCClient.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/gRPCClient.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogicTier/gRPCClient/obj/rider.project.restore.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/DAOInterfaces/ItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/daos/ItemRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/DAOInterfaces/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/daos/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/serviceInterfaces/IItemService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/serviceInterfaces/IUserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/config/CategoryConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/config/CategoryConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/config/ItemConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/config/ItemConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/config/UserConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/config/UserConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/services/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/services/CategoryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/services/ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/services/ItemService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/config/ItemConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/config/ItemConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/config/UserConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/config/UserConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/domain/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/domain/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/mappers/ItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/mappers/ItemMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/CreateItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/CreateItemDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/CreateItemDTOOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/CreateItemDTOOrBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/ItemOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/ItemOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/daos/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/repositories/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/daos/ItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/repositories/ItemRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/daos/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/mappers/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/mappers/CategoryMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/mappers/ItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/mappers/ItemMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/mappers/LocalDateMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/mappers/LocalDateMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/mappers/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/application/mappers/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/CategoryOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/CategoryOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/CategoryOuterClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/CategoryOuterClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/CategoryServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/CategoryServiceGrpc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/Empty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/Empty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/EmptyOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/EmptyOrBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/ItemOuterClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/ItemOuterClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/ItemServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/ItemServiceGrpc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/LoginUserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/LoginUserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/LoginUserDTOOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/LoginUserDTOOrBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/UpdateItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/UpdateItemDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/UpdateItemDTOOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/UpdateItemDTOOrBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/UserOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/UserOrBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/UserOuterClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/UserOuterClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/UserServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/UserServiceGrpc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/SearchItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/SearchItemDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/SearchItemDTOOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/via/nbnp/databaseserver/protobuf/SearchItemDTOOrBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/proto/item.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/item.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
@@ -170,11 +105,24 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Spring Boot.DatabaseServerApplication (1)">
+  <component name="RunManager" selected="Spring Boot.DatabaseServerApplication (2)">
     <configuration name="DatabaseServerApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ACTIVE_PROFILES" />
       <module name="DatabaseServer" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="dk.via.nbnp.databaseserver.DatabaseServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DatabaseServerApplication (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="DataAccessTier" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="dk.via.nbnp.databaseserver.DatabaseServerApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dk.via.nbnp.databaseserver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -186,6 +134,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.DatabaseServerApplication (2)" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -198,7 +151,7 @@
       <workItem from="1668678835531" duration="1152000" />
       <workItem from="1668688235588" duration="2642000" />
       <workItem from="1668693244398" duration="4271000" />
-      <workItem from="1668706309763" duration="332000" />
+      <workItem from="1668706309763" duration="2616000" />
     </task>
     <servers />
   </component>
