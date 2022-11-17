@@ -2,10 +2,7 @@ package dk.via.nbnp.databaseserver.application.services;
 
 import dk.via.nbnp.databaseserver.application.DAOInterfaces.ItemRepository;
 
-import dk.via.nbnp.databaseserver.protobuf.CreateItemDTO;
-import dk.via.nbnp.databaseserver.protobuf.Item;
-import dk.via.nbnp.databaseserver.protobuf.ItemServiceGrpc;
-import dk.via.nbnp.databaseserver.protobuf.SearchItemDTO;
+import dk.via.nbnp.databaseserver.protobuf.*;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,8 +52,10 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
         responseObserver.onCompleted();
 
     }
+
+
     @Override
-    public void getItem(SearchItemDTO request, StreamObserver<Item> responseObserver) {
+    public void getItems(SearchItemDTO request, StreamObserver<Item> responseObserver) {
         Optional<dk.via.nbnp.databaseserver.domain.Item> daoResponse = ItemRepository.findById(request.getId());
 
         if(daoResponse.isEmpty()){
@@ -90,7 +89,12 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
     }
 
     @Override
-    public void updateItem(CreateItemDTO request, StreamObserver<Item> responseObserver) {
+    public void getItemById(SearchItemDTO request, StreamObserver<Item> responseObserver) {
+        super.getItemById(request, responseObserver);
+    }
+
+    @Override
+    public void updateItem(UpdateItemDTO request, StreamObserver<Item> responseObserver) {
         super.updateItem(request, responseObserver);
     }
 

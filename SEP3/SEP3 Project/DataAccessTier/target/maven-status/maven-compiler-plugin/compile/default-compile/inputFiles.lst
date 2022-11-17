@@ -1,4 +1,5 @@
 D:\VIA\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\SearchUserDTOOrBuilder.java
+D:\VIA\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\UpdateItemDTOOrBuilder.java
 D:\VIA\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\UserServiceGrpc.java
 D:\VIA\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\ItemOuterClass.java
 D:\VIA\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\application\serviceInterfaces\IItemService.java
@@ -14,6 +15,7 @@ D:\VIA\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databases
 D:\VIA\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\CreateUserDTO.java
 D:\VIA\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\DatabaseServerApplication.java
 D:\VIA\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\SearchItemDTOOrBuilder.java
+D:\VIA\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\UpdateItemDTO.java
 D:\VIA\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\application\services\ItemService.java
 D:\VIA\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\User.java
 D:\VIA\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\application\serviceInterfaces\IUserService.java
