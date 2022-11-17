@@ -1,43 +1,52 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿<nav class="navbar navbar-expand-lg navbar-light bg-light @NavMenuCssClass" @onclick="ToggleNavMenu">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">BlazorWASM</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="col-lg-2">
+            <a class="navbar-brand" href="">
+                <img class="rounded" src="/images/ChadLogo.png" alt="" width="40" height="40">
+            </a>
+            <a class="navbar-brand" href="" @onclick="ToggleNavMenu">ChadList</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-nav me-auto mb-2 mb-lg-0 col-lg-10 container-fluid" id="navbarSupportedContent">
+            <NavLink class="nav-link nav-item col-lg-2" href="/createUser">
+                Create User
+            </NavLink>
+            <NavLink class="nav-link nav-item col-2" href="/marketplace">
+                Marketplace
+            </NavLink>
+            <NavLink class="nav-link nav-item col-2" href="/messages">
+                Messages
+            </NavLink>
+            <NavLink class="nav-link nav-item col-2" href="/aboutUs">
+                About us
+            </NavLink>
+            <div class="float-lg-end col-lg-2">
+                <NavLink class="nav-link nav-item float-end" href="/likedItems">
+                    <span class="oi oi-person" aria-hidden="true"></span>
+                </NavLink>
+                <NavLink class="nav-link nav-item float-end" href="/likedItems">
+                    <span class="oi oi-heart" aria-hidden="true"></span>
+                </NavLink>
+                <!--@{ var list = new List<string>{ "Register", "LogIn" }; }
+                <Dropdown TItem="string" OnSelected="@OnSelected" >
+                    <InitialTip><span class="oi oi-person" aria-hidden="true"></span></InitialTip>
+                    <ChildContent>
+                        <DropdownListItem Item="@list[0]">Register</DropdownListItem>
+                        <DropdownListItem Item="@list[1]">Log in</DropdownListItem>
+                    </ChildContent>
+                </Dropdown>-->
+            </div>
+        </div>
     </div>
-</div>
-
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="marketplace">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Marketplace
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="createUser">
-                        <span class="oi oi-list-rich" aria-hidden="true"></span> Create User
-                    </NavLink>
-                </div>
-    </nav>
-</div>
+</nav>
 
 @code {
+    private void OnSelected(string selection)
+    {
+        Console.WriteLine(selection);
+    }
     private bool collapseNavMenu = true;
 
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
@@ -46,5 +55,4 @@
     {
         collapseNavMenu = !collapseNavMenu;
     }
-
 }
