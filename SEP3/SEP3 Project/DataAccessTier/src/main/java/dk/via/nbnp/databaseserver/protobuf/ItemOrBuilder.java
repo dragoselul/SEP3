@@ -14,10 +14,19 @@ public interface ItemOrBuilder extends
   long getId();
 
   /**
-   * <code>int64 ownerId = 2;</code>
-   * @return The ownerId.
+   * <code>.User owner = 2;</code>
+   * @return Whether the owner field is set.
    */
-  long getOwnerId();
+  boolean hasOwner();
+  /**
+   * <code>.User owner = 2;</code>
+   * @return The owner.
+   */
+  dk.via.nbnp.databaseserver.protobuf.User getOwner();
+  /**
+   * <code>.User owner = 2;</code>
+   */
+  dk.via.nbnp.databaseserver.protobuf.UserOrBuilder getOwnerOrBuilder();
 
   /**
    * <code>string name = 3;</code>
@@ -62,19 +71,19 @@ public interface ItemOrBuilder extends
       getCurrencyBytes();
 
   /**
-   * <code>.Item.LocalDateTime dateOfAdding = 7;</code>
+   * <code>.LocalDateTime dateOfAdding = 7;</code>
    * @return Whether the dateOfAdding field is set.
    */
   boolean hasDateOfAdding();
   /**
-   * <code>.Item.LocalDateTime dateOfAdding = 7;</code>
+   * <code>.LocalDateTime dateOfAdding = 7;</code>
    * @return The dateOfAdding.
    */
-  dk.via.nbnp.databaseserver.protobuf.Item.LocalDateTime getDateOfAdding();
+  dk.via.nbnp.databaseserver.protobuf.LocalDateTime getDateOfAdding();
   /**
-   * <code>.Item.LocalDateTime dateOfAdding = 7;</code>
+   * <code>.LocalDateTime dateOfAdding = 7;</code>
    */
-  dk.via.nbnp.databaseserver.protobuf.Item.LocalDateTimeOrBuilder getDateOfAddingOrBuilder();
+  dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder getDateOfAddingOrBuilder();
 
   /**
    * <code>string category = 8;</code>

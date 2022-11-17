@@ -28,7 +28,7 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
                 request.getPrice(),
                 request.getCurrency(),
                 request.getCategory(),
-                Boolean.parseBoolean(request.getStatus())
+                request.getStatus()
         );
 
         ItemRepository.save(item);
@@ -38,7 +38,7 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
                 .setDescription(item.getDescription())
                 .setPrice(item.getPrice())
                 .setCurrency(item.getCurrency())
-                .setDateOfAdding(Item.LocalDateTime.newBuilder()
+                .setDateOfAdding(LocalDateTime.newBuilder()
                         .setDay(item.getDateOfAdding().getDayOfMonth())
                         .setMonth(item.getDateOfAdding().getMonthValue())
                         .setYear(item.getDateOfAdding().getYear())
@@ -68,7 +68,7 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
                     .setDescription(item.getDescription())
                     .setPrice(item.getPrice())
                     .setCurrency(item.getCurrency())
-                    .setDateOfAdding(Item.LocalDateTime.newBuilder()
+                    .setDateOfAdding(LocalDateTime.newBuilder()
                             .setDay(item.getDateOfAdding().getDayOfMonth())
                             .setMonth(item.getDateOfAdding().getMonthValue())
                             .setYear(item.getDateOfAdding().getYear())

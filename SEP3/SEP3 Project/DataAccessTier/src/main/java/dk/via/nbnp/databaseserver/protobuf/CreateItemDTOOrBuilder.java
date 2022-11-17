@@ -8,6 +8,12 @@ public interface CreateItemDTOOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <code>int64 ownerId = 1;</code>
+   * @return The ownerId.
+   */
+  long getOwnerId();
+
+  /**
    * <code>string name = 2;</code>
    * @return The name.
    */
@@ -62,14 +68,8 @@ public interface CreateItemDTOOrBuilder extends
       getCategoryBytes();
 
   /**
-   * <code>string status = 7;</code>
+   * <code>bool status = 7;</code>
    * @return The status.
    */
-  java.lang.String getStatus();
-  /**
-   * <code>string status = 7;</code>
-   * @return The bytes for status.
-   */
-  com.google.protobuf.ByteString
-      getStatusBytes();
+  boolean getStatus();
 }
