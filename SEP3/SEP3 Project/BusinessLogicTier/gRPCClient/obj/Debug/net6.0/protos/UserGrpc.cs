@@ -61,10 +61,18 @@ namespace gRPCClient {
         __Marshaller_User);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::gRPCClient.SearchUserDTO, global::gRPCClient.User> __Method_getUser = new grpc::Method<global::gRPCClient.SearchUserDTO, global::gRPCClient.User>(
+    static readonly grpc::Method<global::gRPCClient.SearchUserDTO, global::gRPCClient.User> __Method_getUsers = new grpc::Method<global::gRPCClient.SearchUserDTO, global::gRPCClient.User>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "getUsers",
+        __Marshaller_SearchUserDTO,
+        __Marshaller_User);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::gRPCClient.SearchUserDTO, global::gRPCClient.User> __Method_getUserById = new grpc::Method<global::gRPCClient.SearchUserDTO, global::gRPCClient.User>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "getUser",
+        "getUserById",
         __Marshaller_SearchUserDTO,
         __Marshaller_User);
 
@@ -138,24 +146,34 @@ namespace gRPCClient {
         return CallInvoker.AsyncUnaryCall(__Method_createUser, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::gRPCClient.User getUser(global::gRPCClient.SearchUserDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncServerStreamingCall<global::gRPCClient.User> getUsers(global::gRPCClient.SearchUserDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return getUser(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return getUsers(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::gRPCClient.User getUser(global::gRPCClient.SearchUserDTO request, grpc::CallOptions options)
+      public virtual grpc::AsyncServerStreamingCall<global::gRPCClient.User> getUsers(global::gRPCClient.SearchUserDTO request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_getUser, null, options, request);
+        return CallInvoker.AsyncServerStreamingCall(__Method_getUsers, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::gRPCClient.User> getUserAsync(global::gRPCClient.SearchUserDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::gRPCClient.User getUserById(global::gRPCClient.SearchUserDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return getUserAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return getUserById(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::gRPCClient.User> getUserAsync(global::gRPCClient.SearchUserDTO request, grpc::CallOptions options)
+      public virtual global::gRPCClient.User getUserById(global::gRPCClient.SearchUserDTO request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_getUser, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_getUserById, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::gRPCClient.User> getUserByIdAsync(global::gRPCClient.SearchUserDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return getUserByIdAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::gRPCClient.User> getUserByIdAsync(global::gRPCClient.SearchUserDTO request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_getUserById, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::gRPCClient.User updateUser(global::gRPCClient.CreateUserDTO request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))

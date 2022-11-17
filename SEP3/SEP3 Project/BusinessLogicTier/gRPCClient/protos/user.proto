@@ -3,12 +3,11 @@ option csharp_namespace = "gRPCClient";
 
 service UserService {
   rpc createUser(CreateUserDTO) returns (User);
-  rpc getUser(SearchUserDTO) returns (User);
+  rpc getUsers(SearchUserDTO) returns (stream User);
+  rpc getUserById(SearchUserDTO) returns (User);
   rpc updateUser(CreateUserDTO) returns (User);
   rpc deleteUser(SearchUserDTO) returns (User);
 }
-
-
 
 message CreateUserDTO{
   string firstName = 1;

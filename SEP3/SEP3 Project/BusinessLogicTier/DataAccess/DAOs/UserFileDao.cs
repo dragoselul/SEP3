@@ -1,5 +1,6 @@
 ﻿using Application.DaoInterfaces;
 using Domain.DTOs;
+using Grpc.Core;
 using Grpc.Net.Client;
 using gRPCClient;
 using User = Domain.Models.User;
@@ -55,45 +56,102 @@ public class UserFileDao : IUserDao
     }
     */
 
-    public Task<List<User>> GetAsync(SearchUserParametersDto searchParameters)
+    public async Task<List<User>> GetAsync(SearchUserParametersDto searchParameters)
     {
         List<User> users = new();
-        while(true)
+        AsyncServerStreamingCall<gRPCClient.User> call;
+        if (searchParameters.FirstName is null)
+        {
+            call = ClientUser.getUsers(new SearchUserDTO
             {
-                gRPCClient.User? gRPC = ClientUser.getUserAsync(new SearchUserDTO
-                {
-                    Id = 0,
-                    FirstName = searchParameters.FirstName,
-                    LastName = searchParameters.LastName
-                }).ResponseAsync.Result;
+                Id = 0,
+                FirstName = "",
+                LastName = searchParameters.LastName
+            });
+            await foreach (var response in call.ResponseStream.ReadAllAsync())
+            {
                 User? user = new()
                 {
-                    Id = (int)gRPC.Id,
-                    firstName = gRPC.FirstName,
-                    lastName = gRPC.LastName,
-                    email = gRPC.Email,
-                    gender = gRPC.Gender,
-                    password = gRPC.Password,
-                    phoneNumber = gRPC.PhoneNumber,
-                    dor = new(gRPC.DateOfRegistration.Year, gRPC.DateOfRegistration.Month, gRPC.DateOfRegistration.Day,
-                        gRPC.DateOfRegistration.Hour, gRPC.DateOfRegistration.Minute, 0)
+                    Id = (int)response.Id,
+                    firstName = response.FirstName,
+                    lastName = response.LastName,
+                    email = response.Email,
+                    gender = response.Gender,
+                    password = response.Password,
+                    phoneNumber = response.PhoneNumber,
+                    dor = new(response.DateOfRegistration.Year, response.DateOfRegistration.Month,
+                        response.DateOfRegistration.Day,
+                        response.DateOfRegistration.Hour, response.DateOfRegistration.Minute, 0)
                 };
-                if(user is null)
-                    break;
                 users.Add(user);
             }
-        return Task.FromResult(users);
+        }
+        else if (searchParameters.LastName is null)
+        {
+            call = ClientUser.getUsers(new SearchUserDTO
+            {
+                Id = 0,
+                FirstName = searchParameters.FirstName,
+                LastName = ""
+            });
+            await foreach (var response in call.ResponseStream.ReadAllAsync())
+            {
+                User? user = new()
+                {
+                    Id = (int)response.Id,
+                    firstName = response.FirstName,
+                    lastName = response.LastName,
+                    email = response.Email,
+                    gender = response.Gender,
+                    password = response.Password,
+                    phoneNumber = response.PhoneNumber,
+                    dor = new(response.DateOfRegistration.Year, response.DateOfRegistration.Month,
+                        response.DateOfRegistration.Day,
+                        response.DateOfRegistration.Hour, response.DateOfRegistration.Minute, 0)
+                };
+                users.Add(user);
+            }
+        }
+        else
+        {
+            call = ClientUser.getUsers(new SearchUserDTO
+            {
+                Id = 0,
+                FirstName = searchParameters.FirstName,
+                LastName = searchParameters.LastName
+            });
+            await foreach (var response in call.ResponseStream.ReadAllAsync())
+            {
+                User? user = new()
+                {
+                    Id = (int)response.Id,
+                    firstName = response.FirstName,
+                    lastName = response.LastName,
+                    email = response.Email,
+                    gender = response.Gender,
+                    password = response.Password,
+                    phoneNumber = response.PhoneNumber,
+                    dor = new(response.DateOfRegistration.Year, response.DateOfRegistration.Month,
+                        response.DateOfRegistration.Day,
+                        response.DateOfRegistration.Hour, response.DateOfRegistration.Minute, 0)
+                };
+                users.Add(user);
+            }
+        }
+
+
+        return await Task.FromResult(users);
     }
-    
+
 
     public async Task<User?> GetByIdAsync(int dtoContactId)
     {
-        gRPCClient.User? gRPC = ClientUser.getUserAsync(new SearchUserDTO
+        gRPCClient.User? gRPC = ClientUser.getUserById(new SearchUserDTO
         {
             Id = dtoContactId,
             FirstName = "",
             LastName = ""
-        }).ResponseAsync.Result;
+        });
         User? user = new()
         {
             Id = (int)gRPC.Id,
