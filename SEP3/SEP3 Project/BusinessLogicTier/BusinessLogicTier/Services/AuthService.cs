@@ -14,9 +14,10 @@ public class AuthService : IAuthService
         
         var query = new Dictionary<string, string>()
         {
-            ["email"] = email
+            ["email"] = email,
+            ["password"] = password
         };
-        var uri = QueryHelpers.AddQueryString("https://localhost:7171/users", query);
+        var uri = QueryHelpers.AddQueryString("https://localhost:7171/Users", query);
         HttpResponseMessage response = await Client.GetAsync(uri);
         string content = response.Content.ReadAsStringAsync().Result;
         List<User>? users = JsonConvert.DeserializeObject<List<User>>(content);
@@ -38,9 +39,14 @@ public class AuthService : IAuthService
     {
         var query = new Dictionary<string, string>()
         {
-            ["email"] = user.Email
+            ["firstName"] = user.FirstName,
+            ["lastName"] = user.LastName,
+            ["password"] = user.Password,
+            ["email"] = user.Email,
+            ["phoneNumber"] = user.PhoneNumber,
+            ["gender"] = user.Gender.ToString()
         };
-        var uri = QueryHelpers.AddQueryString("https://localhost:7130/Users", query);
+        var uri = QueryHelpers.AddQueryString("https://localhost:7171/Users", query);
         HttpResponseMessage response = await Client.GetAsync(uri);
         string content = response.Content.ReadAsStringAsync().Result;
         List<User>? users = JsonConvert.DeserializeObject<List<User>>(content);
@@ -58,6 +64,6 @@ public class AuthService : IAuthService
             throw new Exception("Password cannot be null");
         }
         
-        await Client.PostAsJsonAsync("https://localhost:7171/users", user);
+        await Client.PostAsJsonAsync("https://localhost:7171/Users", user);
     }
 }
