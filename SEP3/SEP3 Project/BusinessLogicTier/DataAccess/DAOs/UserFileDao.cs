@@ -182,7 +182,7 @@ public class UserFileDao : IUserDao
             lastName = login.LastName,
             email = login.Email,
             gender = login.Gender,
-            password = "",
+            password = login.Password,
             phoneNumber = login.PhoneNumber,
             dor = new(login.DateOfRegistration.Year, login.DateOfRegistration.Month, login.DateOfRegistration.Day,
                 login.DateOfRegistration.Hour, login.DateOfRegistration.Minute, 0)

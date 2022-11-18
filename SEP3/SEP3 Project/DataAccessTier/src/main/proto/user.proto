@@ -44,8 +44,9 @@ message User {
   int64 id = 1;
   string firstName = 2;
   string lastName = 3;
-  string email = 4;
-  string phoneNumber = 5;
-  bool gender = 6;
+  string password = 4;
+  string email = 5;
+  string phoneNumber = 6;
+  bool gender = 7;
   LocalDateTime dateOfRegistration = 8;
 }

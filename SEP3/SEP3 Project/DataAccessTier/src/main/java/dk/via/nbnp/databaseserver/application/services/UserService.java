@@ -6,7 +6,6 @@ import dk.via.nbnp.databaseserver.protobuf.*;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -21,32 +20,17 @@ public class UserService extends UserServiceGrpc.UserServiceImplBase {
         this.userRepository = userRepository;
     }
 
-  /*  @Override
-    public void serverSideStreamingGetListStockQuotes(Stock request, StreamObserver<StockQuote> responseObserver) {
-        for (int i = 1; i <= 5; i++) {
-            StockQuote stockQuote = StockQuote.newBuilder()
-                    .setPrice(fetchStockPriceBid(request))
-                    .setOfferNumber(i)
-                    .setDescription("Price for stock:" + request.getTickerSymbol())
-                    .build();
-            responseObserver.onNext(stockQuote);
-        }
-        responseObserver.onCompleted();
-    }
-
-   */
     @Override
     public void login(LoginUserDTO request, StreamObserver<User> responseObserver) {
         String email = request.getEmail();
         String password = request.getPassword();
-
-        //TODO Hash Password
 
         Optional<dk.via.nbnp.databaseserver.domain.User> user = userRepository.findByEmailAndPassword(email, password);
         if(user.isEmpty()){
             System.out.println("Incorrect email or password");
             responseObserver.onError(new Exception("Incorrect email or password"));
         }else{
+            System.out.println(UserMapper.mapDomainToProto(user.get()));
             responseObserver.onNext(UserMapper.mapDomainToProto(user.get()));
             responseObserver.onCompleted();
         }

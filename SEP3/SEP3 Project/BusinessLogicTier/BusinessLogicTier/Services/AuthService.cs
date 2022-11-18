@@ -63,7 +63,6 @@ public class AuthService : IAuthService
         {
             throw new Exception("Password cannot be null");
         }
-        
         await Client.PostAsJsonAsync("https://localhost:7171/Users", user);
     }
 }

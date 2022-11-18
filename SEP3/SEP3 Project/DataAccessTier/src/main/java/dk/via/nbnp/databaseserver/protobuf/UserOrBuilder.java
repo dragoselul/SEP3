@@ -38,31 +38,43 @@ public interface UserOrBuilder extends
       getLastNameBytes();
 
   /**
-   * <code>string email = 4;</code>
+   * <code>string password = 4;</code>
+   * @return The password.
+   */
+  java.lang.String getPassword();
+  /**
+   * <code>string password = 4;</code>
+   * @return The bytes for password.
+   */
+  com.google.protobuf.ByteString
+      getPasswordBytes();
+
+  /**
+   * <code>string email = 5;</code>
    * @return The email.
    */
   java.lang.String getEmail();
   /**
-   * <code>string email = 4;</code>
+   * <code>string email = 5;</code>
    * @return The bytes for email.
    */
   com.google.protobuf.ByteString
       getEmailBytes();
 
   /**
-   * <code>string phoneNumber = 5;</code>
+   * <code>string phoneNumber = 6;</code>
    * @return The phoneNumber.
    */
   java.lang.String getPhoneNumber();
   /**
-   * <code>string phoneNumber = 5;</code>
+   * <code>string phoneNumber = 6;</code>
    * @return The bytes for phoneNumber.
    */
   com.google.protobuf.ByteString
       getPhoneNumberBytes();
 
   /**
-   * <code>bool gender = 6;</code>
+   * <code>bool gender = 7;</code>
    * @return The gender.
    */
   boolean getGender();

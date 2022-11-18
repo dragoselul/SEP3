@@ -9,6 +9,7 @@
     "assembly": {
       "Microsoft.AspNetCore.Authorization.dll": "sha256-HG+bnQWiEA1\/F6r\/8GQWduuLOyXyKN99vVSdpwio0zA=",
       "Microsoft.AspNetCore.Components.dll": "sha256-aJkTDmfPVpkW57SUuoxuimwnL7hXtTTmrPu2e\/VSnJU=",
+      "Microsoft.AspNetCore.Components.Authorization.dll": "sha256-g7QHmVqXlLS+bhRRvXTFmuLTmYvtl5jFwoEfkaniim4=",
       "Microsoft.AspNetCore.Components.Forms.dll": "sha256-u9dpNv+WDt12I+80FSS8i0N1ilvLsQQYe6+53qDxg8A=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-d23VGVQssRao9OJpb13LbDHSt+UI6KvxHdOlatn0pJc=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-E0gPcoluw2z6IpUMeMgQxa7Sem9Cpc23juK2u+kDwRs=",
@@ -196,17 +197,17 @@
       "mscorlib.dll": "sha256-TYLzIm125RbnX9+RAPqJnwZhd6CnQpJcrjiMpJfZ720=",
       "netstandard.dll": "sha256-HhuK9zDkd1N7hODAEiNJ11VF8T54IgrM6hZfLHmHdqM=",
       "System.Private.CoreLib.dll": "sha256-dXaTqyg1PnXPiSwywpic1PVrd7P8Vb5tN0i0\/urdt3E=",
-      "Domain.dll": "sha256-gsZS2ymrfOJUyw\/kS8IbRcNVimTIZo71DOJqGi2LD5g=",
-      "HttpClients.dll": "sha256-QJzL2oFaANQsC9AsVWFqVESSCwoLHH7R6fk3C7nAnBU=",
-      "BlazorWASM.dll": "sha256-CjYBPOcgyPFZqdB3hDdljEiVvxY41pETUkW1eUW7jr4="
+      "Domain.dll": "sha256-Dq3\/VwHrPcMhi+oaoUCnfbivQo8jplCZlHLu42oZziM=",
+      "HttpClients.dll": "sha256-Dd0PfIo7S3urJV4JtIpdrvVe9gKTMkcv+iQQahY1ObA=",
+      "BlazorWASM.dll": "sha256-AwUnN1\/h2zfCFFJ74RwBK+oDFvS5IVy0XL+pl8CvM7U="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "Domain.pdb": "sha256-5Ol1TzrK2bh9KSlITkmu12rqlehEhpekpv+RO4BgHhM=",
-      "HttpClients.pdb": "sha256-dy8iCoauUgnqxyHVyaRimIssNUOuEeimDJ3chSMZ7M0=",
-      "BlazorWASM.pdb": "sha256-28wQXl6MkSiQ8HsTU5d5nL0wJGqp6RtawHGXgz9BBw0="
+      "Domain.pdb": "sha256-t8dsbDU3NNbCOrlAhGtr4IpZufiWytre+xdKkBIEw7s=",
+      "HttpClients.pdb": "sha256-3q2PyvR8ha7MOL\/BGZSfT1uXmwf0eELVl1PLIBvWkgQ=",
+      "BlazorWASM.pdb": "sha256-wivrJ70igYvLT1JJ13JOZQdaHek53MlBDs54jHyC6vA="
     },
     "runtime": {
       "dotnet.6.0.8.k4yf1szkwr.js": "sha256-WT60vnXnQtCNURE40qo+XSL1o4iYFvABy0NVaFhm7MI=",

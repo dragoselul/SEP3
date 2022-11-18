@@ -18,6 +18,7 @@ private static final long serialVersionUID = 0L;
   private User() {
     firstName_ = "";
     lastName_ = "";
+    password_ = "";
     email_ = "";
     phoneNumber_ = "";
   }
@@ -72,16 +73,22 @@ private static final long serialVersionUID = 0L;
           case 34: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            email_ = s;
+            password_ = s;
             break;
           }
           case 42: {
             java.lang.String s = input.readStringRequireUtf8();
 
+            email_ = s;
+            break;
+          }
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+
             phoneNumber_ = s;
             break;
           }
-          case 48: {
+          case 56: {
 
             gender_ = input.readBool();
             break;
@@ -220,10 +227,48 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int EMAIL_FIELD_NUMBER = 4;
+  public static final int PASSWORD_FIELD_NUMBER = 4;
+  private volatile java.lang.Object password_;
+  /**
+   * <code>string password = 4;</code>
+   * @return The password.
+   */
+  @java.lang.Override
+  public java.lang.String getPassword() {
+    java.lang.Object ref = password_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      password_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string password = 4;</code>
+   * @return The bytes for password.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getPasswordBytes() {
+    java.lang.Object ref = password_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      password_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int EMAIL_FIELD_NUMBER = 5;
   private volatile java.lang.Object email_;
   /**
-   * <code>string email = 4;</code>
+   * <code>string email = 5;</code>
    * @return The email.
    */
   @java.lang.Override
@@ -240,7 +285,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string email = 4;</code>
+   * <code>string email = 5;</code>
    * @return The bytes for email.
    */
   @java.lang.Override
@@ -258,10 +303,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int PHONENUMBER_FIELD_NUMBER = 5;
+  public static final int PHONENUMBER_FIELD_NUMBER = 6;
   private volatile java.lang.Object phoneNumber_;
   /**
-   * <code>string phoneNumber = 5;</code>
+   * <code>string phoneNumber = 6;</code>
    * @return The phoneNumber.
    */
   @java.lang.Override
@@ -278,7 +323,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string phoneNumber = 5;</code>
+   * <code>string phoneNumber = 6;</code>
    * @return The bytes for phoneNumber.
    */
   @java.lang.Override
@@ -296,10 +341,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int GENDER_FIELD_NUMBER = 6;
+  public static final int GENDER_FIELD_NUMBER = 7;
   private boolean gender_;
   /**
-   * <code>bool gender = 6;</code>
+   * <code>bool gender = 7;</code>
    * @return The gender.
    */
   @java.lang.Override
@@ -356,14 +401,17 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(lastName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, lastName_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, password_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(email_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, email_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, email_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(phoneNumber_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, phoneNumber_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, phoneNumber_);
     }
     if (gender_ != false) {
-      output.writeBool(6, gender_);
+      output.writeBool(7, gender_);
     }
     if (dateOfRegistration_ != null) {
       output.writeMessage(8, getDateOfRegistration());
@@ -387,15 +435,18 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(lastName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, lastName_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, password_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(email_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, email_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, email_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(phoneNumber_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, phoneNumber_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, phoneNumber_);
     }
     if (gender_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(6, gender_);
+        .computeBoolSize(7, gender_);
     }
     if (dateOfRegistration_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -422,6 +473,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFirstName())) return false;
     if (!getLastName()
         .equals(other.getLastName())) return false;
+    if (!getPassword()
+        .equals(other.getPassword())) return false;
     if (!getEmail()
         .equals(other.getEmail())) return false;
     if (!getPhoneNumber()
@@ -451,6 +504,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getFirstName().hashCode();
     hash = (37 * hash) + LASTNAME_FIELD_NUMBER;
     hash = (53 * hash) + getLastName().hashCode();
+    hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
+    hash = (53 * hash) + getPassword().hashCode();
     hash = (37 * hash) + EMAIL_FIELD_NUMBER;
     hash = (53 * hash) + getEmail().hashCode();
     hash = (37 * hash) + PHONENUMBER_FIELD_NUMBER;
@@ -601,6 +656,8 @@ private static final long serialVersionUID = 0L;
 
       lastName_ = "";
 
+      password_ = "";
+
       email_ = "";
 
       phoneNumber_ = "";
@@ -642,6 +699,7 @@ private static final long serialVersionUID = 0L;
       result.id_ = id_;
       result.firstName_ = firstName_;
       result.lastName_ = lastName_;
+      result.password_ = password_;
       result.email_ = email_;
       result.phoneNumber_ = phoneNumber_;
       result.gender_ = gender_;
@@ -707,6 +765,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getLastName().isEmpty()) {
         lastName_ = other.lastName_;
+        onChanged();
+      }
+      if (!other.getPassword().isEmpty()) {
+        password_ = other.password_;
         onChanged();
       }
       if (!other.getEmail().isEmpty()) {
@@ -935,9 +997,85 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object password_ = "";
+    /**
+     * <code>string password = 4;</code>
+     * @return The password.
+     */
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        password_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string password = 4;</code>
+     * @return The bytes for password.
+     */
+    public com.google.protobuf.ByteString
+        getPasswordBytes() {
+      java.lang.Object ref = password_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        password_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string password = 4;</code>
+     * @param value The password to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPassword(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      password_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string password = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPassword() {
+      
+      password_ = getDefaultInstance().getPassword();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string password = 4;</code>
+     * @param value The bytes for password to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPasswordBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      password_ = value;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object email_ = "";
     /**
-     * <code>string email = 4;</code>
+     * <code>string email = 5;</code>
      * @return The email.
      */
     public java.lang.String getEmail() {
@@ -953,7 +1091,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string email = 4;</code>
+     * <code>string email = 5;</code>
      * @return The bytes for email.
      */
     public com.google.protobuf.ByteString
@@ -970,7 +1108,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string email = 4;</code>
+     * <code>string email = 5;</code>
      * @param value The email to set.
      * @return This builder for chaining.
      */
@@ -985,7 +1123,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string email = 4;</code>
+     * <code>string email = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearEmail() {
@@ -995,7 +1133,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string email = 4;</code>
+     * <code>string email = 5;</code>
      * @param value The bytes for email to set.
      * @return This builder for chaining.
      */
@@ -1013,7 +1151,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object phoneNumber_ = "";
     /**
-     * <code>string phoneNumber = 5;</code>
+     * <code>string phoneNumber = 6;</code>
      * @return The phoneNumber.
      */
     public java.lang.String getPhoneNumber() {
@@ -1029,7 +1167,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string phoneNumber = 5;</code>
+     * <code>string phoneNumber = 6;</code>
      * @return The bytes for phoneNumber.
      */
     public com.google.protobuf.ByteString
@@ -1046,7 +1184,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string phoneNumber = 5;</code>
+     * <code>string phoneNumber = 6;</code>
      * @param value The phoneNumber to set.
      * @return This builder for chaining.
      */
@@ -1061,7 +1199,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string phoneNumber = 5;</code>
+     * <code>string phoneNumber = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearPhoneNumber() {
@@ -1071,7 +1209,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string phoneNumber = 5;</code>
+     * <code>string phoneNumber = 6;</code>
      * @param value The bytes for phoneNumber to set.
      * @return This builder for chaining.
      */
@@ -1089,7 +1227,7 @@ private static final long serialVersionUID = 0L;
 
     private boolean gender_ ;
     /**
-     * <code>bool gender = 6;</code>
+     * <code>bool gender = 7;</code>
      * @return The gender.
      */
     @java.lang.Override
@@ -1097,7 +1235,7 @@ private static final long serialVersionUID = 0L;
       return gender_;
     }
     /**
-     * <code>bool gender = 6;</code>
+     * <code>bool gender = 7;</code>
      * @param value The gender to set.
      * @return This builder for chaining.
      */
@@ -1108,7 +1246,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool gender = 6;</code>
+     * <code>bool gender = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearGender() {

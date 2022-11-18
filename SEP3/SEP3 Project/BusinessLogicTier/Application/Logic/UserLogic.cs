@@ -24,8 +24,7 @@ public class UserLogic : IUserLogic
         List<User>? existing = await userDao.GetAsync(searchUserParametersDto);
         if (existing == null)
             throw new Exception("Username already taken!");
-
-        ValidateData(dto);
+        
         User toCreate = new User
         {
             firstName = dto.FirstName,
@@ -54,16 +53,5 @@ public class UserLogic : IUserLogic
     public Task<User?> GetById(int id)
     {
         return userDao.GetByIdAsync(id);
-    }
-
-    private static void ValidateData(UserCreationDto userToCreate)
-    {
-        string password = userToCreate.Password;
-
-        if (password.Length < 3)
-            throw new Exception("Password must be at least 3 characters!");
-
-        if (password.Length > 15)
-            throw new Exception("Password must be less than 16 characters!");
     }
 }

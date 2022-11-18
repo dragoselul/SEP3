@@ -2,15 +2,17 @@
 
 public class User
 {
-    public int Id { get; set; }
-    public string firstName { get; set; }
-    public string lastName { get; set; }
-    public string email { get; set; }
-    public string password { get; set; }
-    public string phoneNumber { get; set; }
-    public bool gender { get; set; }
-    public DateTime dor { get; set; }
+    public int Id { get; init; }
+    public string firstName { get; init; }
+    public string lastName { get; init; }
+    public string email { get; init; }
+    public string password { get; init; }
+    public string phoneNumber { get; init; }
+    public bool gender { get; init; }
+    public DateTime dor { get; init; }
 
-    public List<Item> ItemsList { get; set; }
+    public List<Item> ItemsList { get; init; }
+
+    public int SecurityLevel { get; set; }
 
 }

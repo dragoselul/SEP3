@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option csharp_namespace = "gRPCClient";
+
+service CategoryService {
+  rpc getCategories(Empty) returns (stream Category);
+}
+
+message Empty{}
+
+message Category{
+  string name = 1;
+}
+

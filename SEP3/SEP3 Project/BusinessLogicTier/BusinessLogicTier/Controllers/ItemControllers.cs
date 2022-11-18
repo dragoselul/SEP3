@@ -34,7 +34,7 @@ public class ItemController : ControllerBase
     
     [HttpGet]
     public async Task<ActionResult<List<Item>>> GetAsync([FromQuery] string? name, [FromQuery]  string? description,
-        [FromQuery] int? contactId, [FromQuery] double? pricing, [FromQuery] bool? isSold)
+        [FromQuery] int? contactId, [FromQuery] double? minPrice,[FromQuery] double? maxPrice, [FromQuery] bool? isSold, [FromQuery] string? category)
     {
         try
         {
@@ -44,7 +44,9 @@ public class ItemController : ControllerBase
                 Description = description,
                 ContactId = contactId,
                 IsSold = isSold,
-                Pricing = pricing
+                MinPrice = minPrice,
+                MaxPrice = maxPrice,
+                Category = category
             };
             var items = await itemLogic.GetAsync(parameters);
             return Ok(items);

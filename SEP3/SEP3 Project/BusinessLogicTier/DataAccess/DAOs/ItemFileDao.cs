@@ -69,7 +69,16 @@ public class ItemFileDao : IItemDao
         {
             while (true)
             {
-                gRPCClient.Item? item = ClientItem.getItems(new SearchItemDTO() { Id = 0, OwnerId = (long)searchParams.ContactId, Name = searchParams.Name, Description = searchParams.Description, Price = (double)searchParams.Pricing ,Status = (bool)searchParams.IsSold})
+                gRPCClient.Item? item = ClientItem.getItems(new SearchItemDTO()
+                    {
+                        Id = 0,
+                        OwnerId = (long)searchParams.ContactId,
+                        Name = searchParams.Name,
+                        Description = searchParams.Description,
+                        MinPrice = (double)searchParams.MinPrice,
+                        MaxPrice = (double)searchParams.MaxPrice,
+                        Status = (bool)searchParams.IsSold
+                    })
                     .ResponseStream.Current;
                 Item? toSend = new()
                 {
@@ -94,7 +103,16 @@ public class ItemFileDao : IItemDao
     
     public async Task<Item> GetByIdAsync(int id)
     {
-        gRPCClient.Item? item  = ClientItem.getItemByIdAsync(new SearchItemDTO { Id = id, OwnerId = 0, Name = "", Description = "", Price = 0 ,Status = false})
+        gRPCClient.Item? item  = ClientItem.getItemByIdAsync(new SearchItemDTO
+            {
+                Id = id,
+                OwnerId = 0,
+                Name = "",
+                Description = "",
+                MinPrice = 0,
+                MaxPrice = 1000000,
+                Status = false
+            })
             .ResponseAsync.Result;
         Item? toSend = new()
         {
@@ -112,7 +130,16 @@ public class ItemFileDao : IItemDao
 
     public async Task UpdateAsync(Item toUpdate)
     {
-        gRPCClient.Item? item = ClientItem.getItemByIdAsync(new SearchItemDTO { Id = toUpdate.Id, OwnerId = toUpdate.OwnerId, Name = toUpdate.Name, Description = toUpdate.Description, Price = toUpdate.Pricing ,Status = toUpdate.IsSold})
+        gRPCClient.Item? item = ClientItem.getItemByIdAsync(new SearchItemDTO { 
+                Id = toUpdate.Id,
+                OwnerId = toUpdate.OwnerId,
+                Name = toUpdate.Name,
+                Description = toUpdate.Description,
+                MinPrice = toUpdate.Pricing,
+                MaxPrice = toUpdate.Pricing,
+                Status = toUpdate.IsSold
+                
+            })
             .ResponseAsync.Result;
         if (item == null)
         {

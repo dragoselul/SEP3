@@ -1,4 +1,6 @@
 ﻿using System.Net.Http.Json;
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.Json;
 using Domain.DTOs;
 using Domain.Models;
@@ -17,7 +19,21 @@ public class UserHttpClient : IUserService
 
     public async Task<User> Create(UserCreationDto dto)
     {
-        HttpResponseMessage response = await client.PostAsJsonAsync("/users", dto);
+        using (SHA256 mySHA256 = SHA256.Create())
+        {
+            byte[] bytes = mySHA256.ComputeHash(Encoding.UTF8.GetBytes(dto.Password));  
+  
+            // Convert byte array to a string   
+            StringBuilder builder = new StringBuilder();  
+            for (int i = 0; i < bytes.Length; i++)  
+            {  
+                builder.Append(bytes[i].ToString("x2"));  
+            }
+
+            dto.Password = builder.ToString();
+        }
+        Console.WriteLine(dto.Password);
+        HttpResponseMessage response = await client.PostAsJsonAsync("/Auth/register", dto);
         string result = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
@@ -30,14 +46,20 @@ public class UserHttpClient : IUserService
         })!;
         return user;
     }
-    
-    public async Task<IEnumerable<User>> GetUsers(string? usernameContains = null)
+
+    public async Task<IEnumerable<User>> GetUsers(string? firstName = null, string? lastName = null)
     {
         string uri = "/users";
-        if (!string.IsNullOrEmpty(usernameContains))
+        if (!string.IsNullOrEmpty(firstName))
         {
-            uri += $"?username={usernameContains}";
+            uri += $"?firstname={firstName}";
         }
+
+        if (!string.IsNullOrEmpty(lastName))
+        {
+            uri += $"?lastname={lastName}";
+        }
+
         HttpResponseMessage response = await client.GetAsync(uri);
         string result = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)

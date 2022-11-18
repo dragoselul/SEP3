@@ -1,26 +1,14 @@
-﻿namespace Domain.DTOs;
+﻿using Domain.Models;
+
+namespace Domain.DTOs;
 
 public class SearchItemParametersDto
 {
-    public string? ContactFirstName { get; }
-    public string? ContactLastName { get; }
-    public string? Name { get; set; }
-    public string? Description { get;}
-    public int? ContactId { get;}
-    public double? Pricing { get;}
-    
-    public bool? IsSold { get; } 
-    // public byte[] Photos { get;}
-
-    public SearchItemParametersDto(string contactFirstName, string contactLastName, string name, string description, int contactId, double pricing, bool isSold)
-    {
-        ContactFirstName = contactFirstName;
-        ContactLastName = contactLastName;
-        Name = name;
-        Description = description;
-        ContactId = contactId;
-        Pricing = pricing;
-        IsSold = isSold;
-        //Photos = photos;
-    }
+    public string? Name { get; init; }
+    public string? Description { get; init; }
+    public int? ContactId { get; init; }
+    public double? MinPrice { get; init; }
+    public double? MaxPrice { get; init; }
+    public bool? IsSold { get; init; }
+    public string? Category { get; init; }
 }

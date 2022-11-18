@@ -1,22 +1,17 @@
-﻿namespace Domain.DTOs;
+﻿using Domain.Models;
+
+namespace Domain.DTOs;
 
 public class ItemCreationDto
 {
-    public int Id { get;}
+    public string Name { get; init; }
+    public string Description { get; init; }
+    public int ContactId { get; init; }
+    public double Pricing { get; init; }
     
-    public string Name { get; set; }
-    public string Description { get;}
-    public int ContactId { get;}
-    public double Pricing { get;}
+    public string Category { get; init; }
+    public string Currency { get; init; }
+    public bool IsSold { get; init; }
     // public byte[] Photos { get;}
-
-    public ItemCreationDto(int id, string name, string description, int contactId, double pricing)
-    {
-        Id = id;
-        Name = name;
-        Description = description;
-        ContactId = contactId;
-        Pricing = pricing;
-        //Photos = photos;
-    }
+    
 }

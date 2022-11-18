@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "n1SSQ3fDEjxZh6k+WB0YO6+uNAj7BYnuDFt/JCBSa+KKo3EO44GxXVFIQ1/n+rQD5mvwHcRxOy+Rp6FuSW7gSw==",
+  "dgSpecHash": "tNJQZOHxpafbigMF9RDUTCZuKADs0szE2oKcoAy5d2BV4R+QVnJ5q7nO0xjgfdGbJZVtd35tu/htaTHNtyNLOA==",
   "success": true,
   "projectFilePath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\drago\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.9\\microsoft.aspnetcore.authorization.6.0.9.nupkg.sha512",
     "C:\\Users\\drago\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.9\\microsoft.aspnetcore.components.6.0.9.nupkg.sha512",
     "C:\\Users\\drago\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\6.0.9\\microsoft.aspnetcore.components.analyzers.6.0.9.nupkg.sha512",
+    "C:\\Users\\drago\\.nuget\\packages\\microsoft.aspnetcore.components.authorization\\6.0.9\\microsoft.aspnetcore.components.authorization.6.0.9.nupkg.sha512",
     "C:\\Users\\drago\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\6.0.9\\microsoft.aspnetcore.components.forms.6.0.9.nupkg.sha512",
     "C:\\Users\\drago\\.nuget\\packages\\microsoft.aspnetcore.components.web\\6.0.9\\microsoft.aspnetcore.components.web.6.0.9.nupkg.sha512",
     "C:\\Users\\drago\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\6.0.9\\microsoft.aspnetcore.components.webassembly.6.0.9.nupkg.sha512",

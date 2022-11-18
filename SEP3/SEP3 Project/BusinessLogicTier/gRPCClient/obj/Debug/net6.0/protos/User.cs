@@ -31,16 +31,17 @@ namespace gRPCClient {
             "Z2VuZGVyGAYgASgIIkAKDVNlYXJjaFVzZXJEVE8SCgoCaWQYASABKAMSEQoJ",
             "Zmlyc3ROYW1lGAIgASgJEhAKCGxhc3ROYW1lGAMgASgJIlcKDUxvY2FsRGF0",
             "ZVRpbWUSDAoEeWVhchgBIAEoBRINCgVtb250aBgCIAEoBRILCgNkYXkYAyAB",
-            "KAUSDAoEaG91chgEIAEoBRIOCgZtaW51dGUYBSABKAUilwEKBFVzZXISCgoC",
+            "KAUSDAoEaG91chgEIAEoBRIOCgZtaW51dGUYBSABKAUiqQEKBFVzZXISCgoC",
             "aWQYASABKAMSEQoJZmlyc3ROYW1lGAIgASgJEhAKCGxhc3ROYW1lGAMgASgJ",
-            "Eg0KBWVtYWlsGAQgASgJEhMKC3Bob25lTnVtYmVyGAUgASgJEg4KBmdlbmRl",
-            "chgGIAEoCBIqChJkYXRlT2ZSZWdpc3RyYXRpb24YCCABKAsyDi5Mb2NhbERh",
-            "dGVUaW1lMuYBCgtVc2VyU2VydmljZRIdCgVsb2dpbhINLkxvZ2luVXNlckRU",
-            "TxoFLlVzZXISIwoKY3JlYXRlVXNlchIOLkNyZWF0ZVVzZXJEVE8aBS5Vc2Vy",
-            "EiMKCGdldFVzZXJzEg4uU2VhcmNoVXNlckRUTxoFLlVzZXIwARIkCgtnZXRV",
-            "c2VyQnlJZBIOLlNlYXJjaFVzZXJEVE8aBS5Vc2VyEiMKCnVwZGF0ZVVzZXIS",
-            "Di5DcmVhdGVVc2VyRFRPGgUuVXNlchIjCgpkZWxldGVVc2VyEg4uU2VhcmNo",
-            "VXNlckRUTxoFLlVzZXJCDaoCCmdSUENDbGllbnRiBnByb3RvMw=="));
+            "EhAKCHBhc3N3b3JkGAQgASgJEg0KBWVtYWlsGAUgASgJEhMKC3Bob25lTnVt",
+            "YmVyGAYgASgJEg4KBmdlbmRlchgHIAEoCBIqChJkYXRlT2ZSZWdpc3RyYXRp",
+            "b24YCCABKAsyDi5Mb2NhbERhdGVUaW1lMuYBCgtVc2VyU2VydmljZRIdCgVs",
+            "b2dpbhINLkxvZ2luVXNlckRUTxoFLlVzZXISIwoKY3JlYXRlVXNlchIOLkNy",
+            "ZWF0ZVVzZXJEVE8aBS5Vc2VyEiMKCGdldFVzZXJzEg4uU2VhcmNoVXNlckRU",
+            "TxoFLlVzZXIwARIkCgtnZXRVc2VyQnlJZBIOLlNlYXJjaFVzZXJEVE8aBS5V",
+            "c2VyEiMKCnVwZGF0ZVVzZXISDi5DcmVhdGVVc2VyRFRPGgUuVXNlchIjCgpk",
+            "ZWxldGVVc2VyEg4uU2VhcmNoVXNlckRUTxoFLlVzZXJCDaoCCmdSUENDbGll",
+            "bnRiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -48,7 +49,7 @@ namespace gRPCClient {
             new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.CreateUserDTO), global::gRPCClient.CreateUserDTO.Parser, new[]{ "FirstName", "LastName", "Email", "Password", "PhoneNumber", "Gender" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.SearchUserDTO), global::gRPCClient.SearchUserDTO.Parser, new[]{ "Id", "FirstName", "LastName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.LocalDateTime), global::gRPCClient.LocalDateTime.Parser, new[]{ "Year", "Month", "Day", "Hour", "Minute" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.User), global::gRPCClient.User.Parser, new[]{ "Id", "FirstName", "LastName", "Email", "PhoneNumber", "Gender", "DateOfRegistration" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.User), global::gRPCClient.User.Parser, new[]{ "Id", "FirstName", "LastName", "Password", "Email", "PhoneNumber", "Gender", "DateOfRegistration" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1292,6 +1293,7 @@ namespace gRPCClient {
       id_ = other.id_;
       firstName_ = other.firstName_;
       lastName_ = other.lastName_;
+      password_ = other.password_;
       email_ = other.email_;
       phoneNumber_ = other.phoneNumber_;
       gender_ = other.gender_;
@@ -1341,8 +1343,20 @@ namespace gRPCClient {
       }
     }
 
+    /// <summary>Field number for the "password" field.</summary>
+    public const int PasswordFieldNumber = 4;
+    private string password_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Password {
+      get { return password_; }
+      set {
+        password_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "email" field.</summary>
-    public const int EmailFieldNumber = 4;
+    public const int EmailFieldNumber = 5;
     private string email_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1354,7 +1368,7 @@ namespace gRPCClient {
     }
 
     /// <summary>Field number for the "phoneNumber" field.</summary>
-    public const int PhoneNumberFieldNumber = 5;
+    public const int PhoneNumberFieldNumber = 6;
     private string phoneNumber_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1366,7 +1380,7 @@ namespace gRPCClient {
     }
 
     /// <summary>Field number for the "gender" field.</summary>
-    public const int GenderFieldNumber = 6;
+    public const int GenderFieldNumber = 7;
     private bool gender_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1407,6 +1421,7 @@ namespace gRPCClient {
       if (Id != other.Id) return false;
       if (FirstName != other.FirstName) return false;
       if (LastName != other.LastName) return false;
+      if (Password != other.Password) return false;
       if (Email != other.Email) return false;
       if (PhoneNumber != other.PhoneNumber) return false;
       if (Gender != other.Gender) return false;
@@ -1421,6 +1436,7 @@ namespace gRPCClient {
       if (Id != 0L) hash ^= Id.GetHashCode();
       if (FirstName.Length != 0) hash ^= FirstName.GetHashCode();
       if (LastName.Length != 0) hash ^= LastName.GetHashCode();
+      if (Password.Length != 0) hash ^= Password.GetHashCode();
       if (Email.Length != 0) hash ^= Email.GetHashCode();
       if (PhoneNumber.Length != 0) hash ^= PhoneNumber.GetHashCode();
       if (Gender != false) hash ^= Gender.GetHashCode();
@@ -1455,16 +1471,20 @@ namespace gRPCClient {
         output.WriteRawTag(26);
         output.WriteString(LastName);
       }
-      if (Email.Length != 0) {
+      if (Password.Length != 0) {
         output.WriteRawTag(34);
+        output.WriteString(Password);
+      }
+      if (Email.Length != 0) {
+        output.WriteRawTag(42);
         output.WriteString(Email);
       }
       if (PhoneNumber.Length != 0) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(50);
         output.WriteString(PhoneNumber);
       }
       if (Gender != false) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(56);
         output.WriteBool(Gender);
       }
       if (dateOfRegistration_ != null) {
@@ -1493,16 +1513,20 @@ namespace gRPCClient {
         output.WriteRawTag(26);
         output.WriteString(LastName);
       }
-      if (Email.Length != 0) {
+      if (Password.Length != 0) {
         output.WriteRawTag(34);
+        output.WriteString(Password);
+      }
+      if (Email.Length != 0) {
+        output.WriteRawTag(42);
         output.WriteString(Email);
       }
       if (PhoneNumber.Length != 0) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(50);
         output.WriteString(PhoneNumber);
       }
       if (Gender != false) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(56);
         output.WriteBool(Gender);
       }
       if (dateOfRegistration_ != null) {
@@ -1527,6 +1551,9 @@ namespace gRPCClient {
       }
       if (LastName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(LastName);
+      }
+      if (Password.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Password);
       }
       if (Email.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Email);
@@ -1560,6 +1587,9 @@ namespace gRPCClient {
       }
       if (other.LastName.Length != 0) {
         LastName = other.LastName;
+      }
+      if (other.Password.Length != 0) {
+        Password = other.Password;
       }
       if (other.Email.Length != 0) {
         Email = other.Email;
@@ -1604,14 +1634,18 @@ namespace gRPCClient {
             break;
           }
           case 34: {
-            Email = input.ReadString();
+            Password = input.ReadString();
             break;
           }
           case 42: {
+            Email = input.ReadString();
+            break;
+          }
+          case 50: {
             PhoneNumber = input.ReadString();
             break;
           }
-          case 48: {
+          case 56: {
             Gender = input.ReadBool();
             break;
           }
@@ -1650,14 +1684,18 @@ namespace gRPCClient {
             break;
           }
           case 34: {
-            Email = input.ReadString();
+            Password = input.ReadString();
             break;
           }
           case 42: {
+            Email = input.ReadString();
+            break;
+          }
+          case 50: {
             PhoneNumber = input.ReadString();
             break;
           }
-          case 48: {
+          case 56: {
             Gender = input.ReadBool();
             break;
           }

@@ -9,6 +9,7 @@ public abstract class UserMapper {
                 .setId(user.getId())
                 .setFirstName(user.getFirstName())
                 .setLastName(user.getLastName())
+                .setPassword(user.getPassword())
                 .setEmail(user.getEmail())
                 .setPhoneNumber(user.getPhoneNumber())
                 .setGender(user.isGender())

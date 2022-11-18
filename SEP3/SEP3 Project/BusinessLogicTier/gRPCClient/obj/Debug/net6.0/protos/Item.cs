@@ -31,26 +31,27 @@ namespace gRPCClient {
             "VXBkYXRlSXRlbURUTxIKCgJpZBgBIAEoAxIPCgdvd25lcklkGAIgASgDEgwK",
             "BG5hbWUYAyABKAkSEwoLZGVzY3JpcHRpb24YBCABKAkSDQoFcHJpY2UYBSAB",
             "KAESEAoIY3VycmVuY3kYBiABKAkSEAoIY2F0ZWdvcnkYByABKAkSDgoGc3Rh",
-            "dHVzGAggASgIIm4KDVNlYXJjaEl0ZW1EVE8SCgoCaWQYASABKAMSDwoHb3du",
-            "ZXJJZBgCIAEoAxIMCgRuYW1lGAMgASgJEhMKC2Rlc2NyaXB0aW9uGAQgASgJ",
-            "Eg0KBXByaWNlGAUgASgBEg4KBnN0YXR1cxgGIAEoCCIdCgxHZXRJdGVtQ291",
-            "bnQSDQoFY291bnQYASABKAMitAEKBEl0ZW0SCgoCaWQYASABKAMSFAoFb3du",
-            "ZXIYAiABKAsyBS5Vc2VyEgwKBG5hbWUYAyABKAkSEwoLZGVzY3JpcHRpb24Y",
-            "BCABKAkSDQoFcHJpY2UYBSABKAESEAoIY3VycmVuY3kYBiABKAkSJAoMZGF0",
-            "ZU9mQWRkaW5nGAcgASgLMg4uTG9jYWxEYXRlVGltZRIQCghjYXRlZ29yeRgI",
-            "IAEoCRIOCgZzdGF0dXMYCSABKAgy8wEKC0l0ZW1TZXJ2aWNlEiMKCmNyZWF0",
-            "ZUl0ZW0SDi5DcmVhdGVJdGVtRFRPGgUuSXRlbRIjCghnZXRJdGVtcxIOLlNl",
-            "YXJjaEl0ZW1EVE8aBS5JdGVtMAESKgoPZ2V0SXRlbXNCeU93bmVyEg4uU2Vh",
-            "cmNoSXRlbURUTxoFLkl0ZW0wARIkCgtnZXRJdGVtQnlJZBIOLlNlYXJjaEl0",
-            "ZW1EVE8aBS5JdGVtEiMKCnVwZGF0ZUl0ZW0SDi5VcGRhdGVJdGVtRFRPGgUu",
-            "SXRlbRIjCgpkZWxldGVJdGVtEg4uU2VhcmNoSXRlbURUTxoFLkl0ZW1CDaoC",
-            "CmdSUENDbGllbnRiBnByb3RvMw=="));
+            "dHVzGAggASgIIpUBCg1TZWFyY2hJdGVtRFRPEgoKAmlkGAEgASgDEg8KB293",
+            "bmVySWQYAiABKAMSDAoEbmFtZRgDIAEoCRITCgtkZXNjcmlwdGlvbhgEIAEo",
+            "CRIQCghtaW5QcmljZRgFIAEoARIQCghtYXhQcmljZRgGIAEoARIQCghjYXRl",
+            "Z29yeRgHIAEoCRIOCgZzdGF0dXMYCCABKAgiHQoMR2V0SXRlbUNvdW50Eg0K",
+            "BWNvdW50GAEgASgDIrQBCgRJdGVtEgoKAmlkGAEgASgDEhQKBW93bmVyGAIg",
+            "ASgLMgUuVXNlchIMCgRuYW1lGAMgASgJEhMKC2Rlc2NyaXB0aW9uGAQgASgJ",
+            "Eg0KBXByaWNlGAUgASgBEhAKCGN1cnJlbmN5GAYgASgJEiQKDGRhdGVPZkFk",
+            "ZGluZxgHIAEoCzIOLkxvY2FsRGF0ZVRpbWUSEAoIY2F0ZWdvcnkYCCABKAkS",
+            "DgoGc3RhdHVzGAkgASgIMvMBCgtJdGVtU2VydmljZRIjCgpjcmVhdGVJdGVt",
+            "Eg4uQ3JlYXRlSXRlbURUTxoFLkl0ZW0SIwoIZ2V0SXRlbXMSDi5TZWFyY2hJ",
+            "dGVtRFRPGgUuSXRlbTABEioKD2dldEl0ZW1zQnlPd25lchIOLlNlYXJjaEl0",
+            "ZW1EVE8aBS5JdGVtMAESJAoLZ2V0SXRlbUJ5SWQSDi5TZWFyY2hJdGVtRFRP",
+            "GgUuSXRlbRIjCgp1cGRhdGVJdGVtEg4uVXBkYXRlSXRlbURUTxoFLkl0ZW0S",
+            "IwoKZGVsZXRlSXRlbRIOLlNlYXJjaEl0ZW1EVE8aBS5JdGVtQg2qAgpnUlBD",
+            "Q2xpZW50YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::gRPCClient.UserReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.CreateItemDTO), global::gRPCClient.CreateItemDTO.Parser, new[]{ "OwnerId", "Name", "Description", "Price", "Currency", "Category", "Status" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.UpdateItemDTO), global::gRPCClient.UpdateItemDTO.Parser, new[]{ "Id", "OwnerId", "Name", "Description", "Price", "Currency", "Category", "Status" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.SearchItemDTO), global::gRPCClient.SearchItemDTO.Parser, new[]{ "Id", "OwnerId", "Name", "Description", "Price", "Status" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.SearchItemDTO), global::gRPCClient.SearchItemDTO.Parser, new[]{ "Id", "OwnerId", "Name", "Description", "MinPrice", "MaxPrice", "Category", "Status" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.GetItemCount), global::gRPCClient.GetItemCount.Parser, new[]{ "Count" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::gRPCClient.Item), global::gRPCClient.Item.Parser, new[]{ "Id", "Owner", "Name", "Description", "Price", "Currency", "DateOfAdding", "Category", "Status" }, null, null, null, null)
           }));
@@ -956,7 +957,9 @@ namespace gRPCClient {
       ownerId_ = other.ownerId_;
       name_ = other.name_;
       description_ = other.description_;
-      price_ = other.price_;
+      minPrice_ = other.minPrice_;
+      maxPrice_ = other.maxPrice_;
+      category_ = other.category_;
       status_ = other.status_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -1015,20 +1018,44 @@ namespace gRPCClient {
       }
     }
 
-    /// <summary>Field number for the "price" field.</summary>
-    public const int PriceFieldNumber = 5;
-    private double price_;
+    /// <summary>Field number for the "minPrice" field.</summary>
+    public const int MinPriceFieldNumber = 5;
+    private double minPrice_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public double Price {
-      get { return price_; }
+    public double MinPrice {
+      get { return minPrice_; }
       set {
-        price_ = value;
+        minPrice_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "maxPrice" field.</summary>
+    public const int MaxPriceFieldNumber = 6;
+    private double maxPrice_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double MaxPrice {
+      get { return maxPrice_; }
+      set {
+        maxPrice_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "category" field.</summary>
+    public const int CategoryFieldNumber = 7;
+    private string category_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Category {
+      get { return category_; }
+      set {
+        category_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
     /// <summary>Field number for the "status" field.</summary>
-    public const int StatusFieldNumber = 6;
+    public const int StatusFieldNumber = 8;
     private bool status_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1058,7 +1085,9 @@ namespace gRPCClient {
       if (OwnerId != other.OwnerId) return false;
       if (Name != other.Name) return false;
       if (Description != other.Description) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Price, other.Price)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(MinPrice, other.MinPrice)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(MaxPrice, other.MaxPrice)) return false;
+      if (Category != other.Category) return false;
       if (Status != other.Status) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -1071,7 +1100,9 @@ namespace gRPCClient {
       if (OwnerId != 0L) hash ^= OwnerId.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Description.Length != 0) hash ^= Description.GetHashCode();
-      if (Price != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Price);
+      if (MinPrice != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(MinPrice);
+      if (MaxPrice != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(MaxPrice);
+      if (Category.Length != 0) hash ^= Category.GetHashCode();
       if (Status != false) hash ^= Status.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1107,12 +1138,20 @@ namespace gRPCClient {
         output.WriteRawTag(34);
         output.WriteString(Description);
       }
-      if (Price != 0D) {
+      if (MinPrice != 0D) {
         output.WriteRawTag(41);
-        output.WriteDouble(Price);
+        output.WriteDouble(MinPrice);
+      }
+      if (MaxPrice != 0D) {
+        output.WriteRawTag(49);
+        output.WriteDouble(MaxPrice);
+      }
+      if (Category.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(Category);
       }
       if (Status != false) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(64);
         output.WriteBool(Status);
       }
       if (_unknownFields != null) {
@@ -1141,12 +1180,20 @@ namespace gRPCClient {
         output.WriteRawTag(34);
         output.WriteString(Description);
       }
-      if (Price != 0D) {
+      if (MinPrice != 0D) {
         output.WriteRawTag(41);
-        output.WriteDouble(Price);
+        output.WriteDouble(MinPrice);
+      }
+      if (MaxPrice != 0D) {
+        output.WriteRawTag(49);
+        output.WriteDouble(MaxPrice);
+      }
+      if (Category.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(Category);
       }
       if (Status != false) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(64);
         output.WriteBool(Status);
       }
       if (_unknownFields != null) {
@@ -1171,8 +1218,14 @@ namespace gRPCClient {
       if (Description.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Description);
       }
-      if (Price != 0D) {
+      if (MinPrice != 0D) {
         size += 1 + 8;
+      }
+      if (MaxPrice != 0D) {
+        size += 1 + 8;
+      }
+      if (Category.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Category);
       }
       if (Status != false) {
         size += 1 + 1;
@@ -1201,8 +1254,14 @@ namespace gRPCClient {
       if (other.Description.Length != 0) {
         Description = other.Description;
       }
-      if (other.Price != 0D) {
-        Price = other.Price;
+      if (other.MinPrice != 0D) {
+        MinPrice = other.MinPrice;
+      }
+      if (other.MaxPrice != 0D) {
+        MaxPrice = other.MaxPrice;
+      }
+      if (other.Category.Length != 0) {
+        Category = other.Category;
       }
       if (other.Status != false) {
         Status = other.Status;
@@ -1239,10 +1298,18 @@ namespace gRPCClient {
             break;
           }
           case 41: {
-            Price = input.ReadDouble();
+            MinPrice = input.ReadDouble();
             break;
           }
-          case 48: {
+          case 49: {
+            MaxPrice = input.ReadDouble();
+            break;
+          }
+          case 58: {
+            Category = input.ReadString();
+            break;
+          }
+          case 64: {
             Status = input.ReadBool();
             break;
           }
@@ -1278,10 +1345,18 @@ namespace gRPCClient {
             break;
           }
           case 41: {
-            Price = input.ReadDouble();
+            MinPrice = input.ReadDouble();
             break;
           }
-          case 48: {
+          case 49: {
+            MaxPrice = input.ReadDouble();
+            break;
+          }
+          case 58: {
+            Category = input.ReadString();
+            break;
+          }
+          case 64: {
             Status = input.ReadBool();
             break;
           }

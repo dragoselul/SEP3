@@ -13,7 +13,7 @@ builder.Services.AddScoped<IUserService, UserHttpClient>();
 builder.Services.AddScoped(
     sp => 
         new HttpClient { 
-            BaseAddress = new Uri("https://localhost:7078") 
+            BaseAddress = new Uri("https://localhost:7171") 
         }
 );
 await builder.Build().RunAsync();

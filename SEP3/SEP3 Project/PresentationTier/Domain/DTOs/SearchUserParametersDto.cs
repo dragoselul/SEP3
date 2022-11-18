@@ -2,10 +2,6 @@
 
 public class SearchUserParametersDto
 {
-    public string? UsernameContains { get;  }
-
-    public SearchUserParametersDto(string? usernameContains)
-    {
-        UsernameContains = usernameContains;
-    }
+    public string? FirstName { get; init; }
+    public string? LastName { get; init; }
 }

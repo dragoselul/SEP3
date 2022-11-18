@@ -25,31 +25,37 @@
     <div class="form-group field">
         <label class="form-label">Phone number:</label>
         <input class="form-control" type="text" @bind="phoneNumber" @bind:event="oninput" placeholder="+45 12 34 56 78"/>
-        @if (!string.IsNullOrEmpty(resultMsg) || !string.IsNullOrEmpty(resultMsg) || !string.IsNullOrEmpty(resultMsg) ||
+  <!--     /* if (!string.IsNullOrEmpty(resultMsg) || !string.IsNullOrEmpty(resultMsg) || !string.IsNullOrEmpty(resultMsg) ||
              !string.IsNullOrEmpty(resultMsg) || !string.IsNullOrEmpty(resultMsg))
         {
             <label style="color: @color">Error: Make sure to input all data!</label>
-        }
+        } */-->
     </div>
+    <button class="button-row mt-2"  @onclick="Toggle">@toggleText</button>
+
     <div class="button-row mt-2">
-        <button @onclick="Create" title="To create new account please insert all the data" 
-                disabled="@(string.IsNullOrEmpty(firstName) && string.IsNullOrEmpty(lastName) &&
-                            string.IsNullOrEmpty(email) && string.IsNullOrEmpty(password) &&
-                            string.IsNullOrEmpty(phoneNumber))" class="acceptbtn btn btn-outline-dark">Create</button>
+        <button @onclick="Create" title="To create new account please insert all the data"
+                disabled="@(string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(phoneNumber))" class="acceptbtn btn btn-outline-dark">
+            Create
+        </button>
     </div>
 </div>
 
 @code {
+    private string toggleText => gender ? "Male" : "Female";
     private string firstName = "";
     private string lastName = "";
     private string email = "";
     private string password = "";
     private string phoneNumber = "";
-    private bool gender;
-    private DateTime dor;
-    private List<Item> itemsList = new List<Item>();
+    private bool gender = true;
     private string resultMsg = "";
     private string color = "";
+
+    private void Toggle()
+    {
+        gender = !gender;
+    }
 
     private async Task Create()
     {
@@ -57,15 +63,13 @@
 
         try
         {
-            await userService.Create(new UserCreationDto(firstName, lastName, email, password, phoneNumber, gender, dor, itemsList));
+            await userService.Create(new UserCreationDto(firstName, lastName, email, password, phoneNumber, gender));
             firstName = "";
             lastName = "";
             email = "";
             password = "";
             phoneNumber = "";
             gender = false;
-            dor = DateTime.Now;
-            itemsList = new List<Item>();
             resultMsg = "";
             color = "";
             resultMsg = "User successfully created";
@@ -78,4 +82,5 @@
             color = "red";
         }
     }
+
 }
