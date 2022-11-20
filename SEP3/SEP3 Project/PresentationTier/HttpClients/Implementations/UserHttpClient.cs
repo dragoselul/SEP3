@@ -32,7 +32,35 @@ public class UserHttpClient : IUserService
 
             dto.Password = builder.ToString();
         }
-        Console.WriteLine(dto.Password);
+        HttpResponseMessage response = await client.PostAsJsonAsync("/Auth/register", dto);
+        string result = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(result);
+        }
+
+        User user = JsonSerializer.Deserialize<User>(result, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return user;
+    }
+
+    public async Task<User> Login(UserLoginDto dto)
+    {
+        using (SHA256 mySHA256 = SHA256.Create())
+        {
+            byte[] bytes = mySHA256.ComputeHash(Encoding.UTF8.GetBytes(dto.Password));  
+  
+            // Convert byte array to a string   
+            StringBuilder builder = new StringBuilder();  
+            for (int i = 0; i < bytes.Length; i++)  
+            {  
+                builder.Append(bytes[i].ToString("x2"));  
+            }
+
+            dto.Password = builder.ToString();
+        }
         HttpResponseMessage response = await client.PostAsJsonAsync("/Auth/register", dto);
         string result = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)

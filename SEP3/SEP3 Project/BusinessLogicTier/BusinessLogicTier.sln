@@ -10,8 +10,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gRPCClient", "gRPCClient\gR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{8CBF7933-C7DB-4A29-82CD-7E8AEF790C2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{44354E9E-9958-487B-A07F-CE45540A6D33}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,9 +36,5 @@ Global
 		{8CBF7933-C7DB-4A29-82CD-7E8AEF790C2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CBF7933-C7DB-4A29-82CD-7E8AEF790C2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CBF7933-C7DB-4A29-82CD-7E8AEF790C2D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{44354E9E-9958-487B-A07F-CE45540A6D33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{44354E9E-9958-487B-A07F-CE45540A6D33}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{44354E9E-9958-487B-A07F-CE45540A6D33}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{44354E9E-9958-487B-A07F-CE45540A6D33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

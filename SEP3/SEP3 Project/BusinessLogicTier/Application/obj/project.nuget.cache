@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "KnM450tGANkfTqzHBHjJD0GMpmMri1cHz5PjCwIhXwHc8rn9HMS6y5ZYXJH2KPyFxAD0Ux85XP+1OfBsf9GSAg==",
+  "dgSpecHash": "PEEs6csv8OH3gbl7FwZJZO9zrYNZ346aNDixjwWStdTFhV4cfjKmJJioUs9P0JQyycwP7ckpwesbr/mPXpDvpg==",
   "success": true,
   "projectFilePath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Application\\Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\drago\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.9\\microsoft.aspnetcore.authorization.6.0.9.nupkg.sha512",
+    "C:\\Users\\drago\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.9\\microsoft.aspnetcore.metadata.6.0.9.nupkg.sha512",
+    "C:\\Users\\drago\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\drago\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.2\\microsoft.extensions.logging.abstractions.6.0.2.nupkg.sha512",
+    "C:\\Users\\drago\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\drago\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\drago\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

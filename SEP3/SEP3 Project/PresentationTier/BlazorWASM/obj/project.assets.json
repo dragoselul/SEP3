@@ -407,6 +407,9 @@
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "6.0.9"
+        },
         "compile": {
           "bin/placeholder/Domain.dll": {}
         },
@@ -828,6 +831,9 @@
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "6.0.9"
+        },
         "compile": {
           "bin/placeholder/Domain.dll": {}
         },

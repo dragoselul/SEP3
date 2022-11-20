@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using Domain.DTOs;
@@ -21,7 +22,20 @@ public class JwtAuthService : IAuthService
             Email = email,
             Password = password
         };
+        
+        using (SHA256 mySHA256 = SHA256.Create())
+        {
+            byte[] bytes = mySHA256.ComputeHash(Encoding.UTF8.GetBytes(userLoginDto.Password));  
+  
+            // Convert byte array to a string   
+            StringBuilder builder = new StringBuilder();  
+            for (int i = 0; i < bytes.Length; i++)  
+            {  
+                builder.Append(bytes[i].ToString("x2"));  
+            }
 
+            userLoginDto.Password = builder.ToString();
+        }
         string userAsJson = JsonSerializer.Serialize(userLoginDto);
         StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
 

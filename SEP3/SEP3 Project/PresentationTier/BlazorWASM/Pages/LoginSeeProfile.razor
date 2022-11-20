@@ -1,0 +1,57 @@
+﻿@page "/LoginSeeProfile"
+@using BlazorWasm.Services
+@using Microsoft.AspNetCore.Components.Authorization
+@inject IAuthService authService
+@inject NavigationManager navMgr
+<CascadingAuthenticationState>
+<AuthorizeView>
+    <NotAuthorized>
+        <div class="card">
+            <h3>Please login</h3>
+            <div class="field">
+                <label>Email:</label>
+                <input type="text" @bind="Email"/>
+            </div>
+            <div class="field">
+                <label style="text-align: center">Password:</label>
+                <input type="password" @bind="Password"/>
+            </div>
+            @if (!string.IsNullOrEmpty(ErrorLabel))
+            {
+                <div class="field">
+                    <label style="color: red">
+                        @ErrorLabel
+                    </label>
+                </div>
+            }
+            <div class="field">
+                <button class="loginbtn" @onclick="LoginAsync">Log in</button>
+            </div>
+        </div>
+    </NotAuthorized>
+    <Authorized>
+        
+    </Authorized>
+</AuthorizeView>
+</CascadingAuthenticationState>
+
+@code {
+    private string Email;
+    private string Password;
+    private string ErrorLabel;
+
+    private async Task LoginAsync()
+    {
+        ErrorLabel = "";
+        try
+        {
+            await authService.LoginAsync(Email, Password);
+            navMgr.NavigateTo("/");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            ErrorLabel = $"Error: {e.Message}";
+        }
+    }
+}

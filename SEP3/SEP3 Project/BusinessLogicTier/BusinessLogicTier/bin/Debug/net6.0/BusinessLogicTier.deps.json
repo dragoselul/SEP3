@@ -13,7 +13,6 @@
           "Domain": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.8",
           "Newtonsoft.Json": "13.0.1",
-          "Shared": "1.0.0",
           "Swashbuckle.AspNetCore": "6.2.3"
         },
         "runtime": {
@@ -42,7 +41,7 @@
       "Grpc.Net.Client/2.49.0": {
         "dependencies": {
           "Grpc.Net.Common": "2.49.0",
-          "Microsoft.Extensions.Logging.Abstractions": "6.0.1"
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.2"
         },
         "runtime": {
           "lib/net6.0/Grpc.Net.Client.dll": {
@@ -73,35 +72,35 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Authorization/6.0.8": {
+      "Microsoft.AspNetCore.Authorization/6.0.9": {
         "dependencies": {
-          "Microsoft.AspNetCore.Metadata": "6.0.8",
-          "Microsoft.Extensions.Logging.Abstractions": "6.0.1",
+          "Microsoft.AspNetCore.Metadata": "6.0.9",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.2",
           "Microsoft.Extensions.Options": "6.0.0"
         },
         "runtime": {
           "lib/net6.0/Microsoft.AspNetCore.Authorization.dll": {
             "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.822.36316"
+            "fileVersion": "6.0.922.41926"
           }
         }
       },
-      "Microsoft.AspNetCore.Metadata/6.0.8": {
+      "Microsoft.AspNetCore.Metadata/6.0.9": {
         "runtime": {
           "lib/net6.0/Microsoft.AspNetCore.Metadata.dll": {
             "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.822.36316"
+            "fileVersion": "6.0.922.41926"
           }
         }
       },
       "Microsoft.CSharp/4.5.0": {},
       "Microsoft.Extensions.ApiDescription.Server/3.0.0": {},
       "Microsoft.Extensions.DependencyInjection.Abstractions/6.0.0": {},
-      "Microsoft.Extensions.Logging.Abstractions/6.0.1": {
+      "Microsoft.Extensions.Logging.Abstractions/6.0.2": {
         "runtime": {
           "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.dll": {
             "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.322.12309"
+            "fileVersion": "6.0.922.41905"
           }
         }
       },
@@ -261,6 +260,9 @@
         }
       },
       "Domain/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "6.0.9"
+        },
         "runtime": {
           "Domain.dll": {}
         }
@@ -272,14 +274,6 @@
         },
         "runtime": {
           "gRPCClient.dll": {}
-        }
-      },
-      "Shared/1.0.0": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Authorization": "6.0.8"
-        },
-        "runtime": {
-          "Shared.dll": {}
         }
       }
     }
@@ -325,19 +319,19 @@
       "path": "microsoft.aspnetcore.authentication.jwtbearer/6.0.8",
       "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.6.0.8.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Authorization/6.0.8": {
+    "Microsoft.AspNetCore.Authorization/6.0.9": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-rDLMah6FOtFoC5uWDxnevcH/FqEs+APgmTqEvcLj3OU6Y/X8M5ASm/EdlQh6B+Z2XsQW5xu+K8tyn7w7OgOX8A==",
-      "path": "microsoft.aspnetcore.authorization/6.0.8",
-      "hashPath": "microsoft.aspnetcore.authorization.6.0.8.nupkg.sha512"
+      "sha512": "sha512-paH0Zgo6yWMhVwaWZ0wqyY5az7zv89C5AlRfrpAAjAyKLvgBuTIQIK9kPSIGAoOhvt56fxcDTLws3cckauWOWw==",
+      "path": "microsoft.aspnetcore.authorization/6.0.9",
+      "hashPath": "microsoft.aspnetcore.authorization.6.0.9.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Metadata/6.0.8": {
+    "Microsoft.AspNetCore.Metadata/6.0.9": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-RWENSe/yFqVSSOQuzVUhgJzXIVoF+AQ4N6FOxLM1/FmWWT9Ngdbhrx8LgauuFmz/2yqka6PCjtveiUasjTl/2A==",
-      "path": "microsoft.aspnetcore.metadata/6.0.8",
-      "hashPath": "microsoft.aspnetcore.metadata.6.0.8.nupkg.sha512"
+      "sha512": "sha512-cQET2vOT72zW+kOd71KQE80qBSQJEnWs86HfJEZPzHgTfn/o5UyzHHRosP1EQX8iPQ9ESxmd+AJedggkSxN93Q==",
+      "path": "microsoft.aspnetcore.metadata/6.0.9",
+      "hashPath": "microsoft.aspnetcore.metadata.6.0.9.nupkg.sha512"
     },
     "Microsoft.CSharp/4.5.0": {
       "type": "package",
@@ -360,12 +354,12 @@
       "path": "microsoft.extensions.dependencyinjection.abstractions/6.0.0",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.Logging.Abstractions/6.0.1": {
+    "Microsoft.Extensions.Logging.Abstractions/6.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-dzB2Cgg+JmrouhjkcQGzSFjjvpwlq353i8oBQO2GWNjCXSzhbtBRUf28HSauWe7eib3wYOdb3tItdjRwAdwCSg==",
-      "path": "microsoft.extensions.logging.abstractions/6.0.1",
-      "hashPath": "microsoft.extensions.logging.abstractions.6.0.1.nupkg.sha512"
+      "sha512": "sha512-pwXCZKaA7m5wgmCj49dW+H1RPSY7U62SKLTQYCcavf/k3Nyt/WnBgAjG4jMGnwy9rElfAZ2KvxvM5CJzJWG0hg==",
+      "path": "microsoft.extensions.logging.abstractions/6.0.2",
+      "hashPath": "microsoft.extensions.logging.abstractions.6.0.2.nupkg.sha512"
     },
     "Microsoft.Extensions.Options/6.0.0": {
       "type": "package",
@@ -502,11 +496,6 @@
       "sha512": ""
     },
     "gRPCClient/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Shared/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

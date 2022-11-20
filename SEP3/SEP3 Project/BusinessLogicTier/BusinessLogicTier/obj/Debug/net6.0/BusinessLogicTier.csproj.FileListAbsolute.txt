@@ -87,5 +87,3 @@ D:\VIA\SEP3\SEP3\SEP3 Project\BusinessLogicTier\BusinessLogicTier\bin\Debug\net6
 D:\VIA\SEP3\SEP3\SEP3 Project\BusinessLogicTier\BusinessLogicTier\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 D:\VIA\SEP3\SEP3\SEP3 Project\BusinessLogicTier\BusinessLogicTier\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\VIA\SEP3\SEP3\SEP3 Project\BusinessLogicTier\BusinessLogicTier\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
-D:\VIA\SEP3\SEP3\SEP3 Project\BusinessLogicTier\BusinessLogicTier\bin\Debug\net6.0\Shared.dll
-D:\VIA\SEP3\SEP3\SEP3 Project\BusinessLogicTier\BusinessLogicTier\bin\Debug\net6.0\Shared.pdb

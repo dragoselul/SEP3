@@ -26,6 +26,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/VIA/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/Pages/LoginSeeProfile.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5TZWVQcm9maWxlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/VIA/SEP3/SEP3/SEP3 Project/PresentationTier/BlazorWASM/Pages/Marketplace.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFya2V0cGxhY2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
