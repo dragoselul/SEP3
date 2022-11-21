@@ -157,5 +157,8 @@ public class ItemFileDao : IItemDao
         });
     }
 
-    
+    public Task DeleteItemById(int id)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -10,4 +10,8 @@ public interface IUserDao
     Task<List<User>> GetAsync(SearchUserParametersDto searchParameters);
     Task<User?> GetByIdAsync(int dtoContactId);
     Task<User?> GetLoginAsync(UserLoginDto loginDto);
+
+    Task<User?> UpdateUserAsync(UserCreationDto toUpdate);
+
+    Task DeleteUserById(int id);
 }

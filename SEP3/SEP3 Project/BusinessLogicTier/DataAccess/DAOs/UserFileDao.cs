@@ -189,4 +189,14 @@ public class UserFileDao : IUserDao
         };
         return await Task.FromResult(user);
     }
+
+    public Task<User?> UpdateUserAsync(UserCreationDto toUpdate)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task DeleteUserById(int id)
+    {
+        throw new NotImplementedException();
+    }
 }

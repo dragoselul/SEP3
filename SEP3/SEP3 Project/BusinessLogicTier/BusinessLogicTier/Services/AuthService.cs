@@ -17,7 +17,6 @@ public class AuthService : IAuthService
             ["email"] = email,
             ["password"] = password
         };
-        Console.WriteLine(password);
         var uri = QueryHelpers.AddQueryString("https://localhost:7171/Users/Login", query);
         HttpResponseMessage response = await Client.GetAsync(uri);
         string content = response.Content.ReadAsStringAsync().Result;

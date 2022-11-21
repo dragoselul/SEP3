@@ -11,4 +11,6 @@ public class SearchItemParametersDto
     public double? MaxPrice { get; init; }
     public bool? IsSold { get; init; }
     public string? Category { get; init; }
+    
+    public string? Currency { get; init; }
 }
