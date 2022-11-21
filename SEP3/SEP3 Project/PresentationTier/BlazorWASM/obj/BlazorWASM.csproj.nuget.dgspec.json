@@ -1,42 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj": {}
+    "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj": {}
   },
   "projects": {
-    "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj": {
+    "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj",
+        "projectUniqueName": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj",
         "projectName": "BlazorWASM",
-        "projectPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj",
-        "packagesPath": "C:\\Users\\drago\\.nuget\\packages\\",
-        "outputPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\obj\\",
+        "projectPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj",
+        "packagesPath": "C:\\Users\\chiri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\drago\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\chiri\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj"
+              "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj"
               },
-              "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj": {
-                "projectPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj"
+              "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj": {
+                "projectPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj"
               }
             }
           }
@@ -96,28 +90,22 @@
         }
       }
     },
-    "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj": {
+    "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\drago\\.nuget\\packages\\",
-        "outputPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\chiri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\drago\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\chiri\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -161,36 +149,30 @@
         }
       }
     },
-    "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj": {
+    "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj",
+        "projectUniqueName": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj",
         "projectName": "HttpClients",
-        "projectPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj",
-        "packagesPath": "C:\\Users\\drago\\.nuget\\packages\\",
-        "outputPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\obj\\",
+        "projectPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj",
+        "packagesPath": "C:\\Users\\chiri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\drago\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\chiri\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj"
+              "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj"
               }
             }
           }
