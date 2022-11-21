@@ -1,7 +1,9 @@
-﻿<div class="card m-2">
+﻿@inject NavigationManager navMgr
+
+<div class="card m-2">
  <div class="card-body">
      <div class="card-text text-center">
-        <img class="card-img-top img-fluid" src="@Image" alt="Card image cap">
+        <img @onclick="(() => Update())" class="card-img-top img-fluid" src="@Image" alt="Card image cap">
         <h5>@Name</h5>
     </div>
     <div>
@@ -25,4 +27,19 @@
     
     [Parameter]
     public string FullNameSeller {get; set;}
+    
+    private string msg = "";
+
+    private void Update()
+    {
+        try
+        {
+            navMgr.NavigateTo("/ViewItem/1");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
 }
