@@ -137,3 +137,14 @@ D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\BusinessLogicTier\BusinessLog
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\BusinessLogicTier\BusinessLogicTier\obj\Debug\net6.0\BusinessLogicTier.pdb
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\BusinessLogicTier\BusinessLogicTier\obj\Debug\net6.0\BusinessLogicTier.genruntimeconfig.cache
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\BusinessLogicTier\BusinessLogicTier\obj\Debug\net6.0\ref\BusinessLogicTier.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\BusinessLogicTier\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\BusinessLogicTier\bin\Debug\net6.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\BusinessLogicTier\bin\Debug\net6.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\BusinessLogicTier\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\BusinessLogicTier\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\BusinessLogicTier\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\BusinessLogicTier\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\BusinessLogicTier\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\BusinessLogicTier\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\BusinessLogicTier\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\BusinessLogicTier\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
