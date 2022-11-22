@@ -20,8 +20,10 @@ public class ItemFileDao : IItemDao
 
     public async Task<Item> CreateAsync(Item item)
     {
-        await ClientItem.createItemAsync(new CreateItemDTO
+        
+        gRPCClient.Item created = await ClientItem.createItemAsync(new CreateItemDTO
         {
+            OwnerId = item.OwnerId,
             Category = item.Category,
             Currency = item.Currency,
             Description = item.Description,
@@ -29,7 +31,22 @@ public class ItemFileDao : IItemDao
             Price = item.Pricing,
             Status = item.IsSold
         });
-        return await Task.FromResult(item);
+
+        Item newItem = new Item()
+        {
+            Id = (int)created.Id,
+            Category = created.Category,
+            ContactFirstName = created.Owner.FirstName,
+            ContactLastName = created.Owner.LastName,
+            Currency = created.Currency,
+            Description = created.Description,
+            IsSold = created.Status,
+            Name = created.Name,
+            OwnerId = (int)created.Owner.Id,
+            Pricing = created.Price
+        };
+
+        return await Task.FromResult(newItem);
     }
 
     public async Task<List<Item>> GetAllItemsAsync()

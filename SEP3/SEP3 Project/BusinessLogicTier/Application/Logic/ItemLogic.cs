@@ -20,6 +20,7 @@ public class ItemLogic : IItemLogic
     public async Task<Item> CreateAsync(ItemCreationDto dto)
     {
         User? user = await userDao.GetByIdAsync(dto.ContactId);
+        Console.Out.WriteLine(user?.email);
         if (user == null)
         {
             throw new Exception($"Contact user with id {dto.ContactId} was not found.");
