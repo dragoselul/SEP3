@@ -56,7 +56,19 @@ public interface SearchItemDTOOrBuilder extends
   double getMaxPrice();
 
   /**
-   * <code>bool status = 7;</code>
+   * <code>string category = 7;</code>
+   * @return The category.
+   */
+  java.lang.String getCategory();
+  /**
+   * <code>string category = 7;</code>
+   * @return The bytes for category.
+   */
+  com.google.protobuf.ByteString
+      getCategoryBytes();
+
+  /**
+   * <code>bool status = 8;</code>
    * @return The status.
    */
   boolean getStatus();

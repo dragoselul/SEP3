@@ -42,7 +42,8 @@ message SearchItemDTO {
   string description = 4;
   double minPrice = 5;
   double maxPrice = 6;
-  bool status = 7;
+  string category = 7;
+  bool status = 8;
 }
 
 message GetItemCount {

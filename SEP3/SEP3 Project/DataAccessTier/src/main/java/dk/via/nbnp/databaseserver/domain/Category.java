@@ -21,5 +21,19 @@ public class Category {
     public String getName() {
         return name;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof Category)){
+            return false;
+        }
+        else{
+            Category aux = (Category)obj;
+            if(aux.getName().equals(this.getName()))
+                return true;
+            else
+                return false;
+        }
+    }
 }
 

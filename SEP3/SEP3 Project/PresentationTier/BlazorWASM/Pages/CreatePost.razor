@@ -1,0 +1,21 @@
+﻿@page "/CreatePost"
+@using Microsoft.AspNetCore.Components.Authorization
+@using HttpClients.ClientInterfaces
+@inject NavigationManager navMgr
+@inject IItemService ItemService
+
+<CascadingAuthenticationState>
+<AuthorizeView>
+    <Authorized>
+        <div class="field">
+            <button class="postItemBtn">Log in</button>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+    </NotAuthorized>
+</AuthorizeView>
+</CascadingAuthenticationState>
+
+@code {
+    
+}

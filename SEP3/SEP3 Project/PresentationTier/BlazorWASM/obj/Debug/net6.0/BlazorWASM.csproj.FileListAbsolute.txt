@@ -2509,3 +2509,7 @@ C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWA
 C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Authorization.dll
 C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\build-gz\QSYbrhuh.gz
 C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\CreateUser.razor.rz.scp.css
+D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\Newtonsoft.Json.dll
+D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\Newtonsoft.Json.dll.gz
+D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\build-gz\MF75+DOf.gz

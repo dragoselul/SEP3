@@ -1,6 +1,7 @@
 ﻿using Application.DaoInterfaces;
 using Domain.DTOs;
 using Domain.Models;
+using Grpc.Core;
 using Grpc.Net.Client;
 using gRPCClient;
 using Item = Domain.Models.Item;
@@ -82,39 +83,41 @@ public class ItemFileDao : IItemDao
     public async Task<List<Item>> GetAsync(SearchItemParametersDto searchParams)
     {
         List<Item> items = new();
-        try
+        SearchItemDTO searchItemDto = new();
+        searchItemDto.Id = 0;
+        if (searchParams.Name is null)
+            searchItemDto.Name = "";
+        if (searchParams.Description is null)
+            searchItemDto.Description = "";
+        if (searchParams.Category is null)
+            searchItemDto.Category = "";
+        if (searchParams.ContactId is null)
+            searchItemDto.OwnerId = 0;
+        if (searchParams.IsSold is null)
+            searchItemDto.Status = false;
+        if (searchParams.MaxPrice is null)
+            searchItemDto.MaxPrice = double.MaxValue;
+        if (searchParams.MinPrice is null)
+            searchItemDto.MinPrice = 0;
+        AsyncServerStreamingCall<gRPCClient.Item> call = ClientItem.getItems(searchItemDto);
+        await foreach (var response in call.ResponseStream.ReadAllAsync())
         {
-            while (true)
+            Item? item = new()
             {
-                gRPCClient.Item? item = ClientItem.getItems(new SearchItemDTO()
-                    {
-                        Id = 0,
-                        OwnerId = (long)searchParams.ContactId,
-                        Name = searchParams.Name,
-                        Description = searchParams.Description,
-                        MinPrice = (double)searchParams.MinPrice,
-                        MaxPrice = (double)searchParams.MaxPrice,
-                        Status = (bool)searchParams.IsSold
-                    })
-                    .ResponseStream.Current;
-                Item? toSend = new()
-                {
-                    Id = (int)item.Id,
-                    Category = item.Category,
-                    Pricing = item.Price,
-                    OwnerId = (int)item.Owner.Id,
-                    Currency = item.Currency,
-                    Description = item.Description,
-                    IsSold = item.Status,
-                    Name = item.Name
-                };
-                items.Add(toSend);
-            }
+                Id = (int)response.Id,
+                Category = response.Category,
+                ContactFirstName = response.Owner.FirstName,
+                ContactLastName = response.Owner.LastName,
+                Currency = response.Currency,
+                Description = response.Description,
+                IsSold = response.Status,
+                Name = response.Name,
+                OwnerId = (int)response.Owner.Id,
+                Pricing = response.Price
+            };
+            items.Add(item);
         }
-        catch (Exception e)
-        {
-            Console.WriteLine("We got all the items");
-        }
+
         return await Task.FromResult(items);
     }
     
@@ -127,7 +130,7 @@ public class ItemFileDao : IItemDao
                 Name = "",
                 Description = "",
                 MinPrice = 0,
-                MaxPrice = 1000000,
+                MaxPrice = Double.MaxValue,
                 Status = false
             })
             .ResponseAsync.Result;

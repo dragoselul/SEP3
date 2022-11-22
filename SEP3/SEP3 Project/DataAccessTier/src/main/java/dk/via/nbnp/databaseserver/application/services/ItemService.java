@@ -54,21 +54,37 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
     @Override
     public void getItems(SearchItemDTO request, StreamObserver<Item> responseObserver) {
         List<dk.via.nbnp.databaseserver.domain.Item> daoResponse = itemRepository.findAll();
-
-        for (dk.via.nbnp.databaseserver.domain.Item item : daoResponse) {
-            if(request.getName().equals("") || !item.getName().contains(request.getName()))
-                continue;
-            if(request.getDescription().equals("") || !item.getDescription().contains(request.getDescription()))
-                continue;
-            if(request.getMaxPrice() == 0.0 || item.getPrice() > request.getMaxPrice())
-                continue;
-            if(request.getMinPrice() < item.getPrice())
-                continue;
-            if(request.getStatus() != item.getStatus())
-                continue;
-            responseObserver.onNext(ItemMapper.mapDomainToProto(item));
+        if(request.getId() == 0
+                && request.getName().isEmpty()
+                && request.getDescription().isEmpty()
+                && request.getCategory().isEmpty()
+                && !request.getStatus()
+                && request.getOwnerId() == 0
+                && request.getMinPrice() == 0
+                && request.getMaxPrice() == Double.MAX_VALUE
+        ) {
+            for (dk.via.nbnp.databaseserver.domain.Item item : daoResponse) {
+                responseObserver.onNext(ItemMapper.mapDomainToProto(item));
+            }
+            responseObserver.onCompleted();
         }
-
+        else {
+            for (dk.via.nbnp.databaseserver.domain.Item item : daoResponse) {
+                if (request.getName().equals("") || !item.getName().contains(request.getName()))
+                    continue;
+                if (request.getDescription().equals("") || !item.getDescription().contains(request.getDescription()))
+                    continue;
+                if (request.getMaxPrice() == 0.0 || item.getPrice() > request.getMaxPrice())
+                    continue;
+                if (request.getMinPrice() < item.getPrice())
+                    continue;
+                if (request.getStatus() != item.getStatus())
+                    continue;
+                if (request.getCategory().equals("") || !item.getCategory().equals(new dk.via.nbnp.databaseserver.domain.Category(request.getCategory())))
+                    continue;
+                responseObserver.onNext(ItemMapper.mapDomainToProto(item));
+            }
+        }
         responseObserver.onCompleted();
 
     }

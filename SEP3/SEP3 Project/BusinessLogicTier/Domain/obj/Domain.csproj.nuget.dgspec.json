@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj": {}
+    "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj": {
+    "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\matas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\obj\\",
+        "projectPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\drago\\.nuget\\packages\\",
+        "outputPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\matas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\drago\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -61,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
