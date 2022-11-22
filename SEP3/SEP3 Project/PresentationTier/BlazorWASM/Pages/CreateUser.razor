@@ -1,30 +1,28 @@
 ﻿@page "/CreateUser"
 @using Domain.DTOs
-@using Domain.Models
 @using HttpClients.ClientInterfaces
-@using BlazorWasm.Services
 @inject IUserService userService
-@inject IAuthService AuthService
+
 
 <div class="mb-3 ">
     <h3>Create User</h3>
-    <div class="form-group field">
+    <div class="form-group field" id="firstName">
         <label class="form-label">First name:</label>
         <input class="form-control" type="text" @bind="firstName" @bind:event="oninput"/>
     </div>
-    <div class="form-group field">
+    <div class="form-group field" id="lastName">
         <label class="form-label">Last name:</label>
         <input class="form-control" type="text" @bind="lastName" @bind:event="oninput"/>
     </div>
-    <div class="form-group field">
+    <div class="form-group field" id="email">
         <label class="form-label">Email:</label>
         <input class="form-control" type="text" @bind="email" @bind:event="oninput" placeholder="name@example.com"/>
     </div>
-    <div class="form-group field">
+    <div class="form-group field" id="password">
         <label class="form-label">Password:</label>
         <input class="form-control" type="password" @bind="password" @bind:event="oninput" placeholder="password"/>
     </div>
-    <div class="form-group field">
+    <div class="form-group field" id="phoneNumber">
         <label class="form-label">Phone number:</label>
         <input class="form-control" type="text" @bind="phoneNumber" @bind:event="oninput" placeholder="+45 12 34 56 78"/>
   <!--     /* if (!string.IsNullOrEmpty(resultMsg) || !string.IsNullOrEmpty(resultMsg) || !string.IsNullOrEmpty(resultMsg) ||
@@ -36,7 +34,7 @@
     <button class="button-row mt-2"  @onclick="Toggle">@toggleText</button>
 
     <div class="button-row mt-2">
-        <button @onclick="Create" title="To create new account please insert all the data"
+        <button @onclick="Create" title="To create new account please insert all the data" id="create"
                 disabled="@(string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(phoneNumber))" class="acceptbtn btn btn-outline-dark">
             Create
         </button>

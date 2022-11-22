@@ -17,7 +17,7 @@ public class UserConfig {
                   "Chiril",
                   "Luncasu",
                   "chiril.luncasu@gmail.com",
-                  "password",
+                  "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
                   "+4512993933",
                   true
             );
@@ -26,7 +26,7 @@ public class UserConfig {
                     "Dan Sebastian",
                     "Ceapa",
                     "danceapa@gmail.com",
-                    "ugandon",
+                    "539ae660a6865a491fe97e8b00d807a9777ba33b6c3852ccaf1f3d670f480f70",
                     "+4533238929",
                     true
             );
