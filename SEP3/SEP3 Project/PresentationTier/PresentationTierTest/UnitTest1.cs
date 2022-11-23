@@ -26,7 +26,9 @@ public class UnitTest1 : TestContext
         var fixture = new Fixture();
         var strings = fixture.Create<List<string>>();
         UserCreationDto userCreationDto = new UserCreationDto("one","two","three","four","five",true);
-        var api = Services.GetRequiredService<UserHttpClient>();
+        Services.AddTransient<IUserService, UserHttpClient>();
+        var api = Services.GetRequiredService<IUserService>();
+        
         //Act
       
         api.Create(userCreationDto);
