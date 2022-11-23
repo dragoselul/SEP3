@@ -1,6 +1,9 @@
 ﻿@page "/Marketplace"
 @using Microsoft.AspNetCore.Components.Authorization
+@using Domain.Models
+@using HttpClients.ClientInterfaces
 @inject NavigationManager navMgr
+@inject IItemService itemService    
 
 <CascadingAuthenticationState>
     <AuthorizeView>
@@ -19,6 +22,11 @@
                     </div>
                     <div class="row my-5 align-center border border-2 rounded-top">
                         <div class="row">
+                            @foreach(Item item in items)
+                            {
+                                <label>@item.Name</label>
+                                <label>@item.Description</label>
+                            }
                             <div class="col-lg-4 text-center justify-content-center">
                                 <ItemCard Image="../Images/kompai.jpg" Name="Gaming PC" Price="69.420" FullNameSeller="John White"></ItemCard>
                             </div>
@@ -38,6 +46,12 @@
 
 
 @code {
+    private List<Item> items = new();
+
+    protected async override void OnInitialized()
+    {
+        items = await itemService.GetItems();
+    }
 
     private void CreatePost()
     {
