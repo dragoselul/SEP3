@@ -137,7 +137,3 @@ C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\Presenta
 C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\PresentationTierTest\obj\Debug\net6.0\PresentationTierTest.pdb
 C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\PresentationTierTest\obj\Debug\net6.0\PresentationTierTest.genruntimeconfig.cache
 C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\PresentationTierTest\obj\Debug\net6.0\ref\PresentationTierTest.dll
-C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\PresentationTierTest\bin\Debug\net6.0\AutoFixture.dll
-C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\PresentationTierTest\bin\Debug\net6.0\AutoFixture.NUnit3.dll
-C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\PresentationTierTest\bin\Debug\net6.0\Fare.dll
-C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\PresentationTierTest\bin\Debug\net6.0\nunit.framework.dll

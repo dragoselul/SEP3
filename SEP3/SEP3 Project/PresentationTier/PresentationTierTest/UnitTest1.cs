@@ -1,21 +1,14 @@
-using AutoFixture;
-using AutoFixture.NUnit3;
 using BlazorWASM.Pages;
 using Bunit;
-using Domain.DTOs;
 using HttpClients.ClientInterfaces;
 using HttpClients.Implementations;
-using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.Extensions.DependencyInjection;
-using NUnit.Framework;
-using TestContext = Bunit.TestContext;
 
 namespace PresentationTierTest;
 
-[TestFixture]
 public class UnitTest1 : TestContext
 {
-    [Fact, AutoData]
+    [Fact]
     public void UserShouldBeCreated()
     {
       //Arrange
@@ -23,16 +16,17 @@ public class UnitTest1 : TestContext
       using var ctx = new TestContext();
       ctx.Services.AddSingleton<IUserService>(new UserHttpClient(new HttpClient()));
       var cut = ctx.RenderComponent<CreateUser>();
-      var fixture = new Fixture();
-      var strings = fixture.Create<List<string>>();
-      UserCreationDto userCreationDto = new UserCreationDto(strings[0],strings[1],strings[2],strings[3],strings[4],true);
-      var api = Services.GetRequiredService<UserHttpClient>();
-      //Act
-      
-      api.Create(userCreationDto);
-      
-      //Assert
-      //cut.Markup
 
+      //Act
+      cut.Find("#firstName input").Change("Danila");
+      cut.Find("#lastName input").Change("Vladimirov");
+      cut.Find("#emailName input").Change("Danila@gmail.com");
+      cut.Find("#passwordName input").Change("pepega");
+      cut.Find("#phoneNumber input").Change("+4512345678");
+      cut.Find("#create Button").Click();
+
+      //Assert
+
+      
     }
 }

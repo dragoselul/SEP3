@@ -2338,7 +2338,6 @@ D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\bin\Debug\net6.0\wwwro
 D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\Newtonsoft.Json.dll.gz
 D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\build-gz\MF75+DOf.gz
-<<<<<<< Updated upstream
 D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\dotnet.6.0.11.w8nu64ou6m.js
 D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\dotnet.6.0.11.w8nu64ou6m.js.gz
 D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\build-gz\I4y661NX.gz
@@ -2514,9 +2513,3 @@ D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\build
 D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\build-gz\54I5DLTn.gz
 D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\build-gz\SEHqPgc1.gz
 D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\build-gz\fLw4sVpB.gz
-=======
-C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\Newtonsoft.Json.dll
-C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\Newtonsoft.Json.dll.gz
-C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\bin\Debug\net6.0\Newtonsoft.Json.dll
-C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\build-gz\y1+2OYk0.gz
->>>>>>> Stashed changes
