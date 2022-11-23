@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0IremFnK2d/+3OKO5gwHDexZiP4wHEnGYd0byaAswO7zruQsGAkA8L0FWBfQe82nnxOMXX0F6woR5iYAGyg1Tw==",
+  "dgSpecHash": "Mds6TvUxCodKb3GlZcFoMpFAp6HemFa0eho/01pOZk3U8s2jkO8gcCoLS2ND1bLnt9PMZ3kY1lrsa489RRuRvQ==",
   "success": true,
   "projectFilePath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj",
   "expectedPackageFiles": [
@@ -35,7 +35,7 @@
     "C:\\Users\\drago\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\drago\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
     "C:\\Users\\drago\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
-    "C:\\Users\\drago\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.8\\microsoft.netcore.app.runtime.mono.browser-wasm.6.0.8.nupkg.sha512"
+    "C:\\Users\\drago\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.11\\microsoft.netcore.app.runtime.mono.browser-wasm.6.0.11.nupkg.sha512"
   ],
   "logs": []
 }
