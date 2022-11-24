@@ -1,36 +1,38 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj": {}
+    "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj": {}
   },
   "projects": {
-    "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj": {
+    "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj",
+        "projectUniqueName": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj",
         "projectName": "BlazorWASM",
-        "projectPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj",
-        "packagesPath": "C:\\Users\\drago\\.nuget\\packages\\",
-        "outputPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\obj\\",
+        "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj",
+        "packagesPath": "C:\\Users\\matas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\drago\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\matas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj"
+              "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj"
               },
-              "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj": {
-                "projectPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj"
+              "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj": {
+                "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj"
               }
             }
           }
@@ -73,7 +75,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[6.0.11, 6.0.11]"
+              "version": "[6.0.9, 6.0.9]"
             }
           ],
           "frameworkReferences": {
@@ -81,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -90,22 +92,24 @@
         }
       }
     },
-    "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj": {
+    "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\drago\\.nuget\\packages\\",
-        "outputPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\matas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\drago\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\matas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -145,34 +149,36 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj": {
+    "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj",
+        "projectUniqueName": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj",
         "projectName": "HttpClients",
-        "projectPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj",
-        "packagesPath": "C:\\Users\\drago\\.nuget\\packages\\",
-        "outputPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\obj\\",
+        "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj",
+        "packagesPath": "C:\\Users\\matas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\drago\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\matas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj"
+              "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj"
               }
             }
           }
@@ -208,7 +214,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
