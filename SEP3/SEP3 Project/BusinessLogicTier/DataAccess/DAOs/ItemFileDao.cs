@@ -82,23 +82,52 @@ public class ItemFileDao : IItemDao
 
     public async Task<List<Item>> GetAsync(SearchItemParametersDto searchParams)
     {
+        string Name = "";
+        string Description = "";
+        int ContactId = 0;
+        double MinPrice = double.MinValue;
+        double MaxPrice = double.MaxValue;
+        bool IsSold = false;
+        string Category = "";
+
+        if (!string.IsNullOrEmpty(searchParams.Name))
+        {
+            Name = searchParams.Name;
+        }
+        if (!string.IsNullOrEmpty(searchParams.Description))
+        {
+            Description = searchParams.Description;
+        }
+        if (!string.IsNullOrEmpty(searchParams.Category))
+        {
+            Category = searchParams.Category;
+        }
+        if (searchParams.ContactId is not null or 0)
+        {
+            ContactId = (int)searchParams.ContactId;
+        }
+        if (searchParams.MinPrice is not null or 0)
+        {
+            MinPrice = (double)searchParams.MinPrice;
+        }
+        if (searchParams.MaxPrice is not null or 0)
+        {
+            MaxPrice = (double)searchParams.MaxPrice;
+        }
+        if (searchParams.IsSold is not null)
+        {
+            IsSold = (bool)searchParams.IsSold;
+        }
         List<Item> items = new();
         SearchItemDTO searchItemDto = new();
         searchItemDto.Id = 0;
-        if (searchParams.Name is null)
-            searchItemDto.Name = "";
-        if (searchParams.Description is null)
-            searchItemDto.Description = "";
-        if (searchParams.Category is null)
-            searchItemDto.Category = "";
-        if (searchParams.ContactId is null)
-            searchItemDto.OwnerId = 0;
-        if (searchParams.IsSold is null)
-            searchItemDto.Status = false;
-        if (searchParams.MaxPrice is null)
-            searchItemDto.MaxPrice = double.MaxValue;
-        if (searchParams.MinPrice is null)
-            searchItemDto.MinPrice = 0;
+        searchItemDto.Name = Name;
+        searchItemDto.Description = Description;
+        searchItemDto.Category = Category;
+        searchItemDto.OwnerId = ContactId;
+        searchItemDto.Status = IsSold;
+        searchItemDto.MaxPrice = MaxPrice;
+        searchItemDto.MinPrice = MinPrice;
         AsyncServerStreamingCall<gRPCClient.Item> call = ClientItem.getItems(searchItemDto);
         await foreach (var response in call.ResponseStream.ReadAllAsync())
         {

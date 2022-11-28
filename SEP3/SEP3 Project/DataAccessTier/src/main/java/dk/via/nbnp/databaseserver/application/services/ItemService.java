@@ -9,6 +9,7 @@ import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,7 +24,7 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
     private final CategoryRepository categoryRepository;
 
     @Autowired
-    public ItemService(ItemRepository itemRepository, UserRepository userRepository, CategoryRepository categoryRepository){
+    public ItemService(ItemRepository itemRepository, UserRepository userRepository, CategoryRepository categoryRepository) {
         this.itemRepository = itemRepository;
         this.userRepository = userRepository;
         this.categoryRepository = categoryRepository;
@@ -34,13 +35,13 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
     public void createItem(CreateItemDTO request, StreamObserver<Item> responseObserver) {
         Optional<dk.via.nbnp.databaseserver.domain.Category> categoryResponse = categoryRepository.findById(request.getCategory());
         Optional<dk.via.nbnp.databaseserver.domain.User> daoResponse = userRepository.findById(request.getOwnerId());
-        if(daoResponse.isEmpty()){
+        if (daoResponse.isEmpty()) {
             System.out.println("User with this ownerId was not found");
             responseObserver.onError(new Exception("User with this ownerId was not found"));
-        }else if(categoryResponse.isEmpty()){
-            System.out.println("There is no such category as \""+ request.getCategory() + "\"");
-            responseObserver.onError(new Exception("There is no such category as \""+ request.getCategory() + "\""));
-        }else{
+        } else if (categoryResponse.isEmpty()) {
+            System.out.println("There is no such category as \"" + request.getCategory() + "\"");
+            responseObserver.onError(new Exception("There is no such category as \"" + request.getCategory() + "\""));
+        } else {
             dk.via.nbnp.databaseserver.domain.Item item = ItemMapper.mapCreateDtoToDomain(request, daoResponse.get(), categoryResponse.get());
             item = itemRepository.save(item);
             responseObserver.onNext(ItemMapper.mapDomainToProto(item));
@@ -69,25 +70,29 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
                 }
                 responseObserver.onCompleted();
             } else {
+                List<dk.via.nbnp.databaseserver.domain.Item> items = new ArrayList<>(daoResponse);
                 for (dk.via.nbnp.databaseserver.domain.Item item : daoResponse) {
-                    if (request.getName().equals("") || !item.getName().contains(request.getName()))
-                        continue;
-                    if (request.getDescription().equals("") || !item.getDescription().contains(request.getDescription()))
-                        continue;
-                    if (request.getMaxPrice() == 0.0 || item.getPrice() > request.getMaxPrice())
-                        continue;
-                    if (request.getMinPrice() < item.getPrice())
-                        continue;
-                    if (request.getStatus() != item.getStatus())
-                        continue;
-                    if (request.getCategory().equals("") || !item.getCategory().equals(new dk.via.nbnp.databaseserver.domain.Category(request.getCategory())))
-                        continue;
+                    if (item.getPrice() > request.getMaxPrice() || item.getPrice() < request.getMinPrice()) {
+                        items.remove(item);
+                    } else if (!(request.getName().equals("")) && !(item.getName().toLowerCase().contains(request.getName().toLowerCase()))) {
+                        items.remove(item);
+                    } else if (!(request.getDescription().equals("")) && !(item.getDescription().toLowerCase().contains(request.getDescription().toLowerCase()))) {
+                        items.remove(item);
+                    } else if (request.getStatus() != item.getStatus()) {
+                        items.remove(item);
+                    } else if (!(request.getCategory().equals("")) && !(item.getCategory().equals(new dk.via.nbnp.databaseserver.domain.Category(request.getCategory())))) {
+                        items.remove(item);
+                    } else if (request.getOwnerId() != item.getOwner().getId() && request.getOwnerId() != 0) {
+                        items.remove(item);
+                    }
+                }
+                for (dk.via.nbnp.databaseserver.domain.Item item : items
+                ) {
                     responseObserver.onNext(ItemMapper.mapDomainToProto(item));
                 }
             }
             responseObserver.onCompleted();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -96,10 +101,10 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
     @Override
     public void getItemById(SearchItemDTO request, StreamObserver<Item> responseObserver) {
         Optional<dk.via.nbnp.databaseserver.domain.Item> daoResponse = itemRepository.findById(request.getId());
-        if(daoResponse.isEmpty()){
+        if (daoResponse.isEmpty()) {
             System.out.println("User with this ownerId was not found");
             responseObserver.onError(new Exception("User with this ownerId was not found"));
-        }else{
+        } else {
             responseObserver.onNext(ItemMapper.mapDomainToProto(daoResponse.get()));
             responseObserver.onCompleted();
         }

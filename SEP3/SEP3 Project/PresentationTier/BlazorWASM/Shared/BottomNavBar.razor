@@ -1,0 +1,18 @@
+@inject IJSRuntime jsRuntime
+
+<nav class="navbar fixed-bottom navbar-light bg-light">
+  <div class="container-fluid">
+  </div>
+    <span class="ms-2 align-middle">© All rights reserved to NBNP</span>
+    <NavLink @onclick="NavigateToGithub" class="nav-link nav-item float-end">
+        <img alt="github account" class="img-fluid rounded" src="Images/iconmonstr-github-5.svg"/>
+    </NavLink>
+</nav>
+@code {
+    public async Task NavigateToGithub()
+    {
+        string url = "https://github.com/dragoselul/SEP3";
+        await jsRuntime.InvokeAsync<object>("open", url, "_blank");
+    }
+}
+}

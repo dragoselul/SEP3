@@ -1,4 +1,8 @@
-﻿@inject NavigationManager navMgr
+﻿@using HttpClients.ClientInterfaces
+@using Domain.Models
+@inject NavigationManager navMgr
+@inject IUserService UserService
+@inject IItemService ItemService
 
 <div class="card m-2">
  <div class="card-body">
@@ -30,11 +34,25 @@
     
     private string msg = "";
 
-    private void Update()
+    private async void Update()
     {
         try
         {
-            navMgr.NavigateTo("/ViewItem/1");
+            IEnumerable<User> users = await UserService.GetUsers(FullNameSeller.Split(' ')[0], FullNameSeller.Split(' ')[1]);
+            List<User> user = new List<User>(users);
+            if (user.Count() != 1)
+                throw new Exception();
+            List<Item> items = await ItemService.GetItemsByOwner(user[0]);
+            int idOfItem = 0;
+            foreach (var item in items)
+            {
+                if (item.Name.Equals(Name))
+                {
+                    idOfItem = item.Id;
+                    break;
+                }
+            }
+            navMgr.NavigateTo($"/ViewItem/{idOfItem}");
         }
         catch (Exception e)
         {

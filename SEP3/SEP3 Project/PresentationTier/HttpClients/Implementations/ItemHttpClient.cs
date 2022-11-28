@@ -35,6 +35,20 @@ public class ItemHttpClient: IItemService
         throw new NotImplementedException();
     }
 
+    public async Task<List<Item>> GetItemsByOwner(User user)
+    {
+        HttpResponseMessage response = await Client.GetAsync($"/Item?contactId={user.Id}");
+        string result = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(result);
+        }
+        Console.WriteLine(result);
+
+        List<Item>? items = JsonConvert.DeserializeObject<List<Item>>(result);
+        return (await Task.FromResult(items))!;
+    }
+
     public async Task<List<Item>> GetItems()
     {
         HttpResponseMessage response = await Client.GetAsync("/Item");

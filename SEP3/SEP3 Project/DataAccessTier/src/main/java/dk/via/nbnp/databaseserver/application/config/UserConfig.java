@@ -23,7 +23,7 @@ public class UserConfig {
             );
 
             User user2 = new User(
-                    "Dan Sebastian",
+                    "Dan-Sebastian",
                     "Ceapa",
                     "danceapa@gmail.com",
                     "539ae660a6865a491fe97e8b00d807a9777ba33b6c3852ccaf1f3d670f480f70",

@@ -1,3 +1,8 @@
+.navbar{
+    background: rgb(63,94,251);
+    background: linear-gradient(0deg, rgba(63,94,251,1) 0%, rgba(0,0,0,1) 100%);
+}
+
 .navbar-toggler {
     background-color: rgba(255, 255, 255, 0.1);
 }
@@ -16,6 +21,7 @@
     font-size: 1.1rem;
     vertical-align: text-top;
     top: -2px;
+    color: white;
 }
 
 .nav-item {
@@ -59,4 +65,8 @@
         /* Never collapse the sidebar for wide screens */
         display: block;
     }
+}
+
+h5 {
+    color: white;
 }
