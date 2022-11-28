@@ -10,8 +10,8 @@ Details:
 Click on any of the *Plant* to move it to the basket and if you didn't like the plant or you choose to select another plant click the plant that is inside the basket and it will be moved back to its original place — All will happen with beautiful and eye-catching animation. I set the basket UI limit to be able to hold four to five (depends on image size) plants, it can take more ...but then the basket UI would look broken, the plants are going to move outside the basket — Just clarifying, *It is on purpose*. I've used the word *click* but that doesn't mean you can't touch/tap the plant, if you're using touch screen devices, it gonna work fine, and yup, it's responsive!
 
 */
-html {
-    font-size: 62.5%;
+div {
+    transform: scale(89%);
 }
 
 body {
