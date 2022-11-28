@@ -2,13 +2,15 @@
 <div class="container">
     <div class="card">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-7">
                 <img class="img-fluid d-flex justify-content-center" src="@Image" alt="image of the item">
             </div>
-            <div class="col-lg-4">
-                <p>Item: @Name</p>
-                <p>Description: @Description</p>
-                <p>Price: @Price @Currency</p>
+            <div class="col-lg-4 border-start">
+                <div class="ms-2 mt-2">
+                    <p><b>Item: &nbsp </b>@Name</p>
+                    <p><span class="oi oi-person" aria-hidden="true">&nbsp &nbsp</span><b>@ContactName, says:</b> @Description</p>
+                    <h1 class="border-2 bg-success text-white">Price: @Price @Currency</h1>
+                </div>
             </div>
         </div>
         </div>
@@ -29,4 +31,7 @@
     
     [Parameter]
     public string Currency { get; set; }
+    
+    [Parameter]
+    public string ContactName { get; set; }
 }

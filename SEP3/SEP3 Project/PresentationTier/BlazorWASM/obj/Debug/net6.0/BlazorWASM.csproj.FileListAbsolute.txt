@@ -2513,3 +2513,7 @@ D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\build
 D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\build-gz\54I5DLTn.gz
 D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\build-gz\SEHqPgc1.gz
 D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\build-gz\fLw4sVpB.gz
+C:\Users\chiri\Documents\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\Newtonsoft.Json.dll
+C:\Users\chiri\Documents\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\Newtonsoft.Json.dll.gz
+C:\Users\chiri\Documents\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\chiri\Documents\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\build-gz\4sR8GcKL.gz

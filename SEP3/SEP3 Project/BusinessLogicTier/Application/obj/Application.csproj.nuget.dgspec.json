@@ -1,39 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Application\\Application.csproj": {}
+    "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Application\\Application.csproj": {}
   },
   "projects": {
-    "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Application\\Application.csproj": {
+    "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\drago\\.nuget\\packages\\",
-        "outputPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Application\\obj\\",
+        "projectPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\chiri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\drago\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\chiri\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj"
+              "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj"
               }
             }
           }
@@ -67,28 +61,22 @@
         }
       }
     },
-    "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj": {
+    "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\drago\\.nuget\\packages\\",
-        "outputPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\chiri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\drago\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\chiri\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

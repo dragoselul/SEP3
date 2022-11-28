@@ -13,33 +13,35 @@
             </div>
         </Authorized>
         <NotAuthorized>
-            <div class="container">
+            @if (items == null)
+            {
+                <label>Loading...</label>
+            }
+            else
+            {
                 <div class="container">
-                    <div class="row my-5">
-                        <div class="col-12 mt-3 blue">
-                            <h1 class="text-center">Items</h1>
+                    <div class="container">
+                        <div class="row my-5">
+                            <div class="col-12 mt-3 blue">
+                                <h1 class="text-center">Items</h1>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row my-5 align-center border border-2 rounded-top">
-                        <div class="row">
-                            @foreach(Item item in items)
-                            {
-                                <label>@item.Name</label>
-                                <label>@item.Description</label>
-                            }
-                            <div class="col-lg-4 text-center justify-content-center">
-                                <ItemCard Image="../Images/kompai.jpg" Name="Gaming PC" Price="69.420" FullNameSeller="John White"></ItemCard>
-                            </div>
-                            <div class="col-lg-4 text-center justify-content-center">
-                                <ItemCard Image="../Images/kompai.jpg" Name="Gaming PC" Price="69.420" FullNameSeller="John White"></ItemCard>
-                            </div>
-                            <div class="col-lg-4 text-center justify-content-center">
-                                <ItemCard Image="../Images/kompai.jpg" Name="Gaming PC" Price="69.420" FullNameSeller="John White"></ItemCard>
+                        <div class="row my-5 align-center border border-2 rounded-top">
+                            <div class="row">
+                                <label>items count: @items.Count</label>
+                                @foreach (Item item in items)
+                                {
+                                    /*string temp = item.ContactFirstName + " " + item.ContactLastName;
+                                    <div class="col-lg-4 text-center justify-content-center">
+                                        <ItemCard Image="../Images/kompai.jpg" Name=@item.Name Price=@item.Pricing FullNameSeller=@temp></ItemCard>
+                                    </div>*/
+                                    <label>@item.Name</label>
+                                }
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            }
         </NotAuthorized>
     </AuthorizeView>
 </CascadingAuthenticationState>
@@ -50,7 +52,14 @@
 
     protected async override void OnInitialized()
     {
-        items = await itemService.GetItems();
+        try
+        {
+            items = await itemService.GetItems();
+        }
+        catch
+        {
+            Console.WriteLine("pula tie");
+        }
     }
 
     private void CreatePost()
