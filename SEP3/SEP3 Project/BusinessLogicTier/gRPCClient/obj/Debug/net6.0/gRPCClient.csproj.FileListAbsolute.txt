@@ -1,15 +1,3 @@
-D:\VIA\SEP3\SEP3\SEP3 Project\BusinessLogicTier\gRPCClient\bin\Debug\net6.0\gRPCClient.deps.json
-D:\VIA\SEP3\SEP3\SEP3 Project\BusinessLogicTier\gRPCClient\bin\Debug\net6.0\gRPCClient.dll
-D:\VIA\SEP3\SEP3\SEP3 Project\BusinessLogicTier\gRPCClient\bin\Debug\net6.0\gRPCClient.pdb
-D:\VIA\SEP3\SEP3\SEP3 Project\BusinessLogicTier\gRPCClient\obj\Debug\net6.0\gRPCClient.csproj.AssemblyReference.cache
-D:\VIA\SEP3\SEP3\SEP3 Project\BusinessLogicTier\gRPCClient\obj\Debug\net6.0\gRPCClient.GeneratedMSBuildEditorConfig.editorconfig
-D:\VIA\SEP3\SEP3\SEP3 Project\BusinessLogicTier\gRPCClient\obj\Debug\net6.0\gRPCClient.AssemblyInfoInputs.cache
-D:\VIA\SEP3\SEP3\SEP3 Project\BusinessLogicTier\gRPCClient\obj\Debug\net6.0\gRPCClient.AssemblyInfo.cs
-D:\VIA\SEP3\SEP3\SEP3 Project\BusinessLogicTier\gRPCClient\obj\Debug\net6.0\gRPCClient.csproj.CoreCompileInputs.cache
-D:\VIA\SEP3\SEP3\SEP3 Project\BusinessLogicTier\gRPCClient\obj\Debug\net6.0\gRPCClient.dll
-D:\VIA\SEP3\SEP3\SEP3 Project\BusinessLogicTier\gRPCClient\obj\Debug\net6.0\refint\gRPCClient.dll
-D:\VIA\SEP3\SEP3\SEP3 Project\BusinessLogicTier\gRPCClient\obj\Debug\net6.0\gRPCClient.pdb
-D:\VIA\SEP3\SEP3\SEP3 Project\BusinessLogicTier\gRPCClient\obj\Debug\net6.0\ref\gRPCClient.dll
 C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\gRPCClient\bin\Debug\net6.0\gRPCClient.deps.json
 C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\gRPCClient\bin\Debug\net6.0\gRPCClient.dll
 C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\BusinessLogicTier\gRPCClient\bin\Debug\net6.0\gRPCClient.pdb

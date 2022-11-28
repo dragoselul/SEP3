@@ -1,4 +1,5 @@
 ﻿using System.Net.Http.Json;
+using System.Security.AccessControl;
 using Domain.DTOs;
 using Domain.Models;
 using HttpClients.ClientInterfaces;
@@ -17,7 +18,8 @@ public class ItemHttpClient: IItemService
 
     public async Task<Item?> Create(ItemCreationDto dto)
     {
-        HttpResponseMessage response = await Client.PostAsJsonAsync("/Item", dto);
+        HttpResponseMessage response = await Client.PostAsJsonAsync("https://localhost:7171/Item", dto);
+        Console.WriteLine(dto);
         string result = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
@@ -41,6 +43,7 @@ public class ItemHttpClient: IItemService
         {
             throw new Exception(result);
         }
+        Console.WriteLine(result);
 
         List<Item>? items = JsonConvert.DeserializeObject<List<Item>>(result);
         return (await Task.FromResult(items))!;

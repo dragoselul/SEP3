@@ -1,3 +1,0 @@
-obj\Debug\net6.0\protos/Item.cs \
-obj\Debug\net6.0\protos/ItemGrpc.cs: protos/user.proto\
- protos/item.proto

@@ -1,21 +1,103 @@
 ﻿@page "/CreatePost"
 @using Microsoft.AspNetCore.Components.Authorization
 @using HttpClients.ClientInterfaces
+@using Domain.DTOs
+@using System.Security.Claims
+@using Domain.Models
+@using System.Collections
 @inject NavigationManager navMgr
 @inject IItemService ItemService
+@inject IUserService UserService
 
 <CascadingAuthenticationState>
 <AuthorizeView>
     <Authorized>
-        <div class="field">
-            <button class="postItemBtn">Log in</button>
+        <h3>Hello @name.Split(' ')[0]</h3>
+        <div class="mb-3 ">
+            <h3>Create post</h3>
+            <div class="form-group field" id="title">
+                <label class="form-label">Title: </label>
+                <input class="form-control" type="text" @bind="Title" @bind:event="oninput"/>
+            </div>
+            <div class="form-group field" id="description">
+                <label class="form-label">Description: </label>
+                <input class="form-control" type="text" @bind="Description" @bind:event="oninput"/>
+            </div>
+            <div class="form-group field" id="price">
+                <label class="form-label">Price: </label>
+                <input class="form-control" type="text" @bind="Price" @bind:event="oninput" placeholder="name@example.com"/>
+            </div>
+            <div class="form-group field" id="currency">
+                <label class="form-label">Currency: </label>
+                <input class="form-control" type="text" @bind="Currency" @bind:event="oninput" placeholder="euro"/>
+            </div>
+            <div class="form-group field" id="categories">
+                <select @bind="Category">
+                    <option value="Vehicles">Vehicles</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Clothes">Clothes</option>
+                    <option value="Garden">Garden</option>
+                    <option value="Furniture">Furniture</option>
+                </select>
+            </div>
+            <h3>@error</h3>
+            <div class="button-row mt-2">
+                <button @onclick="Create" title="To create new account please insert all the data" id="create"
+                        disabled="@(string.IsNullOrEmpty(Title) || string.IsNullOrEmpty(Description) || string.IsNullOrEmpty(Currency) || string.IsNullOrEmpty(Category) || Price == null)" class="acceptbtn btn btn-outline-dark">
+                    Create
+                </button>
+            </div>
         </div>
     </Authorized>
     <NotAuthorized>
+        <h3>You are not allowed to create posts without an account!</h3>
     </NotAuthorized>
 </AuthorizeView>
 </CascadingAuthenticationState>
 
 @code {
-    
+
+    [CascadingParameter]
+    private Task<AuthenticationState> AuthState { get; set; } = null!;
+    private string Title, Description, Currency, Category;
+    private double Price;
+    private string? name;
+    private int userId;
+    private string? error = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        AuthenticationState authState = await AuthState;
+        ClaimsPrincipal userClaim = authState.User;
+        name = userClaim.Identity.Name;
+        IEnumerable<User> users = await UserService.GetUsers(name.Split(' ')[0], name.Split(' ')[1]);
+        if (users is null && users.Count() != 1)
+            throw new Exception();
+        List<User> user = new List<User>(users);
+        userId = user[0].Id;
+    }
+
+    private async void Create()
+    {
+        try
+        {
+            await ItemService.Create(new ItemCreationDto
+            {
+                Name = Title,
+                Description = Description,
+                Category = Category,
+                ContactId = userId,
+                Currency = Currency,
+                IsSold = false,
+                Pricing = Price
+            });
+            error = "Great success!";
+        }
+        catch (Exception e)
+        {
+            error = "Not great success!";
+            Console.WriteLine(e);
+            throw;
+        }
+    }
 }

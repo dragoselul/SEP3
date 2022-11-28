@@ -77,18 +77,18 @@ public class UserHttpClient : IUserService
 
     public async Task<IEnumerable<User>> GetUsers(string? firstName = null, string? lastName = null)
     {
-        string uri = "/users";
+       string query = "https://localhost:7171/Users";
         if (!string.IsNullOrEmpty(firstName))
         {
-            uri += $"?firstname={firstName}";
+            query += $"?firstname={firstName}";
         }
 
         if (!string.IsNullOrEmpty(lastName))
         {
-            uri += $"?lastname={lastName}";
+            query += string.IsNullOrEmpty(query) ? "?" : "&";
+            query += $"lastname={lastName}";
         }
-
-        HttpResponseMessage response = await client.GetAsync(uri);
+        HttpResponseMessage response = await client.GetAsync(query);
         string result = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
