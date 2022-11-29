@@ -40,7 +40,7 @@
                     <option value="Furniture">Furniture</option>
                 </select>
             </div>
-            <h3>@error</h3>
+            <h4>@error</h4>
             <div class="button-row mt-2">
                 <button @onclick="Create" title="To create new account please insert all the data" id="create"
                         disabled="@(string.IsNullOrEmpty(Title) || string.IsNullOrEmpty(Description) || string.IsNullOrEmpty(Currency) || string.IsNullOrEmpty(Category) || Price == null)" class="acceptbtn btn btn-outline-dark">
