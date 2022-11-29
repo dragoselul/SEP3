@@ -40,7 +40,7 @@ public class MessageService extends MessageServiceGrpc.MessageServiceImplBase {
     // TODO FINISH
     @Override
     public void getMessagesByConversationId(SearchMessageDTO request, StreamObserver<Message> responseObserver) {
-        List<dk.via.nbnp.databaseserver.domain.Message> responseDao = messageRepository.findAllByConversationId(request.getId());
+        List<dk.via.nbnp.databaseserver.domain.Message> responseDao = messageRepository.findAllByConversationIdOrderByDateTimeSentAsc(request.getId());
         for (dk.via.nbnp.databaseserver.domain.Message message : responseDao) {
             responseObserver.onNext(MessageMapper.mapDomainToProto(message));
         }
@@ -65,7 +65,9 @@ public class MessageService extends MessageServiceGrpc.MessageServiceImplBase {
                         user.get(),
                         conv.get()
                 );
-                messageRepository.save(message);
+                dk.via.nbnp.databaseserver.domain.Message generated = messageRepository.save(message);
+                responseObserver.onNext(MessageMapper.mapDomainToProto(generated));
+                responseObserver.onCompleted();
             }
         }
     }

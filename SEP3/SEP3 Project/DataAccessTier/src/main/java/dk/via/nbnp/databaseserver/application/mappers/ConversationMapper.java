@@ -3,13 +3,17 @@ package dk.via.nbnp.databaseserver.application.mappers;
 import dk.via.nbnp.databaseserver.protobuf.Conversation;
 import dk.via.nbnp.databaseserver.protobuf.Message;
 
+import java.util.ArrayList;
+
 public abstract class ConversationMapper {
 
     public static Conversation mapDomainToProto(dk.via.nbnp.databaseserver.domain.Conversation conversation){
         Conversation.Builder builder = Conversation.newBuilder();
-        for (int i = 0; i < conversation.getMessageList().size(); i++) {
-            builder.setMessages(i, MessageMapper.mapDomainToProto(conversation.getMessageList().get(i)));
+        ArrayList<Message> messages = new ArrayList<>();
+        for (dk.via.nbnp.databaseserver.domain.Message message : conversation.getMessageList()) {
+            messages.add(MessageMapper.mapDomainToProto(message));
         }
+        builder.addAllMessages(messages);
         return builder.
             setBuyer(UserMapper.mapDomainToProto(conversation.getBuyer())).
             setSeller(UserMapper.mapDomainToProto(conversation.getSeller())).

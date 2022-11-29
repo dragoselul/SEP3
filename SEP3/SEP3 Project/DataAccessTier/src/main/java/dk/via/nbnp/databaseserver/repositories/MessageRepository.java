@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface MessageRepository extends JpaRepository<Message, Long> {
 
-    List<Message> findAllByConversationId(Long id);
+    List<Message> findAllByConversationIdOrderByDateTimeSentAsc(Long id);
 
 }

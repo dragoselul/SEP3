@@ -39,7 +39,7 @@ public class Conversation {
     @JoinColumn(name = "itemId")
     private Item item;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JsonIgnore
     @JoinColumn(name = "conversationId")
     private List<Message> messageList;
