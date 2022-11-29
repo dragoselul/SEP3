@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table
@@ -41,6 +42,10 @@ public class Item {
     @ManyToOne
     @JoinColumn(name = "ownerId")
     private User owner;
+
+    @OneToMany
+    @JoinColumn(name = "itemId")
+    private List<Image> imagesList;
 
     public Item(){}
 
@@ -85,6 +90,7 @@ public class Item {
     public String getCurrency() {
         return currency;
     }
+    public List<Image> getImages() { return imagesList; }
 
     @Override
     public String toString() {

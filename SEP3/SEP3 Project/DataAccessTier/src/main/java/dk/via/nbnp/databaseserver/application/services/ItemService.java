@@ -50,7 +50,6 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
 
     }
 
-
     // TODO TO BE TESTED
     @Override
     public void getItems(SearchItemDTO request, StreamObserver<Item> responseObserver) {
@@ -119,4 +118,6 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
     public void deleteItem(SearchItemDTO request, StreamObserver<Item> responseObserver) {
         itemRepository.deleteById(request.getId());
     }
+
+
 }

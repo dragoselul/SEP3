@@ -1,0 +1,29 @@
+syntax = "proto3";
+import "user.proto";
+import "item.proto";
+
+option java_multiple_files = true;
+option java_package = "dk.via.nbnp.databaseserver.protobuf";
+
+service MessageService {
+  rpc createMessage(CreateMessageDTO) returns (Message);
+  rpc getMessageById(SearchMessageDTO) returns (Message);
+  rpc getMessagesByConversationId(SearchMessageDTO) returns (stream Message);
+}
+
+message SearchMessageDTO{
+  int64 id = 1;
+}
+
+message CreateMessageDTO{
+  string content = 1;
+  int64 senderId = 2;
+  int64 conversationId = 3;
+}
+
+message Message{
+  int64 id = 1;
+  string message = 2;
+  User sender = 3;
+  int64 conversationId = 4;
+}

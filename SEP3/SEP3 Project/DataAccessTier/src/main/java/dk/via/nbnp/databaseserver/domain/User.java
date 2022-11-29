@@ -1,6 +1,7 @@
 package dk.via.nbnp.databaseserver.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -39,8 +40,9 @@ public class User {
     private LocalDateTime dateOfRegistration;
 
     @OneToMany
+    @JsonIgnore
     @JoinColumn(name="ownerId")
-    List<Item> itemsOwned;
+    private List<Item> itemsOwned;
 
     public User(){}
 
