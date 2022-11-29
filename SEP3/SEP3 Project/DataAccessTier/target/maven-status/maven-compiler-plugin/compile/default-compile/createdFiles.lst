@@ -2,6 +2,7 @@ dk\via\nbnp\databaseserver\protobuf\CreateMessageDTO$Builder.class
 dk\via\nbnp\databaseserver\protobuf\MessageServiceGrpc$MessageServiceBlockingStub.class
 dk\via\nbnp\databaseserver\protobuf\MessageServiceGrpc.class
 dk\via\nbnp\databaseserver\protobuf\ConversationServiceGrpc$ConversationServiceBaseDescriptorSupplier.class
+dk\via\nbnp\databaseserver\application\mappers\MessageMapper.class
 dk\via\nbnp\databaseserver\protobuf\Conversation.class
 dk\via\nbnp\databaseserver\application\config\UserConfig.class
 dk\via\nbnp\databaseserver\protobuf\UserServiceGrpc$UserServiceStub.class
@@ -21,6 +22,7 @@ dk\via\nbnp\databaseserver\protobuf\ConversationServiceGrpc$ConversationServiceM
 dk\via\nbnp\databaseserver\protobuf\EmptyOrBuilder.class
 dk\via\nbnp\databaseserver\protobuf\SearchUserDTOOrBuilder.class
 dk\via\nbnp\databaseserver\protobuf\ItemServiceGrpc.class
+dk\via\nbnp\databaseserver\application\services\ConversationService.class
 dk\via\nbnp\databaseserver\protobuf\ItemServiceGrpc$ItemServiceStub.class
 dk\via\nbnp\databaseserver\protobuf\ConversationServiceGrpc$ConversationServiceFileDescriptorSupplier.class
 dk\via\nbnp\databaseserver\protobuf\Category$Builder.class
@@ -42,6 +44,7 @@ dk\via\nbnp\databaseserver\protobuf\SearchMessageDTO$1.class
 dk\via\nbnp\databaseserver\application\mappers\CategoryMapper.class
 dk\via\nbnp\databaseserver\protobuf\MessageServiceGrpc$2.class
 dk\via\nbnp\databaseserver\protobuf\MessageServiceGrpc$MessageServiceMethodDescriptorSupplier.class
+dk\via\nbnp\databaseserver\repositories\MessageRepository.class
 dk\via\nbnp\databaseserver\protobuf\MessageOrBuilder.class
 dk\via\nbnp\databaseserver\protobuf\UserOuterClass.class
 dk\via\nbnp\databaseserver\protobuf\CreateMessageDTOOrBuilder.class
@@ -72,6 +75,7 @@ dk\via\nbnp\databaseserver\domain\Conversation.class
 dk\via\nbnp\databaseserver\protobuf\GetItemCount$Builder.class
 dk\via\nbnp\databaseserver\protobuf\MessageServiceGrpc$1.class
 dk\via\nbnp\databaseserver\protobuf\UserServiceGrpc$UserServiceFutureStub.class
+dk\via\nbnp\databaseserver\repositories\ConversationRepository.class
 dk\via\nbnp\databaseserver\protobuf\Conversation$1.class
 dk\via\nbnp\databaseserver\protobuf\SearchItemDTO$1.class
 dk\via\nbnp\databaseserver\protobuf\LoginUserDTO$1.class
@@ -111,6 +115,7 @@ dk\via\nbnp\databaseserver\protobuf\ConversationOrBuilder.class
 dk\via\nbnp\databaseserver\domain\User.class
 dk\via\nbnp\databaseserver\protobuf\LocalDateTimeOrBuilder.class
 dk\via\nbnp\databaseserver\protobuf\UserServiceGrpc$1.class
+dk\via\nbnp\databaseserver\application\services\MessageService.class
 dk\via\nbnp\databaseserver\protobuf\MessageServiceGrpc$MessageServiceImplBase.class
 dk\via\nbnp\databaseserver\protobuf\UserOrBuilder.class
 dk\via\nbnp\databaseserver\protobuf\ConversationServiceGrpc$ConversationServiceBlockingStub.class

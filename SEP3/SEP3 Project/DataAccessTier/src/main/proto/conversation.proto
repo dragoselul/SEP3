@@ -9,8 +9,7 @@ option java_package = "dk.via.nbnp.databaseserver.protobuf";
 
 service ConversationService {
   rpc createConversation(CreateConversationDTO) returns (Conversation);
-  rpc getConversationByUser(SearchConversationDTO) returns (Conversation);
-  rpc getConversations(Empty) returns (stream Conversation);
+  rpc getConversationsByUser(SearchConversationDTO) returns (stream Conversation);
 }
 
 message SearchConversationDTO{

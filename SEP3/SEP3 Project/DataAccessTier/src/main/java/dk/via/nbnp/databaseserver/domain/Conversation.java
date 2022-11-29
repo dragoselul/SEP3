@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -50,6 +51,7 @@ public class Conversation {
         this.seller = seller;
         this.item = item;
         this.dateTimeOfStart = LocalDateTime.now();
+        messageList = new ArrayList<>();
     }
 
     public Item getItem() {

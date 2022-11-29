@@ -13,9 +13,11 @@ D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\LocalDateTimeOrBuilder.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\CreateUserDTO.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\SearchMessageDTOOrBuilder.java
+D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\repositories\MessageRepository.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\SearchUserDTOOrBuilder.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\domain\Image.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\LoginUserDTOOrBuilder.java
+D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\application\mappers\MessageMapper.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\Item.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\CreateUserDTOOrBuilder.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\UpdateItemDTOOrBuilder.java
@@ -40,6 +42,7 @@ D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\ItemOrBuilder.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\repositories\ItemRepository.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\application\mappers\CategoryMapper.java
+D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\application\services\MessageService.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\Empty.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\DatabaseServerApplication.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\LoginUserDTO.java
@@ -48,6 +51,7 @@ D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\CreateItemDTOOrBuilder.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\UserOuterClass.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\MessageServiceGrpc.java
+D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\application\services\ConversationService.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\application\config\CategoryConfig.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\GetItemCount.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\Message.java
@@ -63,4 +67,5 @@ D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\application\mappers\ItemMapper.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\GetItemCountOrBuilder.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\UserServiceGrpc.java
+D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\repositories\ConversationRepository.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\SearchUserDTO.java

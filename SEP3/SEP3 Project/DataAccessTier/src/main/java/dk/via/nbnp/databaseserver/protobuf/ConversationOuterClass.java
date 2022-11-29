@@ -46,13 +46,12 @@ public final class ConversationOuterClass {
       "versation\022\025\n\006seller\030\001 \001(\0132\005.User\022\024\n\005buye" +
       "r\030\002 \001(\0132\005.User\022\023\n\004item\030\003 \001(\0132\005.Item\022#\n\013d" +
       "ateOfStart\030\004 \001(\0132\016.LocalDateTime\022\032\n\010mess" +
-      "ages\030\005 \003(\0132\010.Message2\277\001\n\023ConversationSer" +
+      "ages\030\005 \003(\0132\010.Message2\225\001\n\023ConversationSer" +
       "vice\022;\n\022createConversation\022\026.CreateConve" +
-      "rsationDTO\032\r.Conversation\022>\n\025getConversa" +
-      "tionByUser\022\026.SearchConversationDTO\032\r.Con" +
-      "versation\022+\n\020getConversations\022\006.Empty\032\r." +
-      "Conversation0\001B\'\n#dk.via.nbnp.databasese" +
-      "rver.protobufP\001b\006proto3"
+      "rsationDTO\032\r.Conversation\022A\n\026getConversa" +
+      "tionsByUser\022\026.SearchConversationDTO\032\r.Co" +
+      "nversation0\001B\'\n#dk.via.nbnp.databaseserv" +
+      "er.protobufP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
