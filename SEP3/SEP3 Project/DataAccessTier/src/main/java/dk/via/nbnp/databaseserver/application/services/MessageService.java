@@ -8,24 +8,21 @@ import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.swing.text.html.Option;
+import java.util.List;
 import java.util.Optional;
 
 @GRpcService
 public class MessageService extends MessageServiceGrpc.MessageServiceImplBase {
 
-    @Autowired
-    private MessageRepository messageRepository;
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private ConversationRepository conversationRepository;
+    private final MessageRepository messageRepository;
+    private final UserRepository userRepository;
+    private final ConversationRepository conversationRepository;
 
     @Autowired
-    public MessageService(MessageRepository messageRepository, UserRepository userRepository, ConversationRepository conversationRepository) {
+    public MessageService(ConversationRepository conversationRepository, MessageRepository messageRepository, UserRepository userRepository) {
+        this.conversationRepository = conversationRepository;
         this.messageRepository = messageRepository;
         this.userRepository = userRepository;
-        this.conversationRepository = conversationRepository;
     }
 
     @Override
@@ -43,14 +40,12 @@ public class MessageService extends MessageServiceGrpc.MessageServiceImplBase {
     // TODO FINISH
     @Override
     public void getMessagesByConversationId(SearchMessageDTO request, StreamObserver<Message> responseObserver) {
-        Optional<dk.via.nbnp.databaseserver.domain.Message> responseDao = messageRepository.findById(request.getId());
-        if(responseDao.isEmpty()){
-            System.out.println("No message with this id {"+request.getId()+"} was found.");
-            responseObserver.onError(new Exception("No message with this id {"+request.getId()+"} was found."));
-        }else{
-            responseObserver.onNext(MessageMapper.mapDomainToProto(responseDao.get()));
-            responseObserver.onCompleted();
+        List<dk.via.nbnp.databaseserver.domain.Message> responseDao = messageRepository.findAllByConversationId(request.getId());
+        for (dk.via.nbnp.databaseserver.domain.Message message : responseDao) {
+            responseObserver.onNext(MessageMapper.mapDomainToProto(message));
         }
+        responseObserver.onCompleted();
+
     }
 
     @Override

@@ -4,23 +4,20 @@ import dk.via.nbnp.databaseserver.application.mappers.ConversationMapper;
 import dk.via.nbnp.databaseserver.protobuf.*;
 import dk.via.nbnp.databaseserver.repositories.ConversationRepository;
 import dk.via.nbnp.databaseserver.repositories.ItemRepository;
-import dk.via.nbnp.databaseserver.repositories.MessageRepository;
 import dk.via.nbnp.databaseserver.repositories.UserRepository;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
 import java.util.Optional;
 
 @GRpcService
 public class ConversationService extends ConversationServiceGrpc.ConversationServiceImplBase {
 
-    @Autowired
-    private ItemRepository itemRepository;
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private ConversationRepository conversationRepository;
+    private final ItemRepository itemRepository;
+    private final UserRepository userRepository;
+    private final ConversationRepository conversationRepository;
 
     @Autowired
     public ConversationService(ItemRepository itemRepository, UserRepository userRepository, ConversationRepository conversationRepository) {
@@ -55,6 +52,10 @@ public class ConversationService extends ConversationServiceGrpc.ConversationSer
     }
     @Override
     public void getConversationsByUser(SearchConversationDTO request, StreamObserver<Conversation> responseObserver) {
-        super.getConversationsByUser(request, responseObserver);
+        List<dk.via.nbnp.databaseserver.domain.Conversation> conversationList = conversationRepository.findAllBySellerIdOrBuyerId(request.getUserId(), request.getUserId());
+        for (dk.via.nbnp.databaseserver.domain.Conversation conversation : conversationList) {
+            responseObserver.onNext(ConversationMapper.mapDomainToProto(conversation));
+        }
+        responseObserver.onCompleted();
     }
 }
