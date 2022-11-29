@@ -839,3 +839,5 @@ C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWA
 C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\refint\BlazorWASM.dll
 C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\BlazorWASM.pdb
 C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\ref\BlazorWASM.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\LoginSeeProfile.razor.rz.scp.css
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\Marketplace.razor.rz.scp.css

@@ -11,6 +11,7 @@
           "AutoFixture.NUnit3": "4.17.0",
           "BlazorWASM": "1.0.0",
           "Microsoft.NET.Test.Sdk": "17.1.0",
+          "RichardSzalay.MockHttp": "6.0.0",
           "bunit": "1.12.6",
           "coverlet.collector": "3.1.2",
           "xunit": "2.4.1",
@@ -765,6 +766,14 @@
           "lib/netstandard1.6/nunit.framework.dll": {
             "assemblyVersion": "3.7.0.0",
             "fileVersion": "3.7.0.0"
+          }
+        }
+      },
+      "RichardSzalay.MockHttp/6.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/RichardSzalay.MockHttp.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.0.0"
           }
         }
       },
@@ -1845,6 +1854,13 @@
       "sha512": "sha512-mjjCGs12dN+MgYU7Hh59DYMzO/wvpWgv9KKvCubj+GLcJ99bL5rKKUiybVPgc75A4qGL0tIVSxB4vGABhn06ig==",
       "path": "nunit/3.7.0",
       "hashPath": "nunit.3.7.0.nupkg.sha512"
+    },
+    "RichardSzalay.MockHttp/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bStGNqIX/MGYtML7K3EzdsE/k5HGVAcg7XgN23TQXGXqxNC9fvYFR94fA0sGM5hAT36R+BBGet6ZDQxXL/IPxg==",
+      "path": "richardszalay.mockhttp/6.0.0",
+      "hashPath": "richardszalay.mockhttp.6.0.0.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
