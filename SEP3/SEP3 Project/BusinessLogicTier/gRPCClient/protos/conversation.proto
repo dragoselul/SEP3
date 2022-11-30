@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-import "user.proto";
-import "item.proto";
-import "message.proto";
-import "category.proto";
+import "protos/user.proto";
+import "protos/item.proto";
+import "protos/message.proto";
+import "protos/category.proto";
 
 option csharp_namespace = "gRPCClient";
 
