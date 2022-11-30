@@ -1,6 +1,7 @@
 package dk.via.nbnp.databaseserver.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -28,6 +29,7 @@ public class Message {
     private User sender;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "conversationId")
     private Conversation conversation;
 
