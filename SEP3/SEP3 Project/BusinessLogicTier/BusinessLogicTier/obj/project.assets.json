@@ -1150,38 +1150,40 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\42194\\.nuget\\packages\\": {}
+    "C:\\Users\\matas\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\BusinessLogicTier\\BusinessLogicTier.csproj",
+      "projectUniqueName": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\BusinessLogicTier\\BusinessLogicTier.csproj",
       "projectName": "BusinessLogicTier",
-      "projectPath": "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\BusinessLogicTier\\BusinessLogicTier.csproj",
-      "packagesPath": "C:\\Users\\42194\\.nuget\\packages\\",
-      "outputPath": "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\BusinessLogicTier\\obj\\",
+      "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\BusinessLogicTier\\BusinessLogicTier.csproj",
+      "packagesPath": "C:\\Users\\matas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\BusinessLogicTier\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\42194\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\matas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Application\\Application.csproj": {
-              "projectPath": "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Application\\Application.csproj"
+            "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Application\\Application.csproj"
             },
-            "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\DataAccess\\DataAccess.csproj"
             },
-            "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj"
+            "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj"
             }
           }
         }
@@ -1228,7 +1230,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

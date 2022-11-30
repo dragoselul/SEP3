@@ -1,3 +1,5 @@
+using System.Net;
+using System.Text.Json;
 using AngleSharp.Dom;
 using AutoFixture;
 using AutoFixture.NUnit3;
@@ -11,10 +13,14 @@ using Domain.Models;
 using HttpClients.ClientInterfaces;
 using HttpClients.Implementations;
 using Microsoft.Extensions.DependencyInjection;
+using NUnit.Framework;
 using RichardSzalay.MockHttp;
+using Assert = Xunit.Assert;
+using TestContext = Bunit.TestContext;
 
 namespace PresentationTierTest;
 
+[TestFixture]
 public class UnitTest1 : TestContext
 {
     [Fact, AutoData]
@@ -106,11 +112,11 @@ public class UnitTest1 : TestContext
         ctx.Services.AddSingleton<IItemService>(new ItemHttpClient(new HttpClient()));
         ctx.Services.AddSingleton<IUserService>(new UserHttpClient(new HttpClient()));
         var authContext = ctx.AddTestAuthorization();
+        var fixture = new Fixture();
+        var strings = fixture.Create<List<string>>();
         mock.When("/Item").RespondJson(new List<Item>());
         authContext.SetAuthorized("Test User");
         var cut = ctx.RenderComponent<CreatePost>();
-        var fixture = new Fixture();
-        var strings = fixture.Create<List<string>>();
         Services.AddTransient<IItemService, ItemHttpClient>();
         var api = Services.GetRequiredService<IItemService>();
         ItemCreationDto item = new ItemCreationDto();
@@ -121,5 +127,35 @@ public class UnitTest1 : TestContext
         //Assert
         var contains = cut.Markup.Contains(@"<h4></h4>");
         Assert.True(contains);
+    }
+
+    [Fact, AutoData]
+    public void UserCanViewPost()
+    {
+        using var ctx = new TestContext();
+        var fixture = new Fixture();
+        var items = fixture.Create<List<Item>>();
+        var mock = ctx.Services.AddMockHttpClient();
+        mock.When("/Item").RespondJson(items);
+        ctx.Services.AddSingleton<IItemService>(new ItemHttpClient(new HttpClient()));
+        Services.AddTransient<IItemService, ItemHttpClient>();
+        var authContext = ctx.AddTestAuthorization();
+        authContext.SetAuthorized("Test User");
+        var cut = ctx.RenderComponent<Marketplace>();
+        
+        ctx.Services.AddSingleton<IUserService>(new UserHttpClient(new HttpClient()));
+        
+        
+        var api = Services.GetRequiredService<IItemService>();
+        ItemCreationDto item = new ItemCreationDto();
+        
+        
+        
+
+        //Act
+
+        //Assert
+        
+        
     }
 }
