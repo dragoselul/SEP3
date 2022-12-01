@@ -1,6 +1,5 @@
 ﻿using Application.DaoInterfaces;
 using Domain.DTOs;
-using Domain.Models;
 using Grpc.Core;
 using Grpc.Net.Client;
 using gRPCClient;
