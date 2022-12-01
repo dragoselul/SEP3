@@ -137,25 +137,26 @@ public class UnitTest1 : TestContext
         var items = fixture.Create<List<Item>>();
         var mock = ctx.Services.AddMockHttpClient();
         mock.When("/Item").RespondJson(items);
-        ctx.Services.AddSingleton<IItemService>(new ItemHttpClient(new HttpClient()));
+        HttpClient httpClient = new HttpClient();
+        httpClient.BaseAddress = new Uri("https://localhost");
+        ctx.Services.AddSingleton<IItemService>(new ItemHttpClient(httpClient));
         Services.AddTransient<IItemService, ItemHttpClient>();
-        var authContext = ctx.AddTestAuthorization();
-        authContext.SetAuthorized("Test User");
-        var cut = ctx.RenderComponent<Marketplace>();
-        
-        ctx.Services.AddSingleton<IUserService>(new UserHttpClient(new HttpClient()));
-        
-        
         var api = Services.GetRequiredService<IItemService>();
         ItemCreationDto item = new ItemCreationDto();
-        
-        
-        
+        var authContext = ctx.AddTestAuthorization();
+        //authContext.SetAuthorized("Test User");
 
+        var cut = ctx.RenderComponent<Marketplace>();
+        
+        //ctx.Services.AddSingleton<IUserService>(new UserHttpClient(new HttpClient()));
         //Act
+        
 
         //Assert
         
-        
+        var contains = cut.Markup.Contains(@"(0)");
+        Assert.True(contains);
+
+
     }
 }
