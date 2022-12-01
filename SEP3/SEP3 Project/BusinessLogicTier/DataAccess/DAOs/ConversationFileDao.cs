@@ -3,10 +3,9 @@ using Application.DaoInterfaces;
 using DataAccess.ProtoConverters;
 using Domain.DTOs;
 using Google.Protobuf.Collections;
+using Grpc.Core;
 using gRPCClient;
 using Conversation = Domain.Models.Conversation;
-using Item = Domain.Models.Item;
-using User = Domain.Models.User;
 
 namespace FileData.DAOs;
 
@@ -37,20 +36,11 @@ public class ConversationFileDao : IConversationDao
     public async Task<List<Conversation>> GetByUserIdAsync(int userId)
     {
         List<Conversation> conversations = new();
-
-        try
+        
+        AsyncServerStreamingCall<gRPCClient.Conversation> call = ConversationClient.getConversationsByUser(new SearchConversationDTO(){Id=userId});
+        await foreach (var response in call.ResponseStream.ReadAllAsync())
         {
-            while (true)
-            {
-                gRPCClient.Conversation? conv = ConversationClient.getConversationsByUser(
-                        new SearchConversationDTO() { Id = userId })
-                    .ResponseStream.Current;
-                conversations.Add(ClassConverter.ConvertProtoToDomain(conv));
-            }
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine("We got all the items");
+            conversations.Add(ClassConverter.ConvertProtoToDomain(response));
         }
 
         return await Task.FromResult(conversations);

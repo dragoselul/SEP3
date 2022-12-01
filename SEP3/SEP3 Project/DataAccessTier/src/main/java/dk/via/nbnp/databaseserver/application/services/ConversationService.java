@@ -58,4 +58,16 @@ public class ConversationService extends ConversationServiceGrpc.ConversationSer
         }
         responseObserver.onCompleted();
     }
+
+    @Override
+    public void getConversationById(SearchConversationDTO request, StreamObserver<Conversation> responseObserver) {
+        Optional<dk.via.nbnp.databaseserver.domain.Conversation> conversation = conversationRepository.findById(request.getId());
+        if(conversation.isEmpty()){
+            System.out.println("No Conversation with id {"+request.getId()+"} was found.");
+            responseObserver.onError(new Exception("No Conversation with id {"+request.getId()+"} was found."));
+        }else{
+            responseObserver.onNext(ConversationMapper.mapDomainToProto(conversation.get()));
+            responseObserver.onCompleted();
+        }
+    }
 }

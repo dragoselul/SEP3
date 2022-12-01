@@ -11,11 +11,11 @@ namespace WebAPI.Controllers;
 public class ConversationController : ControllerBase
 {
     
-    private readonly IConversationLogic ConversationLogic;
+    private readonly IConversationLogic conversationLogic;
 
-    public ConversationController(ConversationLogic conversationLogic)
+    public ConversationController(IConversationLogic conversationLogic)
     {
-        ConversationLogic = conversationLogic;
+        this.conversationLogic = conversationLogic;
     }
     
     
@@ -24,8 +24,8 @@ public class ConversationController : ControllerBase
     {
         try
         {
-            Conversation created = await ConversationLogic.CreateAsync(dto);
-            return Created($"/Conversation/{created.Id}", created);
+            var created = await conversationLogic.CreateAsync(dto);
+            return Created($"/conversation/{created.Id}", created);
         }
         catch (Exception e)
         {
@@ -35,11 +35,11 @@ public class ConversationController : ControllerBase
     }
     
     [HttpGet]
-    public async Task<ActionResult<List<Conversation>>> GetByUserAsync([FromQuery] int userId)
+    public async Task<ActionResult<List<Conversation>>> GetByUserIdAsync([FromQuery] int userId)
     {
         try
         {
-            List<Conversation> conversations = await ConversationLogic.GetByUserIdAsync(userId);
+            List<Conversation> conversations = await conversationLogic.GetByUserIdAsync(userId);
             return Ok(conversations);
         }
         catch (Exception e)
@@ -54,7 +54,7 @@ public class ConversationController : ControllerBase
     {
         try
         {
-            var Conversations = await ConversationLogic.GetByIdAsync(id);
+            var Conversations = await conversationLogic.GetByIdAsync(id);
             return Ok(Conversations);
         }
         catch (Exception e)

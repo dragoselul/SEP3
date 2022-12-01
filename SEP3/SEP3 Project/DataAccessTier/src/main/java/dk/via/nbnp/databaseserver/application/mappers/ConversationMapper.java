@@ -14,7 +14,7 @@ public abstract class ConversationMapper {
             messages.add(MessageMapper.mapDomainToProto(message));
         }
         builder.addAllMessages(messages);
-        return builder.
+        return builder.setId(conversation.getId()).
             setBuyer(UserMapper.mapDomainToProto(conversation.getBuyer())).
             setSeller(UserMapper.mapDomainToProto(conversation.getSeller())).
             setItem(ItemMapper.mapDomainToProto(conversation.getItem())).
