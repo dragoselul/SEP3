@@ -52,7 +52,7 @@ public class ConversationService extends ConversationServiceGrpc.ConversationSer
     }
     @Override
     public void getConversationsByUser(SearchConversationDTO request, StreamObserver<Conversation> responseObserver) {
-        List<dk.via.nbnp.databaseserver.domain.Conversation> conversationList = conversationRepository.findAllBySellerIdOrBuyerId(request.getUserId(), request.getUserId());
+        List<dk.via.nbnp.databaseserver.domain.Conversation> conversationList = conversationRepository.findAllBySellerIdOrBuyerId(request.getId(), request.getId());
         for (dk.via.nbnp.databaseserver.domain.Conversation conversation : conversationList) {
             responseObserver.onNext(ConversationMapper.mapDomainToProto(conversation));
         }

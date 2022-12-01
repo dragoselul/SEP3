@@ -2,6 +2,8 @@
 
 public class Item
 {
+    // TODO OwnerId, ContactFirstName, ContactLastName - Necessary?
+    
     public string Name { get; init; }
     public int Id { get; init; }
     public string Description { get; init; }
@@ -14,4 +16,5 @@ public class Item
     //public byte[] Photos { get; set; }
     public string? ContactFirstName { get; init; }
     public string? ContactLastName { get; init; }
+    public User? Owner { get; init; }
 }

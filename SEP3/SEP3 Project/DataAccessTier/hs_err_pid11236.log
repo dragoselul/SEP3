@@ -1,0 +1,214 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 268435456 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3532), pid=11236, tid=6156
+#
+# JRE version:  (17.0.2+8) (build )
+# Java VM: OpenJDK 64-Bit Server VM (17.0.2+8-LTS, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: C:\Users\42194\AppData\Local\Temp\surefire3829762908437511306\surefirebooter6334725247513601581.jar C:\Users\42194\AppData\Local\Temp\surefire3829762908437511306 2022-12-01T21-44-52_825-jvmRun1 surefire10225061082955277025tmp surefire_016057011819237563433tmp
+
+Host: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz, 8 cores, 15G,  Windows 10 , 64 bit Build 19041 (10.0.19041.2251)
+Time: Thu Dec  1 21:44:53 2022 Central Europe Standard Time elapsed time: 0.045066 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001579ddd3d30):  JavaThread "Unknown thread" [_thread_in_vm, id=6156, stack(0x0000004ffd300000,0x0000004ffd400000)]
+
+Stack: [0x0000004ffd300000,0x0000004ffd400000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6769fa]
+V  [jvm.dll+0x831784]
+V  [jvm.dll+0x832f2e]
+V  [jvm.dll+0x833593]
+V  [jvm.dll+0x2455e5]
+V  [jvm.dll+0x673919]
+V  [jvm.dll+0x668252]
+V  [jvm.dll+0x30432b]
+V  [jvm.dll+0x30b836]
+V  [jvm.dll+0x35b5fe]
+V  [jvm.dll+0x35b82f]
+V  [jvm.dll+0x2db2d8]
+V  [jvm.dll+0x2dc244]
+V  [jvm.dll+0x803011]
+V  [jvm.dll+0x369381]
+V  [jvm.dll+0x7e238c]
+V  [jvm.dll+0x3ec14f]
+V  [jvm.dll+0x3edcd1]
+C  [jli.dll+0x527b]
+C  [ucrtbase.dll+0x21bb2]
+C  [KERNEL32.DLL+0x174b4]
+C  [ntdll.dll+0x526a1]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ff8a6ebeed8, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000001579de21cf0 GCTaskThread "GC Thread#0" [stack: 0x0000004ffd400000,0x0000004ffd500000] [id=1620]
+  0x000001579de328e0 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000004ffd500000,0x0000004ffd600000] [id=10196]
+  0x000001579de33190 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000004ffd600000,0x0000004ffd700000] [id=13364]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ff8a667bd07]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000001579ddcd770] Heap_lock - owner thread: 0x000001579ddd3d30
+
+Heap address: 0x0000000701e00000, size: 4066 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 0.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+<Empty>
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x0000000701e00000, 0x0000000800000000)
+  region size 2048K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ff8a6a5fd49]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (1 events):
+Event: 0.023 Loaded shared library C:\Program Files\Java\zulu17.32.13-ca-jdk17.0.2-win_x64\bin\java.dll
+
+
+Dynamic libraries:
+0x00007ff668fd0000 - 0x00007ff668fde000 	C:\Program Files\Java\zulu17.32.13-ca-jdk17.0.2-win_x64\bin\java.exe
+0x00007ff94d9f0000 - 0x00007ff94dbe8000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff94cc00000 - 0x00007ff94ccbf000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ff94b550000 - 0x00007ff94b822000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ff94b830000 - 0x00007ff94b930000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ff93cde0000 - 0x00007ff93cdfb000 	C:\Program Files\Java\zulu17.32.13-ca-jdk17.0.2-win_x64\bin\VCRUNTIME140.dll
+0x00007ff91d710000 - 0x00007ff91d728000 	C:\Program Files\Java\zulu17.32.13-ca-jdk17.0.2-win_x64\bin\jli.dll
+0x00007ff94ce40000 - 0x00007ff94cfdd000 	C:\WINDOWS\System32\USER32.dll
+0x00007ff92f180000 - 0x00007ff92f41a000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e\COMCTL32.dll
+0x00007ff94b3e0000 - 0x00007ff94b402000 	C:\WINDOWS\System32\win32u.dll
+0x00007ff94bc30000 - 0x00007ff94bcce000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ff94be10000 - 0x00007ff94be3b000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ff94b930000 - 0x00007ff94ba3f000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ff94b4b0000 - 0x00007ff94b54d000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ff94cbc0000 - 0x00007ff94cbf2000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ff944af0000 - 0x00007ff944afc000 	C:\Program Files\Java\zulu17.32.13-ca-jdk17.0.2-win_x64\bin\vcruntime140_1.dll
+0x00007ff91d680000 - 0x00007ff91d70d000 	C:\Program Files\Java\zulu17.32.13-ca-jdk17.0.2-win_x64\bin\msvcp140.dll
+0x00007ff8a6390000 - 0x00007ff8a6ff0000 	C:\Program Files\Java\zulu17.32.13-ca-jdk17.0.2-win_x64\bin\server\jvm.dll
+0x00007ff94d640000 - 0x00007ff94d6ee000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ff94ba40000 - 0x00007ff94badc000 	C:\WINDOWS\System32\sechost.dll
+0x00007ff94d6f0000 - 0x00007ff94d815000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ff94d5c0000 - 0x00007ff94d5c8000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ff93acc0000 - 0x00007ff93acc9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ff94d5d0000 - 0x00007ff94d63b000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ff93e500000 - 0x00007ff93e527000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff9431b0000 - 0x00007ff9431ba000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ff949950000 - 0x00007ff949962000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ff93e8c0000 - 0x00007ff93e8ca000 	C:\Program Files\Java\zulu17.32.13-ca-jdk17.0.2-win_x64\bin\jimage.dll
+0x00007ff948df0000 - 0x00007ff948fd4000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ff932320000 - 0x00007ff93234c000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ff94b2a0000 - 0x00007ff94b322000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ff91d650000 - 0x00007ff91d675000 	C:\Program Files\Java\zulu17.32.13-ca-jdk17.0.2-win_x64\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\zulu17.32.13-ca-jdk17.0.2-win_x64\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e;C:\Program Files\Java\zulu17.32.13-ca-jdk17.0.2-win_x64\bin\server
+
+VM Arguments:
+java_command: C:\Users\42194\AppData\Local\Temp\surefire3829762908437511306\surefirebooter6334725247513601581.jar C:\Users\42194\AppData\Local\Temp\surefire3829762908437511306 2022-12-01T21-44-52_825-jvmRun1 surefire10225061082955277025tmp surefire_016057011819237563433tmp
+java_class_path (initial): C:\Users\42194\AppData\Local\Temp\surefire3829762908437511306\surefirebooter6334725247513601581.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 2097152                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 268435456                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 4263510016                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 2097152                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 4263510016                             {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=C:\Program Files\Zulu\zulu-17\bin\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\; C:\Program Files\Java\apache-maven-3.8.6\bin;C:\ProgramData\chocolatey\bin;%RABBITMQ_SERVER%\sbin;C:\Program Files\Erlang OTP\erts-13.1.2\\bin;C:\Program Files\dotnet;C:\Users\42194\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\42194\AppData\Local\Programs\Python\Python310\;C:\Users\42194\scoop\shims;C:\Users\42194\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\42194\AppData\Local\Programs\Python\Python37\;C:\Users\42194\AppData\Local\Microsoft\WindowsApps;C:\Users\42194\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\42194\AppData\Local\GitHubDesktop\bin;C:\Users\42194\go\bin;C:\src\flutter\bin;C:\Users\42194\AppData\Local\atom\bin;C:\Users\42194\AppData\Local\Programs\Hyper\resources\bin;C:\Program Files\heroku\bin;C:\Users\42194\AppData\Roaming\npm;C:\Program Files\Java\apache-maven-3.8.6\bin;C:\Program Files\JetBrains\JetBrains Rider 2022.2.2\bin;C:\Users\42194\AppData\Local\JetBrains\Toolbox\scripts;C:\Users\42194\.dotnet\tools;C:\Users\42194\.dotnet\tools;
+USERNAME=42194
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 19041 (10.0.19041.2251)
+OS uptime: 1 days 5:23 hours
+Hyper-V role detected
+
+CPU: total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 142 stepping 10 microcode 0xd6, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, fma, vzeroupper, clflush, clflushopt, hv
+
+Memory: 4k page, system-wide physical 16258M (1501M free)
+TotalPageFile size 16258M (AvailPageFile size 115M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 60M, peak: 316M
+
+vm_info: OpenJDK 64-Bit Server VM (17.0.2+8-LTS) for windows-amd64 JRE (17.0.2+8-LTS) (Zulu17.32+13-CA), built on Jan  8 2022 13:06:16 by "zulu_re" with MS VC++ 16.10 / 16.11 (VS2019)
+
+END.

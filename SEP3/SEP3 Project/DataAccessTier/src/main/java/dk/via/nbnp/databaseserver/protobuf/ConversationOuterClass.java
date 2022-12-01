@@ -39,19 +39,21 @@ public final class ConversationOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\022conversation.proto\032\nuser.proto\032\nitem.p" +
-      "roto\032\rmessage.proto\032\016category.proto\"\'\n\025S" +
-      "earchConversationDTO\022\016\n\006userId\030\001 \001(\003\"J\n\025" +
-      "CreateConversationDTO\022\020\n\010sellerId\030\001 \001(\003\022" +
-      "\017\n\007buyerId\030\002 \001(\003\022\016\n\006itemId\030\003 \001(\003\"\221\001\n\014Con" +
-      "versation\022\025\n\006seller\030\001 \001(\0132\005.User\022\024\n\005buye" +
-      "r\030\002 \001(\0132\005.User\022\023\n\004item\030\003 \001(\0132\005.Item\022#\n\013d" +
-      "ateOfStart\030\004 \001(\0132\016.LocalDateTime\022\032\n\010mess" +
-      "ages\030\005 \003(\0132\010.Message2\225\001\n\023ConversationSer" +
-      "vice\022;\n\022createConversation\022\026.CreateConve" +
-      "rsationDTO\032\r.Conversation\022A\n\026getConversa" +
-      "tionsByUser\022\026.SearchConversationDTO\032\r.Co" +
-      "nversation0\001B\'\n#dk.via.nbnp.databaseserv" +
-      "er.protobufP\001b\006proto3"
+      "roto\032\rmessage.proto\032\016category.proto\"#\n\025S" +
+      "earchConversationDTO\022\n\n\002id\030\001 \001(\003\"J\n\025Crea" +
+      "teConversationDTO\022\020\n\010sellerId\030\001 \001(\003\022\017\n\007b" +
+      "uyerId\030\002 \001(\003\022\016\n\006itemId\030\003 \001(\003\"\235\001\n\014Convers" +
+      "ation\022\n\n\002id\030\001 \001(\003\022\025\n\006seller\030\002 \001(\0132\005.User" +
+      "\022\024\n\005buyer\030\003 \001(\0132\005.User\022\023\n\004item\030\004 \001(\0132\005.I" +
+      "tem\022#\n\013dateOfStart\030\005 \001(\0132\016.LocalDateTime" +
+      "\022\032\n\010messages\030\006 \003(\0132\010.Message2\323\001\n\023Convers" +
+      "ationService\022;\n\022createConversation\022\026.Cre" +
+      "ateConversationDTO\032\r.Conversation\022A\n\026get" +
+      "ConversationsByUser\022\026.SearchConversation" +
+      "DTO\032\r.Conversation0\001\022<\n\023getConversationB" +
+      "yId\022\026.SearchConversationDTO\032\r.Conversati" +
+      "onB\'\n#dk.via.nbnp.databaseserver.protobu" +
+      "fP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -66,7 +68,7 @@ public final class ConversationOuterClass {
     internal_static_SearchConversationDTO_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SearchConversationDTO_descriptor,
-        new java.lang.String[] { "UserId", });
+        new java.lang.String[] { "Id", });
     internal_static_CreateConversationDTO_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_CreateConversationDTO_fieldAccessorTable = new
@@ -78,7 +80,7 @@ public final class ConversationOuterClass {
     internal_static_Conversation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Conversation_descriptor,
-        new java.lang.String[] { "Seller", "Buyer", "Item", "DateOfStart", "Messages", });
+        new java.lang.String[] { "Id", "Seller", "Buyer", "Item", "DateOfStart", "Messages", });
     dk.via.nbnp.databaseserver.protobuf.UserOuterClass.getDescriptor();
     dk.via.nbnp.databaseserver.protobuf.ItemOuterClass.getDescriptor();
     dk.via.nbnp.databaseserver.protobuf.MessageOuterClass.getDescriptor();

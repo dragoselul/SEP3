@@ -8,7 +8,7 @@ public abstract class MessageMapper {
         return Message.newBuilder().
                 setId(message.getId()).
                 setConversationId(message.getConversation().getId()).
-                setMessage(message.getContent()).
+                setContent(message.getContent()).
                 setSender(UserMapper.mapDomainToProto(message.getSender())).
                 build();
     }

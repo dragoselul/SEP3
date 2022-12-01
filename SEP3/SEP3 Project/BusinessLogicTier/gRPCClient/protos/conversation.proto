@@ -3,17 +3,17 @@ syntax = "proto3";
 import "protos/user.proto";
 import "protos/item.proto";
 import "protos/message.proto";
-import "protos/category.proto";
 
 option csharp_namespace = "gRPCClient";
 
 service ConversationService {
   rpc createConversation(CreateConversationDTO) returns (Conversation);
   rpc getConversationsByUser(SearchConversationDTO) returns (stream Conversation);
+  rpc getConversationById(SearchConversationDTO) returns (Conversation);
 }
 
 message SearchConversationDTO{
-  int64 userId = 1;
+  int64 id = 1;
 }
 
 message CreateConversationDTO{
@@ -23,9 +23,10 @@ message CreateConversationDTO{
 }
 
 message Conversation{
-  User seller = 1;
-  User buyer = 2;
-  Item item = 3;
-  LocalDateTime dateOfStart = 4;
-  repeated Message messages = 5;
+  int64 id = 1;
+  User seller = 2;
+  User buyer = 3;
+  Item item = 4;
+  LocalDateTime dateOfStart = 5;
+  repeated Message messages = 6;
 }

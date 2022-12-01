@@ -41,15 +41,16 @@ public final class MessageOuterClass {
       "\n\rmessage.proto\032\nuser.proto\032\nitem.proto\"" +
       "\036\n\020SearchMessageDTO\022\n\n\002id\030\001 \001(\003\"M\n\020Creat" +
       "eMessageDTO\022\017\n\007content\030\001 \001(\t\022\020\n\010senderId" +
-      "\030\002 \001(\003\022\026\n\016conversationId\030\003 \001(\003\"U\n\007Messag" +
-      "e\022\n\n\002id\030\001 \001(\003\022\017\n\007message\030\002 \001(\t\022\025\n\006sender" +
-      "\030\003 \001(\0132\005.User\022\026\n\016conversationId\030\004 \001(\0032\253\001" +
-      "\n\016MessageService\022,\n\rcreateMessage\022\021.Crea" +
-      "teMessageDTO\032\010.Message\022-\n\016getMessageById" +
-      "\022\021.SearchMessageDTO\032\010.Message\022<\n\033getMess" +
-      "agesByConversationId\022\021.SearchMessageDTO\032" +
-      "\010.Message0\001B\'\n#dk.via.nbnp.databaseserve" +
-      "r.protobufP\001b\006proto3"
+      "\030\002 \001(\003\022\026\n\016conversationId\030\003 \001(\003\"{\n\007Messag" +
+      "e\022\n\n\002id\030\001 \001(\003\022\017\n\007content\030\002 \001(\t\022\025\n\006sender" +
+      "\030\003 \001(\0132\005.User\022\026\n\016conversationId\030\004 \001(\003\022$\n" +
+      "\014dateTimeSent\030\005 \001(\0132\016.LocalDateTime2\253\001\n\016" +
+      "MessageService\022,\n\rcreateMessage\022\021.Create" +
+      "MessageDTO\032\010.Message\022-\n\016getMessageById\022\021" +
+      ".SearchMessageDTO\032\010.Message\022<\n\033getMessag" +
+      "esByConversationId\022\021.SearchMessageDTO\032\010." +
+      "Message0\001B\'\n#dk.via.nbnp.databaseserver." +
+      "protobufP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -74,7 +75,7 @@ public final class MessageOuterClass {
     internal_static_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Message_descriptor,
-        new java.lang.String[] { "Id", "Message", "Sender", "ConversationId", });
+        new java.lang.String[] { "Id", "Content", "Sender", "ConversationId", "DateTimeSent", });
     dk.via.nbnp.databaseserver.protobuf.UserOuterClass.getDescriptor();
     dk.via.nbnp.databaseserver.protobuf.ItemOuterClass.getDescriptor();
   }

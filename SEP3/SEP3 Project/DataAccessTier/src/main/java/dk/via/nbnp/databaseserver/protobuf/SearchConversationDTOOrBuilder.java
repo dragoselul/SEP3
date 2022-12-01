@@ -8,8 +8,8 @@ public interface SearchConversationDTOOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 userId = 1;</code>
-   * @return The userId.
+   * <code>int64 id = 1;</code>
+   * @return The id.
    */
-  long getUserId();
+  long getId();
 }

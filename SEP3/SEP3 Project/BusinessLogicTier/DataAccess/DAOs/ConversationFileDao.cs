@@ -1,40 +1,70 @@
 using Grpc.Net.Client;
-using gRPCClient;
 using Application.DaoInterfaces;
+using DataAccess.ProtoConverters;
 using Domain.DTOs;
-using Domain.Models;
-using Grpc.Core;
-using Grpc.Net.Client;
+using Google.Protobuf.Collections;
 using gRPCClient;
+using Conversation = Domain.Models.Conversation;
 using Item = Domain.Models.Item;
+using User = Domain.Models.User;
 
 namespace FileData.DAOs;
 
 public class ConversationFileDao : IConversationDao
 {
     private readonly GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:6565");
+    private ConversationService.ConversationServiceClient? ConversationClient;
 
-    // TODO IMPLEMENT 
     public ConversationFileDao()
     {
-        
+        ConversationClient = new(channel);
     }
 
     // TODO IMPLEMENT 
-    public Task<Conversation> CreateAsync(ConversationCreationDto post)
+    public async Task<Conversation> CreateAsync(ConversationCreationDto post)
     {
-        throw new NotImplementedException();
+        gRPCClient.Conversation created = await ConversationClient.createConversationAsync(
+            new CreateConversationDTO
+            {
+                SellerId = post.SellerId,
+                BuyerId = post.BuyerId,
+                ItemId = post.ItemId
+            }
+        );
+        return ClassConverter.ConvertProtoToDomain(created);
     }
 
-    // TODO IMPLEMENT 
-    public Task<List<Conversation>> GetByUserIdAsync(int userId)
+    public async Task<List<Conversation>> GetByUserIdAsync(int userId)
     {
-        throw new NotImplementedException();
+        List<Conversation> conversations = new();
+
+        try
+        {
+            while (true)
+            {
+                gRPCClient.Conversation? conv = ConversationClient.getConversationsByUser(
+                        new SearchConversationDTO() { Id = userId })
+                    .ResponseStream.Current;
+                conversations.Add(ClassConverter.ConvertProtoToDomain(conv));
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("We got all the items");
+        }
+
+        return await Task.FromResult(conversations);
+
     }
 
-    // TODO IMPLEMENT 
-    public Task<Conversation> GetByIdAsync(int id)
+    public async Task<Conversation> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        gRPCClient.Conversation conversation = await 
+            ConversationClient.getConversationByIdAsync(new SearchConversationDTO() { Id = id });
+        return ClassConverter.ConvertProtoToDomain(conversation);
+
     }
+
+
+
 }

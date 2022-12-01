@@ -130,6 +130,7 @@ dk\via\nbnp\databaseserver\protobuf\SearchItemDTO.class
 dk\via\nbnp\databaseserver\protobuf\UpdateItemDTO$1.class
 dk\via\nbnp\databaseserver\protobuf\LoginUserDTO$Builder.class
 dk\via\nbnp\databaseserver\protobuf\CategoryServiceGrpc$3.class
+dk\via\nbnp\databaseserver\application\mappers\ConversationMapper.class
 dk\via\nbnp\databaseserver\application\mappers\ItemMapper.class
 dk\via\nbnp\databaseserver\protobuf\Category.class
 dk\via\nbnp\databaseserver\protobuf\Item$1.class

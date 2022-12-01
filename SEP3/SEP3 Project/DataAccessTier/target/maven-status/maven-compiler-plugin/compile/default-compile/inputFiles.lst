@@ -58,6 +58,7 @@ D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\SearchMessageDTO.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\UpdateItemDTO.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\SearchConversationDTO.java
+D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\application\mappers\ConversationMapper.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\CategoryOrBuilder.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\CreateMessageDTO.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\CreateConversationDTOOrBuilder.java

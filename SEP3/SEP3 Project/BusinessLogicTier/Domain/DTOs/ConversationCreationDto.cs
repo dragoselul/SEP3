@@ -2,14 +2,14 @@ namespace Domain.DTOs;
 
 public class ConversationCreationDto
 {
-    private int? sellerId { get; }
-    private int? buyerId { get; }
-    private int? itemId { get; }
+    public int SellerId { get; }
+    public int BuyerId { get; }
+    public int ItemId { get; }
 
-    public ConversationCreationDto(int? sellerId, int? buyerId, int? itemId)
+    public ConversationCreationDto(int sellerId, int buyerId, int itemId)
     {
-        this.sellerId = sellerId;
-        this.buyerId = buyerId;
-        this.itemId = itemId;
+        this.SellerId = sellerId;
+        this.BuyerId = buyerId;
+        this.ItemId = itemId;
     }
 }
