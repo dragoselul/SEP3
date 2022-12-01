@@ -68,8 +68,17 @@ public class ItemHttpClient: IItemService
         throw new NotImplementedException();
     }
 
-    public Task<Item> GetItemById(int id)
+    public async Task<Item> GetItemById(int id)
     {
-        throw new NotImplementedException();
+        HttpResponseMessage response = await Client.GetAsync($"/Item/{id}");
+        string result = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(result);
+        }
+        Console.WriteLine(result);
+
+        Item? item = JsonConvert.DeserializeObject<Item>(result);
+        return (await Task.FromResult(item))!;
     }
 }

@@ -11,7 +11,7 @@ public interface IUserDao
     Task<User?> GetByIdAsync(int dtoContactId);
     Task<User?> GetLoginAsync(UserLoginDto loginDto);
 
-    Task<User?> UpdateUserAsync(UserCreationDto toUpdate);
+    Task<User?> UpdateUserAsync(UserUpdateDto toUpdate);
 
     Task DeleteUserById(int id);
 }

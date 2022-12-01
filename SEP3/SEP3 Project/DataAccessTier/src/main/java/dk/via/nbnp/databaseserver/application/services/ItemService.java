@@ -16,11 +16,8 @@ import java.util.Optional;
 @GRpcService
 public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
 
-    @Autowired
     private final ItemRepository itemRepository;
-    @Autowired
     private final UserRepository userRepository;
-    @Autowired
     private final CategoryRepository categoryRepository;
 
     @Autowired
@@ -30,7 +27,6 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
         this.categoryRepository = categoryRepository;
     }
 
-    // IMPLEMENTED
     @Override
     public void createItem(CreateItemDTO request, StreamObserver<Item> responseObserver) {
         Optional<dk.via.nbnp.databaseserver.domain.Category> categoryResponse = categoryRepository.findById(request.getCategory());
@@ -50,7 +46,6 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
 
     }
 
-    // TODO TO BE TESTED
     @Override
     public void getItems(SearchItemDTO request, StreamObserver<Item> responseObserver) {
         try {
@@ -101,8 +96,8 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
     public void getItemById(SearchItemDTO request, StreamObserver<Item> responseObserver) {
         Optional<dk.via.nbnp.databaseserver.domain.Item> daoResponse = itemRepository.findById(request.getId());
         if (daoResponse.isEmpty()) {
-            System.out.println("User with this ownerId was not found");
-            responseObserver.onError(new Exception("User with this ownerId was not found"));
+            System.out.println("Item with this id was not found");
+            responseObserver.onError(new Exception("Item with this id was not found"));
         } else {
             responseObserver.onNext(ItemMapper.mapDomainToProto(daoResponse.get()));
             responseObserver.onCompleted();
@@ -111,13 +106,34 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
 
     @Override
     public void updateItem(UpdateItemDTO request, StreamObserver<Item> responseObserver) {
-        super.updateItem(request, responseObserver);
+        Optional<dk.via.nbnp.databaseserver.domain.Item> daoResponse = itemRepository.findById(request.getId());
+        if (daoResponse.isEmpty()) {
+            System.out.println("Item with this id was not found");
+            responseObserver.onError(new Exception("Item with this id was not found"));
+        } else {
+            dk.via.nbnp.databaseserver.domain.Item item = daoResponse.get();
+            if (!item.getName().equals(request.getName()))
+                item.setName(request.getName());
+            if (!item.getDescription().equals(request.getDescription()))
+                item.setDescription(request.getDescription());
+            if (!item.getCategory().equals(new dk.via.nbnp.databaseserver.domain.Category(request.getCategory())))
+                item.setCategory(new dk.via.nbnp.databaseserver.domain.Category(request.getCategory()));
+            if (item.getStatus() != request.getStatus())
+                item.setStatus(request.getStatus());
+            if (!item.getCurrency().equals(request.getCurrency()))
+                item.setCurrency(request.getCurrency());
+            if (item.getPrice() != request.getPrice())
+                item.setPrice(request.getPrice());
+            itemRepository.save(item);
+            Item toSend = ItemMapper.mapDomainToProto(item);
+            responseObserver.onNext(toSend);
+        }
+        responseObserver.onCompleted();
     }
 
     @Override
     public void deleteItem(SearchItemDTO request, StreamObserver<Item> responseObserver) {
         itemRepository.deleteById(request.getId());
+        responseObserver.onCompleted();
     }
-
-
 }

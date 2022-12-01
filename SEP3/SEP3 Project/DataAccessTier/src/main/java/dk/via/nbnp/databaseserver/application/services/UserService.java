@@ -6,97 +6,18 @@ import dk.via.nbnp.databaseserver.protobuf.*;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.ArrayList;
 import java.util.Optional;
 
 @GRpcService
 public class UserService extends UserServiceGrpc.UserServiceImplBase {
 
-    @Autowired
     private final UserRepository userRepository;
 
     @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-    }
-
-    @Override
-    public void login(LoginUserDTO request, StreamObserver<User> responseObserver) {
-        String email = request.getEmail();
-        String password = request.getPassword();
-
-        Optional<dk.via.nbnp.databaseserver.domain.User> user = userRepository.findByEmailAndPassword(email, password);
-        if(user.isEmpty()){
-            System.out.println("Incorrect email or password");
-            responseObserver.onError(new Exception("Incorrect email or password"));
-        }else{
-            System.out.println(UserMapper.mapDomainToProto(user.get()));
-            responseObserver.onNext(UserMapper.mapDomainToProto(user.get()));
-            responseObserver.onCompleted();
-        }
-    }
-    @Override
-    public void getUsers(SearchUserDTO request, StreamObserver<User> responseObserver) {
-        ArrayList<dk.via.nbnp.databaseserver.domain.User> users = new ArrayList<>(userRepository.findAll());
-        dk.via.nbnp.databaseserver.domain.User user = null;
-        for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).getFirstName().equals(request.getFirstName()) || users.get(i).getLastName().equals(request.getLastName())) {
-                user = users.get(i);
-                LocalDateTime dateOfRegistration = LocalDateTime.newBuilder()
-                        .setYear(user.getDateOfRegistration().getYear())
-                        .setMonth(user.getDateOfRegistration().getMonthValue())
-                        .setDay(user.getDateOfRegistration().getDayOfMonth())
-                        .setHour(user.getDateOfRegistration().getHour())
-                        .setMinute(user.getDateOfRegistration().getMinute())
-                        .build();
-
-                User toSend = User.newBuilder()
-                        .setId(user.getId())
-                        .setFirstName(user.getFirstName())
-                        .setLastName(user.getLastName())
-                        .setEmail(user.getEmail())
-                        .setPhoneNumber(user.getPhoneNumber())
-                        .setGender(user.isGender())
-                        .setDateOfRegistration(dateOfRegistration)
-                        .build();
-                responseObserver.onNext(toSend);
-            }
-        }
-        responseObserver.onCompleted();
-    }
-
-    @Override
-    public void getUserById(SearchUserDTO request, StreamObserver<User> responseObserver) {
-        dk.via.nbnp.databaseserver.domain.User user = null;
-        user = userRepository.findById(request.getId()).get();
-        LocalDateTime dateOfRegistration = LocalDateTime.newBuilder()
-                .setYear(user.getDateOfRegistration().getYear())
-                .setMonth(user.getDateOfRegistration().getMonthValue())
-                .setDay(user.getDateOfRegistration().getDayOfMonth())
-                .setHour(user.getDateOfRegistration().getHour())
-                .setMinute(user.getDateOfRegistration().getMinute())
-                .build();
-        User toSend = User.newBuilder()
-                .setId(user.getId())
-                .setFirstName(user.getFirstName())
-                .setLastName(user.getLastName())
-                .setEmail(user.getEmail())
-                .setPhoneNumber(user.getPhoneNumber())
-                .setGender(user.isGender())
-                .setDateOfRegistration(dateOfRegistration)
-                .build();
-        responseObserver.onNext(toSend);
-        responseObserver.onCompleted();
-    }
-
-    @Override
-    public void updateUser(CreateUserDTO request, StreamObserver<User> responseObserver) {
-        super.updateUser(request, responseObserver);
-    }
-
-    @Override
-    public void deleteUser(SearchUserDTO request, StreamObserver<User> responseObserver) {
-        super.deleteUser(request, responseObserver);
     }
 
     @Override
@@ -111,17 +32,76 @@ public class UserService extends UserServiceGrpc.UserServiceImplBase {
         );
 
         dk.via.nbnp.databaseserver.domain.User createdUser = userRepository.save(user);
-
-        User gRPCUser = User.newBuilder()
-                .setId(createdUser.getId())
-                .setFirstName(createdUser.getFirstName())
-                .setLastName(createdUser.getLastName())
-                .setEmail(createdUser.getEmail())
-                .setPhoneNumber(createdUser.getPhoneNumber())
-                .setGender(createdUser.isGender())
-                .build();
-
+        User gRPCUser = UserMapper.mapDomainToProto(createdUser);
         responseObserver.onNext(gRPCUser);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void login(LoginUserDTO request, StreamObserver<User> responseObserver) {
+        String email = request.getEmail();
+        String password = request.getPassword();
+
+        Optional<dk.via.nbnp.databaseserver.domain.User> user = userRepository.findByEmailAndPassword(email, password);
+        if (user.isEmpty()) {
+            System.out.println("Incorrect email or password");
+            responseObserver.onError(new Exception("Incorrect email or password"));
+        } else {
+            System.out.println(UserMapper.mapDomainToProto(user.get()));
+            responseObserver.onNext(UserMapper.mapDomainToProto(user.get()));
+            responseObserver.onCompleted();
+        }
+    }
+
+    @Override
+    public void getUsers(SearchUserDTO request, StreamObserver<User> responseObserver) {
+        ArrayList<dk.via.nbnp.databaseserver.domain.User> users = new ArrayList<>(userRepository.findAll());
+        dk.via.nbnp.databaseserver.domain.User user;
+        for (dk.via.nbnp.databaseserver.domain.User value : users) {
+            if (value.getFirstName().toLowerCase().contains(request.getFirstName().toLowerCase()) ||
+                    value.getLastName().toLowerCase().contains(request.getLastName().toLowerCase())) {
+                user = value;
+                User toSend = UserMapper.mapDomainToProto(user);
+                responseObserver.onNext(toSend);
+            }
+        }
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getUserById(SearchUserDTO request, StreamObserver<User> responseObserver) {
+        dk.via.nbnp.databaseserver.domain.User user;
+        user = userRepository.findById(request.getId()).get();
+        User toSend = UserMapper.mapDomainToProto(user);
+        responseObserver.onNext(toSend);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void updateUser(UpdateUserDTO request, StreamObserver<User> responseObserver) {
+        dk.via.nbnp.databaseserver.domain.User user;
+        user = userRepository.findById(request.getId()).get();
+        if (!user.getFirstName().equals(request.getFirstName()))
+            user.setFirstName(request.getFirstName());
+        if (!user.getLastName().equals(request.getLastName()))
+            user.setLastName(request.getLastName());
+        if (!user.getEmail().equals(request.getEmail()))
+            user.setEmail(request.getEmail());
+        if (user.isGender() != request.getGender())
+            user.setGender(request.getGender());
+        if (!user.getPassword().equals(request.getPassword()))
+            user.setPassword(request.getPassword());
+        if (!user.getPhoneNumber().equals(request.getPhoneNumber()))
+            user.setPhoneNumber(request.getPhoneNumber());
+        userRepository.save(user);
+        User toSend = UserMapper.mapDomainToProto(user);
+        responseObserver.onNext(toSend);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void deleteUser(SearchUserDTO request, StreamObserver<User> responseObserver) {
+        userRepository.deleteById(request.getId());
         responseObserver.onCompleted();
     }
 }

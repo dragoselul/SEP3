@@ -53,7 +53,7 @@
                     <div class="items">
                         @foreach (var item  in items)
                         {
-                            <div class="item card">
+                            <div class="item card" @onclick="() =>ViewItem(item.Id)">
                                 <div class="item__position">
                                     <img src="https://raw.githubusercontent.com/AbubakerSaeed/plants-shopping-uix/main/assets/1.png" alt="@item.Name" class="item__image item__image--hue">
                                 </div>
@@ -234,7 +234,7 @@
             <div class="items">
                 @foreach (var item  in items)
                 {
-                    <div class="item">
+                    <div class="item card" @onclick="() =>ViewItem(item.Id)">
                         <div class="item__position">
                             <img src="https://raw.githubusercontent.com/AbubakerSaeed/plants-shopping-uix/main/assets/1.png" alt="@item.Name" class="item__image item__image--hue">
                         </div>
@@ -281,6 +281,11 @@
     protected override async Task OnInitializedAsync()
     {
         items = await itemService.GetItems();
+    }
+
+    private void ViewItem(int id)
+    {
+        navMgr.NavigateTo($"/ViewItem/{id}");
     }
 
 }

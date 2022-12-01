@@ -8,7 +8,7 @@ service UserService {
   rpc createUser(CreateUserDTO) returns (User);
   rpc getUsers(SearchUserDTO) returns (stream User);
   rpc getUserById(SearchUserDTO) returns (User);
-  rpc updateUser(CreateUserDTO) returns (User);
+  rpc updateUser(UpdateUserDTO) returns (User);
   rpc deleteUser(SearchUserDTO) returns (User);
 }
 
@@ -24,6 +24,16 @@ message CreateUserDTO{
   string password = 4;
   string phoneNumber = 5;
   bool gender = 6;
+}
+
+message UpdateUserDTO{
+  int64 id = 1;
+  string firstName = 2;
+  string lastName = 3;
+  string email = 4;
+  string password = 5;
+  string phoneNumber = 6;
+  bool gender = 7;
 }
 
 message SearchUserDTO {

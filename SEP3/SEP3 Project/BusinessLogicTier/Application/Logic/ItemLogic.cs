@@ -7,7 +7,6 @@ namespace Application.Logic;
 
 public class ItemLogic : IItemLogic
 {
-    
     private readonly IItemDao itemDao;
     private readonly IUserDao userDao;
 
@@ -16,7 +15,7 @@ public class ItemLogic : IItemLogic
         this.itemDao = itemDao;
         this.userDao = userDao;
     }
-    
+
     public async Task<Item> CreateAsync(ItemCreationDto dto)
     {
         User? user = await userDao.GetByIdAsync(dto.ContactId);
@@ -41,59 +40,33 @@ public class ItemLogic : IItemLogic
         return created;
     }
 
-    public Task<List<Item>> GetAsync(SearchItemParametersDto searchParameters)
+    public async Task<List<Item>> GetAsync(SearchItemParametersDto searchParameters)
     {
-        return itemDao.GetAsync(searchParameters);
+        return await itemDao.GetAsync(searchParameters);
     }
 
-    public async Task UpdateAsync(ItemUpdateDto dto)
+    public async Task<Item> GetByIdAsync(int id)
+    {
+        return await itemDao.GetByIdAsync(id);
+    }
+
+    public async Task<Item> UpdateAsync(ItemUpdateDto dto)
     {
         Item? existing = await itemDao.GetByIdAsync(dto.Id);
-
-        if (existing == null)
-        {
-            throw new Exception($"Todo with ID {dto.Id} not found!");
-        }
-
-        User? user = null;
-        if (dto.ContactId != null)
-        {
-            user = await userDao.GetByIdAsync((int)dto.ContactId);
-            if (user == null)
-            {
-                throw new Exception($"User with id {dto.ContactId} was not found.");
-            }
-        }
-        User? existingUser = await userDao.GetByIdAsync(existing.OwnerId);
-
-        if (dto.IsSold != null && existing.IsSold && !(bool)dto.IsSold)
-        {
-            throw new Exception("Cannot un-complete a completed Todo");
-        }
-
-        User userToUse = user ?? existingUser;
-        string firstNameToUse = dto.ContactFirstName ?? existing.ContactFirstName;
-        string lastNameToUse = dto.ContactLastName ?? existing.ContactFirstName;
-        string titleToUse = dto.Name ?? existing.Name;
-        string descriptionToUse = dto.Description ?? existing.Description;
-        double pricingToUse = dto.Pricing ?? existing.Pricing;
-        bool soldToUse = dto.IsSold ?? existing.IsSold;
-    
         Item updated = new()
         {
             Id = existing.Id,
-            Name = titleToUse,
-            Description = descriptionToUse,
-            ContactFirstName = firstNameToUse,
-            OwnerId = userToUse.Id,
-            Pricing = pricingToUse,
-            ContactLastName = lastNameToUse,
-            IsSold = soldToUse
+            Name = existing.Name,
+            Description = existing.Description,
+            ContactFirstName = existing.ContactFirstName,
+            OwnerId = existing.OwnerId,
+            Pricing = existing.Pricing,
+            ContactLastName = existing.ContactLastName,
+            IsSold = existing.IsSold
         };
 
         ValidateItem(updated);
-
-        await itemDao.UpdateAsync(updated);
+        return await itemDao.UpdateAsync(updated);
     }
 
     private void ValidateItem(Item dto)
@@ -101,10 +74,15 @@ public class ItemLogic : IItemLogic
         if (string.IsNullOrEmpty(dto.Name)) throw new Exception("Title cannot be empty.");
         // other validation stuff
     }
-    
+
     private void ValidateItem(ItemCreationDto dto)
     {
         if (string.IsNullOrEmpty(dto.Name)) throw new Exception("Title cannot be empty.");
         // other validation stuff
+    }
+
+    public async Task DeleteByIdAsync(int id)
+    {
+        await itemDao.DeleteItemById(id);
     }
 }

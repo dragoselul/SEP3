@@ -45,13 +45,23 @@ public class UserLogic : IUserLogic
         return userDao.GetLoginAsync(loginDto);
     }
 
-    public Task<List<User>> GetAsync(SearchUserParametersDto searchParameters)
+    public async Task<List<User>> GetAsync(SearchUserParametersDto searchParameters)
     {
-        return userDao.GetAsync(searchParameters);
+        return await userDao.GetAsync(searchParameters);
     }
 
-    public Task<User?> GetById(int id)
+    public async Task<User?> GetByIdAsync(int id)
     {
-        return userDao.GetByIdAsync(id);
+        return await userDao.GetByIdAsync(id);
+    }
+
+    public async Task<User?> UpdateUserAsync(UserUpdateDto updateDto)
+    {
+        return await userDao.UpdateUserAsync(updateDto);
+    }
+
+    public async Task DeleteByIdAsync(int id)
+    {
+        await userDao.DeleteUserById(id);
     }
 }

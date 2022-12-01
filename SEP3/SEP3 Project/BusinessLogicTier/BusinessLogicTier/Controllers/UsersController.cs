@@ -76,7 +76,7 @@ public class UsersController : ControllerBase
     {
         try
         {
-            User user = await userLogic.GetById(id);
+            User user = await userLogic.GetByIdAsync(id);
             return Ok(user);
         }
         catch (Exception e)

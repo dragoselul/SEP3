@@ -138,27 +138,27 @@ public final class UserServiceGrpc {
     return getGetUserByIdMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.CreateUserDTO,
+  private static volatile io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.UpdateUserDTO,
       dk.via.nbnp.databaseserver.protobuf.User> getUpdateUserMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "updateUser",
-      requestType = dk.via.nbnp.databaseserver.protobuf.CreateUserDTO.class,
+      requestType = dk.via.nbnp.databaseserver.protobuf.UpdateUserDTO.class,
       responseType = dk.via.nbnp.databaseserver.protobuf.User.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.CreateUserDTO,
+  public static io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.UpdateUserDTO,
       dk.via.nbnp.databaseserver.protobuf.User> getUpdateUserMethod() {
-    io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.CreateUserDTO, dk.via.nbnp.databaseserver.protobuf.User> getUpdateUserMethod;
+    io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.UpdateUserDTO, dk.via.nbnp.databaseserver.protobuf.User> getUpdateUserMethod;
     if ((getUpdateUserMethod = UserServiceGrpc.getUpdateUserMethod) == null) {
       synchronized (UserServiceGrpc.class) {
         if ((getUpdateUserMethod = UserServiceGrpc.getUpdateUserMethod) == null) {
           UserServiceGrpc.getUpdateUserMethod = getUpdateUserMethod =
-              io.grpc.MethodDescriptor.<dk.via.nbnp.databaseserver.protobuf.CreateUserDTO, dk.via.nbnp.databaseserver.protobuf.User>newBuilder()
+              io.grpc.MethodDescriptor.<dk.via.nbnp.databaseserver.protobuf.UpdateUserDTO, dk.via.nbnp.databaseserver.protobuf.User>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "updateUser"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  dk.via.nbnp.databaseserver.protobuf.CreateUserDTO.getDefaultInstance()))
+                  dk.via.nbnp.databaseserver.protobuf.UpdateUserDTO.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   dk.via.nbnp.databaseserver.protobuf.User.getDefaultInstance()))
               .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("updateUser"))
@@ -278,7 +278,7 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public void updateUser(dk.via.nbnp.databaseserver.protobuf.CreateUserDTO request,
+    public void updateUser(dk.via.nbnp.databaseserver.protobuf.UpdateUserDTO request,
         io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.User> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateUserMethod(), responseObserver);
     }
@@ -324,7 +324,7 @@ public final class UserServiceGrpc {
             getUpdateUserMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                dk.via.nbnp.databaseserver.protobuf.CreateUserDTO,
+                dk.via.nbnp.databaseserver.protobuf.UpdateUserDTO,
                 dk.via.nbnp.databaseserver.protobuf.User>(
                   this, METHODID_UPDATE_USER)))
           .addMethod(
@@ -386,7 +386,7 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public void updateUser(dk.via.nbnp.databaseserver.protobuf.CreateUserDTO request,
+    public void updateUser(dk.via.nbnp.databaseserver.protobuf.UpdateUserDTO request,
         io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.User> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateUserMethod(), getCallOptions()), request, responseObserver);
@@ -446,7 +446,7 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public dk.via.nbnp.databaseserver.protobuf.User updateUser(dk.via.nbnp.databaseserver.protobuf.CreateUserDTO request) {
+    public dk.via.nbnp.databaseserver.protobuf.User updateUser(dk.via.nbnp.databaseserver.protobuf.UpdateUserDTO request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateUserMethod(), getCallOptions(), request);
     }
@@ -500,7 +500,7 @@ public final class UserServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<dk.via.nbnp.databaseserver.protobuf.User> updateUser(
-        dk.via.nbnp.databaseserver.protobuf.CreateUserDTO request) {
+        dk.via.nbnp.databaseserver.protobuf.UpdateUserDTO request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateUserMethod(), getCallOptions()), request);
     }
@@ -555,7 +555,7 @@ public final class UserServiceGrpc {
               (io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.User>) responseObserver);
           break;
         case METHODID_UPDATE_USER:
-          serviceImpl.updateUser((dk.via.nbnp.databaseserver.protobuf.CreateUserDTO) request,
+          serviceImpl.updateUser((dk.via.nbnp.databaseserver.protobuf.UpdateUserDTO) request,
               (io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.User>) responseObserver);
           break;
         case METHODID_DELETE_USER:

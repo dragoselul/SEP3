@@ -31,31 +31,7 @@ public class UserFileDao : IUserDao
 
         return await Task.FromResult(user);
     }
-
-    /*
-    public async Task<User?> GetByNameAsync(string firstName, string lastName)
-    {
-        gRPCClient.User? gRPC = ClientUser.getUserAsync(new SearchUserDTO
-        {
-            Id   = 0,
-            FirstName = firstName,
-            LastName = lastName
-        }).ResponseAsync.Result;
-        User? user = new()
-        {
-            Id = (int)gRPC.Id,
-            firstName = gRPC.FirstName,
-            lastName = gRPC.LastName,
-            email = gRPC.Email,
-            gender = gRPC.Gender,
-            password = gRPC.Password,
-            phoneNumber = gRPC.PhoneNumber,
-            dor = new(gRPC.DateOfRegistration.Year, gRPC.DateOfRegistration.Month,gRPC.DateOfRegistration.Day, gRPC.DateOfRegistration.Hour, gRPC.DateOfRegistration.Minute, 0)
-        };
-        return await Task.FromResult(user);
-    }
-    */
-
+    
     public async Task<List<User>> GetAsync(SearchUserParametersDto searchParameters)
     {
         List<User> users = new();
@@ -190,13 +166,42 @@ public class UserFileDao : IUserDao
         return await Task.FromResult(user);
     }
 
-    public Task<User?> UpdateUserAsync(UserCreationDto toUpdate)
+    public async Task<User?> UpdateUserAsync(UserUpdateDto toUpdate)
     {
-        throw new NotImplementedException();
+        UpdateUserDTO ToUpdate = new()
+        {
+            Id = toUpdate.Id,
+            Email = toUpdate.Email,
+            FirstName = toUpdate.FirstName,
+            LastName = toUpdate.LastName,
+            Gender = toUpdate.Gender,
+            Password = toUpdate.Password,
+            PhoneNumber = toUpdate.PhoneNumber
+        };
+        var user = await ClientUser.updateUserAsync(ToUpdate);
+        User? ToSend = new()
+        {
+            Id = (int)user.Id,
+            firstName = user.FirstName,
+            lastName = user.LastName,
+            email = user.Email,
+            gender = user.Gender,
+            password = user.Password,
+            phoneNumber = user.PhoneNumber,
+            dor = new(user.DateOfRegistration.Year, user.DateOfRegistration.Month, user.DateOfRegistration.Day,
+                user.DateOfRegistration.Hour, user.DateOfRegistration.Minute, 0)
+        };
+        return await Task.FromResult(ToSend);
     }
 
-    public Task DeleteUserById(int id)
+    public async Task DeleteUserById(int id)
     {
-        throw new NotImplementedException();
+        SearchUserDTO ToDelete = new()
+        {
+            Id = id,
+            FirstName = "",
+            LastName = ""
+        };
+        await ClientUser.deleteUserAsync(ToDelete);
     }
 }

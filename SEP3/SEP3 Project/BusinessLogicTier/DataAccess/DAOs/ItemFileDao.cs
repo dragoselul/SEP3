@@ -177,25 +177,9 @@ public class ItemFileDao : IItemDao
         return await Task.FromResult(toSend);
     }
 
-    public async Task UpdateAsync(Item toUpdate)
+    public async Task<Item> UpdateAsync(Item toUpdate)
     {
-        gRPCClient.Item? item = ClientItem.getItemByIdAsync(new SearchItemDTO { 
-                Id = toUpdate.Id,
-                OwnerId = toUpdate.OwnerId,
-                Name = toUpdate.Name,
-                Description = toUpdate.Description,
-                MinPrice = toUpdate.Pricing,
-                MaxPrice = toUpdate.Pricing,
-                Status = toUpdate.IsSold
-                
-            })
-            .ResponseAsync.Result;
-        if (item == null)
-        {
-            throw new Exception($"Item with id {toUpdate.Id} does not exist!");
-        }
-
-        await ClientItem.updateItemAsync(new UpdateItemDTO()
+        gRPCClient.Item ToUpdate = await ClientItem.updateItemAsync(new UpdateItemDTO()
         {
             Name = toUpdate.Name,
             Category = toUpdate.Category,
@@ -204,10 +188,34 @@ public class ItemFileDao : IItemDao
             Description = toUpdate.Description,
             Status = toUpdate.IsSold
         });
+
+        Item Updated = new()
+        {
+            Id = (int)ToUpdate.Id,
+            Name = ToUpdate.Name,
+            Category = ToUpdate.Category,
+            ContactFirstName = ToUpdate.Owner.FirstName,
+            ContactLastName = ToUpdate.Owner.LastName,
+            Currency = ToUpdate.Currency,
+            Description = ToUpdate.Description,
+            IsSold = ToUpdate.Status,
+            OwnerId = (int)ToUpdate.Owner.Id,
+            Pricing = ToUpdate.Price
+        };
+        return await Task.FromResult(Updated);
     }
 
-    public Task DeleteItemById(int id)
+    public async Task DeleteItemById(int id)
     {
-        throw new NotImplementedException();
+        await ClientItem.deleteItemAsync(new SearchItemDTO
+        {
+            Id = id,
+            OwnerId = 0,
+            Name = "",
+            Description = "",
+            MinPrice = 0,
+            MaxPrice = 0,
+            Status = true
+        });
     }
 }

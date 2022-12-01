@@ -15,10 +15,10 @@ public class ItemController : ControllerBase
     {
         this.itemLogic = itemLogic;
     }
-    
-    
+
+
     [HttpPost]
-    public async Task<ActionResult<Item>> CreateAsync([FromBody]ItemCreationDto dto)
+    public async Task<ActionResult<Item>> CreateAsync([FromBody] ItemCreationDto dto)
     {
         try
         {
@@ -31,10 +31,11 @@ public class ItemController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
-    
+
     [HttpGet]
-    public async Task<ActionResult<List<Item>>> GetAsync([FromQuery] string? name, [FromQuery]  string? description,
-        [FromQuery] int? contactId, [FromQuery] double? minPrice,[FromQuery] double? maxPrice, [FromQuery] bool? isSold, [FromQuery] string? category)
+    public async Task<ActionResult<List<Item>>> GetAsync([FromQuery] string? name, [FromQuery] string? description,
+        [FromQuery] int? contactId, [FromQuery] double? minPrice, [FromQuery] double? maxPrice,
+        [FromQuery] bool? isSold, [FromQuery] string? category)
     {
         try
         {
@@ -57,8 +58,22 @@ public class ItemController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
-    
-    
+
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<Item>> GetItemById([FromRoute] int id)
+    {
+        try
+        {
+            Item item = await itemLogic.GetByIdAsync(id);
+            return Ok(item);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
+
     [HttpPatch]
     public async Task<ActionResult> UpdateAsync([FromBody] ItemUpdateDto dto)
     {

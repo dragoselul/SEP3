@@ -9,7 +9,7 @@ public interface IItemDao
     
     Task<List<Item>> GetAsync(SearchItemParametersDto searchParameters);
     Task<List<Item>> GetAllItemsAsync();
-    Task UpdateAsync(Item post);
+    Task<Item> UpdateAsync(Item post);
 
     Task<Item> GetByIdAsync(int id);
     

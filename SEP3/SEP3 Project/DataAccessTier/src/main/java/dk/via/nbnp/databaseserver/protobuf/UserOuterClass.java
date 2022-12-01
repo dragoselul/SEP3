@@ -25,6 +25,11 @@ public final class UserOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_CreateUserDTO_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_UpdateUserDTO_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_UpdateUserDTO_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_SearchUserDTO_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -52,22 +57,26 @@ public final class UserOuterClass {
       "\001(\t\022\020\n\010password\030\002 \001(\t\"z\n\rCreateUserDTO\022\021" +
       "\n\tfirstName\030\001 \001(\t\022\020\n\010lastName\030\002 \001(\t\022\r\n\005e" +
       "mail\030\003 \001(\t\022\020\n\010password\030\004 \001(\t\022\023\n\013phoneNum" +
-      "ber\030\005 \001(\t\022\016\n\006gender\030\006 \001(\010\"@\n\rSearchUserD" +
-      "TO\022\n\n\002id\030\001 \001(\003\022\021\n\tfirstName\030\002 \001(\t\022\020\n\010las" +
-      "tName\030\003 \001(\t\"W\n\rLocalDateTime\022\014\n\004year\030\001 \001" +
-      "(\005\022\r\n\005month\030\002 \001(\005\022\013\n\003day\030\003 \001(\005\022\014\n\004hour\030\004" +
-      " \001(\005\022\016\n\006minute\030\005 \001(\005\"\251\001\n\004User\022\n\n\002id\030\001 \001(" +
-      "\003\022\021\n\tfirstName\030\002 \001(\t\022\020\n\010lastName\030\003 \001(\t\022\020" +
-      "\n\010password\030\004 \001(\t\022\r\n\005email\030\005 \001(\t\022\023\n\013phone" +
-      "Number\030\006 \001(\t\022\016\n\006gender\030\007 \001(\010\022*\n\022dateOfRe" +
-      "gistration\030\010 \001(\0132\016.LocalDateTime2\346\001\n\013Use" +
-      "rService\022\035\n\005login\022\r.LoginUserDTO\032\005.User\022" +
-      "#\n\ncreateUser\022\016.CreateUserDTO\032\005.User\022#\n\010" +
-      "getUsers\022\016.SearchUserDTO\032\005.User0\001\022$\n\013get" +
-      "UserById\022\016.SearchUserDTO\032\005.User\022#\n\nupdat" +
-      "eUser\022\016.CreateUserDTO\032\005.User\022#\n\ndeleteUs" +
-      "er\022\016.SearchUserDTO\032\005.UserB\'\n#dk.via.nbnp" +
-      ".databaseserver.protobufP\001b\006proto3"
+      "ber\030\005 \001(\t\022\016\n\006gender\030\006 \001(\010\"\206\001\n\rUpdateUser" +
+      "DTO\022\n\n\002id\030\001 \001(\003\022\021\n\tfirstName\030\002 \001(\t\022\020\n\010la" +
+      "stName\030\003 \001(\t\022\r\n\005email\030\004 \001(\t\022\020\n\010password\030" +
+      "\005 \001(\t\022\023\n\013phoneNumber\030\006 \001(\t\022\016\n\006gender\030\007 \001" +
+      "(\010\"@\n\rSearchUserDTO\022\n\n\002id\030\001 \001(\003\022\021\n\tfirst" +
+      "Name\030\002 \001(\t\022\020\n\010lastName\030\003 \001(\t\"W\n\rLocalDat" +
+      "eTime\022\014\n\004year\030\001 \001(\005\022\r\n\005month\030\002 \001(\005\022\013\n\003da" +
+      "y\030\003 \001(\005\022\014\n\004hour\030\004 \001(\005\022\016\n\006minute\030\005 \001(\005\"\251\001" +
+      "\n\004User\022\n\n\002id\030\001 \001(\003\022\021\n\tfirstName\030\002 \001(\t\022\020\n" +
+      "\010lastName\030\003 \001(\t\022\020\n\010password\030\004 \001(\t\022\r\n\005ema" +
+      "il\030\005 \001(\t\022\023\n\013phoneNumber\030\006 \001(\t\022\016\n\006gender\030" +
+      "\007 \001(\010\022*\n\022dateOfRegistration\030\010 \001(\0132\016.Loca" +
+      "lDateTime2\346\001\n\013UserService\022\035\n\005login\022\r.Log" +
+      "inUserDTO\032\005.User\022#\n\ncreateUser\022\016.CreateU" +
+      "serDTO\032\005.User\022#\n\010getUsers\022\016.SearchUserDT" +
+      "O\032\005.User0\001\022$\n\013getUserById\022\016.SearchUserDT" +
+      "O\032\005.User\022#\n\nupdateUser\022\016.UpdateUserDTO\032\005" +
+      ".User\022#\n\ndeleteUser\022\016.SearchUserDTO\032\005.Us" +
+      "erB\'\n#dk.via.nbnp.databaseserver.protobu" +
+      "fP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -85,20 +94,26 @@ public final class UserOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CreateUserDTO_descriptor,
         new java.lang.String[] { "FirstName", "LastName", "Email", "Password", "PhoneNumber", "Gender", });
-    internal_static_SearchUserDTO_descriptor =
+    internal_static_UpdateUserDTO_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_UpdateUserDTO_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_UpdateUserDTO_descriptor,
+        new java.lang.String[] { "Id", "FirstName", "LastName", "Email", "Password", "PhoneNumber", "Gender", });
+    internal_static_SearchUserDTO_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_SearchUserDTO_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SearchUserDTO_descriptor,
         new java.lang.String[] { "Id", "FirstName", "LastName", });
     internal_static_LocalDateTime_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_LocalDateTime_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_LocalDateTime_descriptor,
         new java.lang.String[] { "Year", "Month", "Day", "Hour", "Minute", });
     internal_static_User_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_User_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_User_descriptor,

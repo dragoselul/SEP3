@@ -1,38 +1,65 @@
-﻿
-<div class="container">
-    <div class="card">
-        <div class="row">
-            <div class="col-lg-7">
+﻿@page "/ViewItem/{itemId}"
+@using HttpClients.ClientInterfaces
+@using Domain.Models
+@inject IItemService ItemService
+
+asdasdasdasdasdasdasdasdasdasdasdasda
+
+@if (string.IsNullOrEmpty(Name))
+{
+    <h5 style="color: white" >Loading...</h5>
+}
+else
+{
+
+    <div class="container">
+        <div class="card">
+            <div class="row">
+                <div class="col-lg-7">
                     <img class="img-fluid d-flex justify-content-center" src="@Image" alt="image of the item">
                 </div>
-            <div class="col-lg-4 border-start">
-                        <div class="ms-2 mt-2">
-                            <p><b>Item: &nbsp </b>@Name</p>
-                            <p><span class="oi oi-person" aria-hidden="true">&nbsp &nbsp</span><b>@ContactName, says:</b> @Description</p>
-                            <h1 class="border-2 bg-success text-white">Price: @Price @Currency</h1>
-                        </div>
+                <div class="col-lg-4 border-start">
+                    <div class="ms-2 mt-2">
+                        <p>
+                            <b>Item: &nbsp </b>@Name
+                        </p>
+                        <p>
+                            <span class="oi oi-person" aria-hidden="true">&nbsp &nbsp</span><b>@ContactName, says:</b> @Description
+                        </p>
+                        <h1 class="border-2 bg-success text-white">Price: @Price @Currency</h1>
                     </div>
                 </div>
             </div>
         </div>
-    @code {
+    </div>
+}
+@code {
+
+    [CascadingParameter]
+    public int itemId { get; set; }
 
     [Parameter]
     public string Name { get; set; }
-
     [Parameter]
     public string Image { get; set; }
-
     [Parameter]
     public string Description { get; set; }
-
     [Parameter]
     public double Price { get; set; }
-
     [Parameter]
     public string Currency { get; set; }
-
     [Parameter]
     public string ContactName { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Item item = await ItemService.GetItemById(itemId);
+        Name = item.Name;
+        Description = item.Description;
+        Price = item.Pricing;
+        Currency = item.Currency;
+        ContactName = item.ContactFirstName + " " + item.ContactLastName;
+        Image = " ";
+    }
 
 }
