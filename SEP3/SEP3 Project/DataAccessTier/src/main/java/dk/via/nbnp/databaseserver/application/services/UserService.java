@@ -101,6 +101,10 @@ public class UserService extends UserServiceGrpc.UserServiceImplBase {
 
     @Override
     public void deleteUser(SearchUserDTO request, StreamObserver<User> responseObserver) {
+        dk.via.nbnp.databaseserver.domain.User user;
+        user = userRepository.findById(request.getId()).get();
+        User toSend = UserMapper.mapDomainToProto(user);
+        responseObserver.onNext(toSend);
         userRepository.deleteById(request.getId());
         responseObserver.onCompleted();
     }

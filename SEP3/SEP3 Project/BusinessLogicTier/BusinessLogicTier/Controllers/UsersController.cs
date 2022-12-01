@@ -50,8 +50,8 @@ public class UsersController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
-    
-    [HttpGet ("Login")]
+
+    [HttpGet("Login")]
     public async Task<ActionResult<User>> GetLoginAsync([FromQuery] string? email, [FromQuery] string? password)
     {
         try
@@ -70,7 +70,7 @@ public class UsersController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
-    
+
     [HttpGet("{id:int}")]
     public async Task<ActionResult<User>> GetByIdAsync([FromRoute] int id)
     {
@@ -78,6 +78,37 @@ public class UsersController : ControllerBase
         {
             User user = await userLogic.GetByIdAsync(id);
             return Ok(user);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
+
+    [HttpPatch]
+    public async Task<ActionResult<User>> UpdateUserAsync([FromBody] UserUpdateDto dto)
+    {
+        try
+        {
+            User user = await userLogic.UpdateUserAsync(dto);
+            return Ok(user);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
+
+    [HttpDelete("{id:int}")]
+
+    public async Task<ActionResult> DeleteUserAsync([FromRoute] int id)
+    {
+        try
+        { 
+            await userLogic.DeleteByIdAsync(id);
+            return Ok();
         }
         catch (Exception e)
         {

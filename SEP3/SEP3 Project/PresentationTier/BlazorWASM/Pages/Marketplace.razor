@@ -8,7 +8,7 @@
 <CascadingAuthenticationState>
 <AuthorizeView>
 <Authorized>
-    @if (items.Count() == 0)
+    @if (items is null)
     {
         <div>Loading...</div>
     }

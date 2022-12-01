@@ -1,5 +1,6 @@
 package dk.via.nbnp.databaseserver.application.services;
 
+import dk.via.nbnp.databaseserver.application.mappers.UserMapper;
 import dk.via.nbnp.databaseserver.repositories.CategoryRepository;
 import dk.via.nbnp.databaseserver.repositories.ItemRepository;
 import dk.via.nbnp.databaseserver.repositories.UserRepository;
@@ -133,6 +134,10 @@ public class ItemService extends ItemServiceGrpc.ItemServiceImplBase {
 
     @Override
     public void deleteItem(SearchItemDTO request, StreamObserver<Item> responseObserver) {
+        dk.via.nbnp.databaseserver.domain.Item item;
+        item = itemRepository.findById(request.getId()).get();
+        Item toSend = ItemMapper.mapDomainToProto(item);
+        responseObserver.onNext(toSend);
         itemRepository.deleteById(request.getId());
         responseObserver.onCompleted();
     }

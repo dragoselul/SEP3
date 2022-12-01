@@ -14,6 +14,7 @@ public class UserUpdateDto
     public UserUpdateDto(int id, string firstName, string lastName, string email, string password, string phoneNumber,
         bool gender)
     {
+        Id = id;
         FirstName = firstName;
         LastName = lastName;
         Email = email;
