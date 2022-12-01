@@ -1,4 +1,5 @@
-﻿using Application.LogicInterfaces;
+﻿using Application.Logic;
+using Application.LogicInterfaces;
 using Domain.DTOs;
 using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -15,10 +16,10 @@ public class ItemController : ControllerBase
     {
         this.itemLogic = itemLogic;
     }
-    
-    
+
+
     [HttpPost]
-    public async Task<ActionResult<Item>> CreateAsync([FromBody]ItemCreationDto dto)
+    public async Task<ActionResult<Item>> CreateAsync([FromBody] ItemCreationDto dto)
     {
         try
         {
@@ -31,10 +32,11 @@ public class ItemController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
-    
+
     [HttpGet]
-    public async Task<ActionResult<List<Item>>> GetAsync([FromQuery] string? name, [FromQuery]  string? description,
-        [FromQuery] int? contactId, [FromQuery] double? minPrice,[FromQuery] double? maxPrice, [FromQuery] bool? isSold, [FromQuery] string? category)
+    public async Task<ActionResult<List<Item>>> GetAsync([FromQuery] string? name, [FromQuery] string? description,
+        [FromQuery] int? contactId, [FromQuery] double? minPrice, [FromQuery] double? maxPrice,
+        [FromQuery] bool? isSold, [FromQuery] string? category)
     {
         try
         {
@@ -57,9 +59,24 @@ public class ItemController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
-    
-    
-    [HttpPatch]
+
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<Item>> GetByIdAsync([FromRoute] int id)
+    {
+        try
+        {
+            var Item = await itemLogic.GetByIdAsync(id);
+            return Ok(Item);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
+
+
+[HttpPatch]
     public async Task<ActionResult> UpdateAsync([FromBody] ItemUpdateDto dto)
     {
         try
