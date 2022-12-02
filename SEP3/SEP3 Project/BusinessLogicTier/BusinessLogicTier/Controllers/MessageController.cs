@@ -13,7 +13,7 @@ public class MessageController : ControllerBase
     
     private readonly IMessageLogic MessageLogic;
 
-    public MessageController(MessageLogic messageLogic)
+    public MessageController(IMessageLogic messageLogic)
     {
         MessageLogic = messageLogic;
     }

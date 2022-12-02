@@ -8,6 +8,11 @@ public class MessageLogic : IMessageLogic
 {
 
     private readonly IMessageDao messageDao;
+
+    public MessageLogic(IMessageDao messageDao)
+    {
+        this.messageDao = messageDao;
+    }
     
     public Task<Message> CreateAsync(MessageCreationDto post)
     {
