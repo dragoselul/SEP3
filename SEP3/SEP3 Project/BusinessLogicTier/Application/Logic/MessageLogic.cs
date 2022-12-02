@@ -16,6 +16,7 @@ public class MessageLogic : IMessageLogic
     
     public Task<Message> CreateAsync(MessageCreationDto post)
     {
+        ValidateMessage(post);
         return messageDao.CreateAsync(post);
     }
 
@@ -28,4 +29,13 @@ public class MessageLogic : IMessageLogic
     {
         return messageDao.GetByIdAsync(id);
     }
+
+    private static void ValidateMessage(MessageCreationDto dto)
+    {
+        if (dto.content == "")
+        {
+            throw new Exception("The content of the message cannot be empty");
+        }
+    }
+    
 }
