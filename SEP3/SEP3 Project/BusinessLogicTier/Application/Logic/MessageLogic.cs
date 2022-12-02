@@ -37,5 +37,9 @@ public class MessageLogic : IMessageLogic
             throw new Exception("The content of the message cannot be empty");
         }
     }
-    
+
+    public async Task DeleteMessageByIdAsync(int id)
+    {
+        await messageDao.DeleteMessageByIdAsync(id);
+    }
 }

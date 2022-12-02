@@ -9,7 +9,6 @@ import java.util.List;
 
 @Configuration
 public class UserConfig {
-
     @Bean
     CommandLineRunner userCommandLineRuner(UserRepository repository){
         return args -> {
@@ -33,5 +32,4 @@ public class UserConfig {
             repository.saveAll(List.of(user1, user2));
         };
     }
-
 }

@@ -10,7 +10,6 @@ import java.util.List;
 
 @Configuration
 public class CategoryConfig {
-
     @Bean
     CommandLineRunner categoryCommandLineRunner(CategoryRepository repository) {
         return args -> {

@@ -1,6 +1,7 @@
 package dk.via.nbnp.databaseserver.application.config;
 
 import dk.via.nbnp.databaseserver.domain.Category;
+import dk.via.nbnp.databaseserver.domain.User;
 import dk.via.nbnp.databaseserver.repositories.ItemRepository;
 import dk.via.nbnp.databaseserver.domain.Item;
 import org.springframework.boot.CommandLineRunner;
@@ -11,7 +12,6 @@ import java.util.List;
 
 @Configuration
 public class ItemConfig {
-
     @Bean
     CommandLineRunner itemCommandLineRunner(ItemRepository repository){
         return args -> {
@@ -39,5 +39,4 @@ public class ItemConfig {
 
         };
     }
-
 }

@@ -71,4 +71,12 @@ public class MessageService extends MessageServiceGrpc.MessageServiceImplBase {
             }
         }
     }
+
+    @Override
+    public void deleteMessageById(SearchMessageDTO request, StreamObserver<Message> responseObserver) {
+        Optional<dk.via.nbnp.databaseserver.domain.Message> message = messageRepository.findById(request.getId());
+        responseObserver.onNext(MessageMapper.mapDomainToProto(message.get()));
+        messageRepository.deleteById(request.getId());
+        responseObserver.onCompleted();
+    }
 }

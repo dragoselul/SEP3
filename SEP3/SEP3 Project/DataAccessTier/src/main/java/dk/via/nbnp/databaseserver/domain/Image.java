@@ -23,4 +23,27 @@ public class Image {
     @JoinColumn(name="itemId")
     private Item item;
 
+    public Image(Long id, byte[] image, Item item) {
+        this.id = id;
+        this.image = image;
+        this.item = item;
+    }
+
+    public Image(byte[] image, Item item) {
+        this.image = image;
+        this.item = item;
+    }
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public Item getItem() {
+        return item;
+    }
 }

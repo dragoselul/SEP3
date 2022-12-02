@@ -5,10 +5,14 @@
       "Google.Protobuf/3.21.9": {
         "type": "package",
         "compile": {
-          "lib/net5.0/Google.Protobuf.dll": {}
+          "lib/net5.0/Google.Protobuf.dll": {
+            "related": ".pdb;.xml"
+          }
         },
         "runtime": {
-          "lib/net5.0/Google.Protobuf.dll": {}
+          "lib/net5.0/Google.Protobuf.dll": {
+            "related": ".pdb;.xml"
+          }
         }
       },
       "Grpc.Core.Api/2.49.0": {
@@ -17,10 +21,14 @@
           "System.Memory": "4.5.3"
         },
         "compile": {
-          "lib/netstandard2.1/Grpc.Core.Api.dll": {}
+          "lib/netstandard2.1/Grpc.Core.Api.dll": {
+            "related": ".pdb;.xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.1/Grpc.Core.Api.dll": {}
+          "lib/netstandard2.1/Grpc.Core.Api.dll": {
+            "related": ".pdb;.xml"
+          }
         }
       },
       "Grpc.Net.Client/2.49.0": {
@@ -30,10 +38,14 @@
           "Microsoft.Extensions.Logging.Abstractions": "3.0.3"
         },
         "compile": {
-          "lib/net6.0/Grpc.Net.Client.dll": {}
+          "lib/net6.0/Grpc.Net.Client.dll": {
+            "related": ".pdb;.xml"
+          }
         },
         "runtime": {
-          "lib/net6.0/Grpc.Net.Client.dll": {}
+          "lib/net6.0/Grpc.Net.Client.dll": {
+            "related": ".pdb;.xml"
+          }
         }
       },
       "Grpc.Net.Common/2.49.0": {
@@ -42,10 +54,14 @@
           "Grpc.Core.Api": "2.49.0"
         },
         "compile": {
-          "lib/net6.0/Grpc.Net.Common.dll": {}
+          "lib/net6.0/Grpc.Net.Common.dll": {
+            "related": ".pdb;.xml"
+          }
         },
         "runtime": {
-          "lib/net6.0/Grpc.Net.Common.dll": {}
+          "lib/net6.0/Grpc.Net.Common.dll": {
+            "related": ".pdb;.xml"
+          }
         }
       },
       "Microsoft.AspNetCore.Authorization/6.0.9": {
@@ -56,28 +72,40 @@
           "Microsoft.Extensions.Options": "6.0.0"
         },
         "compile": {
-          "lib/net6.0/Microsoft.AspNetCore.Authorization.dll": {}
+          "lib/net6.0/Microsoft.AspNetCore.Authorization.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net6.0/Microsoft.AspNetCore.Authorization.dll": {}
+          "lib/net6.0/Microsoft.AspNetCore.Authorization.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.AspNetCore.Metadata/6.0.9": {
         "type": "package",
         "compile": {
-          "lib/net6.0/Microsoft.AspNetCore.Metadata.dll": {}
+          "lib/net6.0/Microsoft.AspNetCore.Metadata.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net6.0/Microsoft.AspNetCore.Metadata.dll": {}
+          "lib/net6.0/Microsoft.AspNetCore.Metadata.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.DependencyInjection.Abstractions/6.0.0": {
         "type": "package",
         "compile": {
-          "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+          "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+          "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
         },
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
@@ -86,10 +114,14 @@
       "Microsoft.Extensions.Logging.Abstractions/6.0.2": {
         "type": "package",
         "compile": {
-          "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
+          "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
+          "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "related": ".xml"
+          }
         },
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
@@ -102,10 +134,14 @@
           "Microsoft.Extensions.Primitives": "6.0.0"
         },
         "compile": {
-          "lib/netstandard2.1/Microsoft.Extensions.Options.dll": {}
+          "lib/netstandard2.1/Microsoft.Extensions.Options.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.1/Microsoft.Extensions.Options.dll": {}
+          "lib/netstandard2.1/Microsoft.Extensions.Options.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.Primitives/6.0.0": {
@@ -114,10 +150,14 @@
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         },
         "compile": {
-          "lib/net6.0/Microsoft.Extensions.Primitives.dll": {}
+          "lib/net6.0/Microsoft.Extensions.Primitives.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net6.0/Microsoft.Extensions.Primitives.dll": {}
+          "lib/net6.0/Microsoft.Extensions.Primitives.dll": {
+            "related": ".xml"
+          }
         },
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
@@ -135,10 +175,14 @@
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {
         "type": "package",
         "compile": {
-          "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+          "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+          "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll": {
+            "related": ".xml"
+          }
         },
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
@@ -161,6 +205,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Google.Protobuf": "3.21.9",
           "Microsoft.AspNetCore.Authorization": "6.0.9"
         },
         "compile": {
@@ -522,40 +567,38 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\matas\\.nuget\\packages\\": {}
+    "C:\\Users\\drago\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\DataAccess\\DataAccess.csproj",
-      "packagesPath": "C:\\Users\\matas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\DataAccess\\obj\\",
+      "projectPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\DataAccess\\DataAccess.csproj",
+      "packagesPath": "C:\\Users\\drago\\.nuget\\packages\\",
+      "outputPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\matas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\drago\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Application\\Application.csproj"
+            "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Application\\Application.csproj": {
+              "projectPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Application\\Application.csproj"
             },
-            "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj"
+            "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\Domain\\Domain.csproj"
             },
-            "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\gRPCClient\\gRPCClient.csproj": {
-              "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\gRPCClient\\gRPCClient.csproj"
+            "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\gRPCClient\\gRPCClient.csproj": {
+              "projectPath": "D:\\VIA\\SEP3\\SEP3\\SEP3 Project\\BusinessLogicTier\\gRPCClient\\gRPCClient.csproj"
             }
           }
         }
@@ -591,7 +634,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

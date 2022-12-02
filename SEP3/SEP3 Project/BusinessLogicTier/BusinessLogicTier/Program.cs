@@ -4,6 +4,7 @@ using Application.Logic;
 using Application.LogicInterfaces;
 using BusinessLogicTier.Services;
 using BusinessLogicTier.Services.Http;
+using DataAccess.DAOs;
 using Domain.Auth;
 using FileData.DAOs;
 using Microsoft.AspNetCore.Authentication.JwtBearer;

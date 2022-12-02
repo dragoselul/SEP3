@@ -12,7 +12,7 @@ namespace FileData.DAOs;
 public class ConversationFileDao : IConversationDao
 {
     private readonly GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:6565");
-    private ConversationService.ConversationServiceClient? ConversationClient;
+    private ConversationService.ConversationServiceClient ConversationClient;
 
     public ConversationFileDao()
     {
@@ -55,6 +55,11 @@ public class ConversationFileDao : IConversationDao
 
     }
 
-
-
+    public async Task DeleteByIdAsync(int id)
+    {
+        await ConversationClient.deleteConversationByIdAsync(new SearchConversationDTO
+        {
+            Id = id
+        });
+    }
 }

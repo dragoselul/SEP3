@@ -11,6 +11,7 @@ service ConversationService {
   rpc createConversation(CreateConversationDTO) returns (Conversation);
   rpc getConversationsByUser(SearchConversationDTO) returns (stream Conversation);
   rpc getConversationById(SearchConversationDTO) returns (Conversation);
+  rpc deleteConversationById(SearchConversationDTO) returns (Conversation);
 }
 
 message SearchConversationDTO{

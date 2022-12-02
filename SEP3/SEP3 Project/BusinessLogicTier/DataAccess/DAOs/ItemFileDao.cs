@@ -5,7 +5,7 @@ using Grpc.Net.Client;
 using gRPCClient;
 using Item = Domain.Models.Item;
 
-namespace FileData.DAOs;
+namespace DataAccess.DAOs;
 
 public class ItemFileDao : IItemDao
 {

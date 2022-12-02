@@ -12,7 +12,7 @@ public class MessageFileDao : IMessageDao
 {
     
     private readonly GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:6565");
-    private MessageService.MessageServiceClient? MessageClient;
+    private MessageService.MessageServiceClient MessageClient;
 
     public MessageFileDao()
     {
@@ -60,5 +60,10 @@ public class MessageFileDao : IMessageDao
         );
 
         return ClassConverter.ConvertProtoToDomain(message);
+    }
+
+    public async Task DeleteMessageByIdAsync(int id)
+    {
+        await MessageClient.deleteMessageByIdAsync(new SearchMessageDTO() { Id = id });
     }
 }

@@ -1,6 +1,7 @@
 using Google.Protobuf.Collections;
 using gRPCClient;
 using Conversation = Domain.Models.Conversation;
+using Image = Domain.Models.Image;
 using Item = Domain.Models.Item;
 using User = Domain.Models.User;
 using Message = Domain.Models.Message;
@@ -91,5 +92,15 @@ public abstract class ClassConverter
         };
         return conv;
     }
-    
+
+    public static Image ConvertProtoToDomain(gRPCClient.Image image)
+    {
+        Image toDomain = new Image()
+        {
+            Id = image.Id,
+            image = image.Image_.ToByteArray(),
+            ItemId = image.ItemId
+        };
+        return toDomain;
+    }
 }

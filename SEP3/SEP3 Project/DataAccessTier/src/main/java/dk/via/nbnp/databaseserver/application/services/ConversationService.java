@@ -1,6 +1,7 @@
 package dk.via.nbnp.databaseserver.application.services;
 
 import dk.via.nbnp.databaseserver.application.mappers.ConversationMapper;
+import dk.via.nbnp.databaseserver.application.mappers.MessageMapper;
 import dk.via.nbnp.databaseserver.protobuf.*;
 import dk.via.nbnp.databaseserver.repositories.ConversationRepository;
 import dk.via.nbnp.databaseserver.repositories.ItemRepository;
@@ -70,4 +71,14 @@ public class ConversationService extends ConversationServiceGrpc.ConversationSer
             responseObserver.onCompleted();
         }
     }
+
+    @Override
+    public void deleteConversationById(SearchConversationDTO request, StreamObserver<Conversation> responseObserver) {
+        Optional<dk.via.nbnp.databaseserver.domain.Conversation> conversation = conversationRepository.findById(request.getId());
+        responseObserver.onNext(ConversationMapper.mapDomainToProto(conversation.get()));
+        conversationRepository.deleteById(request.getId());
+        responseObserver.onCompleted();
+    }
+
+
 }

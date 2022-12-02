@@ -8,6 +8,7 @@ service MessageService {
   rpc createMessage(CreateMessageDTO) returns (Message);
   rpc getMessageById(SearchMessageDTO) returns (Message);
   rpc getMessagesByConversationId(SearchMessageDTO) returns (stream Message);
+  rpc deleteMessageById(SearchMessageDTO) returns (Message);
 }
 
 message SearchMessageDTO{

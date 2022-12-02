@@ -44,13 +44,14 @@ public final class MessageOuterClass {
       "\030\002 \001(\003\022\026\n\016conversationId\030\003 \001(\003\"{\n\007Messag" +
       "e\022\n\n\002id\030\001 \001(\003\022\017\n\007content\030\002 \001(\t\022\025\n\006sender" +
       "\030\003 \001(\0132\005.User\022\026\n\016conversationId\030\004 \001(\003\022$\n" +
-      "\014dateTimeSent\030\005 \001(\0132\016.LocalDateTime2\253\001\n\016" +
+      "\014dateTimeSent\030\005 \001(\0132\016.LocalDateTime2\335\001\n\016" +
       "MessageService\022,\n\rcreateMessage\022\021.Create" +
       "MessageDTO\032\010.Message\022-\n\016getMessageById\022\021" +
       ".SearchMessageDTO\032\010.Message\022<\n\033getMessag" +
       "esByConversationId\022\021.SearchMessageDTO\032\010." +
-      "Message0\001B\'\n#dk.via.nbnp.databaseserver." +
-      "protobufP\001b\006proto3"
+      "Message0\001\0220\n\021deleteMessageById\022\021.SearchM" +
+      "essageDTO\032\010.MessageB\'\n#dk.via.nbnp.datab" +
+      "aseserver.protobufP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

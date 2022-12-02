@@ -107,6 +107,37 @@ public final class MessageServiceGrpc {
     return getGetMessagesByConversationIdMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.SearchMessageDTO,
+      dk.via.nbnp.databaseserver.protobuf.Message> getDeleteMessageByIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "deleteMessageById",
+      requestType = dk.via.nbnp.databaseserver.protobuf.SearchMessageDTO.class,
+      responseType = dk.via.nbnp.databaseserver.protobuf.Message.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.SearchMessageDTO,
+      dk.via.nbnp.databaseserver.protobuf.Message> getDeleteMessageByIdMethod() {
+    io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.SearchMessageDTO, dk.via.nbnp.databaseserver.protobuf.Message> getDeleteMessageByIdMethod;
+    if ((getDeleteMessageByIdMethod = MessageServiceGrpc.getDeleteMessageByIdMethod) == null) {
+      synchronized (MessageServiceGrpc.class) {
+        if ((getDeleteMessageByIdMethod = MessageServiceGrpc.getDeleteMessageByIdMethod) == null) {
+          MessageServiceGrpc.getDeleteMessageByIdMethod = getDeleteMessageByIdMethod =
+              io.grpc.MethodDescriptor.<dk.via.nbnp.databaseserver.protobuf.SearchMessageDTO, dk.via.nbnp.databaseserver.protobuf.Message>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "deleteMessageById"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.nbnp.databaseserver.protobuf.SearchMessageDTO.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.nbnp.databaseserver.protobuf.Message.getDefaultInstance()))
+              .setSchemaDescriptor(new MessageServiceMethodDescriptorSupplier("deleteMessageById"))
+              .build();
+        }
+      }
+    }
+    return getDeleteMessageByIdMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -176,6 +207,13 @@ public final class MessageServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetMessagesByConversationIdMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void deleteMessageById(dk.via.nbnp.databaseserver.protobuf.SearchMessageDTO request,
+        io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Message> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteMessageByIdMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -199,6 +237,13 @@ public final class MessageServiceGrpc {
                 dk.via.nbnp.databaseserver.protobuf.SearchMessageDTO,
                 dk.via.nbnp.databaseserver.protobuf.Message>(
                   this, METHODID_GET_MESSAGES_BY_CONVERSATION_ID)))
+          .addMethod(
+            getDeleteMessageByIdMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                dk.via.nbnp.databaseserver.protobuf.SearchMessageDTO,
+                dk.via.nbnp.databaseserver.protobuf.Message>(
+                  this, METHODID_DELETE_MESSAGE_BY_ID)))
           .build();
     }
   }
@@ -240,6 +285,14 @@ public final class MessageServiceGrpc {
       io.grpc.stub.ClientCalls.asyncServerStreamingCall(
           getChannel().newCall(getGetMessagesByConversationIdMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void deleteMessageById(dk.via.nbnp.databaseserver.protobuf.SearchMessageDTO request,
+        io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Message> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getDeleteMessageByIdMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -277,6 +330,13 @@ public final class MessageServiceGrpc {
       return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
           getChannel(), getGetMessagesByConversationIdMethod(), getCallOptions(), request);
     }
+
+    /**
+     */
+    public dk.via.nbnp.databaseserver.protobuf.Message deleteMessageById(dk.via.nbnp.databaseserver.protobuf.SearchMessageDTO request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getDeleteMessageByIdMethod(), getCallOptions(), request);
+    }
   }
 
   /**
@@ -308,11 +368,20 @@ public final class MessageServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetMessageByIdMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<dk.via.nbnp.databaseserver.protobuf.Message> deleteMessageById(
+        dk.via.nbnp.databaseserver.protobuf.SearchMessageDTO request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getDeleteMessageByIdMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_MESSAGE = 0;
   private static final int METHODID_GET_MESSAGE_BY_ID = 1;
   private static final int METHODID_GET_MESSAGES_BY_CONVERSATION_ID = 2;
+  private static final int METHODID_DELETE_MESSAGE_BY_ID = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -341,6 +410,10 @@ public final class MessageServiceGrpc {
           break;
         case METHODID_GET_MESSAGES_BY_CONVERSATION_ID:
           serviceImpl.getMessagesByConversationId((dk.via.nbnp.databaseserver.protobuf.SearchMessageDTO) request,
+              (io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Message>) responseObserver);
+          break;
+        case METHODID_DELETE_MESSAGE_BY_ID:
+          serviceImpl.deleteMessageById((dk.via.nbnp.databaseserver.protobuf.SearchMessageDTO) request,
               (io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Message>) responseObserver);
           break;
         default:
@@ -407,6 +480,7 @@ public final class MessageServiceGrpc {
               .addMethod(getCreateMessageMethod())
               .addMethod(getGetMessageByIdMethod())
               .addMethod(getGetMessagesByConversationIdMethod())
+              .addMethod(getDeleteMessageByIdMethod())
               .build();
         }
       }

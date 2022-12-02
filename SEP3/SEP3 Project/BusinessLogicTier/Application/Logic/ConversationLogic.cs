@@ -14,18 +14,23 @@ public class ConversationLogic : IConversationLogic
         this.conversationDao = conversationDao;
     }
     
-    public Task<Conversation> CreateAsync(ConversationCreationDto dto)
+    public async Task<Conversation> CreateAsync(ConversationCreationDto dto)
     {
-        return conversationDao.CreateAsync(dto);
+        return await conversationDao.CreateAsync(dto);
     }
 
-    public Task<List<Conversation>> GetByUserIdAsync(int userId)
+    public async Task<List<Conversation>> GetByUserIdAsync(int userId)
     {
-        return conversationDao.GetByUserIdAsync(userId);
+        return await conversationDao.GetByUserIdAsync(userId);
     }
 
-    public Task<Conversation> GetByIdAsync(int id)
+    public async Task<Conversation> GetByIdAsync(int id)
     {
-        return conversationDao.GetByIdAsync(id);
+        return await conversationDao.GetByIdAsync(id);
+    }
+
+    public async Task DeleteConversationByIdAsync(int id)
+    {
+        await conversationDao.DeleteByIdAsync(id);
     }
 }
