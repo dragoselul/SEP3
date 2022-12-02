@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Message() {
-    message_ = "";
+    content_ = "";
   }
 
   @java.lang.Override
@@ -57,7 +57,7 @@ private static final long serialVersionUID = 0L;
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            message_ = s;
+            content_ = s;
             break;
           }
           case 26: {
@@ -76,6 +76,19 @@ private static final long serialVersionUID = 0L;
           case 32: {
 
             conversationId_ = input.readInt64();
+            break;
+          }
+          case 42: {
+            dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder subBuilder = null;
+            if (dateTimeSent_ != null) {
+              subBuilder = dateTimeSent_.toBuilder();
+            }
+            dateTimeSent_ = input.readMessage(dk.via.nbnp.databaseserver.protobuf.LocalDateTime.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(dateTimeSent_);
+              dateTimeSent_ = subBuilder.buildPartial();
+            }
+
             break;
           }
           default: {
@@ -123,38 +136,38 @@ private static final long serialVersionUID = 0L;
     return id_;
   }
 
-  public static final int MESSAGE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object message_;
+  public static final int CONTENT_FIELD_NUMBER = 2;
+  private volatile java.lang.Object content_;
   /**
-   * <code>string message = 2;</code>
-   * @return The message.
+   * <code>string content = 2;</code>
+   * @return The content.
    */
   @java.lang.Override
-  public java.lang.String getMessage() {
-    java.lang.Object ref = message_;
+  public java.lang.String getContent() {
+    java.lang.Object ref = content_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      message_ = s;
+      content_ = s;
       return s;
     }
   }
   /**
-   * <code>string message = 2;</code>
-   * @return The bytes for message.
+   * <code>string content = 2;</code>
+   * @return The bytes for content.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getMessageBytes() {
-    java.lang.Object ref = message_;
+      getContentBytes() {
+    java.lang.Object ref = content_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      message_ = b;
+      content_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -198,6 +211,32 @@ private static final long serialVersionUID = 0L;
     return conversationId_;
   }
 
+  public static final int DATETIMESENT_FIELD_NUMBER = 5;
+  private dk.via.nbnp.databaseserver.protobuf.LocalDateTime dateTimeSent_;
+  /**
+   * <code>.LocalDateTime dateTimeSent = 5;</code>
+   * @return Whether the dateTimeSent field is set.
+   */
+  @java.lang.Override
+  public boolean hasDateTimeSent() {
+    return dateTimeSent_ != null;
+  }
+  /**
+   * <code>.LocalDateTime dateTimeSent = 5;</code>
+   * @return The dateTimeSent.
+   */
+  @java.lang.Override
+  public dk.via.nbnp.databaseserver.protobuf.LocalDateTime getDateTimeSent() {
+    return dateTimeSent_ == null ? dk.via.nbnp.databaseserver.protobuf.LocalDateTime.getDefaultInstance() : dateTimeSent_;
+  }
+  /**
+   * <code>.LocalDateTime dateTimeSent = 5;</code>
+   */
+  @java.lang.Override
+  public dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder getDateTimeSentOrBuilder() {
+    return getDateTimeSent();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -215,14 +254,17 @@ private static final long serialVersionUID = 0L;
     if (id_ != 0L) {
       output.writeInt64(1, id_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(content_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, content_);
     }
     if (sender_ != null) {
       output.writeMessage(3, getSender());
     }
     if (conversationId_ != 0L) {
       output.writeInt64(4, conversationId_);
+    }
+    if (dateTimeSent_ != null) {
+      output.writeMessage(5, getDateTimeSent());
     }
     unknownFields.writeTo(output);
   }
@@ -237,8 +279,8 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(1, id_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(content_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, content_);
     }
     if (sender_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -247,6 +289,10 @@ private static final long serialVersionUID = 0L;
     if (conversationId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(4, conversationId_);
+    }
+    if (dateTimeSent_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, getDateTimeSent());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -265,8 +311,8 @@ private static final long serialVersionUID = 0L;
 
     if (getId()
         != other.getId()) return false;
-    if (!getMessage()
-        .equals(other.getMessage())) return false;
+    if (!getContent()
+        .equals(other.getContent())) return false;
     if (hasSender() != other.hasSender()) return false;
     if (hasSender()) {
       if (!getSender()
@@ -274,6 +320,11 @@ private static final long serialVersionUID = 0L;
     }
     if (getConversationId()
         != other.getConversationId()) return false;
+    if (hasDateTimeSent() != other.hasDateTimeSent()) return false;
+    if (hasDateTimeSent()) {
+      if (!getDateTimeSent()
+          .equals(other.getDateTimeSent())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -288,8 +339,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getId());
-    hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
-    hash = (53 * hash) + getMessage().hashCode();
+    hash = (37 * hash) + CONTENT_FIELD_NUMBER;
+    hash = (53 * hash) + getContent().hashCode();
     if (hasSender()) {
       hash = (37 * hash) + SENDER_FIELD_NUMBER;
       hash = (53 * hash) + getSender().hashCode();
@@ -297,6 +348,10 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + CONVERSATIONID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getConversationId());
+    if (hasDateTimeSent()) {
+      hash = (37 * hash) + DATETIMESENT_FIELD_NUMBER;
+      hash = (53 * hash) + getDateTimeSent().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -432,7 +487,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       id_ = 0L;
 
-      message_ = "";
+      content_ = "";
 
       if (senderBuilder_ == null) {
         sender_ = null;
@@ -442,6 +497,12 @@ private static final long serialVersionUID = 0L;
       }
       conversationId_ = 0L;
 
+      if (dateTimeSentBuilder_ == null) {
+        dateTimeSent_ = null;
+      } else {
+        dateTimeSent_ = null;
+        dateTimeSentBuilder_ = null;
+      }
       return this;
     }
 
@@ -469,13 +530,18 @@ private static final long serialVersionUID = 0L;
     public dk.via.nbnp.databaseserver.protobuf.Message buildPartial() {
       dk.via.nbnp.databaseserver.protobuf.Message result = new dk.via.nbnp.databaseserver.protobuf.Message(this);
       result.id_ = id_;
-      result.message_ = message_;
+      result.content_ = content_;
       if (senderBuilder_ == null) {
         result.sender_ = sender_;
       } else {
         result.sender_ = senderBuilder_.build();
       }
       result.conversationId_ = conversationId_;
+      if (dateTimeSentBuilder_ == null) {
+        result.dateTimeSent_ = dateTimeSent_;
+      } else {
+        result.dateTimeSent_ = dateTimeSentBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -527,8 +593,8 @@ private static final long serialVersionUID = 0L;
       if (other.getId() != 0L) {
         setId(other.getId());
       }
-      if (!other.getMessage().isEmpty()) {
-        message_ = other.message_;
+      if (!other.getContent().isEmpty()) {
+        content_ = other.content_;
         onChanged();
       }
       if (other.hasSender()) {
@@ -536,6 +602,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getConversationId() != 0L) {
         setConversationId(other.getConversationId());
+      }
+      if (other.hasDateTimeSent()) {
+        mergeDateTimeSent(other.getDateTimeSent());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -597,78 +666,78 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object message_ = "";
+    private java.lang.Object content_ = "";
     /**
-     * <code>string message = 2;</code>
-     * @return The message.
+     * <code>string content = 2;</code>
+     * @return The content.
      */
-    public java.lang.String getMessage() {
-      java.lang.Object ref = message_;
+    public java.lang.String getContent() {
+      java.lang.Object ref = content_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        message_ = s;
+        content_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string message = 2;</code>
-     * @return The bytes for message.
+     * <code>string content = 2;</code>
+     * @return The bytes for content.
      */
     public com.google.protobuf.ByteString
-        getMessageBytes() {
-      java.lang.Object ref = message_;
+        getContentBytes() {
+      java.lang.Object ref = content_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        message_ = b;
+        content_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string message = 2;</code>
-     * @param value The message to set.
+     * <code>string content = 2;</code>
+     * @param value The content to set.
      * @return This builder for chaining.
      */
-    public Builder setMessage(
+    public Builder setContent(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      message_ = value;
+      content_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string message = 2;</code>
+     * <code>string content = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearMessage() {
+    public Builder clearContent() {
       
-      message_ = getDefaultInstance().getMessage();
+      content_ = getDefaultInstance().getContent();
       onChanged();
       return this;
     }
     /**
-     * <code>string message = 2;</code>
-     * @param value The bytes for message to set.
+     * <code>string content = 2;</code>
+     * @param value The bytes for content to set.
      * @return This builder for chaining.
      */
-    public Builder setMessageBytes(
+    public Builder setContentBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      message_ = value;
+      content_ = value;
       onChanged();
       return this;
     }
@@ -821,6 +890,125 @@ private static final long serialVersionUID = 0L;
       conversationId_ = 0L;
       onChanged();
       return this;
+    }
+
+    private dk.via.nbnp.databaseserver.protobuf.LocalDateTime dateTimeSent_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.nbnp.databaseserver.protobuf.LocalDateTime, dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder, dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder> dateTimeSentBuilder_;
+    /**
+     * <code>.LocalDateTime dateTimeSent = 5;</code>
+     * @return Whether the dateTimeSent field is set.
+     */
+    public boolean hasDateTimeSent() {
+      return dateTimeSentBuilder_ != null || dateTimeSent_ != null;
+    }
+    /**
+     * <code>.LocalDateTime dateTimeSent = 5;</code>
+     * @return The dateTimeSent.
+     */
+    public dk.via.nbnp.databaseserver.protobuf.LocalDateTime getDateTimeSent() {
+      if (dateTimeSentBuilder_ == null) {
+        return dateTimeSent_ == null ? dk.via.nbnp.databaseserver.protobuf.LocalDateTime.getDefaultInstance() : dateTimeSent_;
+      } else {
+        return dateTimeSentBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.LocalDateTime dateTimeSent = 5;</code>
+     */
+    public Builder setDateTimeSent(dk.via.nbnp.databaseserver.protobuf.LocalDateTime value) {
+      if (dateTimeSentBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        dateTimeSent_ = value;
+        onChanged();
+      } else {
+        dateTimeSentBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.LocalDateTime dateTimeSent = 5;</code>
+     */
+    public Builder setDateTimeSent(
+        dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder builderForValue) {
+      if (dateTimeSentBuilder_ == null) {
+        dateTimeSent_ = builderForValue.build();
+        onChanged();
+      } else {
+        dateTimeSentBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.LocalDateTime dateTimeSent = 5;</code>
+     */
+    public Builder mergeDateTimeSent(dk.via.nbnp.databaseserver.protobuf.LocalDateTime value) {
+      if (dateTimeSentBuilder_ == null) {
+        if (dateTimeSent_ != null) {
+          dateTimeSent_ =
+            dk.via.nbnp.databaseserver.protobuf.LocalDateTime.newBuilder(dateTimeSent_).mergeFrom(value).buildPartial();
+        } else {
+          dateTimeSent_ = value;
+        }
+        onChanged();
+      } else {
+        dateTimeSentBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.LocalDateTime dateTimeSent = 5;</code>
+     */
+    public Builder clearDateTimeSent() {
+      if (dateTimeSentBuilder_ == null) {
+        dateTimeSent_ = null;
+        onChanged();
+      } else {
+        dateTimeSent_ = null;
+        dateTimeSentBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.LocalDateTime dateTimeSent = 5;</code>
+     */
+    public dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder getDateTimeSentBuilder() {
+      
+      onChanged();
+      return getDateTimeSentFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.LocalDateTime dateTimeSent = 5;</code>
+     */
+    public dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder getDateTimeSentOrBuilder() {
+      if (dateTimeSentBuilder_ != null) {
+        return dateTimeSentBuilder_.getMessageOrBuilder();
+      } else {
+        return dateTimeSent_ == null ?
+            dk.via.nbnp.databaseserver.protobuf.LocalDateTime.getDefaultInstance() : dateTimeSent_;
+      }
+    }
+    /**
+     * <code>.LocalDateTime dateTimeSent = 5;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.nbnp.databaseserver.protobuf.LocalDateTime, dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder, dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder> 
+        getDateTimeSentFieldBuilder() {
+      if (dateTimeSentBuilder_ == null) {
+        dateTimeSentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            dk.via.nbnp.databaseserver.protobuf.LocalDateTime, dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder, dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder>(
+                getDateTimeSent(),
+                getParentForChildren(),
+                isClean());
+        dateTimeSent_ = null;
+      }
+      return dateTimeSentBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

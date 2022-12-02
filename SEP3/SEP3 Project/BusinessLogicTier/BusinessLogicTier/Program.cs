@@ -21,6 +21,10 @@ builder.Services.AddScoped<IUserDao, UserFileDao>();
 builder.Services.AddScoped<IUserLogic, UserLogic>();
 builder.Services.AddScoped<IItemDao, ItemFileDao>();
 builder.Services.AddScoped<IItemLogic, ItemLogic>();
+builder.Services.AddScoped<IConversationDao, ConversationFileDao>();
+builder.Services.AddScoped<IConversationLogic, ConversationLogic>();
+builder.Services.AddScoped<IMessageDao, MessageFileDao>();
+builder.Services.AddScoped<IMessageLogic, MessageLogic>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {

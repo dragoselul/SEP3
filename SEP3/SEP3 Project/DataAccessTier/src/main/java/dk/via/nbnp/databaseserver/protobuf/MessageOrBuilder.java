@@ -14,16 +14,16 @@ public interface MessageOrBuilder extends
   long getId();
 
   /**
-   * <code>string message = 2;</code>
-   * @return The message.
+   * <code>string content = 2;</code>
+   * @return The content.
    */
-  java.lang.String getMessage();
+  java.lang.String getContent();
   /**
-   * <code>string message = 2;</code>
-   * @return The bytes for message.
+   * <code>string content = 2;</code>
+   * @return The bytes for content.
    */
   com.google.protobuf.ByteString
-      getMessageBytes();
+      getContentBytes();
 
   /**
    * <code>.User sender = 3;</code>
@@ -45,4 +45,19 @@ public interface MessageOrBuilder extends
    * @return The conversationId.
    */
   long getConversationId();
+
+  /**
+   * <code>.LocalDateTime dateTimeSent = 5;</code>
+   * @return Whether the dateTimeSent field is set.
+   */
+  boolean hasDateTimeSent();
+  /**
+   * <code>.LocalDateTime dateTimeSent = 5;</code>
+   * @return The dateTimeSent.
+   */
+  dk.via.nbnp.databaseserver.protobuf.LocalDateTime getDateTimeSent();
+  /**
+   * <code>.LocalDateTime dateTimeSent = 5;</code>
+   */
+  dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder getDateTimeSentOrBuilder();
 }

@@ -69,6 +69,11 @@ public class ItemLogic : IItemLogic
         return await itemDao.UpdateAsync(updated);
     }
 
+    public Task<Item> GetByIdAsync(int id)
+    {
+        return itemDao.GetByIdAsync(id);
+    }
+
     private void ValidateItem(Item dto)
     {
         if (string.IsNullOrEmpty(dto.Name)) throw new Exception("Title cannot be empty.");

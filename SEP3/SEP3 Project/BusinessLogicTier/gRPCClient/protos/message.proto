@@ -22,7 +22,8 @@ message CreateMessageDTO{
 
 message Message{
   int64 id = 1;
-  string message = 2;
+  string content = 2;
   User sender = 3;
   int64 conversationId = 4;
+  LocalDateTime dateTimeSent = 5;
 }

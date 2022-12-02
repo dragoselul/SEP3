@@ -11,6 +11,8 @@ import java.util.List;
 @Table(name="\"user\"")
 public class User {
 
+    // TODO USER SHOULD NOT STORE PASSWORD
+
     @Id
     @SequenceGenerator(
             name="user_id _sequence",

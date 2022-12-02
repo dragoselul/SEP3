@@ -76,6 +76,37 @@ public final class ConversationServiceGrpc {
     return getGetConversationsByUserMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.SearchConversationDTO,
+      dk.via.nbnp.databaseserver.protobuf.Conversation> getGetConversationByIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getConversationById",
+      requestType = dk.via.nbnp.databaseserver.protobuf.SearchConversationDTO.class,
+      responseType = dk.via.nbnp.databaseserver.protobuf.Conversation.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.SearchConversationDTO,
+      dk.via.nbnp.databaseserver.protobuf.Conversation> getGetConversationByIdMethod() {
+    io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.SearchConversationDTO, dk.via.nbnp.databaseserver.protobuf.Conversation> getGetConversationByIdMethod;
+    if ((getGetConversationByIdMethod = ConversationServiceGrpc.getGetConversationByIdMethod) == null) {
+      synchronized (ConversationServiceGrpc.class) {
+        if ((getGetConversationByIdMethod = ConversationServiceGrpc.getGetConversationByIdMethod) == null) {
+          ConversationServiceGrpc.getGetConversationByIdMethod = getGetConversationByIdMethod =
+              io.grpc.MethodDescriptor.<dk.via.nbnp.databaseserver.protobuf.SearchConversationDTO, dk.via.nbnp.databaseserver.protobuf.Conversation>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getConversationById"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.nbnp.databaseserver.protobuf.SearchConversationDTO.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.nbnp.databaseserver.protobuf.Conversation.getDefaultInstance()))
+              .setSchemaDescriptor(new ConversationServiceMethodDescriptorSupplier("getConversationById"))
+              .build();
+        }
+      }
+    }
+    return getGetConversationByIdMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -138,6 +169,13 @@ public final class ConversationServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetConversationsByUserMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getConversationById(dk.via.nbnp.databaseserver.protobuf.SearchConversationDTO request,
+        io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Conversation> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetConversationByIdMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -154,6 +192,13 @@ public final class ConversationServiceGrpc {
                 dk.via.nbnp.databaseserver.protobuf.SearchConversationDTO,
                 dk.via.nbnp.databaseserver.protobuf.Conversation>(
                   this, METHODID_GET_CONVERSATIONS_BY_USER)))
+          .addMethod(
+            getGetConversationByIdMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                dk.via.nbnp.databaseserver.protobuf.SearchConversationDTO,
+                dk.via.nbnp.databaseserver.protobuf.Conversation>(
+                  this, METHODID_GET_CONVERSATION_BY_ID)))
           .build();
     }
   }
@@ -187,6 +232,14 @@ public final class ConversationServiceGrpc {
       io.grpc.stub.ClientCalls.asyncServerStreamingCall(
           getChannel().newCall(getGetConversationsByUserMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getConversationById(dk.via.nbnp.databaseserver.protobuf.SearchConversationDTO request,
+        io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Conversation> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetConversationByIdMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -217,6 +270,13 @@ public final class ConversationServiceGrpc {
       return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
           getChannel(), getGetConversationsByUserMethod(), getCallOptions(), request);
     }
+
+    /**
+     */
+    public dk.via.nbnp.databaseserver.protobuf.Conversation getConversationById(dk.via.nbnp.databaseserver.protobuf.SearchConversationDTO request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetConversationByIdMethod(), getCallOptions(), request);
+    }
   }
 
   /**
@@ -240,10 +300,19 @@ public final class ConversationServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreateConversationMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<dk.via.nbnp.databaseserver.protobuf.Conversation> getConversationById(
+        dk.via.nbnp.databaseserver.protobuf.SearchConversationDTO request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetConversationByIdMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_CONVERSATION = 0;
   private static final int METHODID_GET_CONVERSATIONS_BY_USER = 1;
+  private static final int METHODID_GET_CONVERSATION_BY_ID = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -268,6 +337,10 @@ public final class ConversationServiceGrpc {
           break;
         case METHODID_GET_CONVERSATIONS_BY_USER:
           serviceImpl.getConversationsByUser((dk.via.nbnp.databaseserver.protobuf.SearchConversationDTO) request,
+              (io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Conversation>) responseObserver);
+          break;
+        case METHODID_GET_CONVERSATION_BY_ID:
+          serviceImpl.getConversationById((dk.via.nbnp.databaseserver.protobuf.SearchConversationDTO) request,
               (io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Conversation>) responseObserver);
           break;
         default:
@@ -333,6 +406,7 @@ public final class ConversationServiceGrpc {
               .setSchemaDescriptor(new ConversationServiceFileDescriptorSupplier())
               .addMethod(getCreateConversationMethod())
               .addMethod(getGetConversationsByUserMethod())
+              .addMethod(getGetConversationByIdMethod())
               .build();
         }
       }

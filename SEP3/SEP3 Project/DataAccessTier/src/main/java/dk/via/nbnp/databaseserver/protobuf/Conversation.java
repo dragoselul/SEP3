@@ -50,7 +50,12 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
+          case 8: {
+
+            id_ = input.readInt64();
+            break;
+          }
+          case 18: {
             dk.via.nbnp.databaseserver.protobuf.User.Builder subBuilder = null;
             if (seller_ != null) {
               subBuilder = seller_.toBuilder();
@@ -63,7 +68,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 18: {
+          case 26: {
             dk.via.nbnp.databaseserver.protobuf.User.Builder subBuilder = null;
             if (buyer_ != null) {
               subBuilder = buyer_.toBuilder();
@@ -76,7 +81,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 26: {
+          case 34: {
             dk.via.nbnp.databaseserver.protobuf.Item.Builder subBuilder = null;
             if (item_ != null) {
               subBuilder = item_.toBuilder();
@@ -89,7 +94,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 34: {
+          case 42: {
             dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder subBuilder = null;
             if (dateOfStart_ != null) {
               subBuilder = dateOfStart_.toBuilder();
@@ -102,7 +107,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 42: {
+          case 50: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               messages_ = new java.util.ArrayList<dk.via.nbnp.databaseserver.protobuf.Message>();
               mutable_bitField0_ |= 0x00000001;
@@ -148,10 +153,21 @@ private static final long serialVersionUID = 0L;
             dk.via.nbnp.databaseserver.protobuf.Conversation.class, dk.via.nbnp.databaseserver.protobuf.Conversation.Builder.class);
   }
 
-  public static final int SELLER_FIELD_NUMBER = 1;
+  public static final int ID_FIELD_NUMBER = 1;
+  private long id_;
+  /**
+   * <code>int64 id = 1;</code>
+   * @return The id.
+   */
+  @java.lang.Override
+  public long getId() {
+    return id_;
+  }
+
+  public static final int SELLER_FIELD_NUMBER = 2;
   private dk.via.nbnp.databaseserver.protobuf.User seller_;
   /**
-   * <code>.User seller = 1;</code>
+   * <code>.User seller = 2;</code>
    * @return Whether the seller field is set.
    */
   @java.lang.Override
@@ -159,7 +175,7 @@ private static final long serialVersionUID = 0L;
     return seller_ != null;
   }
   /**
-   * <code>.User seller = 1;</code>
+   * <code>.User seller = 2;</code>
    * @return The seller.
    */
   @java.lang.Override
@@ -167,17 +183,17 @@ private static final long serialVersionUID = 0L;
     return seller_ == null ? dk.via.nbnp.databaseserver.protobuf.User.getDefaultInstance() : seller_;
   }
   /**
-   * <code>.User seller = 1;</code>
+   * <code>.User seller = 2;</code>
    */
   @java.lang.Override
   public dk.via.nbnp.databaseserver.protobuf.UserOrBuilder getSellerOrBuilder() {
     return getSeller();
   }
 
-  public static final int BUYER_FIELD_NUMBER = 2;
+  public static final int BUYER_FIELD_NUMBER = 3;
   private dk.via.nbnp.databaseserver.protobuf.User buyer_;
   /**
-   * <code>.User buyer = 2;</code>
+   * <code>.User buyer = 3;</code>
    * @return Whether the buyer field is set.
    */
   @java.lang.Override
@@ -185,7 +201,7 @@ private static final long serialVersionUID = 0L;
     return buyer_ != null;
   }
   /**
-   * <code>.User buyer = 2;</code>
+   * <code>.User buyer = 3;</code>
    * @return The buyer.
    */
   @java.lang.Override
@@ -193,17 +209,17 @@ private static final long serialVersionUID = 0L;
     return buyer_ == null ? dk.via.nbnp.databaseserver.protobuf.User.getDefaultInstance() : buyer_;
   }
   /**
-   * <code>.User buyer = 2;</code>
+   * <code>.User buyer = 3;</code>
    */
   @java.lang.Override
   public dk.via.nbnp.databaseserver.protobuf.UserOrBuilder getBuyerOrBuilder() {
     return getBuyer();
   }
 
-  public static final int ITEM_FIELD_NUMBER = 3;
+  public static final int ITEM_FIELD_NUMBER = 4;
   private dk.via.nbnp.databaseserver.protobuf.Item item_;
   /**
-   * <code>.Item item = 3;</code>
+   * <code>.Item item = 4;</code>
    * @return Whether the item field is set.
    */
   @java.lang.Override
@@ -211,7 +227,7 @@ private static final long serialVersionUID = 0L;
     return item_ != null;
   }
   /**
-   * <code>.Item item = 3;</code>
+   * <code>.Item item = 4;</code>
    * @return The item.
    */
   @java.lang.Override
@@ -219,17 +235,17 @@ private static final long serialVersionUID = 0L;
     return item_ == null ? dk.via.nbnp.databaseserver.protobuf.Item.getDefaultInstance() : item_;
   }
   /**
-   * <code>.Item item = 3;</code>
+   * <code>.Item item = 4;</code>
    */
   @java.lang.Override
   public dk.via.nbnp.databaseserver.protobuf.ItemOrBuilder getItemOrBuilder() {
     return getItem();
   }
 
-  public static final int DATEOFSTART_FIELD_NUMBER = 4;
+  public static final int DATEOFSTART_FIELD_NUMBER = 5;
   private dk.via.nbnp.databaseserver.protobuf.LocalDateTime dateOfStart_;
   /**
-   * <code>.LocalDateTime dateOfStart = 4;</code>
+   * <code>.LocalDateTime dateOfStart = 5;</code>
    * @return Whether the dateOfStart field is set.
    */
   @java.lang.Override
@@ -237,7 +253,7 @@ private static final long serialVersionUID = 0L;
     return dateOfStart_ != null;
   }
   /**
-   * <code>.LocalDateTime dateOfStart = 4;</code>
+   * <code>.LocalDateTime dateOfStart = 5;</code>
    * @return The dateOfStart.
    */
   @java.lang.Override
@@ -245,24 +261,24 @@ private static final long serialVersionUID = 0L;
     return dateOfStart_ == null ? dk.via.nbnp.databaseserver.protobuf.LocalDateTime.getDefaultInstance() : dateOfStart_;
   }
   /**
-   * <code>.LocalDateTime dateOfStart = 4;</code>
+   * <code>.LocalDateTime dateOfStart = 5;</code>
    */
   @java.lang.Override
   public dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder getDateOfStartOrBuilder() {
     return getDateOfStart();
   }
 
-  public static final int MESSAGES_FIELD_NUMBER = 5;
+  public static final int MESSAGES_FIELD_NUMBER = 6;
   private java.util.List<dk.via.nbnp.databaseserver.protobuf.Message> messages_;
   /**
-   * <code>repeated .Message messages = 5;</code>
+   * <code>repeated .Message messages = 6;</code>
    */
   @java.lang.Override
   public java.util.List<dk.via.nbnp.databaseserver.protobuf.Message> getMessagesList() {
     return messages_;
   }
   /**
-   * <code>repeated .Message messages = 5;</code>
+   * <code>repeated .Message messages = 6;</code>
    */
   @java.lang.Override
   public java.util.List<? extends dk.via.nbnp.databaseserver.protobuf.MessageOrBuilder> 
@@ -270,21 +286,21 @@ private static final long serialVersionUID = 0L;
     return messages_;
   }
   /**
-   * <code>repeated .Message messages = 5;</code>
+   * <code>repeated .Message messages = 6;</code>
    */
   @java.lang.Override
   public int getMessagesCount() {
     return messages_.size();
   }
   /**
-   * <code>repeated .Message messages = 5;</code>
+   * <code>repeated .Message messages = 6;</code>
    */
   @java.lang.Override
   public dk.via.nbnp.databaseserver.protobuf.Message getMessages(int index) {
     return messages_.get(index);
   }
   /**
-   * <code>repeated .Message messages = 5;</code>
+   * <code>repeated .Message messages = 6;</code>
    */
   @java.lang.Override
   public dk.via.nbnp.databaseserver.protobuf.MessageOrBuilder getMessagesOrBuilder(
@@ -306,20 +322,23 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (id_ != 0L) {
+      output.writeInt64(1, id_);
+    }
     if (seller_ != null) {
-      output.writeMessage(1, getSeller());
+      output.writeMessage(2, getSeller());
     }
     if (buyer_ != null) {
-      output.writeMessage(2, getBuyer());
+      output.writeMessage(3, getBuyer());
     }
     if (item_ != null) {
-      output.writeMessage(3, getItem());
+      output.writeMessage(4, getItem());
     }
     if (dateOfStart_ != null) {
-      output.writeMessage(4, getDateOfStart());
+      output.writeMessage(5, getDateOfStart());
     }
     for (int i = 0; i < messages_.size(); i++) {
-      output.writeMessage(5, messages_.get(i));
+      output.writeMessage(6, messages_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -330,25 +349,29 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (id_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(1, id_);
+    }
     if (seller_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getSeller());
+        .computeMessageSize(2, getSeller());
     }
     if (buyer_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getBuyer());
+        .computeMessageSize(3, getBuyer());
     }
     if (item_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, getItem());
+        .computeMessageSize(4, getItem());
     }
     if (dateOfStart_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, getDateOfStart());
+        .computeMessageSize(5, getDateOfStart());
     }
     for (int i = 0; i < messages_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(5, messages_.get(i));
+        .computeMessageSize(6, messages_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -365,6 +388,8 @@ private static final long serialVersionUID = 0L;
     }
     dk.via.nbnp.databaseserver.protobuf.Conversation other = (dk.via.nbnp.databaseserver.protobuf.Conversation) obj;
 
+    if (getId()
+        != other.getId()) return false;
     if (hasSeller() != other.hasSeller()) return false;
     if (hasSeller()) {
       if (!getSeller()
@@ -398,6 +423,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + ID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getId());
     if (hasSeller()) {
       hash = (37 * hash) + SELLER_FIELD_NUMBER;
       hash = (53 * hash) + getSeller().hashCode();
@@ -552,6 +580,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      id_ = 0L;
+
       if (sellerBuilder_ == null) {
         seller_ = null;
       } else {
@@ -609,6 +639,7 @@ private static final long serialVersionUID = 0L;
     public dk.via.nbnp.databaseserver.protobuf.Conversation buildPartial() {
       dk.via.nbnp.databaseserver.protobuf.Conversation result = new dk.via.nbnp.databaseserver.protobuf.Conversation(this);
       int from_bitField0_ = bitField0_;
+      result.id_ = id_;
       if (sellerBuilder_ == null) {
         result.seller_ = seller_;
       } else {
@@ -686,6 +717,9 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(dk.via.nbnp.databaseserver.protobuf.Conversation other) {
       if (other == dk.via.nbnp.databaseserver.protobuf.Conversation.getDefaultInstance()) return this;
+      if (other.getId() != 0L) {
+        setId(other.getId());
+      }
       if (other.hasSeller()) {
         mergeSeller(other.getSeller());
       }
@@ -754,18 +788,49 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
+    private long id_ ;
+    /**
+     * <code>int64 id = 1;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public long getId() {
+      return id_;
+    }
+    /**
+     * <code>int64 id = 1;</code>
+     * @param value The id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setId(long value) {
+      
+      id_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 id = 1;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearId() {
+      
+      id_ = 0L;
+      onChanged();
+      return this;
+    }
+
     private dk.via.nbnp.databaseserver.protobuf.User seller_;
     private com.google.protobuf.SingleFieldBuilderV3<
         dk.via.nbnp.databaseserver.protobuf.User, dk.via.nbnp.databaseserver.protobuf.User.Builder, dk.via.nbnp.databaseserver.protobuf.UserOrBuilder> sellerBuilder_;
     /**
-     * <code>.User seller = 1;</code>
+     * <code>.User seller = 2;</code>
      * @return Whether the seller field is set.
      */
     public boolean hasSeller() {
       return sellerBuilder_ != null || seller_ != null;
     }
     /**
-     * <code>.User seller = 1;</code>
+     * <code>.User seller = 2;</code>
      * @return The seller.
      */
     public dk.via.nbnp.databaseserver.protobuf.User getSeller() {
@@ -776,7 +841,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.User seller = 1;</code>
+     * <code>.User seller = 2;</code>
      */
     public Builder setSeller(dk.via.nbnp.databaseserver.protobuf.User value) {
       if (sellerBuilder_ == null) {
@@ -792,7 +857,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.User seller = 1;</code>
+     * <code>.User seller = 2;</code>
      */
     public Builder setSeller(
         dk.via.nbnp.databaseserver.protobuf.User.Builder builderForValue) {
@@ -806,7 +871,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.User seller = 1;</code>
+     * <code>.User seller = 2;</code>
      */
     public Builder mergeSeller(dk.via.nbnp.databaseserver.protobuf.User value) {
       if (sellerBuilder_ == null) {
@@ -824,7 +889,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.User seller = 1;</code>
+     * <code>.User seller = 2;</code>
      */
     public Builder clearSeller() {
       if (sellerBuilder_ == null) {
@@ -838,7 +903,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.User seller = 1;</code>
+     * <code>.User seller = 2;</code>
      */
     public dk.via.nbnp.databaseserver.protobuf.User.Builder getSellerBuilder() {
       
@@ -846,7 +911,7 @@ private static final long serialVersionUID = 0L;
       return getSellerFieldBuilder().getBuilder();
     }
     /**
-     * <code>.User seller = 1;</code>
+     * <code>.User seller = 2;</code>
      */
     public dk.via.nbnp.databaseserver.protobuf.UserOrBuilder getSellerOrBuilder() {
       if (sellerBuilder_ != null) {
@@ -857,7 +922,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.User seller = 1;</code>
+     * <code>.User seller = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         dk.via.nbnp.databaseserver.protobuf.User, dk.via.nbnp.databaseserver.protobuf.User.Builder, dk.via.nbnp.databaseserver.protobuf.UserOrBuilder> 
@@ -877,14 +942,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         dk.via.nbnp.databaseserver.protobuf.User, dk.via.nbnp.databaseserver.protobuf.User.Builder, dk.via.nbnp.databaseserver.protobuf.UserOrBuilder> buyerBuilder_;
     /**
-     * <code>.User buyer = 2;</code>
+     * <code>.User buyer = 3;</code>
      * @return Whether the buyer field is set.
      */
     public boolean hasBuyer() {
       return buyerBuilder_ != null || buyer_ != null;
     }
     /**
-     * <code>.User buyer = 2;</code>
+     * <code>.User buyer = 3;</code>
      * @return The buyer.
      */
     public dk.via.nbnp.databaseserver.protobuf.User getBuyer() {
@@ -895,7 +960,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.User buyer = 2;</code>
+     * <code>.User buyer = 3;</code>
      */
     public Builder setBuyer(dk.via.nbnp.databaseserver.protobuf.User value) {
       if (buyerBuilder_ == null) {
@@ -911,7 +976,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.User buyer = 2;</code>
+     * <code>.User buyer = 3;</code>
      */
     public Builder setBuyer(
         dk.via.nbnp.databaseserver.protobuf.User.Builder builderForValue) {
@@ -925,7 +990,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.User buyer = 2;</code>
+     * <code>.User buyer = 3;</code>
      */
     public Builder mergeBuyer(dk.via.nbnp.databaseserver.protobuf.User value) {
       if (buyerBuilder_ == null) {
@@ -943,7 +1008,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.User buyer = 2;</code>
+     * <code>.User buyer = 3;</code>
      */
     public Builder clearBuyer() {
       if (buyerBuilder_ == null) {
@@ -957,7 +1022,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.User buyer = 2;</code>
+     * <code>.User buyer = 3;</code>
      */
     public dk.via.nbnp.databaseserver.protobuf.User.Builder getBuyerBuilder() {
       
@@ -965,7 +1030,7 @@ private static final long serialVersionUID = 0L;
       return getBuyerFieldBuilder().getBuilder();
     }
     /**
-     * <code>.User buyer = 2;</code>
+     * <code>.User buyer = 3;</code>
      */
     public dk.via.nbnp.databaseserver.protobuf.UserOrBuilder getBuyerOrBuilder() {
       if (buyerBuilder_ != null) {
@@ -976,7 +1041,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.User buyer = 2;</code>
+     * <code>.User buyer = 3;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         dk.via.nbnp.databaseserver.protobuf.User, dk.via.nbnp.databaseserver.protobuf.User.Builder, dk.via.nbnp.databaseserver.protobuf.UserOrBuilder> 
@@ -996,14 +1061,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         dk.via.nbnp.databaseserver.protobuf.Item, dk.via.nbnp.databaseserver.protobuf.Item.Builder, dk.via.nbnp.databaseserver.protobuf.ItemOrBuilder> itemBuilder_;
     /**
-     * <code>.Item item = 3;</code>
+     * <code>.Item item = 4;</code>
      * @return Whether the item field is set.
      */
     public boolean hasItem() {
       return itemBuilder_ != null || item_ != null;
     }
     /**
-     * <code>.Item item = 3;</code>
+     * <code>.Item item = 4;</code>
      * @return The item.
      */
     public dk.via.nbnp.databaseserver.protobuf.Item getItem() {
@@ -1014,7 +1079,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.Item item = 3;</code>
+     * <code>.Item item = 4;</code>
      */
     public Builder setItem(dk.via.nbnp.databaseserver.protobuf.Item value) {
       if (itemBuilder_ == null) {
@@ -1030,7 +1095,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Item item = 3;</code>
+     * <code>.Item item = 4;</code>
      */
     public Builder setItem(
         dk.via.nbnp.databaseserver.protobuf.Item.Builder builderForValue) {
@@ -1044,7 +1109,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Item item = 3;</code>
+     * <code>.Item item = 4;</code>
      */
     public Builder mergeItem(dk.via.nbnp.databaseserver.protobuf.Item value) {
       if (itemBuilder_ == null) {
@@ -1062,7 +1127,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Item item = 3;</code>
+     * <code>.Item item = 4;</code>
      */
     public Builder clearItem() {
       if (itemBuilder_ == null) {
@@ -1076,7 +1141,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Item item = 3;</code>
+     * <code>.Item item = 4;</code>
      */
     public dk.via.nbnp.databaseserver.protobuf.Item.Builder getItemBuilder() {
       
@@ -1084,7 +1149,7 @@ private static final long serialVersionUID = 0L;
       return getItemFieldBuilder().getBuilder();
     }
     /**
-     * <code>.Item item = 3;</code>
+     * <code>.Item item = 4;</code>
      */
     public dk.via.nbnp.databaseserver.protobuf.ItemOrBuilder getItemOrBuilder() {
       if (itemBuilder_ != null) {
@@ -1095,7 +1160,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.Item item = 3;</code>
+     * <code>.Item item = 4;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         dk.via.nbnp.databaseserver.protobuf.Item, dk.via.nbnp.databaseserver.protobuf.Item.Builder, dk.via.nbnp.databaseserver.protobuf.ItemOrBuilder> 
@@ -1115,14 +1180,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         dk.via.nbnp.databaseserver.protobuf.LocalDateTime, dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder, dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder> dateOfStartBuilder_;
     /**
-     * <code>.LocalDateTime dateOfStart = 4;</code>
+     * <code>.LocalDateTime dateOfStart = 5;</code>
      * @return Whether the dateOfStart field is set.
      */
     public boolean hasDateOfStart() {
       return dateOfStartBuilder_ != null || dateOfStart_ != null;
     }
     /**
-     * <code>.LocalDateTime dateOfStart = 4;</code>
+     * <code>.LocalDateTime dateOfStart = 5;</code>
      * @return The dateOfStart.
      */
     public dk.via.nbnp.databaseserver.protobuf.LocalDateTime getDateOfStart() {
@@ -1133,7 +1198,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.LocalDateTime dateOfStart = 4;</code>
+     * <code>.LocalDateTime dateOfStart = 5;</code>
      */
     public Builder setDateOfStart(dk.via.nbnp.databaseserver.protobuf.LocalDateTime value) {
       if (dateOfStartBuilder_ == null) {
@@ -1149,7 +1214,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.LocalDateTime dateOfStart = 4;</code>
+     * <code>.LocalDateTime dateOfStart = 5;</code>
      */
     public Builder setDateOfStart(
         dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder builderForValue) {
@@ -1163,7 +1228,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.LocalDateTime dateOfStart = 4;</code>
+     * <code>.LocalDateTime dateOfStart = 5;</code>
      */
     public Builder mergeDateOfStart(dk.via.nbnp.databaseserver.protobuf.LocalDateTime value) {
       if (dateOfStartBuilder_ == null) {
@@ -1181,7 +1246,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.LocalDateTime dateOfStart = 4;</code>
+     * <code>.LocalDateTime dateOfStart = 5;</code>
      */
     public Builder clearDateOfStart() {
       if (dateOfStartBuilder_ == null) {
@@ -1195,7 +1260,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.LocalDateTime dateOfStart = 4;</code>
+     * <code>.LocalDateTime dateOfStart = 5;</code>
      */
     public dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder getDateOfStartBuilder() {
       
@@ -1203,7 +1268,7 @@ private static final long serialVersionUID = 0L;
       return getDateOfStartFieldBuilder().getBuilder();
     }
     /**
-     * <code>.LocalDateTime dateOfStart = 4;</code>
+     * <code>.LocalDateTime dateOfStart = 5;</code>
      */
     public dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder getDateOfStartOrBuilder() {
       if (dateOfStartBuilder_ != null) {
@@ -1214,7 +1279,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.LocalDateTime dateOfStart = 4;</code>
+     * <code>.LocalDateTime dateOfStart = 5;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         dk.via.nbnp.databaseserver.protobuf.LocalDateTime, dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder, dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder> 
@@ -1243,7 +1308,7 @@ private static final long serialVersionUID = 0L;
         dk.via.nbnp.databaseserver.protobuf.Message, dk.via.nbnp.databaseserver.protobuf.Message.Builder, dk.via.nbnp.databaseserver.protobuf.MessageOrBuilder> messagesBuilder_;
 
     /**
-     * <code>repeated .Message messages = 5;</code>
+     * <code>repeated .Message messages = 6;</code>
      */
     public java.util.List<dk.via.nbnp.databaseserver.protobuf.Message> getMessagesList() {
       if (messagesBuilder_ == null) {
@@ -1253,7 +1318,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Message messages = 5;</code>
+     * <code>repeated .Message messages = 6;</code>
      */
     public int getMessagesCount() {
       if (messagesBuilder_ == null) {
@@ -1263,7 +1328,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Message messages = 5;</code>
+     * <code>repeated .Message messages = 6;</code>
      */
     public dk.via.nbnp.databaseserver.protobuf.Message getMessages(int index) {
       if (messagesBuilder_ == null) {
@@ -1273,7 +1338,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Message messages = 5;</code>
+     * <code>repeated .Message messages = 6;</code>
      */
     public Builder setMessages(
         int index, dk.via.nbnp.databaseserver.protobuf.Message value) {
@@ -1290,7 +1355,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Message messages = 5;</code>
+     * <code>repeated .Message messages = 6;</code>
      */
     public Builder setMessages(
         int index, dk.via.nbnp.databaseserver.protobuf.Message.Builder builderForValue) {
@@ -1304,7 +1369,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Message messages = 5;</code>
+     * <code>repeated .Message messages = 6;</code>
      */
     public Builder addMessages(dk.via.nbnp.databaseserver.protobuf.Message value) {
       if (messagesBuilder_ == null) {
@@ -1320,7 +1385,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Message messages = 5;</code>
+     * <code>repeated .Message messages = 6;</code>
      */
     public Builder addMessages(
         int index, dk.via.nbnp.databaseserver.protobuf.Message value) {
@@ -1337,7 +1402,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Message messages = 5;</code>
+     * <code>repeated .Message messages = 6;</code>
      */
     public Builder addMessages(
         dk.via.nbnp.databaseserver.protobuf.Message.Builder builderForValue) {
@@ -1351,7 +1416,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Message messages = 5;</code>
+     * <code>repeated .Message messages = 6;</code>
      */
     public Builder addMessages(
         int index, dk.via.nbnp.databaseserver.protobuf.Message.Builder builderForValue) {
@@ -1365,7 +1430,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Message messages = 5;</code>
+     * <code>repeated .Message messages = 6;</code>
      */
     public Builder addAllMessages(
         java.lang.Iterable<? extends dk.via.nbnp.databaseserver.protobuf.Message> values) {
@@ -1380,7 +1445,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Message messages = 5;</code>
+     * <code>repeated .Message messages = 6;</code>
      */
     public Builder clearMessages() {
       if (messagesBuilder_ == null) {
@@ -1393,7 +1458,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Message messages = 5;</code>
+     * <code>repeated .Message messages = 6;</code>
      */
     public Builder removeMessages(int index) {
       if (messagesBuilder_ == null) {
@@ -1406,14 +1471,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Message messages = 5;</code>
+     * <code>repeated .Message messages = 6;</code>
      */
     public dk.via.nbnp.databaseserver.protobuf.Message.Builder getMessagesBuilder(
         int index) {
       return getMessagesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .Message messages = 5;</code>
+     * <code>repeated .Message messages = 6;</code>
      */
     public dk.via.nbnp.databaseserver.protobuf.MessageOrBuilder getMessagesOrBuilder(
         int index) {
@@ -1423,7 +1488,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Message messages = 5;</code>
+     * <code>repeated .Message messages = 6;</code>
      */
     public java.util.List<? extends dk.via.nbnp.databaseserver.protobuf.MessageOrBuilder> 
          getMessagesOrBuilderList() {
@@ -1434,14 +1499,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Message messages = 5;</code>
+     * <code>repeated .Message messages = 6;</code>
      */
     public dk.via.nbnp.databaseserver.protobuf.Message.Builder addMessagesBuilder() {
       return getMessagesFieldBuilder().addBuilder(
           dk.via.nbnp.databaseserver.protobuf.Message.getDefaultInstance());
     }
     /**
-     * <code>repeated .Message messages = 5;</code>
+     * <code>repeated .Message messages = 6;</code>
      */
     public dk.via.nbnp.databaseserver.protobuf.Message.Builder addMessagesBuilder(
         int index) {
@@ -1449,7 +1514,7 @@ private static final long serialVersionUID = 0L;
           index, dk.via.nbnp.databaseserver.protobuf.Message.getDefaultInstance());
     }
     /**
-     * <code>repeated .Message messages = 5;</code>
+     * <code>repeated .Message messages = 6;</code>
      */
     public java.util.List<dk.via.nbnp.databaseserver.protobuf.Message.Builder> 
          getMessagesBuilderList() {

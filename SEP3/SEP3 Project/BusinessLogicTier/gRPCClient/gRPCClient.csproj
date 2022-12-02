@@ -15,5 +15,7 @@
         </PackageReference>
         <Protobuf Include="protos\item.proto" GrpcServices="Client" />
         <Protobuf Include="protos\user.proto" GrpcServices="Client" />
+        <Protobuf Include="protos\conversation.proto" GrpcServices="Client" />
+        <Protobuf Include="protos\message.proto" GrpcServices="Client" />
     </ItemGroup>
 </Project>

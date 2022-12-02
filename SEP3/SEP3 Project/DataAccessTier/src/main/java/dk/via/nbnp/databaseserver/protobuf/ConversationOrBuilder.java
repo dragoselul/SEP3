@@ -8,85 +8,91 @@ public interface ConversationOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.User seller = 1;</code>
+   * <code>int64 id = 1;</code>
+   * @return The id.
+   */
+  long getId();
+
+  /**
+   * <code>.User seller = 2;</code>
    * @return Whether the seller field is set.
    */
   boolean hasSeller();
   /**
-   * <code>.User seller = 1;</code>
+   * <code>.User seller = 2;</code>
    * @return The seller.
    */
   dk.via.nbnp.databaseserver.protobuf.User getSeller();
   /**
-   * <code>.User seller = 1;</code>
+   * <code>.User seller = 2;</code>
    */
   dk.via.nbnp.databaseserver.protobuf.UserOrBuilder getSellerOrBuilder();
 
   /**
-   * <code>.User buyer = 2;</code>
+   * <code>.User buyer = 3;</code>
    * @return Whether the buyer field is set.
    */
   boolean hasBuyer();
   /**
-   * <code>.User buyer = 2;</code>
+   * <code>.User buyer = 3;</code>
    * @return The buyer.
    */
   dk.via.nbnp.databaseserver.protobuf.User getBuyer();
   /**
-   * <code>.User buyer = 2;</code>
+   * <code>.User buyer = 3;</code>
    */
   dk.via.nbnp.databaseserver.protobuf.UserOrBuilder getBuyerOrBuilder();
 
   /**
-   * <code>.Item item = 3;</code>
+   * <code>.Item item = 4;</code>
    * @return Whether the item field is set.
    */
   boolean hasItem();
   /**
-   * <code>.Item item = 3;</code>
+   * <code>.Item item = 4;</code>
    * @return The item.
    */
   dk.via.nbnp.databaseserver.protobuf.Item getItem();
   /**
-   * <code>.Item item = 3;</code>
+   * <code>.Item item = 4;</code>
    */
   dk.via.nbnp.databaseserver.protobuf.ItemOrBuilder getItemOrBuilder();
 
   /**
-   * <code>.LocalDateTime dateOfStart = 4;</code>
+   * <code>.LocalDateTime dateOfStart = 5;</code>
    * @return Whether the dateOfStart field is set.
    */
   boolean hasDateOfStart();
   /**
-   * <code>.LocalDateTime dateOfStart = 4;</code>
+   * <code>.LocalDateTime dateOfStart = 5;</code>
    * @return The dateOfStart.
    */
   dk.via.nbnp.databaseserver.protobuf.LocalDateTime getDateOfStart();
   /**
-   * <code>.LocalDateTime dateOfStart = 4;</code>
+   * <code>.LocalDateTime dateOfStart = 5;</code>
    */
   dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder getDateOfStartOrBuilder();
 
   /**
-   * <code>repeated .Message messages = 5;</code>
+   * <code>repeated .Message messages = 6;</code>
    */
   java.util.List<dk.via.nbnp.databaseserver.protobuf.Message> 
       getMessagesList();
   /**
-   * <code>repeated .Message messages = 5;</code>
+   * <code>repeated .Message messages = 6;</code>
    */
   dk.via.nbnp.databaseserver.protobuf.Message getMessages(int index);
   /**
-   * <code>repeated .Message messages = 5;</code>
+   * <code>repeated .Message messages = 6;</code>
    */
   int getMessagesCount();
   /**
-   * <code>repeated .Message messages = 5;</code>
+   * <code>repeated .Message messages = 6;</code>
    */
   java.util.List<? extends dk.via.nbnp.databaseserver.protobuf.MessageOrBuilder> 
       getMessagesOrBuilderList();
   /**
-   * <code>repeated .Message messages = 5;</code>
+   * <code>repeated .Message messages = 6;</code>
    */
   dk.via.nbnp.databaseserver.protobuf.MessageOrBuilder getMessagesOrBuilder(
       int index);

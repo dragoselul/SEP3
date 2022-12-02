@@ -52,10 +52,22 @@ public class ConversationService extends ConversationServiceGrpc.ConversationSer
     }
     @Override
     public void getConversationsByUser(SearchConversationDTO request, StreamObserver<Conversation> responseObserver) {
-        List<dk.via.nbnp.databaseserver.domain.Conversation> conversationList = conversationRepository.findAllBySellerIdOrBuyerId(request.getUserId(), request.getUserId());
+        List<dk.via.nbnp.databaseserver.domain.Conversation> conversationList = conversationRepository.findAllBySellerIdOrBuyerId(request.getId(), request.getId());
         for (dk.via.nbnp.databaseserver.domain.Conversation conversation : conversationList) {
             responseObserver.onNext(ConversationMapper.mapDomainToProto(conversation));
         }
         responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getConversationById(SearchConversationDTO request, StreamObserver<Conversation> responseObserver) {
+        Optional<dk.via.nbnp.databaseserver.domain.Conversation> conversation = conversationRepository.findById(request.getId());
+        if(conversation.isEmpty()){
+            System.out.println("No Conversation with id {"+request.getId()+"} was found.");
+            responseObserver.onError(new Exception("No Conversation with id {"+request.getId()+"} was found."));
+        }else{
+            responseObserver.onNext(ConversationMapper.mapDomainToProto(conversation.get()));
+            responseObserver.onCompleted();
+        }
     }
 }
