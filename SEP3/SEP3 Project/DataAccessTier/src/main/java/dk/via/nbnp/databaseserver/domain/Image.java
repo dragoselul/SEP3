@@ -17,33 +17,61 @@ public class Image {
             generator = "image_id_sequence"
     )
     private Long id;
-    private byte[] image;
+    @Column(columnDefinition="text")
+    private String base64data;
+    private String contentType;
+    private String fileName;
 
-    @ManyToOne
+        @ManyToOne
     @JoinColumn(name="itemId")
     private Item item;
 
-    public Image(Long id, byte[] image, Item item) {
+    public Image() {
+    }
+
+    public Image(Long id, String base64data, String contentType, String fileName, Item item) {
         this.id = id;
-        this.image = image;
+        this.base64data = base64data;
+        this.contentType = contentType;
+        this.fileName = fileName;
         this.item = item;
     }
 
-    public Image(byte[] image, Item item) {
-        this.image = image;
+    public Image(String base64data, String contentType, String fileName, Item item) {
+        this.base64data = base64data;
+        this.contentType = contentType;
+        this.fileName = fileName;
         this.item = item;
     }
-
 
     public Long getId() {
         return id;
     }
 
-    public byte[] getImage() {
-        return image;
+    public String getBase64data() {
+        return base64data;
+    }
+
+    public String getContentType() {
+        return contentType;
+    }
+
+    public String getFileName() {
+        return fileName;
     }
 
     public Item getItem() {
         return item;
+    }
+
+    @Override
+    public String toString() {
+        return "Image{" +
+                "id=" + id +
+                ", base64data='" + base64data + '\'' +
+                ", contentType='" + contentType + '\'' +
+                ", fileName='" + fileName + '\'' +
+                ", item=" + item +
+                '}';
     }
 }

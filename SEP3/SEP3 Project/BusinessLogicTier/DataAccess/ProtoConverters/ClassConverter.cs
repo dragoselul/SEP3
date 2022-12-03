@@ -96,10 +96,12 @@ public abstract class ClassConverter
 
     public static Image ConvertProtoToDomain(gRPCClient.Image image)
     {
-        Image toDomain = new Image()
+        Image toDomain = new()
         {
             Id = image.Id,
-            image = image.Image_.ToByteArray(),
+            base64data = image.Base64Data,
+            contentType = image.ContentType,
+            fileName = image.FileName,
             ItemId = image.ItemId
         };
         return toDomain;

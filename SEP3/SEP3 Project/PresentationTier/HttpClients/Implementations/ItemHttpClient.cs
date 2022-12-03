@@ -63,9 +63,15 @@ public class ItemHttpClient: IItemService
         return (await Task.FromResult(items))!;
     }
 
-    public Task DeleteItemById(int id)
+    public async Task DeleteItemById(int id)
     {
-        throw new NotImplementedException();
+        HttpResponseMessage response = await Client.DeleteAsync($"/Item/{id}");
+        string result = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(result);
+        }
+        Console.WriteLine(result);
     }
 
     public async Task<Item> GetItemById(int id)

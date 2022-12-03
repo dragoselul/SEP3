@@ -16,7 +16,9 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Image() {
-    image_ = com.google.protobuf.ByteString.EMPTY;
+    base64Data_ = "";
+    contentType_ = "";
+    fileName_ = "";
   }
 
   @java.lang.Override
@@ -55,11 +57,24 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            image_ = input.readBytes();
+            base64Data_ = s;
             break;
           }
-          case 24: {
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            contentType_ = s;
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            fileName_ = s;
+            break;
+          }
+          case 40: {
 
             itemId_ = input.readInt64();
             break;
@@ -109,21 +124,124 @@ private static final long serialVersionUID = 0L;
     return id_;
   }
 
-  public static final int IMAGE_FIELD_NUMBER = 2;
-  private com.google.protobuf.ByteString image_;
+  public static final int BASE64DATA_FIELD_NUMBER = 2;
+  private volatile java.lang.Object base64Data_;
   /**
-   * <code>bytes image = 2;</code>
-   * @return The image.
+   * <code>string base64data = 2;</code>
+   * @return The base64data.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString getImage() {
-    return image_;
+  public java.lang.String getBase64Data() {
+    java.lang.Object ref = base64Data_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      base64Data_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string base64data = 2;</code>
+   * @return The bytes for base64data.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getBase64DataBytes() {
+    java.lang.Object ref = base64Data_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      base64Data_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
-  public static final int ITEMID_FIELD_NUMBER = 3;
+  public static final int CONTENTTYPE_FIELD_NUMBER = 3;
+  private volatile java.lang.Object contentType_;
+  /**
+   * <code>string contentType = 3;</code>
+   * @return The contentType.
+   */
+  @java.lang.Override
+  public java.lang.String getContentType() {
+    java.lang.Object ref = contentType_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      contentType_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string contentType = 3;</code>
+   * @return The bytes for contentType.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getContentTypeBytes() {
+    java.lang.Object ref = contentType_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      contentType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int FILENAME_FIELD_NUMBER = 4;
+  private volatile java.lang.Object fileName_;
+  /**
+   * <code>string fileName = 4;</code>
+   * @return The fileName.
+   */
+  @java.lang.Override
+  public java.lang.String getFileName() {
+    java.lang.Object ref = fileName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      fileName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string fileName = 4;</code>
+   * @return The bytes for fileName.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getFileNameBytes() {
+    java.lang.Object ref = fileName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      fileName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ITEMID_FIELD_NUMBER = 5;
   private long itemId_;
   /**
-   * <code>int64 itemId = 3;</code>
+   * <code>int64 itemId = 5;</code>
    * @return The itemId.
    */
   @java.lang.Override
@@ -148,11 +266,17 @@ private static final long serialVersionUID = 0L;
     if (id_ != 0L) {
       output.writeInt64(1, id_);
     }
-    if (!image_.isEmpty()) {
-      output.writeBytes(2, image_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(base64Data_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, base64Data_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentType_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, contentType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, fileName_);
     }
     if (itemId_ != 0L) {
-      output.writeInt64(3, itemId_);
+      output.writeInt64(5, itemId_);
     }
     unknownFields.writeTo(output);
   }
@@ -167,13 +291,18 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(1, id_);
     }
-    if (!image_.isEmpty()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(2, image_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(base64Data_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, base64Data_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentType_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, contentType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, fileName_);
     }
     if (itemId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, itemId_);
+        .computeInt64Size(5, itemId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -192,8 +321,12 @@ private static final long serialVersionUID = 0L;
 
     if (getId()
         != other.getId()) return false;
-    if (!getImage()
-        .equals(other.getImage())) return false;
+    if (!getBase64Data()
+        .equals(other.getBase64Data())) return false;
+    if (!getContentType()
+        .equals(other.getContentType())) return false;
+    if (!getFileName()
+        .equals(other.getFileName())) return false;
     if (getItemId()
         != other.getItemId()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -210,8 +343,12 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getId());
-    hash = (37 * hash) + IMAGE_FIELD_NUMBER;
-    hash = (53 * hash) + getImage().hashCode();
+    hash = (37 * hash) + BASE64DATA_FIELD_NUMBER;
+    hash = (53 * hash) + getBase64Data().hashCode();
+    hash = (37 * hash) + CONTENTTYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getContentType().hashCode();
+    hash = (37 * hash) + FILENAME_FIELD_NUMBER;
+    hash = (53 * hash) + getFileName().hashCode();
     hash = (37 * hash) + ITEMID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getItemId());
@@ -350,7 +487,11 @@ private static final long serialVersionUID = 0L;
       super.clear();
       id_ = 0L;
 
-      image_ = com.google.protobuf.ByteString.EMPTY;
+      base64Data_ = "";
+
+      contentType_ = "";
+
+      fileName_ = "";
 
       itemId_ = 0L;
 
@@ -381,7 +522,9 @@ private static final long serialVersionUID = 0L;
     public dk.via.nbnp.databaseserver.protobuf.Image buildPartial() {
       dk.via.nbnp.databaseserver.protobuf.Image result = new dk.via.nbnp.databaseserver.protobuf.Image(this);
       result.id_ = id_;
-      result.image_ = image_;
+      result.base64Data_ = base64Data_;
+      result.contentType_ = contentType_;
+      result.fileName_ = fileName_;
       result.itemId_ = itemId_;
       onBuilt();
       return result;
@@ -434,8 +577,17 @@ private static final long serialVersionUID = 0L;
       if (other.getId() != 0L) {
         setId(other.getId());
       }
-      if (other.getImage() != com.google.protobuf.ByteString.EMPTY) {
-        setImage(other.getImage());
+      if (!other.getBase64Data().isEmpty()) {
+        base64Data_ = other.base64Data_;
+        onChanged();
+      }
+      if (!other.getContentType().isEmpty()) {
+        contentType_ = other.contentType_;
+        onChanged();
+      }
+      if (!other.getFileName().isEmpty()) {
+        fileName_ = other.fileName_;
+        onChanged();
       }
       if (other.getItemId() != 0L) {
         setItemId(other.getItemId());
@@ -500,43 +652,237 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.ByteString image_ = com.google.protobuf.ByteString.EMPTY;
+    private java.lang.Object base64Data_ = "";
     /**
-     * <code>bytes image = 2;</code>
-     * @return The image.
+     * <code>string base64data = 2;</code>
+     * @return The base64data.
      */
-    @java.lang.Override
-    public com.google.protobuf.ByteString getImage() {
-      return image_;
+    public java.lang.String getBase64Data() {
+      java.lang.Object ref = base64Data_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        base64Data_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>bytes image = 2;</code>
-     * @param value The image to set.
+     * <code>string base64data = 2;</code>
+     * @return The bytes for base64data.
+     */
+    public com.google.protobuf.ByteString
+        getBase64DataBytes() {
+      java.lang.Object ref = base64Data_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        base64Data_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string base64data = 2;</code>
+     * @param value The base64data to set.
      * @return This builder for chaining.
      */
-    public Builder setImage(com.google.protobuf.ByteString value) {
+    public Builder setBase64Data(
+        java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      image_ = value;
+      base64Data_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>bytes image = 2;</code>
+     * <code>string base64data = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearImage() {
+    public Builder clearBase64Data() {
       
-      image_ = getDefaultInstance().getImage();
+      base64Data_ = getDefaultInstance().getBase64Data();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string base64data = 2;</code>
+     * @param value The bytes for base64data to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBase64DataBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      base64Data_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object contentType_ = "";
+    /**
+     * <code>string contentType = 3;</code>
+     * @return The contentType.
+     */
+    public java.lang.String getContentType() {
+      java.lang.Object ref = contentType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        contentType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string contentType = 3;</code>
+     * @return The bytes for contentType.
+     */
+    public com.google.protobuf.ByteString
+        getContentTypeBytes() {
+      java.lang.Object ref = contentType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        contentType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string contentType = 3;</code>
+     * @param value The contentType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setContentType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      contentType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string contentType = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearContentType() {
+      
+      contentType_ = getDefaultInstance().getContentType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string contentType = 3;</code>
+     * @param value The bytes for contentType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setContentTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      contentType_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object fileName_ = "";
+    /**
+     * <code>string fileName = 4;</code>
+     * @return The fileName.
+     */
+    public java.lang.String getFileName() {
+      java.lang.Object ref = fileName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fileName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string fileName = 4;</code>
+     * @return The bytes for fileName.
+     */
+    public com.google.protobuf.ByteString
+        getFileNameBytes() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fileName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string fileName = 4;</code>
+     * @param value The fileName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFileName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      fileName_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string fileName = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFileName() {
+      
+      fileName_ = getDefaultInstance().getFileName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string fileName = 4;</code>
+     * @param value The bytes for fileName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFileNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      fileName_ = value;
       onChanged();
       return this;
     }
 
     private long itemId_ ;
     /**
-     * <code>int64 itemId = 3;</code>
+     * <code>int64 itemId = 5;</code>
      * @return The itemId.
      */
     @java.lang.Override
@@ -544,7 +890,7 @@ private static final long serialVersionUID = 0L;
       return itemId_;
     }
     /**
-     * <code>int64 itemId = 3;</code>
+     * <code>int64 itemId = 5;</code>
      * @param value The itemId to set.
      * @return This builder for chaining.
      */
@@ -555,7 +901,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 itemId = 3;</code>
+     * <code>int64 itemId = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearItemId() {

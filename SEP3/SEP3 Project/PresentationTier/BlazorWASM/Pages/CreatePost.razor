@@ -81,7 +81,7 @@
     {
         try
         {
-            await ItemService.Create(new ItemCreationDto
+            Item? item = await ItemService.Create(new ItemCreationDto
             {
                 Name = Title,
                 Description = Description,
@@ -91,7 +91,9 @@
                 IsSold = false,
                 Pricing = Price
             });
+            navMgr.NavigateTo($"/UploadImages/{item.Id}");
             error = "Great success!";
+            
         }
         catch (Exception e)
         {

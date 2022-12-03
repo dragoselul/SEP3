@@ -1,8 +1,7 @@
-namespace Domain.Models;
+namespace Domain.DTOs;
 
-public class Image
+public class ImageCreationDto
 {
-    public long Id { get; init; }
     public string base64data { get; init; }
     public string contentType { get; init; }
     public string fileName { get; init; }

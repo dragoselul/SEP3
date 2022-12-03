@@ -14,7 +14,7 @@ public class ImageFileDao : IImageDao
     private readonly GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:6565");
     private ImageServiceClient ImageClient;
 
-    public ImageFileDao(ImageServiceClient imageClient)
+    public ImageFileDao()
     {
         ImageClient = new ImageServiceClient(channel);
     }
@@ -22,11 +22,21 @@ public class ImageFileDao : IImageDao
 
     public async Task<Image> UploadImage(ImageCreationDto dto)
     {
-        gRPCClient.Image uploaded = await ImageClient.UploadImageAsync(new UploadImageDto()
+        gRPCClient.Image uploaded = null;
+        try
         {
-            Image = dto.image,
-            ItemId = dto.ItemId
-        });
+            uploaded = await ImageClient.UploadImageAsync(new UploadImageDto()
+            {
+                Base64Data = dto.base64data,
+                ContentType = dto.contentType,
+                FileName = dto.fileName,
+                ItemId = dto.ItemId
+            });
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.StackTrace);
+        }
 
         Image image = ClassConverter.ConvertProtoToDomain(uploaded);
         return await Task.FromResult(image);
@@ -37,16 +47,16 @@ public class ImageFileDao : IImageDao
         List<Image> images = new();
         try
         {
-            while (true)
-            {
-                gRPCClient.Image? image = ImageClient.GetImageByItemId(new SearchImageDto() { Id = 0, ItemId = id}).ResponseStream.Current;
-                Image toSend = ClassConverter.ConvertProtoToDomain(image);
-                images.Add(toSend);
-            }
+            AsyncServerStreamingCall<gRPCClient.Image?> image = ImageClient.GetImageByItemId(new SearchImageDto() { Id = 0, ItemId = id});
+                await foreach (var response in image.ResponseStream.ReadAllAsync())
+                {
+                    Image toSend = ClassConverter.ConvertProtoToDomain(response);
+                    images.Add(toSend);
+                }
         }
         catch (Exception e)
         {
-            Console.WriteLine("We got all the items");
+            Console.WriteLine(e.StackTrace);
         }
         
         return await Task.FromResult(images);

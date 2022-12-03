@@ -18,7 +18,7 @@ public class ImageController : ControllerBase
     }
 
     [HttpPost ("/image")]
-    public async Task<ActionResult<string>> UploadImage([FromBody] ImageCreationDto dto)
+    public async Task<ActionResult<Image>> UploadImage([FromBody] ImageCreationDto dto)
     {
         try
         {

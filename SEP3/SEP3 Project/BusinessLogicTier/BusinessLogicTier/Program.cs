@@ -22,12 +22,14 @@ builder.Services.AddScoped<IUserDao, UserFileDao>();
 builder.Services.AddScoped<IUserLogic, UserLogic>();
 builder.Services.AddScoped<IItemDao, ItemFileDao>();
 builder.Services.AddScoped<IItemLogic, ItemLogic>();
+builder.Services.AddScoped<IImageLogic, ImageLogic>();
 builder.Services.AddScoped<IConversationDao, ConversationFileDao>();
 builder.Services.AddScoped<IConversationLogic, ConversationLogic>();
 builder.Services.AddScoped<IMessageDao, MessageFileDao>();
 builder.Services.AddScoped<IMessageLogic, MessageLogic>();
 builder.Services.AddScoped<INotificationDao, NotificationFileDao>();
 builder.Services.AddScoped<INotificationLogic, NotificationLogic>();
+builder.Services.AddScoped<IImageDao, ImageFileDao>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {

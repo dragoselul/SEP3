@@ -1,9 +1,11 @@
 ﻿@page "/Marketplace"
 @using Microsoft.AspNetCore.Components.Authorization
 @using Domain.Models
+@using Google.Protobuf
 @using HttpClients.ClientInterfaces
 @inject NavigationManager navMgr
 @inject IItemService itemService 
+@inject IImageService ImageService
 
 <CascadingAuthenticationState>
 <AuthorizeView>
@@ -42,31 +44,39 @@
                         </svg>
                     </button>
                 </div> -->
-                @if (items is null)
-                {
-                    <h5 style="color: white;">Loading...</h5>
-                }
-                else
-                {
-                    <!-- ITEMS -->
-                    <!-- ------------------------------------------------- -->
-                    <div class="items">
-                        @foreach (var item  in items)
+                @if (items is null && images is null)
                         {
-                            <div class="item card" @onclick="() =>ViewItem(item.Id)">
-                                <div class="item__position">
-                                    <img src="https://raw.githubusercontent.com/AbubakerSaeed/plants-shopping-uix/main/assets/1.png" alt="@item.Name" class="item__image item__image--hue">
-                                </div>
-                                <div class="item__detail">
-                                    <p>@item.Name</p>
-                                </div>
-                                <div class="item__detail">
-                                    <p>@item.Pricing</p>
-                                </div>
+                            <h5 style="color: white;">Loading...</h5>
+                        }
+                        else
+                        {
+                            <!-- ITEMS -->
+                            <!-- ------------------------------------------------- -->
+                            <div class="items">
+                                @foreach (var item  in items)
+                                {
+                                    
+                                    <div class="item card" @onclick="() =>ViewItem(item.Id)">
+                                        <div class="item__position">
+                                            @foreach (var image in images)
+                                            {
+                                                if (image.ItemId == item.Id)
+                                                {
+                                                    <img src="data:@image.contentType;base64,@image.base64data" alt="@item.Name" class="item__image item__image--hue">
+                                                    break;
+                                                }
+                                            }
+                                        </div>
+                                        <div class="item__detail">
+                                            <p>@item.Name</p>
+                                        </div>
+                                        <div class="item__detail">
+                                            <p>@item.Pricing</p>
+                                        </div>
+                                    </div>
+                                }
                             </div>
                         }
-                    </div>
-                }
                 <!-- PAGINATION -->
                 <!-- ------------------------------------------------- -->
                 <div>
@@ -223,7 +233,7 @@
                 </svg>
             </button>
         </div> -->
-        @if (items is null)
+        @if (items is null && images is null)
         {
             <h5 style="color: white;">Loading...</h5>
         }
@@ -234,9 +244,17 @@
             <div class="items">
                 @foreach (var item  in items)
                 {
+                    
                     <div class="item card" @onclick="() =>ViewItem(item.Id)">
                         <div class="item__position">
-                            <img src="https://raw.githubusercontent.com/AbubakerSaeed/plants-shopping-uix/main/assets/1.png" alt="@item.Name" class="item__image item__image--hue">
+                            @foreach (var image in images)
+                            {
+                                if (image.ItemId == item.Id)
+                                {
+                                    <img src="data:@image.contentType;base64,@image.base64data" alt="@item.Name" class="item__image item__image--hue">
+                                    break;
+                                }
+                            }
                         </div>
                         <div class="item__detail">
                             <p>@item.Name</p>
@@ -277,15 +295,19 @@
 
 @code {
     private List<Item> items = new();
+    private List<Image> images = new();
 
     protected override async Task OnInitializedAsync()
     {
         items = await itemService.GetItems();
+        foreach (Item item in items)
+        {
+            images.AddRange(await ImageService.GetImagesByItemId(item.Id));
+        }
     }
 
     private void ViewItem(int id)
     {
         navMgr.NavigateTo($"/ViewItem/{id}");
     }
-
 }

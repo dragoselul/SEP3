@@ -257,16 +257,13 @@ button:focus {
     cursor: pointer;
 }
 .item__image {
-    height: 80%;
+    height: 100%;
     cursor: pointer;
-}
-.item__image--hue {
-    filter: hue-rotate(130deg);
 }
 .item__detail {
     font-size: 1.6rem;
     padding-top: 0.8rem;
-    text-align: left;
+    text-align: center;
 }
 .item__detail p {
     margin: 0;

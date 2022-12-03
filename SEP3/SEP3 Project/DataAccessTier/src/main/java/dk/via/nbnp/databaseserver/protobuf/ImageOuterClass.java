@@ -38,17 +38,19 @@ public final class ImageOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\013image.proto\032\nitem.proto\"2\n\005Image\022\n\n\002id" +
-      "\030\001 \001(\003\022\r\n\005image\030\002 \001(\014\022\016\n\006itemId\030\003 \001(\003\"/\n" +
-      "\016UploadImageDto\022\r\n\005image\030\001 \001(\014\022\016\n\006itemId" +
-      "\030\002 \001(\003\",\n\016SearchImageDto\022\n\n\002id\030\001 \001(\003\022\016\n\006" +
-      "itemId\030\002 \001(\0032\272\001\n\014ImageService\022&\n\013UploadI" +
-      "mage\022\017.UploadImageDto\032\006.Image\022-\n\020GetImag" +
-      "eByItemId\022\017.SearchImageDto\032\006.Image0\001\022\'\n\014" +
-      "GetImageById\022\017.SearchImageDto\032\006.Image\022*\n" +
-      "\017DeleteImageById\022\017.SearchImageDto\032\006.Imag" +
-      "eB\'\n#dk.via.nbnp.databaseserver.protobuf" +
-      "P\001b\006proto3"
+      "\n\013image.proto\032\nitem.proto\"^\n\005Image\022\n\n\002id" +
+      "\030\001 \001(\003\022\022\n\nbase64data\030\002 \001(\t\022\023\n\013contentTyp" +
+      "e\030\003 \001(\t\022\020\n\010fileName\030\004 \001(\t\022\016\n\006itemId\030\005 \001(" +
+      "\003\"[\n\016UploadImageDto\022\022\n\nbase64data\030\001 \001(\t\022" +
+      "\023\n\013contentType\030\002 \001(\t\022\020\n\010fileName\030\003 \001(\t\022\016" +
+      "\n\006itemId\030\004 \001(\003\",\n\016SearchImageDto\022\n\n\002id\030\001" +
+      " \001(\003\022\016\n\006itemId\030\002 \001(\0032\272\001\n\014ImageService\022&\n" +
+      "\013UploadImage\022\017.UploadImageDto\032\006.Image\022-\n" +
+      "\020GetImageByItemId\022\017.SearchImageDto\032\006.Ima" +
+      "ge0\001\022\'\n\014GetImageById\022\017.SearchImageDto\032\006." +
+      "Image\022*\n\017DeleteImageById\022\017.SearchImageDt" +
+      "o\032\006.ImageB\'\n#dk.via.nbnp.databaseserver." +
+      "protobufP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -60,13 +62,13 @@ public final class ImageOuterClass {
     internal_static_Image_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Image_descriptor,
-        new java.lang.String[] { "Id", "Image", "ItemId", });
+        new java.lang.String[] { "Id", "Base64Data", "ContentType", "FileName", "ItemId", });
     internal_static_UploadImageDto_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_UploadImageDto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UploadImageDto_descriptor,
-        new java.lang.String[] { "Image", "ItemId", });
+        new java.lang.String[] { "Base64Data", "ContentType", "FileName", "ItemId", });
     internal_static_SearchImageDto_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_SearchImageDto_fieldAccessorTable = new
