@@ -15,6 +15,11 @@ public final class NotificationOuterClass {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Empty_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Empty_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_SearchNotificationDTO_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -33,32 +38,44 @@ public final class NotificationOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\022notification.proto\"#\n\025SearchNotificati" +
-      "onDTO\022\n\n\002id\030\001 \001(\003\"\200\001\n\014Notification\022\n\n\002id" +
-      "\030\001 \001(\003\022\016\n\006userId\030\002 \001(\003\022\017\n\007message\030\003 \001(\t\022" +
-      "\r\n\005title\030\004 \001(\t\022\030\n\020notificationType\030\005 \001(\t" +
-      "\022\032\n\022notificationTypeId\030\006 \001(\0032X\n\023Notifica" +
-      "tionService\022A\n\026getNotificationsByUser\022\026." +
-      "SearchNotificationDTO\032\r.Notification0\001B\'" +
-      "\n#dk.via.nbnp.databaseserver.protobufP\001b" +
-      "\006proto3"
+      "\n\022notification.proto\032\nuser.proto\"\007\n\005Empt" +
+      "y\"#\n\025SearchNotificationDTO\022\n\n\002id\030\001 \001(\003\"\243" +
+      "\001\n\014Notification\022\n\n\002id\030\001 \001(\003\022\017\n\007ownerId\030\002" +
+      " \001(\003\022\017\n\007message\030\003 \001(\t\022\r\n\005title\030\004 \001(\t\022 \n\010" +
+      "dateSent\030\007 \001(\0132\016.LocalDateTime\022\030\n\020notifi" +
+      "cationType\030\005 \001(\t\022\032\n\022notificationTypeId\030\006" +
+      " \001(\0032\321\001\n\023NotificationService\022A\n\026getNotif" +
+      "icationsByUser\022\026.SearchNotificationDTO\032\r" +
+      ".Notification0\001\0228\n\026deleteNotificationByI" +
+      "d\022\026.SearchNotificationDTO\032\006.Empty\022=\n\033del" +
+      "eteNotificationsByUserId\022\026.SearchNotific" +
+      "ationDTO\032\006.EmptyB\'\n#dk.via.nbnp.database" +
+      "server.protobufP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          dk.via.nbnp.databaseserver.protobuf.UserOuterClass.getDescriptor(),
         });
-    internal_static_SearchNotificationDTO_descriptor =
+    internal_static_Empty_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_Empty_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Empty_descriptor,
+        new java.lang.String[] { });
+    internal_static_SearchNotificationDTO_descriptor =
+      getDescriptor().getMessageTypes().get(1);
     internal_static_SearchNotificationDTO_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SearchNotificationDTO_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_Notification_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_Notification_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Notification_descriptor,
-        new java.lang.String[] { "Id", "UserId", "Message", "Title", "NotificationType", "NotificationTypeId", });
+        new java.lang.String[] { "Id", "OwnerId", "Message", "Title", "DateSent", "NotificationType", "NotificationTypeId", });
+    dk.via.nbnp.databaseserver.protobuf.UserOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

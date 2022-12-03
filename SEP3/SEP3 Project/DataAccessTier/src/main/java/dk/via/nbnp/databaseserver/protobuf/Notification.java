@@ -58,7 +58,7 @@ private static final long serialVersionUID = 0L;
           }
           case 16: {
 
-            userId_ = input.readInt64();
+            ownerId_ = input.readInt64();
             break;
           }
           case 26: {
@@ -82,6 +82,19 @@ private static final long serialVersionUID = 0L;
           case 48: {
 
             notificationTypeId_ = input.readInt64();
+            break;
+          }
+          case 58: {
+            dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder subBuilder = null;
+            if (dateSent_ != null) {
+              subBuilder = dateSent_.toBuilder();
+            }
+            dateSent_ = input.readMessage(dk.via.nbnp.databaseserver.protobuf.LocalDateTime.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(dateSent_);
+              dateSent_ = subBuilder.buildPartial();
+            }
+
             break;
           }
           default: {
@@ -129,15 +142,15 @@ private static final long serialVersionUID = 0L;
     return id_;
   }
 
-  public static final int USERID_FIELD_NUMBER = 2;
-  private long userId_;
+  public static final int OWNERID_FIELD_NUMBER = 2;
+  private long ownerId_;
   /**
-   * <code>int64 userId = 2;</code>
-   * @return The userId.
+   * <code>int64 ownerId = 2;</code>
+   * @return The ownerId.
    */
   @java.lang.Override
-  public long getUserId() {
-    return userId_;
+  public long getOwnerId() {
+    return ownerId_;
   }
 
   public static final int MESSAGE_FIELD_NUMBER = 3;
@@ -216,6 +229,32 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int DATESENT_FIELD_NUMBER = 7;
+  private dk.via.nbnp.databaseserver.protobuf.LocalDateTime dateSent_;
+  /**
+   * <code>.LocalDateTime dateSent = 7;</code>
+   * @return Whether the dateSent field is set.
+   */
+  @java.lang.Override
+  public boolean hasDateSent() {
+    return dateSent_ != null;
+  }
+  /**
+   * <code>.LocalDateTime dateSent = 7;</code>
+   * @return The dateSent.
+   */
+  @java.lang.Override
+  public dk.via.nbnp.databaseserver.protobuf.LocalDateTime getDateSent() {
+    return dateSent_ == null ? dk.via.nbnp.databaseserver.protobuf.LocalDateTime.getDefaultInstance() : dateSent_;
+  }
+  /**
+   * <code>.LocalDateTime dateSent = 7;</code>
+   */
+  @java.lang.Override
+  public dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder getDateSentOrBuilder() {
+    return getDateSent();
+  }
+
   public static final int NOTIFICATIONTYPE_FIELD_NUMBER = 5;
   private volatile java.lang.Object notificationType_;
   /**
@@ -282,8 +321,8 @@ private static final long serialVersionUID = 0L;
     if (id_ != 0L) {
       output.writeInt64(1, id_);
     }
-    if (userId_ != 0L) {
-      output.writeInt64(2, userId_);
+    if (ownerId_ != 0L) {
+      output.writeInt64(2, ownerId_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, message_);
@@ -296,6 +335,9 @@ private static final long serialVersionUID = 0L;
     }
     if (notificationTypeId_ != 0L) {
       output.writeInt64(6, notificationTypeId_);
+    }
+    if (dateSent_ != null) {
+      output.writeMessage(7, getDateSent());
     }
     unknownFields.writeTo(output);
   }
@@ -310,9 +352,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(1, id_);
     }
-    if (userId_ != 0L) {
+    if (ownerId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, userId_);
+        .computeInt64Size(2, ownerId_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, message_);
@@ -326,6 +368,10 @@ private static final long serialVersionUID = 0L;
     if (notificationTypeId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(6, notificationTypeId_);
+    }
+    if (dateSent_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(7, getDateSent());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -344,12 +390,17 @@ private static final long serialVersionUID = 0L;
 
     if (getId()
         != other.getId()) return false;
-    if (getUserId()
-        != other.getUserId()) return false;
+    if (getOwnerId()
+        != other.getOwnerId()) return false;
     if (!getMessage()
         .equals(other.getMessage())) return false;
     if (!getTitle()
         .equals(other.getTitle())) return false;
+    if (hasDateSent() != other.hasDateSent()) return false;
+    if (hasDateSent()) {
+      if (!getDateSent()
+          .equals(other.getDateSent())) return false;
+    }
     if (!getNotificationType()
         .equals(other.getNotificationType())) return false;
     if (getNotificationTypeId()
@@ -368,13 +419,17 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getId());
-    hash = (37 * hash) + USERID_FIELD_NUMBER;
+    hash = (37 * hash) + OWNERID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getUserId());
+        getOwnerId());
     hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
     hash = (53 * hash) + getMessage().hashCode();
     hash = (37 * hash) + TITLE_FIELD_NUMBER;
     hash = (53 * hash) + getTitle().hashCode();
+    if (hasDateSent()) {
+      hash = (37 * hash) + DATESENT_FIELD_NUMBER;
+      hash = (53 * hash) + getDateSent().hashCode();
+    }
     hash = (37 * hash) + NOTIFICATIONTYPE_FIELD_NUMBER;
     hash = (53 * hash) + getNotificationType().hashCode();
     hash = (37 * hash) + NOTIFICATIONTYPEID_FIELD_NUMBER;
@@ -515,12 +570,18 @@ private static final long serialVersionUID = 0L;
       super.clear();
       id_ = 0L;
 
-      userId_ = 0L;
+      ownerId_ = 0L;
 
       message_ = "";
 
       title_ = "";
 
+      if (dateSentBuilder_ == null) {
+        dateSent_ = null;
+      } else {
+        dateSent_ = null;
+        dateSentBuilder_ = null;
+      }
       notificationType_ = "";
 
       notificationTypeId_ = 0L;
@@ -552,9 +613,14 @@ private static final long serialVersionUID = 0L;
     public dk.via.nbnp.databaseserver.protobuf.Notification buildPartial() {
       dk.via.nbnp.databaseserver.protobuf.Notification result = new dk.via.nbnp.databaseserver.protobuf.Notification(this);
       result.id_ = id_;
-      result.userId_ = userId_;
+      result.ownerId_ = ownerId_;
       result.message_ = message_;
       result.title_ = title_;
+      if (dateSentBuilder_ == null) {
+        result.dateSent_ = dateSent_;
+      } else {
+        result.dateSent_ = dateSentBuilder_.build();
+      }
       result.notificationType_ = notificationType_;
       result.notificationTypeId_ = notificationTypeId_;
       onBuilt();
@@ -608,8 +674,8 @@ private static final long serialVersionUID = 0L;
       if (other.getId() != 0L) {
         setId(other.getId());
       }
-      if (other.getUserId() != 0L) {
-        setUserId(other.getUserId());
+      if (other.getOwnerId() != 0L) {
+        setOwnerId(other.getOwnerId());
       }
       if (!other.getMessage().isEmpty()) {
         message_ = other.message_;
@@ -618,6 +684,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getTitle().isEmpty()) {
         title_ = other.title_;
         onChanged();
+      }
+      if (other.hasDateSent()) {
+        mergeDateSent(other.getDateSent());
       }
       if (!other.getNotificationType().isEmpty()) {
         notificationType_ = other.notificationType_;
@@ -686,33 +755,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long userId_ ;
+    private long ownerId_ ;
     /**
-     * <code>int64 userId = 2;</code>
-     * @return The userId.
+     * <code>int64 ownerId = 2;</code>
+     * @return The ownerId.
      */
     @java.lang.Override
-    public long getUserId() {
-      return userId_;
+    public long getOwnerId() {
+      return ownerId_;
     }
     /**
-     * <code>int64 userId = 2;</code>
-     * @param value The userId to set.
+     * <code>int64 ownerId = 2;</code>
+     * @param value The ownerId to set.
      * @return This builder for chaining.
      */
-    public Builder setUserId(long value) {
+    public Builder setOwnerId(long value) {
       
-      userId_ = value;
+      ownerId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 userId = 2;</code>
+     * <code>int64 ownerId = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearUserId() {
+    public Builder clearOwnerId() {
       
-      userId_ = 0L;
+      ownerId_ = 0L;
       onChanged();
       return this;
     }
@@ -867,6 +936,125 @@ private static final long serialVersionUID = 0L;
       title_ = value;
       onChanged();
       return this;
+    }
+
+    private dk.via.nbnp.databaseserver.protobuf.LocalDateTime dateSent_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.nbnp.databaseserver.protobuf.LocalDateTime, dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder, dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder> dateSentBuilder_;
+    /**
+     * <code>.LocalDateTime dateSent = 7;</code>
+     * @return Whether the dateSent field is set.
+     */
+    public boolean hasDateSent() {
+      return dateSentBuilder_ != null || dateSent_ != null;
+    }
+    /**
+     * <code>.LocalDateTime dateSent = 7;</code>
+     * @return The dateSent.
+     */
+    public dk.via.nbnp.databaseserver.protobuf.LocalDateTime getDateSent() {
+      if (dateSentBuilder_ == null) {
+        return dateSent_ == null ? dk.via.nbnp.databaseserver.protobuf.LocalDateTime.getDefaultInstance() : dateSent_;
+      } else {
+        return dateSentBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.LocalDateTime dateSent = 7;</code>
+     */
+    public Builder setDateSent(dk.via.nbnp.databaseserver.protobuf.LocalDateTime value) {
+      if (dateSentBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        dateSent_ = value;
+        onChanged();
+      } else {
+        dateSentBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.LocalDateTime dateSent = 7;</code>
+     */
+    public Builder setDateSent(
+        dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder builderForValue) {
+      if (dateSentBuilder_ == null) {
+        dateSent_ = builderForValue.build();
+        onChanged();
+      } else {
+        dateSentBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.LocalDateTime dateSent = 7;</code>
+     */
+    public Builder mergeDateSent(dk.via.nbnp.databaseserver.protobuf.LocalDateTime value) {
+      if (dateSentBuilder_ == null) {
+        if (dateSent_ != null) {
+          dateSent_ =
+            dk.via.nbnp.databaseserver.protobuf.LocalDateTime.newBuilder(dateSent_).mergeFrom(value).buildPartial();
+        } else {
+          dateSent_ = value;
+        }
+        onChanged();
+      } else {
+        dateSentBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.LocalDateTime dateSent = 7;</code>
+     */
+    public Builder clearDateSent() {
+      if (dateSentBuilder_ == null) {
+        dateSent_ = null;
+        onChanged();
+      } else {
+        dateSent_ = null;
+        dateSentBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.LocalDateTime dateSent = 7;</code>
+     */
+    public dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder getDateSentBuilder() {
+      
+      onChanged();
+      return getDateSentFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.LocalDateTime dateSent = 7;</code>
+     */
+    public dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder getDateSentOrBuilder() {
+      if (dateSentBuilder_ != null) {
+        return dateSentBuilder_.getMessageOrBuilder();
+      } else {
+        return dateSent_ == null ?
+            dk.via.nbnp.databaseserver.protobuf.LocalDateTime.getDefaultInstance() : dateSent_;
+      }
+    }
+    /**
+     * <code>.LocalDateTime dateSent = 7;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dk.via.nbnp.databaseserver.protobuf.LocalDateTime, dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder, dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder> 
+        getDateSentFieldBuilder() {
+      if (dateSentBuilder_ == null) {
+        dateSentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            dk.via.nbnp.databaseserver.protobuf.LocalDateTime, dk.via.nbnp.databaseserver.protobuf.LocalDateTime.Builder, dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder>(
+                getDateSent(),
+                getParentForChildren(),
+                isClean());
+        dateSent_ = null;
+      }
+      return dateSentBuilder_;
     }
 
     private java.lang.Object notificationType_ = "";

@@ -68,6 +68,7 @@ D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\ImageOuterClass.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\MessageServiceGrpc.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\SearchImageDto.java
+D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\application\mappers\NotificationMapper.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\application\services\ConversationService.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\application\config\CategoryConfig.java
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\DataAccessTier\src\main\java\dk\via\nbnp\databaseserver\protobuf\GetItemCount.java

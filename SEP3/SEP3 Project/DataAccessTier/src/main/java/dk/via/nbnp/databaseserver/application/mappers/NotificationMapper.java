@@ -11,7 +11,8 @@ public class NotificationMapper {
                 setNotificationType(notification.getNotificationType()).
                 setNotificationTypeId(notification.getNotificationTypeId()).
                 setTitle(notification.getTitle()).
-                setUserId(notification.getOwner().getId()).
+                setOwnerId(notification.getOwner().getId()).
+                setDateSent(LocalDateMapper.mapDomainToProto(notification.getDateSent())).
                 build();
     }
 

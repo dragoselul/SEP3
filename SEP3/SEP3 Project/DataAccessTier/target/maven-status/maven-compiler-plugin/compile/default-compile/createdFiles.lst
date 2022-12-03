@@ -23,6 +23,7 @@ dk\via\nbnp\databaseserver\application\services\ConversationService.class
 dk\via\nbnp\databaseserver\protobuf\NotificationServiceGrpc.class
 dk\via\nbnp\databaseserver\protobuf\ConversationServiceGrpc$ConversationServiceFileDescriptorSupplier.class
 dk\via\nbnp\databaseserver\protobuf\Category$Builder.class
+dk\via\nbnp\databaseserver\application\mappers\NotificationMapper.class
 dk\via\nbnp\databaseserver\protobuf\ItemOuterClass.class
 dk\via\nbnp\databaseserver\protobuf\CreateConversationDTOOrBuilder.class
 dk\via\nbnp\databaseserver\repositories\UserRepository.class

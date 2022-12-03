@@ -1,9 +1,7 @@
 package dk.via.nbnp.databaseserver.application.services;
 
 import dk.via.nbnp.databaseserver.application.mappers.NotificationMapper;
-import dk.via.nbnp.databaseserver.domain.Conversation;
-import dk.via.nbnp.databaseserver.domain.Message;
-import dk.via.nbnp.databaseserver.domain.User;
+import dk.via.nbnp.databaseserver.protobuf.Empty;
 import dk.via.nbnp.databaseserver.protobuf.Notification;
 import dk.via.nbnp.databaseserver.protobuf.NotificationServiceGrpc;
 import dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO;
@@ -13,10 +11,7 @@ import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
 @GRpcService
 public class NotificationService extends NotificationServiceGrpc.NotificationServiceImplBase {
@@ -26,6 +21,17 @@ public class NotificationService extends NotificationServiceGrpc.NotificationSer
     @Autowired
     public NotificationService(NotificationRepository notificationRepository, UserRepository userRepository) {
         this.notificationRepository = notificationRepository;
+    }
+    @Override
+    public void deleteNotificationById(SearchNotificationDTO request, StreamObserver<Empty> responseObserver) {
+        notificationRepository.deleteById(request.getId());
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void deleteNotificationsByUserId(SearchNotificationDTO request, StreamObserver<Empty> responseObserver) {
+        notificationRepository.deleteALlByOwnerId(request.getId());
+        responseObserver.onCompleted();
     }
 
     @Override

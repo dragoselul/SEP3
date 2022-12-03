@@ -14,10 +14,10 @@ public interface NotificationOrBuilder extends
   long getId();
 
   /**
-   * <code>int64 userId = 2;</code>
-   * @return The userId.
+   * <code>int64 ownerId = 2;</code>
+   * @return The ownerId.
    */
-  long getUserId();
+  long getOwnerId();
 
   /**
    * <code>string message = 3;</code>
@@ -42,6 +42,21 @@ public interface NotificationOrBuilder extends
    */
   com.google.protobuf.ByteString
       getTitleBytes();
+
+  /**
+   * <code>.LocalDateTime dateSent = 7;</code>
+   * @return Whether the dateSent field is set.
+   */
+  boolean hasDateSent();
+  /**
+   * <code>.LocalDateTime dateSent = 7;</code>
+   * @return The dateSent.
+   */
+  dk.via.nbnp.databaseserver.protobuf.LocalDateTime getDateSent();
+  /**
+   * <code>.LocalDateTime dateSent = 7;</code>
+   */
+  dk.via.nbnp.databaseserver.protobuf.LocalDateTimeOrBuilder getDateSentOrBuilder();
 
   /**
    * <code>string notificationType = 5;</code>

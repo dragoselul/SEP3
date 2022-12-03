@@ -45,6 +45,68 @@ public final class NotificationServiceGrpc {
     return getGetNotificationsByUserMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO,
+      dk.via.nbnp.databaseserver.protobuf.Empty> getDeleteNotificationByIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "deleteNotificationById",
+      requestType = dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO.class,
+      responseType = dk.via.nbnp.databaseserver.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO,
+      dk.via.nbnp.databaseserver.protobuf.Empty> getDeleteNotificationByIdMethod() {
+    io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO, dk.via.nbnp.databaseserver.protobuf.Empty> getDeleteNotificationByIdMethod;
+    if ((getDeleteNotificationByIdMethod = NotificationServiceGrpc.getDeleteNotificationByIdMethod) == null) {
+      synchronized (NotificationServiceGrpc.class) {
+        if ((getDeleteNotificationByIdMethod = NotificationServiceGrpc.getDeleteNotificationByIdMethod) == null) {
+          NotificationServiceGrpc.getDeleteNotificationByIdMethod = getDeleteNotificationByIdMethod =
+              io.grpc.MethodDescriptor.<dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO, dk.via.nbnp.databaseserver.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "deleteNotificationById"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.nbnp.databaseserver.protobuf.Empty.getDefaultInstance()))
+              .setSchemaDescriptor(new NotificationServiceMethodDescriptorSupplier("deleteNotificationById"))
+              .build();
+        }
+      }
+    }
+    return getDeleteNotificationByIdMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO,
+      dk.via.nbnp.databaseserver.protobuf.Empty> getDeleteNotificationsByUserIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "deleteNotificationsByUserId",
+      requestType = dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO.class,
+      responseType = dk.via.nbnp.databaseserver.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO,
+      dk.via.nbnp.databaseserver.protobuf.Empty> getDeleteNotificationsByUserIdMethod() {
+    io.grpc.MethodDescriptor<dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO, dk.via.nbnp.databaseserver.protobuf.Empty> getDeleteNotificationsByUserIdMethod;
+    if ((getDeleteNotificationsByUserIdMethod = NotificationServiceGrpc.getDeleteNotificationsByUserIdMethod) == null) {
+      synchronized (NotificationServiceGrpc.class) {
+        if ((getDeleteNotificationsByUserIdMethod = NotificationServiceGrpc.getDeleteNotificationsByUserIdMethod) == null) {
+          NotificationServiceGrpc.getDeleteNotificationsByUserIdMethod = getDeleteNotificationsByUserIdMethod =
+              io.grpc.MethodDescriptor.<dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO, dk.via.nbnp.databaseserver.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "deleteNotificationsByUserId"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  dk.via.nbnp.databaseserver.protobuf.Empty.getDefaultInstance()))
+              .setSchemaDescriptor(new NotificationServiceMethodDescriptorSupplier("deleteNotificationsByUserId"))
+              .build();
+        }
+      }
+    }
+    return getDeleteNotificationsByUserIdMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -100,6 +162,20 @@ public final class NotificationServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetNotificationsByUserMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void deleteNotificationById(dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO request,
+        io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteNotificationByIdMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void deleteNotificationsByUserId(dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO request,
+        io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteNotificationsByUserIdMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -109,6 +185,20 @@ public final class NotificationServiceGrpc {
                 dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO,
                 dk.via.nbnp.databaseserver.protobuf.Notification>(
                   this, METHODID_GET_NOTIFICATIONS_BY_USER)))
+          .addMethod(
+            getDeleteNotificationByIdMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO,
+                dk.via.nbnp.databaseserver.protobuf.Empty>(
+                  this, METHODID_DELETE_NOTIFICATION_BY_ID)))
+          .addMethod(
+            getDeleteNotificationsByUserIdMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO,
+                dk.via.nbnp.databaseserver.protobuf.Empty>(
+                  this, METHODID_DELETE_NOTIFICATIONS_BY_USER_ID)))
           .build();
     }
   }
@@ -134,6 +224,22 @@ public final class NotificationServiceGrpc {
       io.grpc.stub.ClientCalls.asyncServerStreamingCall(
           getChannel().newCall(getGetNotificationsByUserMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void deleteNotificationById(dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO request,
+        io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getDeleteNotificationByIdMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void deleteNotificationsByUserId(dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO request,
+        io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getDeleteNotificationsByUserIdMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -157,6 +263,20 @@ public final class NotificationServiceGrpc {
       return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
           getChannel(), getGetNotificationsByUserMethod(), getCallOptions(), request);
     }
+
+    /**
+     */
+    public dk.via.nbnp.databaseserver.protobuf.Empty deleteNotificationById(dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getDeleteNotificationByIdMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public dk.via.nbnp.databaseserver.protobuf.Empty deleteNotificationsByUserId(dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getDeleteNotificationsByUserIdMethod(), getCallOptions(), request);
+    }
   }
 
   /**
@@ -172,9 +292,27 @@ public final class NotificationServiceGrpc {
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new NotificationServiceFutureStub(channel, callOptions);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<dk.via.nbnp.databaseserver.protobuf.Empty> deleteNotificationById(
+        dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getDeleteNotificationByIdMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<dk.via.nbnp.databaseserver.protobuf.Empty> deleteNotificationsByUserId(
+        dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getDeleteNotificationsByUserIdMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_NOTIFICATIONS_BY_USER = 0;
+  private static final int METHODID_DELETE_NOTIFICATION_BY_ID = 1;
+  private static final int METHODID_DELETE_NOTIFICATIONS_BY_USER_ID = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -196,6 +334,14 @@ public final class NotificationServiceGrpc {
         case METHODID_GET_NOTIFICATIONS_BY_USER:
           serviceImpl.getNotificationsByUser((dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO) request,
               (io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Notification>) responseObserver);
+          break;
+        case METHODID_DELETE_NOTIFICATION_BY_ID:
+          serviceImpl.deleteNotificationById((dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO) request,
+              (io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_DELETE_NOTIFICATIONS_BY_USER_ID:
+          serviceImpl.deleteNotificationsByUserId((dk.via.nbnp.databaseserver.protobuf.SearchNotificationDTO) request,
+              (io.grpc.stub.StreamObserver<dk.via.nbnp.databaseserver.protobuf.Empty>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -259,6 +405,8 @@ public final class NotificationServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new NotificationServiceFileDescriptorSupplier())
               .addMethod(getGetNotificationsByUserMethod())
+              .addMethod(getDeleteNotificationByIdMethod())
+              .addMethod(getDeleteNotificationsByUserIdMethod())
               .build();
         }
       }

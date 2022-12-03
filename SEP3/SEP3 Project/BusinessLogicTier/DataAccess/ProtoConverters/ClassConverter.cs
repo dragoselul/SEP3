@@ -5,6 +5,7 @@ using Image = Domain.Models.Image;
 using Item = Domain.Models.Item;
 using User = Domain.Models.User;
 using Message = Domain.Models.Message;
+using Notification = Domain.Models.Notification;
 
 namespace DataAccess.ProtoConverters;
 
@@ -103,4 +104,19 @@ public abstract class ClassConverter
         };
         return toDomain;
     }
+
+    public static Notification ConvertProtoToDomain(gRPCClient.Notification notification)
+    {
+        return new Notification
+        {
+            Id = notification.Id,
+            DateSent = ConvertProtoToDomain(notification.DateSent),
+            Message = notification.Message,
+            NotificationType = notification.NotificationType,
+            NotificationTypeId = notification.NotificationTypeId,
+            OwnerId = notification.OwnerId,
+            Title = notification.Title
+        };
+    }
+    
 }

@@ -1,8 +1,7 @@
 syntax = "proto3";
-import "user.proto";
+import "protos/user.proto";
 
-option java_multiple_files = true;
-option java_package = "dk.via.nbnp.databaseserver.protobuf";
+option csharp_namespace = "gRPCClient";
 
 service NotificationService{
   rpc getNotificationsByUser(SearchNotificationDTO) returns (stream Notification);
