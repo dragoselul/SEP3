@@ -23,7 +23,7 @@ public class NotificationService extends NotificationServiceGrpc.NotificationSer
     public void getNotificationsByUser(SearchNotificationDTO request, StreamObserver<Notification> responseObserver) {
         List<dk.via.nbnp.databaseserver.domain.Notification> notifications =  notificationRepository.findAllByOwnerId(request.getId());
         for (dk.via.nbnp.databaseserver.domain.Notification n : notifications) {
-            responseObserver.onNext();
+           
         }
 
     }
