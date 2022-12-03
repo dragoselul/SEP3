@@ -11,8 +11,10 @@ import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
+@Transactional
 @GRpcService
 public class NotificationService extends NotificationServiceGrpc.NotificationServiceImplBase {
 
@@ -30,7 +32,7 @@ public class NotificationService extends NotificationServiceGrpc.NotificationSer
 
     @Override
     public void deleteNotificationsByUserId(SearchNotificationDTO request, StreamObserver<Empty> responseObserver) {
-        notificationRepository.deleteALlByOwnerId(request.getId());
+        notificationRepository.deleteAllByOwnerId(request.getId());
         responseObserver.onCompleted();
     }
 

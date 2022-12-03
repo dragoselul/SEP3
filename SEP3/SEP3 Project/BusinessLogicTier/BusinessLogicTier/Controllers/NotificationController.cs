@@ -45,6 +45,7 @@ public class NotificationController : ControllerBase
         }
     }
     
+    [HttpDelete]
     public Task<ActionResult> DeleteNotificationsByOwnerAsync([FromQuery] int ownerId)
     {
         try
