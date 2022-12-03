@@ -8,7 +8,9 @@ import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @GRpcService
@@ -17,12 +19,36 @@ public class MessageService extends MessageServiceGrpc.MessageServiceImplBase {
     private final MessageRepository messageRepository;
     private final UserRepository userRepository;
     private final ConversationRepository conversationRepository;
+    private final NotificationRepository notificationRepository;
 
     @Autowired
-    public MessageService(ConversationRepository conversationRepository, MessageRepository messageRepository, UserRepository userRepository) {
+    public MessageService(ConversationRepository conversationRepository, MessageRepository messageRepository,
+              UserRepository userRepository, NotificationRepository notificationRepository) {
         this.conversationRepository = conversationRepository;
         this.messageRepository = messageRepository;
         this.userRepository = userRepository;
+        this.notificationRepository = notificationRepository;
+    }
+
+    public void createNotification(dk.via.nbnp.databaseserver.domain.Message message){
+
+        dk.via.nbnp.databaseserver.domain.Conversation conv = message.getConversation();
+        long ownerId = (Objects.equals(conv.getBuyer().getId(), message.getSender().getId())) ? conv.getSeller().getId() : conv.getBuyer().getId();
+
+        Optional<User> owner = userRepository.findById(ownerId);
+        if(owner.isEmpty()){
+            throw new EntityNotFoundException("User with this Id does not exist");
+        }else{
+            dk.via.nbnp.databaseserver.domain.Notification notification = new dk.via.nbnp.databaseserver.domain.Notification(
+                    "Message from " + message.getSender().getFirstName() + " " + message.getSender().getLastName(),
+                    message.getContent(),
+                    owner.get(),
+                    "message",
+                    message.getConversation().getId()
+            );
+            notificationRepository.save(notification);
+        }
+
     }
 
     @Override
@@ -66,6 +92,8 @@ public class MessageService extends MessageServiceGrpc.MessageServiceImplBase {
                         conv.get()
                 );
                 dk.via.nbnp.databaseserver.domain.Message generated = messageRepository.save(message);
+                createNotification(generated);
+
                 responseObserver.onNext(MessageMapper.mapDomainToProto(generated));
                 responseObserver.onCompleted();
             }
