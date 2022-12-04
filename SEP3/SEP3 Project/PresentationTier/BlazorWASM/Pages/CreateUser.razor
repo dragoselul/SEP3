@@ -1,85 +1,79 @@
 ﻿@page "/CreateUser"
 @using Domain.DTOs
 @using HttpClients.ClientInterfaces
+@using System.ComponentModel.DataAnnotations
 @inject IUserService userService
+@inject NavigationManager navMgr;
+
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+                    <h3>Create User</h3>
+                    <p>Fill in the data below.</p>
+                    <EditForm Model="@userCreation" OnValidSubmit="@HandleValidSubmit">
+                        <DataAnnotationsValidator/>
+                        <div class="col-md-12 ForInput">
+                            <InputText class="form-control ForInput" type="text" placeholder="First Name" @bind-Value="userCreation.FirstName"/>
+                            <ValidationMessage For="() => userCreation.FirstName"/>
+                        </div>
+                        <div class="col-md-12 ForInput">
+                            <InputText class="form-control" type="text" name="LastName" placeholder="Last Name" @bind-Value="userCreation.LastName"/>
+                            <ValidationMessage For="() => userCreation.LastName"/>
+                        </div>
+
+                        <div class="col-md-12 ForInput">
+                            <InputText class="form-control" type="email" name="email" placeholder="E-mail Address" @bind-Value="userCreation.Email"/>
+                            <ValidationMessage For="() => userCreation.Email"/>
+                        </div>
+
+                        <div class="col-md-12 ForInput">
+                            <InputText class="form-control" type="text" name="phoneNumber" placeholder="Phone number" @bind-Value="userCreation.PhoneNumber"/>
+                            <ValidationMessage For="() => userCreation.PhoneNumber"/>
+                        </div>
+
+                        <div class="col-md-12" ForInput>
+                            <InputText class="form-control" type="password" name="password" placeholder="Password" @bind-Value="userCreation.Password"/>
+                            <ValidationMessage For="() => userCreation.Password" class="ForInvalidMessage"/>
+                        </div>
 
 
-<div class="mb-3 ">
-    <h3>Create User</h3>
-    <div class="form-group field" id="firstName">
-        <label class="form-label">First name:</label>
-        <input class="form-control" type="text" @bind="firstName" @bind:event="oninput"/>
-    </div>
-    <div class="form-group field" id="lastName">
-        <label class="form-label">Last name:</label>
-        <input class="form-control" type="text" @bind="lastName" @bind:event="oninput"/>
-    </div>
-    <div class="form-group field" id="email">
-        <label class="form-label">Email:</label>
-        <input class="form-control" type="text" @bind="email" @bind:event="oninput" placeholder="name@example.com"/>
-    </div>
-    <div class="form-group field" id="password">
-        <label class="form-label">Password:</label>
-        <input class="form-control" type="password" @bind="password" @bind:event="oninput" placeholder="password"/>
-    </div>
-    <div class="form-group field" id="phoneNumber">
-        <label class="form-label">Phone number:</label>
-        <input class="form-control" type="text" @bind="phoneNumber" @bind:event="oninput" placeholder="+45 12 34 56 78"/>
-  <!--     /* if (!string.IsNullOrEmpty(resultMsg) || !string.IsNullOrEmpty(resultMsg) || !string.IsNullOrEmpty(resultMsg) ||
-             !string.IsNullOrEmpty(resultMsg) || !string.IsNullOrEmpty(resultMsg))
-        {
-            <label style="color: @color">Error: Make sure to input all data!</label>
-        } */-->
-    </div>
-    <button class="button-row mt-2"  @onclick="Toggle">@toggleText</button>
+                        <div class="col-md-12 mt-3">
+                            <label class="mb-3 mr-1" for="gender">Gender: </label>
+                            <InputRadioGroup @bind-Value="userCreation.Gender">
+                                <InputRadio Value="true" class="btn-check" id="male" autocomplete="off"/>
+                                <label class="btn btn-sm btn-outline-secondary" for="male">Male</label>
 
-    <div class="button-row mt-2">
-        <button @onclick="Create" title="To create new account please insert all the data" id="create"
-                disabled="@(string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(phoneNumber))" class="acceptbtn btn btn-outline-dark">
-            Create
-        </button>
+                                <InputRadio Value="false" class="btn-check" id="female" autocomplete="off"/>
+                                <label class="btn btn-sm btn-outline-secondary" for="female">Female</label>
+                                <ValidationMessage For="() => userCreation.Gender"/>
+
+                            </InputRadioGroup>
+                        </div>
+                        <div class="form-button mt-3">
+                            <button id="submit" type="submit" class="btn btn-primary">Register</button>
+                        </div>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 @code {
-    private string toggleText => gender ? "Male" : "Female";
-    private string firstName = "";
-    private string lastName = "";
-    private string email = "";
-    private string password = "";
-    private string phoneNumber = "";
-    private bool gender = true;
-    private string resultMsg = "";
-    private string color = "";
+    private UserCreationDto userCreation = new();
 
-    private void Toggle()
+    private async void HandleValidSubmit()
     {
-        gender = !gender;
-    }
-
-    private async Task Create()
-    {
-        resultMsg = "";
-
         try
         {
-            await userService.Create(new UserCreationDto(firstName, lastName, email, password, phoneNumber, gender));
-            firstName = "";
-            lastName = "";
-            email = "";
-            password = "";
-            phoneNumber = "";
-            gender = false;
-            resultMsg = "";
-            color = "";
-            resultMsg = "User successfully created";
-            color = "green";
+            navMgr.NavigateTo("/LoginSeeProfile");
+            await userService.Create(userCreation);
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
-            resultMsg = e.Message;
-            color = "red";
         }
     }
 
