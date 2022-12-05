@@ -1,61 +1,61 @@
 ﻿@page "/LoginSeeProfile"
 @using BlazorWasm.Services
+@using Domain.DTOs
 @using Microsoft.AspNetCore.Components.Authorization
 @inject IAuthService authService
 @inject NavigationManager navMgr
 <CascadingAuthenticationState>
-<AuthorizeView>
-    <NotAuthorized>
-        <body>
-            <div class="main">
-                <div class="login">
-                    <label>Please login</label>
-                    <div class="field">
-                        <label>Email:</label>
-                        <input type="text" @bind="Email" placeholder="Email"/>
-                    </div>
-                    <div class="field">
-                        <label style="text-align: center">Password:</label>
-                        <input type="password" @bind="Password" placeholder="Password"/>
-                    </div>
-                    @if (!string.IsNullOrEmpty(ErrorLabel))
-                    {
-                        <div class="field">
-                            <label style="color: red">
-                                @ErrorLabel
-                            </label>
+    <AuthorizeView Context="Auth">
+        <NotAuthorized>
+            <div class="form-body">
+                <div class="row">
+                    <div class="form-holder">
+                        <div class="form-content">
+                            <div class="form-items">
+                                <h3>Login</h3>
+                                <p>Fill in the data below.</p>
+                                <EditForm Model="@userLogin" OnValidSubmit="@HandleValidSubmit">
+                                    <DataAnnotationsValidator/>
+                                    <div class="col-md-12 ForInput">
+                                        <InputText class="form-control" type="email" name="email" placeholder="E-mail Address" @bind-Value="userLogin.Email"/>
+                                        <ValidationMessage For="() => userLogin.Email"/>
+                                    </div>
+                                    <div class="col-md-12" ForInput>
+                                        <InputText class="form-control" type="password" name="password" placeholder="Password" @bind-Value="userLogin.Password"/>
+                                        <ValidationMessage For="() => userLogin.Password" class="ForInvalidMessage"/>
+                                    </div>
+                                    <div class="form-button mt-3">
+                                        <button id="submit" type="submit" class="btn btn-primary">Login</button>
+                                    </div>
+                                </EditForm>
+                            </div>
                         </div>
-                    }
-                    <div class="field">
-                        <button class="loginbtn" @onclick="LoginAsync">Log in</button>
                     </div>
                 </div>
             </div>
-     </body>
-    </NotAuthorized>
-    <Authorized>
-        
-    </Authorized>
-</AuthorizeView>
+        </NotAuthorized>
+        <Authorized>
+
+        </Authorized>
+    </AuthorizeView>
 </CascadingAuthenticationState>
 
 @code {
-    private string Email;
-    private string Password;
-    private string ErrorLabel;
+    
 
-    private async Task LoginAsync()
+    private UserLoginDto userLogin = new();
+
+    private async void HandleValidSubmit()
     {
-        ErrorLabel = "";
         try
         {
-            await authService.LoginAsync(Email, Password);
             navMgr.NavigateTo("/Marketplace");
+            await authService.LoginAsync(userLogin.Email, userLogin.Password);
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
-            ErrorLabel = $"Error: {e.Message}";
         }
+    }
     }
 }

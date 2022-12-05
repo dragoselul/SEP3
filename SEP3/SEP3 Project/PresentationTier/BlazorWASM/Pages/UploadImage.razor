@@ -11,7 +11,7 @@
 	<Authorized>
 		<h1>@message</h1>
         
-		<div class="input-group">
+		<div class="input-group card-body">
 			<div class="custom-file">
 				<InputFile class="custom-file-input" multiple OnChange="OnChange" accept="image/png, image/jpeg, image/gif" id="inputFile" />
 				<label class="custom-file-label" for="inputFile">Choose file</label>
@@ -37,8 +37,8 @@
 	[Parameter]
 	public long itemId { get; set; }
 
-	List<Image> filesBase64 = new List<Image>();
-	string message = "InputFile";
+	List<Image> filesBase64 = new();
+	string message = "Insert all the pictures for your item";
 	bool isDisabled = false;
 
 	async Task OnChange(InputFileChangeEventArgs e)

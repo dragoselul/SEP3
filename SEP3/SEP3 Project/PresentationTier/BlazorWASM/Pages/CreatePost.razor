@@ -4,66 +4,77 @@
 @using Domain.DTOs
 @using System.Security.Claims
 @using Domain.Models
-@using System.Collections
 @inject NavigationManager navMgr
 @inject IItemService ItemService
 @inject IUserService UserService
 
 <CascadingAuthenticationState>
-<AuthorizeView>
-    <Authorized>
-        <h3>Hello @name.Split(' ')[0]</h3>
-        <div class="mb-3 ">
-            <h3>Create post</h3>
-            <div class="form-group field" id="title">
-                <label class="form-label">Title: </label>
-                <input class="form-control" type="text" @bind="Title" @bind:event="oninput"/>
+    <AuthorizeView Context="Auth">
+        <Authorized>
+            <div class="form-body">
+                <div class="row">
+                    <div class="form-holder">
+                        <div class="form-content">
+                            <div class="form-items">
+                                <h3>Hello @name.Split(' ')[0]</h3>
+                                <h3>Create a post</h3>
+                                <p>Fill in the data below.</p>
+                                <EditForm Model="@itemCreation" OnValidSubmit="@HandleValidSubmit">
+                                    <DataAnnotationsValidator/>
+                                    <div class="col-md-12 ForInput">
+                                        <InputText class="form-control ForInput" type="text" placeholder="Title" @bind-Value="itemCreation.Name"/>
+                                        <ValidationMessage For="() => itemCreation.Name"/>
+                                    </div>
+                                    <div class="col-md-12 ForInput">
+                                        <InputTextArea class="form-control" type="text" placeholder="Description" @bind-Value="itemCreation.Description"/>
+                                        <ValidationMessage For="() => itemCreation.Description"/>
+                                    </div>
+
+                                    <div class="col-md-12 ForInput">
+                                        <InputNumber class="form-control" placeholder="Price" @bind-Value="itemCreation.Pricing"/>
+                                        <ValidationMessage For="() => itemCreation.Pricing"/>
+                                    </div>
+
+                                    <div class="col-md-12 ForInput">
+                                        <InputText class="form-control" type="text" placeholder="Euro" @bind-Value="itemCreation.Currency"/>
+                                        <ValidationMessage For="() => itemCreation.Currency"/>
+                                    </div>
+
+                                    <div class="col-md-12 mt-3 dropdown">
+                                        <label class="mb-3 mr-1">Category: </label>
+                                        <InputSelect class="btn btn-outline-light dropdown-toggle" @bind-Value="itemCreation.Category">
+                                            <option class="dropdown-item" value="">Select category ...</option>
+                                            <option class="dropdown-item" value="Vehicles">Vehicles</option>
+                                            <option class="dropdown-item" value="Electronics">Electronics</option>
+                                            <option class="dropdown-item" value="Furniture">Furniture</option>
+                                            <option class="dropdown-item" value="Clothes">Clothes</option>
+                                        </InputSelect>
+                                        <ValidationMessage For="() => itemCreation.Category"/>
+                                    </div>
+                                    <div class="form-button mt-3">
+                                        <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </EditForm>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group field" id="description">
-                <label class="form-label">Description: </label>
-                <input class="form-control" type="text" @bind="Description" @bind:event="oninput"/>
-            </div>
-            <div class="form-group field" id="price">
-                <label class="form-label">Price: </label>
-                <input class="form-control" type="text" @bind="Price" @bind:event="oninput" placeholder="name@example.com"/>
-            </div>
-            <div class="form-group field" id="currency">
-                <label class="form-label">Currency: </label>
-                <input class="form-control" type="text" @bind="Currency" @bind:event="oninput" placeholder="euro"/>
-            </div>
-            <div class="form-group field" id="categories">
-                <select @bind="Category">
-                    <option value="Vehicles">Vehicles</option>
-                    <option value="Electronics">Electronics</option>
-                    <option value="Clothes">Clothes</option>
-                    <option value="Garden">Garden</option>
-                    <option value="Furniture">Furniture</option>
-                </select>
-            </div>
-            <h4>@error</h4>
-            <div class="button-row mt-2">
-                <button @onclick="Create" title="To create new account please insert all the data" id="create"
-                        disabled="@(string.IsNullOrEmpty(Title) || string.IsNullOrEmpty(Description) || string.IsNullOrEmpty(Currency) || string.IsNullOrEmpty(Category) || Price == null)" class="acceptbtn btn btn-outline-dark">
-                    Create
-                </button>
-            </div>
-        </div>
-    </Authorized>
-    <NotAuthorized>
-        <h3>You are not allowed to create posts without an account!</h3>
-    </NotAuthorized>
-</AuthorizeView>
+        </Authorized>
+        <NotAuthorized>
+            <h3>You are not allowed to create posts without an account!</h3>
+        </NotAuthorized>
+    </AuthorizeView>
 </CascadingAuthenticationState>
 
 @code {
 
     [CascadingParameter]
     private Task<AuthenticationState> AuthState { get; set; } = null!;
-    private string Title, Description, Currency, Category;
-    private double Price;
+
+    private ItemCreationDto itemCreation = new();
     private string? name;
     private int userId;
-    private string? error = "";
 
     protected override async Task OnInitializedAsync()
     {
@@ -77,29 +88,19 @@
         userId = user[0].Id;
     }
 
-    private async void Create()
+    private async void HandleValidSubmit()
     {
         try
         {
-            Item? item = await ItemService.Create(new ItemCreationDto
-            {
-                Name = Title,
-                Description = Description,
-                Category = Category,
-                ContactId = userId,
-                Currency = Currency,
-                IsSold = false,
-                Pricing = Price
-            });
+            itemCreation.ContactId = userId;
+            itemCreation.IsSold = false;
+            Item? item = await ItemService.Create(itemCreation);
             navMgr.NavigateTo($"/UploadImages/{item.Id}");
-            error = "Great success!";
-            
         }
         catch (Exception e)
         {
-            error = "Not great success!";
             Console.WriteLine(e);
-            throw;
         }
     }
+
 }
