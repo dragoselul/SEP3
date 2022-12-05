@@ -1691,3 +1691,4 @@ D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\ref\B
 D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\Messages.razor.rz.scp.css
 D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\CreatePost.razor.rz.scp.css
 D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\UploadImage.razor.rz.scp.css
+D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\PageForItem.razor.rz.scp.css

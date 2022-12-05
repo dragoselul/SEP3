@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*
 
 Beautiful shopping
@@ -10,19 +9,22 @@ Details:
 Click on any of the *Plant* to move it to the basket and if you didn't like the plant or you choose to select another plant click the plant that is inside the basket and it will be moved back to its original place — All will happen with beautiful and eye-catching animation. I set the basket UI limit to be able to hold four to five (depends on image size) plants, it can take more ...but then the basket UI would look broken, the plants are going to move outside the basket — Just clarifying, *It is on purpose*. I've used the word *click* but that doesn't mean you can't touch/tap the plant, if you're using touch screen devices, it gonna work fine, and yup, it's responsive!
 
 */
-div {
-    transform: scale(89%);
-}
+
+   html {
+       font-size: 62.5%;
+   }
 
 body {
     --hovered-color: #4d4d4d;
     --hovered-background: #ebebeb;
+
     padding: 2rem 4rem;
     margin: 0;
     color: #050505;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.6;
 }
+
 @media (max-width: 425px) {
     body {
         padding: 1rem;
@@ -47,11 +49,15 @@ button:focus {
 }
 
 .page {
+    color: white;
     display: grid;
-    grid-template-areas: "header header" "sidebar main" "footer footer";
+    grid-template-areas: "header header"
+      "sidebar main"
+      "footer footer";
     grid-template-rows: 8rem 1fr;
     grid-template-columns: 24rem 1fr;
 }
+
 @media (max-width: 425px) {
     .page {
         grid-template-areas: "header header" "main main" "footer footer";
@@ -66,6 +72,7 @@ button:focus {
 .sidebar {
     grid-area: sidebar;
 }
+
 @media (max-width: 425px) {
     .sidebar {
         display: none;
@@ -79,6 +86,7 @@ button:focus {
 .sidebar__category:not(:first-of-type) .sidebar__heading {
     border-top: 1px solid #00000033;
     margin: 4rem 0 1.6rem;
+    margin-bottom: 100px;
 }
 .sidebar__heading {
     font-size: 1.6rem;
@@ -88,7 +96,7 @@ button:focus {
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    transition: 0.1s linear;
+    transition: .1s linear;
 }
 .sidebar__heading:hover {
     color: var(--hovered-color);
@@ -149,7 +157,7 @@ button:focus {
     display: inline-block;
     width: 3.4rem;
     height: 3.4rem;
-    margin: 0.5rem;
+    margin: .5rem;
     border-radius: 3.4rem;
     background: hsl(var(--hue), 60%, 60%);
     cursor: pointer;
@@ -162,6 +170,7 @@ button:focus {
     box-sizing: border-box;
     text-align: -webkit-center;
 }
+
 @media (max-width: 425px) {
     .main {
         padding-left: 0;
@@ -178,42 +187,10 @@ button:focus {
         display: block;
     }
 }
-
-.filters {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 4rem;
-}
-@media (max-width: 425px) {
-    .filters {
-        justify-content: flex-start;
-    }
-}
-.filters__btn {
-    background: transparent;
-    font-size: 1.7rem;
-    border: 0;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    transition: 0.1s linear;
-}
-.filters__btn:hover, .filters__btn:hover > svg {
-    stroke: var(--hovered-color);
-    color: var(--hovered-color);
-}
-.filters__btn > svg {
-    height: 1.9rem;
-    margin-left: 0.4rem;
-    transition: 0.1s linear;
-}
-.filters__btn--sort {
-    margin-left: 1.6rem;
-}
-
 .show {
     display: none;
 }
+
 @media (max-width: 425px) {
     .show {
         display: initial;
@@ -241,6 +218,7 @@ button:focus {
     flex: 1 0 30rem;
     height: 38rem;
 }
+
 @media (max-width: 1024px) {
     .item {
         flex-grow: 0;
@@ -262,11 +240,12 @@ button:focus {
 }
 .item__detail {
     font-size: 1.6rem;
-    padding-top: 0.8rem;
-    text-align: center;
+    padding-top: .8rem;
+    text-align: left;
 }
 .item__detail p {
     margin: 0;
+    margin-left: 10px;
 }
 
 .pagination__page {
