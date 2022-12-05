@@ -134,6 +134,14 @@
           }
         }
       },
+      "Google.Protobuf/3.21.10": {
+        "runtime": {
+          "lib/net5.0/Google.Protobuf.dll": {
+            "assemblyVersion": "3.21.10.0",
+            "fileVersion": "3.21.10.0"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Authorization/6.0.9": {
         "dependencies": {
           "Microsoft.AspNetCore.Metadata": "6.0.9",
@@ -1493,6 +1501,7 @@
       "BlazorWASM/1.0.0": {
         "dependencies": {
           "Domain": "1.0.0",
+          "Google.Protobuf": "3.21.10",
           "HttpClients": "1.0.0",
           "Microsoft.AspNetCore.Components.Authorization": "6.0.9",
           "Microsoft.AspNetCore.Components.WebAssembly": "6.0.9"
@@ -1595,6 +1604,13 @@
       "sha512": "sha512-HaI8puqA66YU7/9cK4Sgbs1taUTP1Ssa4QT2PIzqJ7GvAbN1QgkjbRsjH+FSbMh1MJdvS0CIwQNLtFT+KF6KpA==",
       "path": "fare/2.1.1",
       "hashPath": "fare.2.1.1.nupkg.sha512"
+    },
+    "Google.Protobuf/3.21.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9KnY/4N1pZkfoLv8Ozho3Tf8ms09YGX1UuURqXXidAhTP/FvIHwbon8VhX4Zmxb0YrOc/aVWYMgEimBwjbWCGg==",
+      "path": "google.protobuf/3.21.10",
+      "hashPath": "google.protobuf.3.21.10.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authorization/6.0.9": {
       "type": "package",
