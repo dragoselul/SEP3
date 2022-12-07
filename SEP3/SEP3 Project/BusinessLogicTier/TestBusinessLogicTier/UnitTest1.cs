@@ -57,44 +57,7 @@ public class Tests
         Assert.Equal("Chad", users[2].firstName);
         
     }
-
-
-
-    [Fact]
-    public async void GetUser_ShouldReturnUser()
-    {
-        // Arrange
-        GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:6565");
-        UserService.UserServiceClient sut = new UserService.UserServiceClient(channel);
-        List<User> users = new();
-        // Act
-        var call = sut.getUsers(new SearchUserDTO
-        {
-            Id = 1,
-            FirstName = "",
-            LastName = ""
-        });
-        await foreach (var response in call.ResponseStream.ReadAllAsync())
-        {
-            User? user = new()
-            {
-                Id = (int)response.Id,
-                firstName = response.FirstName,
-                lastName = response.LastName,
-                email = response.Email,
-                gender = response.Gender,
-                password = "",
-                phoneNumber = response.PhoneNumber,
-                dor = new(response.DateOfRegistration.Year, response.DateOfRegistration.Month,
-                    response.DateOfRegistration.Day,
-                    response.DateOfRegistration.Hour, response.DateOfRegistration.Minute, 0)
-            };
-            users.Add(user);
-        }
-        // Assert
-        Assert.Equal("Dan-Sebastian", users[1].firstName);
-            
-    }
+    
 
     [Fact]
     public async void CreateItemAndGetItem_ShouldCreateAnItem_ShouldBeAbleToSeeGetTheItem()
