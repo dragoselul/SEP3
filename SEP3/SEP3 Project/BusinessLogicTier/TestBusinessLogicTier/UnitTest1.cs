@@ -9,8 +9,59 @@ namespace TestBusinessLogicTier;
 public class Tests
 {
     //This test class only works with the database server online
+
     [Fact]
-    public async Task GetUser_ShouldReturnUser()
+    public async void CreateUser_GetUser_ShouldCreateAndGetUser()
+    {
+        //Arrange
+        GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:6565");
+        UserService.UserServiceClient sut = new UserService.UserServiceClient(channel);
+        List<User> users = new();
+        //Act
+        //Creating
+        await sut.createUserAsync(new CreateUserDTO
+        {
+            FirstName = "Chad",
+            LastName = "Chaddler",
+            Email = "chad@gmail.com",
+            Password = "super",
+            Gender = true,
+            PhoneNumber = "+4512345678"
+        });
+        //Getting
+        var call = sut.getUsers(new SearchUserDTO
+        {
+            Id = 1,
+            FirstName = "",
+            LastName = ""
+        });
+        await foreach (var response in call.ResponseStream.ReadAllAsync())
+        {
+            User? user = new()
+            {
+                Id = (int)response.Id,
+                firstName = response.FirstName,
+                lastName = response.LastName,
+                email = response.Email,
+                gender = response.Gender,
+                password = "",
+                phoneNumber = response.PhoneNumber,
+                dor = new(response.DateOfRegistration.Year, response.DateOfRegistration.Month,
+                    response.DateOfRegistration.Day,
+                    response.DateOfRegistration.Hour, response.DateOfRegistration.Minute, 0)
+            };
+            users.Add(user);
+        }
+        
+        //Assert
+        Assert.Equal("Chad", users[2].firstName);
+        
+    }
+
+
+
+    [Fact]
+    public async void GetUser_ShouldReturnUser()
     {
         // Arrange
         GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:6565");
@@ -54,6 +105,7 @@ public class Tests
 
 
         //Act
+        //Creating
         await ClientItem.createItemAsync(new CreateItemDTO
         {
             OwnerId = 1,
@@ -64,6 +116,7 @@ public class Tests
             Price = 500,
             Status = false
         });
+        //Getting
         List<Item> items = new();
         
         var call = ClientItem.getItems(new SearchItemDTO() { Name = "Stuff",Description = "Stuff",Id = 3, Category = "Electronics",
