@@ -16,7 +16,7 @@ public class Tests
         //Arrange
         GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:6565");
         UserService.UserServiceClient sut = new UserService.UserServiceClient(channel);
-        List<User> users = new();
+        
         //Act
         //Creating
         await sut.createUserAsync(new CreateUserDTO
@@ -29,6 +29,7 @@ public class Tests
             PhoneNumber = "+4512345678"
         });
         //Getting
+        List<User> users = new();
         var call = sut.getUsers(new SearchUserDTO
         {
             Id = 1,
@@ -103,5 +104,54 @@ public class Tests
         //Assert
         Assert.Equal("Stuff", items[0].Name);
     }
-    
+
+    [Fact]
+    public async void EditProfile_ShouldBeAbleToEditUser()
+    {
+        //Arrange
+        GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:6565");
+        UserService.UserServiceClient ClientUser = new UserService.UserServiceClient(channel);
+        //Act
+        //Updating
+        UpdateUserDTO ToUpdate = new()
+        {
+            Id = 2,
+            Email = "not@gmail.com",
+            FirstName = "Drug",
+            LastName = "Damiro",
+            Gender = false,
+            Password = "super",
+            PhoneNumber =  "+4587654321"
+            
+        };
+        await ClientUser.updateUserAsync(ToUpdate);
+        //Getting
+        List<User> users = new();
+        var call = ClientUser.getUsers(new SearchUserDTO
+        {
+            Id = 1,
+            FirstName = "",
+            LastName = ""
+        });
+        await foreach (var response in call.ResponseStream.ReadAllAsync())
+        {
+            User? user = new()
+            {
+                Id = (int)response.Id,
+                firstName = response.FirstName,
+                lastName = response.LastName,
+                email = response.Email,
+                gender = response.Gender,
+                password = "",
+                phoneNumber = response.PhoneNumber,
+                dor = new(response.DateOfRegistration.Year, response.DateOfRegistration.Month,
+                    response.DateOfRegistration.Day,
+                    response.DateOfRegistration.Hour, response.DateOfRegistration.Minute, 0)
+            };
+            users.Add(user);
+        }
+        
+        //Assert
+        Assert.Equal("Drug", users[1].firstName);
+    }
 }
