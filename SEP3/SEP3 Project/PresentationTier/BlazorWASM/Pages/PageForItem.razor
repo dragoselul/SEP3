@@ -1,8 +1,11 @@
 ﻿@page "/ViewItem/{itemId:int?}"
 @using HttpClients.ClientInterfaces
+@using Syncfusion.Blazor.Navigations
+@using Microsoft.AspNetCore.Components.Authorization
 @using Domain.Models
 @inject IItemService ItemService
 @inject IImageService ImageService
+@inject IUserService UserService
 
 @if (item is null)
 {
@@ -10,58 +13,76 @@
 }
 else
 {
-    <!--   <div class="card ">
-        <div class="photo">
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    @foreach (var image in images)
-                    {
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="data:@image.contentType;base64,@image.base64data" alt="@image.fileName">
+    <CascadingAuthenticationState>
+    <AuthorizeView>
+        <Authorized>
+            <div class="container">
+                <div class="card">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <SfCarousel>
+                                @foreach (var image in images)
+                                {
+                                    <CarouselItem>
+
+                                        <figure class="img-container">
+                                            <img class="img-fluid d-flex justify-content-center" src="data:@image.contentType;base64,@image.base64data" alt="image of the item" style="height:100%;width:100%;">
+                                        </figure>
+
+                                    </CarouselItem>
+                                }
+                            </SfCarousel>
                         </div>
-                    }
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                </a>
-            </div>
-        </div>
-        <div class="description">
-            <h2>@item.Name</h2>
-            <h4>@item.ContactFirstName @item.ContactLastName</h4>
-            <h1>@item.Pricing @item.Currency</h1>
-            <p>@item.Description</p>
-            <button>Message seller</button>
-            <button>Wishlist</button>
-        </div>
-    </div>
-    -->
-    <div class="container">
-        <div class="card">
-            <div class="row">
-                <div class="col-lg-7">
-                    @foreach (var image in images)
-                    {
-                        <img class="img-fluid d-flex justify-content-center" src="data:@image.contentType;base64,@image.base64data" alt="image of the item">
-                    }
-                </div>
-                <div class="col-lg-4 border-start">
-                    <div class="ms-2 mt-2">
-                        <p>
-                            <b>@item.Name </b>
-                        </p>
-                        <p>
-                            <span class="oi oi-person" aria-hidden="true">&nbsp &nbsp</span><b>@item.ContactFirstName + + @item.ContactLastName, says:</b> @item.Description
-                        </p>
-                        <h1 class="border-2 bg-success text-white">Price: @item.Pricing @item.Currency</h1>
+                        <div class="col-lg-4 border-start">
+                            <div class="ms-2 mt-2">
+                                <p>
+                                    <b>@item.Name </b>
+                                </p>
+                                <p>
+                                    <span class="oi oi-person" aria-hidden="true">&nbsp &nbsp</span><b>@itemOwner.firstName @itemOwner.lastName, says:</b> @item.Description
+                                </p>
+                                <h1 class="border-2 bg-success text-white">Price: @item.Pricing @item.Currency</h1>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </Authorized>
+        <NotAuthorized>
+            <div class="container">
+                            <div class="card">
+                                <div class="row">
+                                    <div class="col-lg-7">
+                                        <SfCarousel>
+                                            @foreach (var image in images)
+                                            {
+                                                <CarouselItem>
+            
+                                                    <figure class="img-container">
+                                                        <img class="img-fluid d-flex justify-content-center" src="data:@image.contentType;base64,@image.base64data" alt="image of the item" style="height:100%;width:100%;">
+                                                    </figure>
+            
+                                                </CarouselItem>
+                                            }
+                                        </SfCarousel>
+                                    </div>
+                                    <div class="col-lg-4 border-start">
+                                        <div class="ms-2 mt-2">
+                                            <p>
+                                                <b>@item.Name </b>
+                                            </p>
+                                            <p>
+                                                <span class="oi oi-person" aria-hidden="true">&nbsp &nbsp</span><b>@itemOwner.firstName @itemOwner.lastName, says:</b> @item.Description
+                                            </p>
+                                            <h1 class="border-2 bg-success text-white">Price: @item.Pricing @item.Currency</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        </NotAuthorized>
+    </AuthorizeView>
+    </CascadingAuthenticationState>
 }
 
 @code {
@@ -70,12 +91,14 @@ else
     public int itemId { get; set; }
 
     public Item item;
+    public User itemOwner;
     public List<Image> images;
 
     protected override async Task OnInitializedAsync()
     {
         item = await ItemService.GetItemById(itemId);
         images = await ImageService.GetImagesByItemId(itemId);
+        itemOwner = await UserService.GetUserById(item.OwnerId);
     }
 
 }

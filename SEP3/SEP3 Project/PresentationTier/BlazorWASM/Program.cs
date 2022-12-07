@@ -8,6 +8,8 @@ using HttpClients.ClientInterfaces;
 using HttpClients.Implementations;
 using Microsoft.AspNetCore.Components.Authorization;
 using Shared.Auth;
+using Syncfusion.Blazor;
+
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -18,6 +20,7 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 builder.Services.AddScoped<IUserService, UserHttpClient>();
 builder.Services.AddScoped<IItemService, ItemHttpClient>();
 builder.Services.AddScoped<IImageService, ImageHttpClient>();
+builder.Services.AddSyncfusionBlazor();
 AuthorizationPolicies.AddPolicies(builder.Services);
 builder.Services.AddScoped(
     sp => 
