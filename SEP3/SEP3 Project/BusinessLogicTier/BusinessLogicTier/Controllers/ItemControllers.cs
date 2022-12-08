@@ -3,6 +3,8 @@ using Application.LogicInterfaces;
 using Domain.DTOs;
 using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace WebAPI.Controllers;
 
@@ -76,13 +78,14 @@ public class ItemController : ControllerBase
     }
 
 
-    [HttpPatch]
-    public async Task<ActionResult> UpdateAsync([FromBody] ItemUpdateDto dto)
+    [HttpPatch("{id:int}")]
+    public async Task<ActionResult<Item>> UpdateAsync([FromBody] ItemUpdateDto dto)
     {
         try
         {
-            await itemLogic.UpdateAsync(dto);
-            return Ok();
+            Console.WriteLine(JsonSerializer.Serialize(dto));
+            Item item = await itemLogic.UpdateAsync(dto);
+            return Ok(item);
         }
         catch (Exception e)
         {
@@ -90,6 +93,7 @@ public class ItemController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
+    
     
     [HttpDelete("{id:int}")]
 

@@ -24,6 +24,7 @@ public class NotificationService extends NotificationServiceGrpc.NotificationSer
     public NotificationService(NotificationRepository notificationRepository, UserRepository userRepository) {
         this.notificationRepository = notificationRepository;
     }
+    
     @Override
     public void deleteNotificationById(SearchNotificationDTO request, StreamObserver<Empty> responseObserver) {
         notificationRepository.deleteById(request.getId());

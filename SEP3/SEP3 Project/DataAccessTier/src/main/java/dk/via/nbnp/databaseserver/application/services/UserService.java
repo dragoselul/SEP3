@@ -50,6 +50,7 @@ public class UserService extends UserServiceGrpc.UserServiceImplBase {
             System.out.println(UserMapper.mapDomainToProto(user.get()));
             responseObserver.onNext(UserMapper.mapDomainToProto(user.get()));
             responseObserver.onCompleted();
+            System.out.println("Successful login");
         }
     }
 

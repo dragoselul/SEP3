@@ -1,4 +1,5 @@
-﻿using Application.DaoInterfaces;
+﻿using System.Text.Json;
+using Application.DaoInterfaces;
 using Domain.DTOs;
 using Grpc.Core;
 using Grpc.Net.Client;
@@ -178,14 +179,19 @@ public class ItemFileDao : IItemDao
 
     public async Task<Item> UpdateAsync(Item toUpdate)
     {
-        gRPCClient.Item ToUpdate = await ClientItem.updateItemAsync(new UpdateItemDTO()
+        
+        Console.WriteLine(JsonSerializer.Serialize(toUpdate));
+        
+        gRPCClient.Item ToUpdate = await ClientItem.updateItemAsync(new UpdateItemDTO
         {
             Name = toUpdate.Name,
             Category = toUpdate.Category,
             Price = toUpdate.Pricing,
             Currency = toUpdate.Currency,
             Description = toUpdate.Description,
-            Status = toUpdate.IsSold
+            Status = toUpdate.IsSold,
+            Id = toUpdate.Id,
+            OwnerId = toUpdate.OwnerId,
         });
 
         Item Updated = new()

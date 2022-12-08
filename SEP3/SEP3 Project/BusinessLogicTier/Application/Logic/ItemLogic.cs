@@ -58,11 +58,11 @@ public class ItemLogic : IItemLogic
             Id = existing.Id,
             Name = existing.Name,
             Description = existing.Description,
-            ContactFirstName = existing.ContactFirstName,
             OwnerId = existing.OwnerId,
             Pricing = existing.Pricing,
-            ContactLastName = existing.ContactLastName,
-            IsSold = existing.IsSold
+            IsSold = existing.IsSold,
+            Currency = existing.Currency,
+            Category = existing.Category
         };
 
         ValidateItem(updated);

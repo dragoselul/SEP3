@@ -1,9 +1,11 @@
 ﻿using System.Net.Http.Json;
-using System.Security.AccessControl;
+using System.Text;
+using System.Text.Json;
 using Domain.DTOs;
 using Domain.Models;
 using HttpClients.ClientInterfaces;
 using Newtonsoft.Json;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace HttpClients.Implementations;
 
@@ -25,14 +27,37 @@ public class ItemHttpClient: IItemService
         {
             throw new Exception(result);
         }
-
+        
         Item? item = JsonConvert.DeserializeObject<Item>(result);
         return await Task.FromResult(item);
     }
-
-    public Task<Item> Update(ItemUpdateDto dto)
+    
+    public async Task<Item> Update(ItemUpdateDto dto)
     {
-        throw new NotImplementedException();
+        string dtoAsJson = JsonSerializer.Serialize(dto);
+        Console.WriteLine(dtoAsJson);
+        
+        StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
+        HttpResponseMessage response = null;
+        try
+        {
+            response = await Client.PatchAsync($"/Item/{dto.Id}", body);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+        
+        
+        var result = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            Console.WriteLine(response);
+           // throw new Exception(result);
+        }
+        Console.WriteLine(result);
+        Item? item = JsonConvert.DeserializeObject<Item>(result);
+        return (await Task.FromResult(item))!;
     }
 
     public async Task<List<Item>> GetItemsByOwner(User user)
@@ -74,7 +99,7 @@ public class ItemHttpClient: IItemService
         Console.WriteLine(result);
     }
 
-    public async Task<Item> GetItemById(int id)
+    public async Task<Item> GetItemById(int? id)
     {
         HttpResponseMessage response = await Client.GetAsync($"/Item/{id}");
         string result = await response.Content.ReadAsStringAsync();
