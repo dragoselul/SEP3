@@ -1,4 +1,4 @@
-﻿@page "/Marketplace/{itemNb:int?}"
+﻿@page "/Marketplace/{itemNb:int?}/{searchString?}"
 @using Microsoft.AspNetCore.Components.Authorization
 @using Domain.Models
 @using HttpClients.ClientInterfaces
@@ -379,6 +379,9 @@
     [Parameter]
     public int itemNb { get; set; }
 
+    [Parameter]
+    public string searchString { get; set; }
+
     public double minPrice = 0, maxPrice = 0, max = 0;
     public int maxPage;
     private List<Item> items = new();
@@ -389,7 +392,10 @@
 
     protected override async Task OnInitializedAsync()
     {
-        items = await itemService.GetItems();
+        if (string.IsNullOrEmpty(searchString))
+            items = await itemService.GetAllItems();
+        else
+            items = await itemService.GetItems(searchString, "", 0, 0, 0, false, "");
         foreach (Item item in items)
         {
             if (max < item.Pricing)

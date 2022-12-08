@@ -74,7 +74,53 @@ public class ItemHttpClient: IItemService
         return (await Task.FromResult(items))!;
     }
 
-    public async Task<List<Item>> GetItems()
+    public async Task<List<Item>> GetItems(string? name, string? description, int? contactId, double? minPrice, double? maxPrice, bool? isSold, string? category)
+    {
+        string query = "";
+        if (!string.IsNullOrEmpty(name))
+        {
+            query += $"/Item?name={name}";
+        }
+        if (!string.IsNullOrEmpty(description))
+        {
+            query += string.IsNullOrEmpty(query) ? "/Item?" : "&";
+            query += $"description={description}";
+        }
+        if (contactId is not null and not 0)
+        {
+            query += string.IsNullOrEmpty(query) ? "/Item?" : "&";
+            query += $"contactId={contactId}";
+        }
+        if (minPrice is not null and not 0)
+        {
+            query += string.IsNullOrEmpty(query) ? "/Item?" : "&";
+            query += $"minPrice={minPrice}";
+        }
+        if (maxPrice is not null and not 0)
+        {
+            query += string.IsNullOrEmpty(query) ? "/Item?" : "&";
+            query += $"maxPrice={maxPrice}";
+        }
+        if (!string.IsNullOrEmpty(category))
+        {
+            query += string.IsNullOrEmpty(query) ? "/Item?" : "&";
+            query += $"category={category}";
+        }
+        query += string.IsNullOrEmpty(query) ? "/Item?" : "&";
+        query += $"isSold={isSold}";
+        HttpResponseMessage response = await Client.GetAsync(query);
+        string result = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(result);
+        }
+        Console.WriteLine(result);
+
+        List<Item>? items = JsonConvert.DeserializeObject<List<Item>>(result);
+        return (await Task.FromResult(items))!;
+    }
+    
+    public async Task<List<Item>> GetAllItems()
     {
         HttpResponseMessage response = await Client.GetAsync("/Item");
         string result = await response.Content.ReadAsStringAsync();

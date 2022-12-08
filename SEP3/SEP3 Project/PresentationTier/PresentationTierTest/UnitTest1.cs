@@ -155,7 +155,7 @@ public class UnitTest1 : TestContext
         //ctx.Services.AddSingleton<IUserService>(new UserHttpClient(new HttpClient()));
         //Act
         api.Create(item);
-        api.GetItems();
+        api.GetAllItems();
 
         //Assert
         //If does not throw any exception, it works

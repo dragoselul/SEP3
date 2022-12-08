@@ -51,6 +51,7 @@ public class ItemController : ControllerBase
                 Category = category
             };
             var items = await itemLogic.GetAsync(parameters);
+            Console.WriteLine(items);
             return Ok(items);
         }
         catch (Exception e)

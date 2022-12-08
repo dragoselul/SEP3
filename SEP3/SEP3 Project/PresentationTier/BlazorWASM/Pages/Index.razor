@@ -1,4 +1,7 @@
 ﻿@page "/"
+@using Syncfusion.Blazor.RichTextEditor
+@inject NavigationManager navMgr
+
 
 <PageTitle>Index</PageTitle>
 
@@ -27,8 +30,8 @@
         </div>
         <div class="col-lg-6">
             <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">
+                <input @bind="@searchString" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit" @onclick="@OnSubmit">
                     <span class="oi oi-magnifying-glass" aria-hidden="true"></span>
                 </button>
             </form>
@@ -51,3 +54,13 @@
         </div>
     </div>
 </div>
+
+@code {
+    private string searchString;
+
+    private async void OnSubmit()
+    {
+        navMgr.NavigateTo($"/Marketplace/1/{searchString}");
+    }
+
+}
