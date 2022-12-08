@@ -1,50 +1,100 @@
 @page "/Messages"
+@using HttpClients.ClientInterfaces
+@using Microsoft.AspNetCore.Components.Authorization
+@using Domain.Models
+@using System.Security.Claims
+@inject NavigationManager navMgr
+@inject IConversationService ConversationService
+@inject IMessageService MessageService
+@inject IUserService UserService
 
 
-<div class="container messages-container">
-    <div class="row">
-        <div class="col-lg-4 mb-2">
-            <form class="d-flex">
-                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">
-                    <span class="oi oi-magnifying-glass" aria-hidden="true"></span>
-                </button>
-            </form>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-4 border border-white rounded-start users me-3">
-            <div class="row">
-                <MessagesPerson FullName="Chiril Luncasu"></MessagesPerson>
-                <MessagesPerson FullName="Matas Armonaitis"></MessagesPerson>
-                <MessagesPerson FullName="Tomas Gres"></MessagesPerson>
-                <MessagesPerson FullName="Dan Sebastian Ceapa"></MessagesPerson>
-                <MessagesPerson FullName="Dragos Bonaparte"></MessagesPerson>
-            </div>
-        </div>
-        <div class="col-lg-7 border border-white rounded-end position-relative message-field">
-            <!--Messages-->
-            <div>
+<CascadingAuthenticationState>
+    <AuthorizeView Context="Auth">
+        <Authorized>
+            
+                        
+            @if (_conversations is null)
+                {
+                    <h5 style="color: white">Loading...</h5>
+                }
+            else
+            {
 
-            </div>
-            <!--Send button/TextArea-->
-            <div class="">
-                <form class="d-flex position-absolute bottom-0 start-0 message-typer">
-                    <input class="form-control" type="text" placeholder="Enter text" aria-label="Message">
-                    <button class="btn btn-success" type="submit">
-                        Send
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+                <div class="container messages-container">
+                    <div class="row">
+                        <div class="col-lg-4 mb-2">
+                            <form class="d-flex">
+                                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">
+                                    <span class="oi oi-magnifying-glass" aria-hidden="true"></span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 border border-white rounded-start users me-3">
+                            <div class="row">
+                                @foreach (var conversation in _conversations)
+                                {
+                                    if (conversation.Buyer.Id == userId)
+                                    {
+                                        <MessagesPerson id="@conversation.Id" FullName="@conversation.Seller.firstName @conversation.Seller.lastName" onClick="@HandleOpenConversation"></MessagesPerson>
+                                    }
+                                    
+                                }
+                                
+                            </div>
+                        </div>
+                        <MessageView Conversation="@currentConversation" UserId="@userId"/>
+                    </div>
+                </div>
+            }
+
+        </Authorized>
+        <NotAuthorized>
+                <h3>You are not allowed to edit items without an account!</h3>
+        </NotAuthorized>
+    </AuthorizeView>
+
+</CascadingAuthenticationState>
 
 @code {
 
-    protected override Task OnInitializedAsync()
+    private List<Conversation> _conversations;
+    
+    [CascadingParameter]
+    private Task<AuthenticationState> AuthState { get; set; } = null!;
+
+    Conversation currentConversation;
+
+    private string? name;
+    private int userId;
+    private Item item;
+    //private List<Image> images;
+    //private int imageIndex;
+
+    protected override async Task OnInitializedAsync()
     {
-        throw new NotImplementedException();
+        
+        AuthenticationState authState = await AuthState;
+        ClaimsPrincipal userClaim = authState.User;
+        name = userClaim.Identity.Name;
+        IEnumerable<User> users = await UserService.GetUsers(name?.Split(' ')[0], name?.Split(' ')[1]);
+        if (users is null && users.Count() != 1)
+            throw new Exception();
+        List<User> user = new List<User>(users);
+        userId = user[0].Id;
+
+        _conversations = await ConversationService.GetByUserId(userId);
+        currentConversation = _conversations[0];
+
+
+    }
+
+    private async Task HandleOpenConversation(int id)
+    {
+        currentConversation = await ConversationService.GetById(id);
     }
 
 

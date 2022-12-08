@@ -20,6 +20,8 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 builder.Services.AddScoped<IUserService, UserHttpClient>();
 builder.Services.AddScoped<IItemService, ItemHttpClient>();
 builder.Services.AddScoped<IImageService, ImageHttpClient>();
+builder.Services.AddScoped<IConversationService, ConversationHttpClient>();
+builder.Services.AddScoped<IMessageService, MessageHttpClient>();
 builder.Services.AddSyncfusionBlazor();
 AuthorizationPolicies.AddPolicies(builder.Services);
 builder.Services.AddScoped(

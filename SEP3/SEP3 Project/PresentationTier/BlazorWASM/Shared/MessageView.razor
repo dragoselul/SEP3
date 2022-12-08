@@ -1,0 +1,33 @@
+@using Domain.Models
+
+
+<div class="col-lg-7 border border-white rounded-end position-relative message-field">
+    <!--Messages-->
+    <div>
+        @foreach (var message in Conversation.MessageList)
+        {
+            <Message UserId="@UserId" message="@message" />
+        }
+
+    </div>
+    <!--Send button/TextArea-->
+    <div class="">
+        <form class="d-flex position-absolute bottom-0 start-0 message-typer">
+            <input class="form-control" type="text" placeholder="Enter text" aria-label="Message">
+            <button class="btn btn-success" type="submit">
+                Send
+            </button>
+        </form>
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public Conversation Conversation { get; set; }
+    [Parameter]
+    public int UserId { get; set; }
+    
+    
+
+}

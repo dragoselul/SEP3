@@ -1,4 +1,4 @@
-<button class="btn btn-outline-dark" type="submit">
+<button onclick="@OnOpenConversation" class="btn btn-outline-dark" type="submit">
     <div class="col-12">
         <span class="oi oi-person float-start" aria-hidden="true"></span> @FullName
     </div>
@@ -7,5 +7,7 @@
 
     [Parameter]
     public string FullName { get; set; }
+
+    [Parameter] public EventCallback<int> OnOpenConversation { get; set; }
 
 }
