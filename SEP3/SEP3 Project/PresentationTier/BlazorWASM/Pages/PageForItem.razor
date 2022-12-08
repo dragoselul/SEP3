@@ -14,74 +14,74 @@
 else
 {
     <CascadingAuthenticationState>
-    <AuthorizeView>
-        <Authorized>
-            <div class="container">
-                <div class="card">
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <SfCarousel>
-                                @foreach (var image in images)
-                                {
-                                    <CarouselItem>
+        <AuthorizeView>
+            <Authorized>
+                <div class="container">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <SfCarousel>
+                                    @foreach (var image in images)
+                                    {
+                                        <CarouselItem>
 
-                                        <figure class="img-container">
-                                            <img class="img-fluid d-flex justify-content-center" src="data:@image.contentType;base64,@image.base64data" alt="image of the item" style="height:100%;width:100%;">
-                                        </figure>
+                                            <figure class="img-container">
+                                                <img class="img-fluid d-flex justify-content-center" src="data:@image.contentType;base64,@image.base64data" alt="image of the item" style="height:100%;width:100%;">
+                                            </figure>
 
-                                    </CarouselItem>
-                                }
-                            </SfCarousel>
-                        </div>
-                        <div class="col-lg-4 border-start">
-                            <div class="ms-2 mt-2">
-                                <p>
-                                    <b>@item.Name </b>
-                                </p>
-                                <p>
-                                    <span class="oi oi-person" aria-hidden="true">&nbsp &nbsp</span><b>@itemOwner.firstName @itemOwner.lastName, says:</b> @item.Description
-                                </p>
-                                <h1 class="border-2 bg-success text-white">Price: @item.Pricing @item.Currency</h1>
+                                        </CarouselItem>
+                                    }
+                                </SfCarousel>
+                            </div>
+                            <div class="col-lg-4 border-start">
+                                <div class="ms-2 mt-2">
+                                    <p>
+                                        <b>@item.Name </b>
+                                    </p>
+                                    <p>
+                                        <span class="oi oi-person" aria-hidden="true">&nbsp &nbsp</span><b>@itemOwner.firstName @itemOwner.lastName, says:</b> @item.Description
+                                    </p>
+                                    <h1 class="border-2 bg-success text-white">Price: @item.Pricing @item.Currency</h1>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </Authorized>
-        <NotAuthorized>
-            <div class="container">
-                            <div class="card">
-                                <div class="row">
-                                    <div class="col-lg-7">
-                                        <SfCarousel>
-                                            @foreach (var image in images)
-                                            {
-                                                <CarouselItem>
-            
-                                                    <figure class="img-container">
-                                                        <img class="img-fluid d-flex justify-content-center" src="data:@image.contentType;base64,@image.base64data" alt="image of the item" style="height:100%;width:100%;">
-                                                    </figure>
-            
-                                                </CarouselItem>
-                                            }
-                                        </SfCarousel>
-                                    </div>
-                                    <div class="col-lg-4 border-start">
-                                        <div class="ms-2 mt-2">
-                                            <p>
-                                                <b>@item.Name </b>
-                                            </p>
-                                            <p>
-                                                <span class="oi oi-person" aria-hidden="true">&nbsp &nbsp</span><b>@itemOwner.firstName @itemOwner.lastName, says:</b> @item.Description
-                                            </p>
-                                            <h1 class="border-2 bg-success text-white">Price: @item.Pricing @item.Currency</h1>
-                                        </div>
-                                    </div>
+            </Authorized>
+            <NotAuthorized>
+                <div class="container">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <SfCarousel>
+                                    @foreach (var image in images)
+                                    {
+                                        <CarouselItem>
+
+                                            <figure class="img-container">
+                                                <img class="img-fluid d-flex justify-content-center" src="data:@image.contentType;base64,@image.base64data" alt="image of the item" style="height:100%;width:100%;">
+                                            </figure>
+
+                                        </CarouselItem>
+                                    }
+                                </SfCarousel>
+                            </div>
+                            <div class="col-lg-4 border-start">
+                                <div class="ms-2 mt-2">
+                                    <p>
+                                        <b>@item.Name </b>
+                                    </p>
+                                    <p>
+                                        <span class="oi oi-person" aria-hidden="true">&nbsp &nbsp</span><b>@itemOwner.firstName @itemOwner.lastName, says:</b> @item.Description
+                                    </p>
+                                    <h1 class="border-2 bg-success text-white">Price: @item.Pricing @item.Currency</h1>
                                 </div>
                             </div>
                         </div>
-        </NotAuthorized>
-    </AuthorizeView>
+                    </div>
+                </div>
+            </NotAuthorized>
+        </AuthorizeView>
     </CascadingAuthenticationState>
 }
 

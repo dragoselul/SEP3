@@ -1,25 +1,14 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Domain.DTOs;
 
 public class UserUpdateDto
 {
-    public int Id { get; }
-    public string FirstName { get; }
-    public string LastName { get; }
-    public string Email { get; }
-    public string Password { get; }
-    public string PhoneNumber { get; }
-    public bool Gender { get; }
-
-
-    public UserUpdateDto(int id, string firstName, string lastName, string email, string password, string phoneNumber,
-        bool gender)
-    {
-        Id = id;
-        FirstName = firstName;
-        LastName = lastName;
-        Email = email;
-        Password = password;
-        PhoneNumber = phoneNumber;
-        Gender = gender;
-    }
+    public int Id { get; set; }
+    public string FirstName { get; set; } = "";
+    public string LastName { get; set; } = "";
+    public string Email { get; set; } = "";
+    public string Password { get; set; } = "";
+    public string PhoneNumber { get; set; } = "";
+    public bool Gender { get; set; }
 }

@@ -81,17 +81,17 @@ public class UserService extends UserServiceGrpc.UserServiceImplBase {
     public void updateUser(UpdateUserDTO request, StreamObserver<User> responseObserver) {
         dk.via.nbnp.databaseserver.domain.User user;
         user = userRepository.findById(request.getId()).get();
-        if (!user.getFirstName().equals(request.getFirstName()))
+        if (!user.getFirstName().equals(request.getFirstName()) && !request.getFirstName().isEmpty())
             user.setFirstName(request.getFirstName());
-        if (!user.getLastName().equals(request.getLastName()))
+        if (!user.getLastName().equals(request.getLastName()) && !request.getLastName().isEmpty())
             user.setLastName(request.getLastName());
-        if (!user.getEmail().equals(request.getEmail()))
+        if (!user.getEmail().equals(request.getEmail()) && !request.getEmail().isEmpty())
             user.setEmail(request.getEmail());
         if (user.isGender() != request.getGender())
             user.setGender(request.getGender());
-        if (!user.getPassword().equals(request.getPassword()))
+        if (!user.getPassword().equals(request.getPassword()) && !request.getPassword().isEmpty())
             user.setPassword(request.getPassword());
-        if (!user.getPhoneNumber().equals(request.getPhoneNumber()))
+        if (!user.getPhoneNumber().equals(request.getPhoneNumber()) && !request.getPhoneNumber().isEmpty())
             user.setPhoneNumber(request.getPhoneNumber());
         userRepository.save(user);
         User toSend = UserMapper.mapDomainToProto(user);

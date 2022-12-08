@@ -6,6 +6,7 @@ using Domain.DTOs;
 using Domain.Models;
 using HttpClients.ClientInterfaces;
 
+
 namespace HttpClients.Implementations;
 
 public class UserHttpClient : IUserService
@@ -105,6 +106,37 @@ public class UserHttpClient : IUserService
     public async Task<User> GetUserById(int id)
     {
         HttpResponseMessage response = await client.GetAsync($"Users/{id}");
+        string result = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(result);
+        }
+
+        User user = JsonSerializer.Deserialize<User>(result, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return user;
+    }
+
+    public async Task<User> UpdateUserAsync(UserUpdateDto dto)
+    {
+        using (SHA256 mySHA256 = SHA256.Create())
+        {
+            byte[] bytes = mySHA256.ComputeHash(Encoding.UTF8.GetBytes(dto.Password));  
+  
+            // Convert byte array to a string   
+            StringBuilder builder = new StringBuilder();  
+            for (int i = 0; i < bytes.Length; i++)  
+            {  
+                builder.Append(bytes[i].ToString("x2"));  
+            }
+
+            dto.Password = builder.ToString();
+        }
+        string dtoAsJson = JsonSerializer.Serialize(dto);
+        StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
+        HttpResponseMessage response = await client.PatchAsync("Users", body);
         string result = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {

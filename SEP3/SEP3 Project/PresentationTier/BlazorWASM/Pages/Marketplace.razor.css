@@ -86,7 +86,7 @@ button:focus {
 .sidebar__category:not(:first-of-type) .sidebar__heading {
     border-top: 1px solid #00000033;
     margin: 4rem 0 1.6rem;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
 }
 .sidebar__heading {
     font-size: 1.6rem;
@@ -151,16 +151,6 @@ button:focus {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-}
-
-.color {
-    display: inline-block;
-    width: 3.4rem;
-    height: 3.4rem;
-    margin: .5rem;
-    border-radius: 3.4rem;
-    background: hsl(var(--hue), 60%, 60%);
-    cursor: pointer;
 }
 
 .main {
