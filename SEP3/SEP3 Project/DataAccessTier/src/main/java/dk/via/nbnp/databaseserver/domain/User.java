@@ -23,7 +23,6 @@ public class User {
             strategy = GenerationType.SEQUENCE,
             generator = "user_id_sequence"
     )
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String firstName;
@@ -47,6 +46,17 @@ public class User {
     private List<Item> itemsOwned;
 
     public User(){}
+
+    public User(Long id, String firstName, String lastName, String email, String password, String phoneNumber, boolean gender) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.dateOfRegistration = LocalDateTime.now();
+        this.gender = gender;
+    }
 
     public User(String firstName, String lastName, String email, String password, String phoneNumber, boolean gender) {
         this.firstName = firstName;

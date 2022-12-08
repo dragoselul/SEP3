@@ -1,0 +1,55 @@
+@using Domain.Models
+@using HttpClients.ClientInterfaces
+@inject IImageService ImageService;
+
+
+<div>
+
+    <Row>
+        <img class="img-fluid d-flex justify-content-center" src="data:@Images[CurrentIndex].contentType;base64,@Images[CurrentIndex].base64data" alt="image of the item">
+    </Row>
+    <Row>
+        <button onclick="@Decrease">Previous</button>
+        <button onclick="@Increase">Next</button>
+    </Row>
+</div>
+
+@code {
+
+    [Parameter] public int Id { get; set; }
+    
+    private List<Image>? Images;
+    private int CurrentIndex;
+
+    protected override async Task OnInitializedAsync()
+    {
+        CurrentIndex = 0;
+        Images = await ImageService.GetImagesByItemId(Id);
+        
+    }
+
+    private void Decrease()
+    {
+        if (CurrentIndex > 0)
+        {
+            CurrentIndex--;
+        }
+        else
+        {
+            CurrentIndex = Images.Count;
+        }
+    }
+    
+    private void Increase()
+    {
+        if (CurrentIndex < Images.Count)
+        {
+            CurrentIndex++;
+        }
+        else
+        {
+            CurrentIndex = 0;
+        }
+    }
+
+}

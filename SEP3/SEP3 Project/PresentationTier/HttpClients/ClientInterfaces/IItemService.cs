@@ -10,5 +10,5 @@ public interface IItemService
     Task<List<Item>> GetItemsByOwner(User user);
     Task<List<Item>> GetItems();
     Task DeleteItemById(int id);
-    Task<Item> GetItemById(int id);
+    Task<Item> GetItemById(int? id);
 }

@@ -3,15 +3,14 @@
 public class ItemUpdateDto
 {
     
-    public int Id { get; }
-    public string? ContactFirstName { get; }
-    public string? ContactLastName { get; }
+    public int Id { get; init; }
+    public int OwnerId { get; init; }
     public string? Name { get; set; }
-    public string? Description { get;}
-    public int? ContactId { get;}
-    public double? Pricing { get;}
-    
-    public bool? IsSold { get; } 
+    public string? Description { get; set; }
+    public double? Pricing { get; set; }
+    public string? Category { get; set; }
+    public string? Currency { get; set; }
+    public bool? IsSold { get; set; } 
     // public byte[] Photos { get;}
 
     public ItemUpdateDto(int id)

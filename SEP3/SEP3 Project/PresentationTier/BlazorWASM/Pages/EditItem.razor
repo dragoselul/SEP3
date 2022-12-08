@@ -1,0 +1,183 @@
+@page "/EditItem/{ItemId:int?}"
+
+@using HttpClients.ClientInterfaces
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Authorization
+@using Domain.DTOs
+@using Domain.Models
+@using System.Security.Claims
+@inject NavigationManager navMgr
+@inject IItemService ItemService
+@inject IUserService UserService
+@inject IImageService ImageService
+
+
+<CascadingAuthenticationState>
+    <AuthorizeView Context="Auth">
+        <Authorized>
+
+            @if (item is null)
+                {
+                    <h5 style="color: white">Loading...</h5>
+                }
+            else
+            {
+                <div class="form-body">
+                    <div class="row">
+                        <div class="form-holder">
+                            <div class="form-content">
+                                <div class="form-items">
+                                    <h3>Hello @name.Split(' ')[0]</h3>
+                                    <h3>Edit a post</h3>
+                                    <p>Fill in the data below.</p>
+                                    <EditForm Model="@itemUpdateDto" OnValidSubmit="@HandleValidSubmit">
+                                        <DataAnnotationsValidator/>
+                                        <div class="col-md-12 ForInput">
+                                            <label class="label-white" for="name">Name</label>
+                                            <InputText name="name" class="form-control ForInput" type="text" placeholder="Title" @bind-Value="itemUpdateDto.Name"/>
+                                            <ValidationMessage For="() => itemUpdateDto.Name"/>
+                                        </div>
+                                        <div class="col-md-12 ForInput">
+                                            <label class="label-white" for="description">Description</label>
+                                            <InputTextArea name="description" class="form-control" type="text" placeholder="Description" @bind-Value="itemUpdateDto.Description"/>
+                                            <ValidationMessage For="() => itemUpdateDto.Description"/>
+                                        </div>
+
+                                        <div class="col-md-12 ForInput">
+                                            <label class="label-white" for="price">Price</label>
+                                            <InputNumber name="price" class="form-control" placeholder="Price" @bind-Value="itemUpdateDto.Pricing"/>
+                                            <ValidationMessage For="() => itemUpdateDto.Pricing"/>
+                                        </div>
+
+                                        <div class="col-md-12 ForInput">
+                                            <label class="label-white" for="name">Currency</label>
+                                            <InputText class="form-control" type="text" placeholder="Euro" @bind-Value="itemUpdateDto.Currency"/>
+                                            <ValidationMessage For="() => itemUpdateDto.Currency"/>
+                                        </div>
+
+                                        <div class="col-md-12 mt-3 dropdown">
+                                            <label class="label-white mb-3 mr-1">Category: </label>
+                                            <InputSelect class="btn btn-outline-light dropdown-toggle" @bind-Value="itemUpdateDto.Category">
+                                                <option class="dropdown-item" value="">Select category ...</option>
+                                                <option class="dropdown-item" value="Vehicles">Vehicles</option>
+                                                <option class="dropdown-item" value="Electronics">Electronics</option>
+                                                <option class="dropdown-item" value="Furniture">Furniture</option>
+                                                <option class="dropdown-item" value="Clothes">Clothes</option>
+                                            </InputSelect>
+                                            <ValidationMessage For="() => itemUpdateDto.Category"/>
+                                            
+                                            
+
+                                            <Row>
+                                                <div class="form-button mt-3">
+                                                    <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
+                                                <div class="form-button mt-3">
+                                                    <button id="delete" onclick="@HandleRemoveItem" class="btn btn-danger">Delete</button>
+                                                </div>
+                                            </Row>
+                                        </div>
+                                    </EditForm>
+                                    @* <ImageView Id="@ItemId"/> *@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+                    
+        </Authorized>
+        <NotAuthorized>
+            <h3>You are not allowed to edit items without an account!</h3>
+        </NotAuthorized>
+    </AuthorizeView>
+</CascadingAuthenticationState>
+
+
+@code {
+    
+    [Parameter] 
+    public int ItemId { get; set; }
+
+    [CascadingParameter]
+    private Task<AuthenticationState> AuthState { get; set; } = null!;
+
+    private ItemUpdateDto itemUpdateDto;
+    private string? name;
+    private int userId;
+    private Item item;
+    //private List<Image> images;
+    //private int imageIndex;
+
+    protected override async Task OnInitializedAsync()
+    {
+        AuthenticationState authState = await AuthState;
+        ClaimsPrincipal userClaim = authState.User;
+        name = userClaim.Identity.Name;
+        IEnumerable<User> users = await UserService.GetUsers(name.Split(' ')[0], name.Split(' ')[1]);
+        if (users is null && users.Count() != 1)
+            throw new Exception();
+        List<User> user = new List<User>(users);
+        userId = user[0].Id;
+        
+        item = await ItemService.GetItemById(ItemId);
+        if (item.OwnerId != userId)
+        {
+            throw new UnauthorizedAccessException("The item does not belong to this user!");
+        }
+
+       // imageIndex = 0;
+
+        itemUpdateDto = new ItemUpdateDto(item.Id)
+        {
+            Category = item.Category,
+            Currency = item.Currency,
+            Description = item.Description,
+            IsSold = item.IsSold,
+            Name = item.Name,
+            OwnerId = item.OwnerId,
+            Pricing = item.Pricing
+        };
+
+        // List<Image> images = await ImageService.GetImagesByItemId(item.Id);
+        // foreach (var img in images)
+        // {
+        //     images.Add(img);
+        // }
+    }
+
+    private async void HandleValidSubmit()
+    {
+        Console.WriteLine("Editing item...");
+        try
+        {
+            Item? item = await ItemService.Update(itemUpdateDto);
+            
+            if (item != null)
+            {
+                Console.WriteLine("Edit successful");
+            }
+            navMgr.NavigateTo($"/ViewItem/{item.Id}");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+            
+    private async void HandleRemoveItem()
+    {
+        Console.WriteLine("Editing item...");
+        try
+        {
+            await ItemService.DeleteItemById(ItemId);
+            Console.WriteLine("Delete Successful");
+            navMgr.NavigateTo($"/Marketplace/1");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+    
+}
