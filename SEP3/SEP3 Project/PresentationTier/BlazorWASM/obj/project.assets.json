@@ -2319,19 +2319,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\42194\\.nuget\\packages\\": {}
+    "C:\\Users\\chiri\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj",
+      "projectUniqueName": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj",
       "projectName": "BlazorWASM",
-      "projectPath": "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj",
-      "packagesPath": "C:\\Users\\42194\\.nuget\\packages\\",
-      "outputPath": "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\obj\\",
+      "projectPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\BlazorWASM.csproj",
+      "packagesPath": "C:\\Users\\chiri\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\BlazorWASM\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\42194\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\chiri\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -2343,11 +2343,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj"
+            "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj"
             },
-            "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj": {
-              "projectPath": "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj"
+            "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj": {
+              "projectPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj"
             }
           }
         }
@@ -2398,7 +2398,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-            "version": "[6.0.11, 6.0.11]"
+            "version": "[6.0.8, 6.0.8]"
           }
         ],
         "frameworkReferences": {
@@ -2406,7 +2406,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

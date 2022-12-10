@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj": {}
+    "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj": {}
   },
   "projects": {
-    "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj": {
+    "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\42194\\.nuget\\packages\\",
-        "outputPath": "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\chiri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\42194\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\chiri\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -59,21 +59,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj": {
+    "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj",
+        "projectUniqueName": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj",
         "projectName": "HttpClients",
-        "projectPath": "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj",
-        "packagesPath": "C:\\Users\\42194\\.nuget\\packages\\",
-        "outputPath": "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\obj\\",
+        "projectPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\HttpClients.csproj",
+        "packagesPath": "C:\\Users\\chiri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\HttpClients\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\42194\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\chiri\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -85,8 +85,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\VIA\\Semester3\\SEP3_GROUP\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj"
+              "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\chiri\\Documents\\SEP3\\SEP3\\SEP3 Project\\PresentationTier\\Domain\\Domain.csproj"
               }
             }
           }
@@ -122,7 +122,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
