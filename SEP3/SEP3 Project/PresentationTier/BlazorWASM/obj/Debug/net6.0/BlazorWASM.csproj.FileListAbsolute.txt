@@ -1708,3 +1708,12 @@ D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\build
 D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\build-gz\WtNgHSuG.gz
 D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\build-gz\Up20BtZt.gz
 D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\build-gz\Vcd7InUx.gz
+D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\BlazorWASM.csproj.AssemblyReference.cache
+D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\BlazorWASM.GeneratedMSBuildEditorConfig.editorconfig
+D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\BlazorWASM.AssemblyInfoInputs.cache
+D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\BlazorWASM.AssemblyInfo.cs
+D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\BlazorWASM.csproj.CoreCompileInputs.cache
+D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\BlazorWASM.MvcApplicationPartsAssemblyInfo.cache
+D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\BlazorWASM.dll
+D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\refint\BlazorWASM.dll
+D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\BlazorWASM.pdb
