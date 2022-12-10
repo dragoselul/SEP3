@@ -3,7 +3,6 @@ using Domain.DTOs;
 using Domain.Models;
 using HttpClients.ClientInterfaces;
 using Newtonsoft.Json;
-using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace HttpClients.Implementations;
 
@@ -20,7 +19,7 @@ public class MessageHttpClient : IMessageService
     public async Task<Message?> Create(MessageCreationDto dto)
     {
         HttpResponseMessage response = await Client.PostAsJsonAsync("https://localhost:7171/Message", dto);
-        Console.WriteLine(JsonSerializer.Serialize(dto));
+        Console.WriteLine(dto);
         string result = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {

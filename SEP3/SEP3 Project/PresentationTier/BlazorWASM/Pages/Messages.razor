@@ -3,9 +3,6 @@
 @using Microsoft.AspNetCore.Components.Authorization
 @using Domain.Models
 @using System.Security.Claims
-@using System.Text.Json
-@using Domain.DTOs
-@using Message = Domain.Models.Message
 @inject NavigationManager navMgr
 @inject IConversationService ConversationService
 @inject IMessageService MessageService
@@ -38,18 +35,18 @@
                     <div class="row">
                         <div class="col-lg-4 border border-white rounded-start users me-3">
                             <div class="row">
-                                
-                                
-
                                 @foreach (var conversation in _conversations)
                                 {
-                                    <Contact Name="@(conversation.Item.Name)" ConversationId="@conversation.Id" OnOpenConversation="@HandleOpenConversation"/>
+                                    if (conversation.Buyer.Id == userId)
+                                    {
+                                        <MessagesPerson id="@conversation.Id" FullName="@conversation.Seller.firstName @conversation.Seller.lastName" onClick="@HandleOpenConversation"></MessagesPerson>
+                                    }
+                                    
                                 }
-
-
+                                
                             </div>
                         </div>
-                        <MessageView Conversation="@currentConversation" UserId="@userId" OnMessageSend="@HandleSendMessage"/>
+                        <MessageView Conversation="@currentConversation" UserId="@userId"/>
                     </div>
                 </div>
             }
@@ -73,6 +70,7 @@
 
     private string? name;
     private int userId;
+    private Item item;
     //private List<Image> images;
     //private int imageIndex;
 
@@ -91,28 +89,12 @@
         _conversations = await ConversationService.GetByUserId(userId);
         currentConversation = _conversations[0];
 
-        Console.WriteLine(_conversations.Count);
-        Console.WriteLine(currentConversation);
 
     }
 
-    private async Task HandleOpenConversation(long id)
+    private async Task HandleOpenConversation(int id)
     {
-        currentConversation = await ConversationService.GetById((int)id);
-        Console.WriteLine("Conversation changed to " + id);
-        StateHasChanged();
-    }
-
-    private async Task HandleSendMessage(MessageCreationDto dto)
-    {
-        Console.WriteLine("Handle: " + dto.content);
-        Message? message = await MessageService.Create(dto);
-        Console.WriteLine(JsonSerializer.Serialize(message));
-        if (message == null)
-        {
-            throw new Exception("Could not send a message");
-        }
-        currentConversation = await ConversationService.GetById((int)currentConversation.Id);
+        currentConversation = await ConversationService.GetById(id);
     }
 
 
