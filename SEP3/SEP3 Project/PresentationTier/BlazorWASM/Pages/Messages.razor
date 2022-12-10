@@ -43,7 +43,17 @@
                         
                                 @foreach (var conversation in _conversations)
                                 {
-                                    string temp = (conversation.Item.Name);
+                                    string temp = "";
+                                    //string temp = conversation.Item.Name + " ";
+                                    //temp += conversation.Buyer.Id == userId ? conversation.Seller.firstName  + " " + conversation.Seller.lastName : conversation.Buyer.firstName  + " " + conversation.Buyer.lastName;
+                                    if (conversation.Buyer.Id == userId)
+                                    {
+                                        temp = conversation.Item.Name + " " + conversation.Seller.firstName  + " " + conversation.Seller.lastName;
+                                    }
+                                    else
+                                    {
+                                        temp = conversation.Item.Name + " " + conversation.Buyer.firstName  + " " + conversation.Buyer.lastName;
+                                    }
                                     <Contact Name=@temp ConversationId="@conversation.Id" OnOpenConversation="@HandleOpenConversation"/>
                                 }
 
