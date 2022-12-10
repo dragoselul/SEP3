@@ -2,14 +2,12 @@ package dk.via.nbnp.databaseserver.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@JsonPOJOBuilder
 @Table(name="\"user\"")
 public class User {
 
