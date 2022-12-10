@@ -1,9 +1,10 @@
 @using Domain.Models
-
+@using Microsoft.AspNetCore.Components
+@using Domain.DTOs
 
 <div class="col-lg-7 border border-white rounded-end position-relative message-field">
     <!--Messages-->
-    <div>
+    <div class="container scroll-view">
         @foreach (var message in Conversation.MessageList)
         {
             <Message UserId="@UserId" message="@message" />
@@ -12,12 +13,14 @@
     </div>
     <!--Send button/TextArea-->
     <div class="">
-        <form class="d-flex position-absolute bottom-0 start-0 message-typer">
-            <input class="form-control" type="text" placeholder="Enter text" aria-label="Message">
-            <button class="btn btn-success" type="submit">
-                Send
-            </button>
-        </form>
+        <EditForm Model="@MessageCreationDto" OnValidSubmit="@HandleSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+        
+            <InputText id="name" @bind-Value="MessageCreationDto.content" />
+        
+            <button type="submit">Send</button>
+        </EditForm>
     </div>
 </div>
 
@@ -27,7 +30,20 @@
     public Conversation Conversation { get; set; }
     [Parameter]
     public int UserId { get; set; }
-    
-    
+    [Parameter] 
+    public EventCallback<MessageCreationDto> OnMessageSend { get; set; }
+
+    public MessageCreationDto MessageCreationDto { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        MessageCreationDto = new MessageCreationDto(UserId, (int)Conversation.Id, "");
+    }
+
+    public void HandleSubmit()
+    {
+        OnMessageSend.InvokeAsync(MessageCreationDto);
+        MessageCreationDto.content = "";
+    }
 
 }

@@ -2,9 +2,9 @@ namespace Domain.DTOs;
 
 public class MessageCreationDto
 {
-    public int senderId { get; }
-    public int conversationId { get; }
-    public string content { get; }
+    public int senderId { get; set; }
+    public int conversationId { get; set; }
+    public string content { get; set; }
 
     public MessageCreationDto(int senderId, int conversationId, string content)
     {

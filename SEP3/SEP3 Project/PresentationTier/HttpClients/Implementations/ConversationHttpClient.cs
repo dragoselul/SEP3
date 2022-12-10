@@ -45,7 +45,9 @@ public class ConversationHttpClient : IConversationService
 
     public async Task<List<Conversation>> GetByUserId(int userId)
     {
-        HttpResponseMessage response = await Client.GetAsync($"/Conversation/userId={userId}");
+        
+        Console.WriteLine("Receive data");
+        HttpResponseMessage response = await Client.GetAsync($"/Conversation?userId={userId}");
         string result = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
