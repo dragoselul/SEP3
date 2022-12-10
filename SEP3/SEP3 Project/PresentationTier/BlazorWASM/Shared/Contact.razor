@@ -1,0 +1,25 @@
+<div class="w-100 p-2">
+    <button onclick="@OnClick" class="btn btn-outline-dark w-100" type="submit">
+        <div class="col-12">
+            @Name
+        </div>
+    </button>
+</div>
+
+@code {
+    
+    [Parameter]
+    public long ConversationId { get; set; }
+    
+    [Parameter]
+    public string Name { get; set; }
+
+    [Parameter] 
+    public EventCallback<long> OnOpenConversation { get; set; }
+
+    public void OnClick()
+    {
+        OnOpenConversation.InvokeAsync(ConversationId);
+    }
+
+}

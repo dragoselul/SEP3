@@ -1,11 +1,25 @@
-<button class="btn btn-outline-dark" type="submit">
-    <div class="col-12">
-        <span class="oi oi-person float-start" aria-hidden="true"></span> @FullName
-    </div>
-</button>
+<div>
+    <button onclick="@OnClicked" class="btn btn-outline-dark" type="submit">
+        <div class="col-12">
+            <span class="oi oi-person float-start" aria-hidden="true">@FullName</span> 
+        </div>
+    </button>
+</div>
+
 @code {
 
+    [Parameter] 
+    public int Id { get; set; }
+
     [Parameter]
-    public string FullName { get; set; }
+    public string? FullName { get; set; }
+
+    [Parameter]
+    public EventCallback<int> OnOpenConversation { get; set; }
+
+    public void OnClicked()
+    {
+        OnOpenConversation.InvokeAsync(Id);
+    }
 
 }

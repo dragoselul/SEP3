@@ -1,0 +1,14 @@
+<div class="@(message.Sender.Id == UserId ? "receiver" : "sender")">
+    <p class="message-time">@message.DateTimeSent</p>
+    <p class="message-content">@message.Content</p>
+</div>
+
+@code {
+
+    [Parameter]
+    public Domain.Models.Message? message { get; set; }
+    
+    [Parameter]
+    public int? UserId { get; set; }
+    
+}
