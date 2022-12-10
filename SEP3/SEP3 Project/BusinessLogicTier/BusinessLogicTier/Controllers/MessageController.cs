@@ -34,11 +34,11 @@ public class MessageController : ControllerBase
     }
     
     [HttpGet]
-    public async Task<ActionResult<List<Message>>> GetByConversationAsync([FromQuery] int userId)
+    public async Task<ActionResult<List<Message>>> GetByConversationAsync([FromQuery] int conversationId)
     {
         try
         {
-            List<Message> Messages = await MessageLogic.GetByConversationIdAsync(userId);
+            List<Message> Messages = await MessageLogic.GetByConversationIdAsync(conversationId);
             return Ok(Messages);
         }
         catch (Exception e)

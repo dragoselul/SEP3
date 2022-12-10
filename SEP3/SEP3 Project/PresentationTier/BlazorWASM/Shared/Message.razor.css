@@ -1,0 +1,12 @@
+.sender > .message-content {
+    background-color: #ced4da;
+}
+
+.receiver > .message-content{
+    background-color: #1fbce1;
+}
+
+.message-time {
+    font-size: 10px;
+    color: #ced4da;
+}
