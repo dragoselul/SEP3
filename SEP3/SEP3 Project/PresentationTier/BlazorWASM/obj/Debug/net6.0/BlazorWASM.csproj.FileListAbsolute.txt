@@ -2578,3 +2578,6 @@ D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\o
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\BlazorWASM.csproj.CopyComplete
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\ref\BlazorWASM.dll
 D:\VIA\Semester3\SEP3_GROUP\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\scopedcss\Shared\MessageView.razor.rz.scp.css
+D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\EditItem.razor.rz.scp.css
+D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\scopedcss\Shared\Message.razor.rz.scp.css
+D:\VIA\SEP3\SEP3\SEP3 Project\PresentationTier\BlazorWASM\obj\Debug\net6.0\scopedcss\Shared\MessageView.razor.rz.scp.css

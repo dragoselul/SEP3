@@ -496,3 +496,36 @@ README.html
 *.iml
 .idea
 .exercism
+SEP3/SEP3 Project/PresentationTier/BlazorWASM/obj/BlazorWASM.csproj.nuget.dgspec.json
+SEP3/SEP3 Project/PresentationTier/BlazorWASM/obj/BlazorWASM.csproj.nuget.g.props
+SEP3/SEP3 Project/PresentationTier/BlazorWASM/obj/Debug/net6.0/BlazorWASM.assets.cache
+SEP3/SEP3 Project/PresentationTier/BlazorWASM/obj/Debug/net6.0/BlazorWASM.csproj.FileListAbsolute.txt
+SEP3/SEP3 Project/PresentationTier/BlazorWASM/obj/project.assets.json
+SEP3/SEP3 Project/PresentationTier/BlazorWASM/obj/project.nuget.cache
+SEP3/SEP3 Project/PresentationTier/BlazorWASM/obj/project.packagespec.json
+SEP3/SEP3 Project/PresentationTier/BlazorWASM/obj/rider.project.restore.info
+SEP3/SEP3 Project/PresentationTier/BlazorWASM/obj/staticwebassets.pack.sentinel
+SEP3/SEP3 Project/PresentationTier/Domain/obj/Debug/net6.0/Domain.assets.cache
+SEP3/SEP3 Project/PresentationTier/Domain/obj/Domain.csproj.nuget.dgspec.json
+SEP3/SEP3 Project/PresentationTier/Domain/obj/Domain.csproj.nuget.g.props
+SEP3/SEP3 Project/PresentationTier/Domain/obj/project.assets.json
+SEP3/SEP3 Project/PresentationTier/Domain/obj/project.nuget.cache
+SEP3/SEP3 Project/PresentationTier/Domain/obj/project.packagespec.json
+SEP3/SEP3 Project/PresentationTier/Domain/obj/rider.project.restore.info
+SEP3/SEP3 Project/PresentationTier/HttpClients/obj/Debug/net6.0/HttpClients.assets.cache
+SEP3/SEP3 Project/PresentationTier/HttpClients/obj/HttpClients.csproj.nuget.dgspec.json
+SEP3/SEP3 Project/PresentationTier/HttpClients/obj/HttpClients.csproj.nuget.g.props
+SEP3/SEP3 Project/PresentationTier/HttpClients/obj/project.assets.json
+SEP3/SEP3 Project/PresentationTier/HttpClients/obj/project.nuget.cache
+SEP3/SEP3 Project/PresentationTier/HttpClients/obj/project.packagespec.json
+SEP3/SEP3 Project/PresentationTier/HttpClients/obj/rider.project.restore.info
+SEP3/SEP3 Project/PresentationTier/PresentationTierTest/bin/Debug/net6.0/CoverletSourceRootsMapping
+SEP3/SEP3 Project/PresentationTier/PresentationTierTest/obj/Debug/net6.0/PresentationTierTest.assets.cache
+SEP3/SEP3 Project/PresentationTier/PresentationTierTest/obj/Debug/net6.0/PresentationTierTest.csproj.AssemblyReference.cache
+SEP3/SEP3 Project/PresentationTier/PresentationTierTest/obj/Debug/net6.0/PresentationTierTest.GeneratedMSBuildEditorConfig.editorconfig
+SEP3/SEP3 Project/PresentationTier/PresentationTierTest/obj/PresentationTierTest.csproj.nuget.dgspec.json
+SEP3/SEP3 Project/PresentationTier/PresentationTierTest/obj/PresentationTierTest.csproj.nuget.g.props
+SEP3/SEP3 Project/PresentationTier/PresentationTierTest/obj/project.assets.json
+SEP3/SEP3 Project/PresentationTier/PresentationTierTest/obj/project.nuget.cache
+SEP3/SEP3 Project/PresentationTier/PresentationTierTest/obj/project.packagespec.json
+SEP3/SEP3 Project/PresentationTier/PresentationTierTest/obj/rider.project.restore.info
