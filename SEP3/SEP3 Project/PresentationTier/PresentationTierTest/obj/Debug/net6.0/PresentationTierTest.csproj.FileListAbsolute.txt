@@ -143,3 +143,7 @@ C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\Presenta
 C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\PresentationTierTest\bin\Debug\net6.0\nunit.framework.dll
 C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\PresentationTierTest\bin\Debug\net6.0\RichardSzalay.MockHttp.dll
 C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\PresentationTierTest\bin\Debug\net6.0\Google.Protobuf.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\PresentationTierTest\bin\Debug\net6.0\Syncfusion.Blazor.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\PresentationTierTest\bin\Debug\net6.0\Syncfusion.ExcelExport.Net.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\PresentationTierTest\bin\Debug\net6.0\Syncfusion.Licensing.dll
+C:\Users\matas\Documents\GitHub\SEP3\SEP3\SEP3 Project\PresentationTier\PresentationTierTest\bin\Debug\net6.0\Syncfusion.PdfExport.Net.dll

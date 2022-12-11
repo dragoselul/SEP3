@@ -13,6 +13,7 @@ using Domain.Models;
 using HttpClients.ClientInterfaces;
 using HttpClients.Implementations;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.VisualBasic.CompilerServices;
 using NUnit.Framework;
 using RichardSzalay.MockHttp;
 using Assert = Xunit.Assert;
@@ -30,10 +31,12 @@ public class UnitTest1 : TestContext
       
       using var ctx = new TestContext();
       ctx.Services.AddSingleton<IUserService>(new UserHttpClient(new HttpClient()));
-      
       var fixture = new Fixture();
-      var strings = fixture.Create<List<string>>();
-      UserCreationDto userCreationDto = new UserCreationDto("","","","","",true);
+      var fakeUser = fixture.Create<User>();
+      var mock = Services.AddMockHttpClient();
+      mock.When("/Auth/register").RespondJson(fakeUser);
+      UserCreationDto userCreationDto = fixture.Create<UserCreationDto>();
+      //UserCreationDto userCreationDto = new UserCreationDto("","","","","",true);
       ctx.Services.AddSingleton<IUserService>(new UserHttpClient(new HttpClient()));
       Services.AddTransient<IUserService, UserHttpClient>();
       var api = Services.GetRequiredService<IUserService>();
@@ -41,17 +44,9 @@ public class UnitTest1 : TestContext
 
       //Act
       api.Create(userCreationDto);
-      /*
-      cut.Find("#firstName input").Change("Danila");
-      cut.Find("#lastName input").Change("Vladimirov");
-      cut.Find("#email input").Change("Danila@gmail.com");
-      cut.Find("#password input").Change("pepega");
-      cut.Find("#phoneNumber input").Change("+4512345678");
-      
-      */
 
       //Assert
-      //If does not throw exception, means it's working
+      Assert.NotNull(api.Create(userCreationDto).Result.Id);
     }
 
     [Fact]
@@ -63,6 +58,7 @@ public class UnitTest1 : TestContext
         var authContext = ctx.AddTestAuthorization();
         authContext.SetAuthorized("Test User");
         ctx.Services.AddSingleton<IAuthService>(new JwtAuthService());
+        ctx.Services.AddSingleton<IUserService>(new UserHttpClient(new HttpClient()));
         var cut = ctx.RenderComponent<LoginSeeProfile>();
         var fixture = new Fixture();
         var strings = fixture.Create<List<string>>();
@@ -73,7 +69,8 @@ public class UnitTest1 : TestContext
 
         api.LoginAsync(strings[0], strings[1]);
         //Assert
-        cut.MarkupMatches(@"}");
+        cut.Markup.Contains(@"Edit your profile");
+        //Basically checks if the page is converted to the edit page
 
     }
     [Fact]
@@ -84,10 +81,15 @@ public class UnitTest1 : TestContext
         using var ctx = new TestContext();
         var authContext = ctx.AddTestAuthorization();
         authContext.SetNotAuthorized();
-        ctx.Services.AddSingleton<IAuthService>(new JwtAuthService());
-        var cut = ctx.RenderComponent<LoginSeeProfile>();
         var fixture = new Fixture();
         var strings = fixture.Create<List<string>>();
+        var users = fixture.Create<IEnumerable<User>>();
+        var mock = Services.AddMockHttpClient();
+        mock.When("/Users").RespondJson(users);
+        ctx.Services.AddSingleton<IAuthService>(new JwtAuthService());
+        ctx.Services.AddSingleton<IUserService>(new UserHttpClient(new HttpClient()));
+        var cut = ctx.RenderComponent<LoginSeeProfile>();
+        
         Services.AddTransient<IAuthService, JwtAuthService>();
         var api = Services.GetRequiredService<IAuthService>();
 
@@ -106,29 +108,34 @@ public class UnitTest1 : TestContext
         Assert.True(contains);
     }
 
-    [Fact]
-    public void PostIsCreated()
+    [Fact] 
+    public void PostIsCreated_ItemShouldBeCreated()
     {
         //Arrange
         using var ctx = new TestContext();
-        var mock = ctx.Services.AddMockHttpClient();
+        var mock = Services.AddMockHttpClient();
         ctx.Services.AddSingleton<IItemService>(new ItemHttpClient(new HttpClient()));
         ctx.Services.AddSingleton<IUserService>(new UserHttpClient(new HttpClient()));
         var authContext = ctx.AddTestAuthorization();
         var fixture = new Fixture();
-        var strings = fixture.Create<List<string>>();
-        mock.When("/Item").RespondJson(new List<Item>());
+        var items = fixture.Create<List<Item>>();
+        var fakeitem = fixture.Create<Item>();
+        items[0].Id.ToString();
+        ItemCreationDto item = fixture.Create<ItemCreationDto>();
+        //ItemCreationDto item = new ItemCreationDto();
+        mock.When("/Item").RespondJson(fakeitem);
+        //mock.When("https://localhost:7171/Item").RespondJson(fakeitem);
         authContext.SetAuthorized("Test User");
         var cut = ctx.RenderComponent<CreatePost>();
         Services.AddTransient<IItemService, ItemHttpClient>();
         var api = Services.GetRequiredService<IItemService>();
-        ItemCreationDto item = new ItemCreationDto();
+        //ItemCreationDto item = new ItemCreationDto();
         
 
         //Act
         api.Create(item);
         //Assert
-        //It works if does not throw an exception
+        Assert.NotNull(api.Create(item).Result.Id);
     }
 
     [Fact, AutoData]
@@ -137,8 +144,10 @@ public class UnitTest1 : TestContext
         using var ctx = new TestContext();
         var fixture = new Fixture();
         var items = fixture.Create<List<Item>>();
-        var mock = ctx.Services.AddMockHttpClient();
+        var mock = Services.AddMockHttpClient();
         mock.When("/Item").RespondJson(items);
+        var servermock = ctx.Services.AddMockHttpClient();
+        servermock.When("/ViewItem/@items[i].Id").RespondJson(items);
         HttpClient httpClient = new HttpClient();
         httpClient.BaseAddress = new Uri("https://localhost");
         ctx.Services.AddSingleton<IItemService>(new ItemHttpClient(httpClient));
@@ -146,18 +155,29 @@ public class UnitTest1 : TestContext
         Services.AddTransient<IImageService, ImageHttpClient>();
         Services.AddTransient<IItemService, ItemHttpClient>();
         var api = Services.GetRequiredService<IItemService>();
-        ItemCreationDto item = new ItemCreationDto();
+        ItemCreationDto item = new ItemCreationDto()
+        {
+            Name = "stuff",
+            Description = "stuff",
+            ContactId = 1,
+            Pricing = 500,
+            Category = "Electronics",
+            Currency = "EURO",
+            IsSold = false
+        };
         var authContext = ctx.AddTestAuthorization();
         //authContext.SetAuthorized("Test User");
 
         var cut = ctx.RenderComponent<Marketplace>();
+        cut.Find("item card").InnerHtml.Remove(1);
         
         //ctx.Services.AddSingleton<IUserService>(new UserHttpClient(new HttpClient()));
         //Act
         api.Create(item);
-        api.GetAllItems();
+        api.GetItems("stuff","stuff",1,500,500,false,"Electronics");
 
         //Assert
+        
         //If does not throw any exception, it works
         
         /*
@@ -165,7 +185,56 @@ public class UnitTest1 : TestContext
         var contains = cut.Markup.Contains(@"(0)");
         Assert.True(contains);
         */
+    }
 
+    [Fact]
+    public async void ItemsFilter()
+    {
+        using var ctx = new TestContext();
+        var fixture = new Fixture();
+        var items = new List<Item>();
+        Domain.Models.Item fakeItem = new Item()
+        {
+            Name = "stuff",
+            Id = 1,
+            Description = "stuff",
+            OwnerId = 1,
+            Pricing = 500,
+            Category = "Electronics",
+            Currency = "Euro",
+            IsSold = false,
+            ContactFirstName = "Dan",
+            ContactLastName = "Ceapa"
+        };
+        items.Add(fakeItem);
+        var json = JsonSerializer.Serialize(fakeItem);
+        var mock = Services.AddMockHttpClient();
+        mock.When("/Item").RespondJson(json);
+        HttpClient httpClient = new HttpClient();
+        httpClient.BaseAddress = new Uri("https://localhost");
+       
+        ctx.Services.AddSingleton<IItemService>(new ItemHttpClient(httpClient));
+        ctx.Services.AddSingleton<IImageService>(new ImageHttpClient(httpClient));
+        Services.AddTransient<IImageService, ImageHttpClient>();
+        Services.AddTransient<IItemService, ItemHttpClient>();
+        var api = Services.GetRequiredService<IItemService>();
+        ItemCreationDto item = new ItemCreationDto(){
+            Name = "stuff",
+            Description = "stuff",
+            ContactId = 1,
+            Pricing = 500,
+            Category = "Electronics",
+            Currency = "EURO",
+            IsSold = false
+        };
+        var authContext = ctx.AddTestAuthorization();
+        authContext.SetAuthorized("Test User");
+        
+        await api.Create(item);
+        await api.GetItems("stuff","stuff",1,500,500,false,"Electronics");
 
+        //var cut = ctx.Render(@<Marketplace>);
+        var cut = ctx.RenderComponent<Marketplace>();
+        cut.MarkupMatches(@"");
     }
 }
