@@ -132,7 +132,7 @@
                             for (int i = itemNb * 10 - 10; i < upLimit; i++)
                             {
                                 <div class="item card">
-                                    <a href="ViewItem/@items[i].Id">
+                                    <a href="ViewItem/@filteredItems[i].Id">
                                         <div class="item__position">
                                             @foreach (var image in images)
                                             {
@@ -313,7 +313,7 @@
                             for (int i = itemNb * 10 - 10; i < upLimit; i++)
                             {
                                 <div class="item card">
-                                    <a href="ViewItem/@items[i].Id">
+                                    <a href="ViewItem/@filteredItems[i].Id">
                                         <div class="item__position">
                                             @foreach (var image in images)
                                             {
