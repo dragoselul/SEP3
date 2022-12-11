@@ -185,7 +185,10 @@ public class ItemFileDao : IItemDao
             Price = toUpdate.Pricing,
             Currency = toUpdate.Currency,
             Description = toUpdate.Description,
-            Status = toUpdate.IsSold
+            Status = toUpdate.IsSold,
+            Id = toUpdate.Id,
+            OwnerId = toUpdate.OwnerId
+
         });
 
         Item Updated = new()

@@ -6,6 +6,10 @@
 @using Domain.DTOs
 @using Domain.Models
 @using System.Security.Claims
+@using Newtonsoft.Json
+@using Syncfusion.Blazor.Navigations
+@using Syncfusion.Blazor.Buttons
+@using JsonSerializer = System.Text.Json.JsonSerializer
 @inject NavigationManager navMgr
 @inject IItemService ItemService
 @inject IUserService UserService
@@ -26,10 +30,42 @@
                     <div class="row">
                         <div class="form-holder">
                             <div class="form-content">
-                                <div class="form-items">
+                                <div class="form-items container">
                                     <h3>Hello @name.Split(' ')[0]</h3>
                                     <h3>Edit a post</h3>
-                                    <p>Fill in the data below.</p>
+                                    
+                                    @if (images.Count > 0)
+                                    {
+                                        <SfCarousel @bind-SelectedIndex="@imageIndex">
+                                            @foreach (var image in images)
+                                            {
+                                                <CarouselItem>
+    
+                                                    <figure class="img-container">
+                                                        <img class="img-fluid d-flex justify-content-center" src="data:@image.contentType;base64,@image.base64data" alt="image of the item" style="height:100%;width:100%;">
+                                                    </figure>
+    
+                                                </CarouselItem>
+                                            }
+                                        </SfCarousel>
+                                        <div class="row">
+                                            <div class="form-button mt-3">
+                                                <button id="delete" onclick="@HandleRemoveImage" class="btn btn-danger">Delete Image</button>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <h2>No Images for the item</h2>
+                                    }
+                                    
+                                    <div class="row">
+                                        <div class="form-button mt-3">
+                                            <button id="delete" onclick="@HandleUploadImage" class="btn btn-primary">Upload Images</button>
+                                        </div>
+                                    </div>
+
+
                                     <EditForm Model="@itemUpdateDto" OnValidSubmit="@HandleValidSubmit">
                                         <DataAnnotationsValidator/>
                                         <div class="col-md-12 ForInput">
@@ -66,16 +102,20 @@
                                             </InputSelect>
                                             <ValidationMessage For="() => itemUpdateDto.Category"/>
                                             
+                                            <br/>
                                             
+                                            <label class="label-white mb-3 mr-1">Sold</label>
+                                            <SfCheckBox Label="" @bind-Checked="itemUpdateDto.IsSold"></SfCheckBox>
+                                            <ValidationMessage For="() => itemUpdateDto.Category"/>
 
-                                            <Row>
+                                            <div class="row">
                                                 <div class="form-button mt-3">
                                                     <button id="submit" type="submit" class="btn btn-primary">Submit</button>
                                                 </div>
                                                 <div class="form-button mt-3">
-                                                    <button id="delete" onclick="@HandleRemoveItem" class="btn btn-danger">Delete</button>
+                                                    <button id="delete" onclick="@HandleRemoveItem" class="btn btn-danger">Delete Item</button>
                                                 </div>
-                                            </Row>
+                                            </div>
                                         </div>
                                     </EditForm>
                                     @* <ImageView Id="@ItemId"/> *@
@@ -106,11 +146,13 @@
     private string? name;
     private int userId;
     private Item item;
-    //private List<Image> images;
-    //private int imageIndex;
+    private List<Image> images;
+    private int imageIndex;
 
     protected override async Task OnInitializedAsync()
     {
+        imageIndex = 0;
+        
         AuthenticationState authState = await AuthState;
         ClaimsPrincipal userClaim = authState.User;
         name = userClaim.Identity.Name;
@@ -139,11 +181,8 @@
             Pricing = item.Pricing
         };
 
-        // List<Image> images = await ImageService.GetImagesByItemId(item.Id);
-        // foreach (var img in images)
-        // {
-        //     images.Add(img);
-        // }
+        images = await ImageService.GetImagesByItemId(item.Id);
+        Console.WriteLine(images.Count);
     }
 
     private async void HandleValidSubmit()
@@ -152,22 +191,40 @@
         try
         {
             Item? item = await ItemService.Update(itemUpdateDto);
-            
             if (item != null)
             {
                 Console.WriteLine("Edit successful");
+                
             }
-            navMgr.NavigateTo($"/ViewItem/{item.Id}");
+            navMgr.NavigateTo($"/ViewItem/{ItemId}");
+            
+
+            
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
         }
     }
+
+    private async void HandleUploadImage()
+    {
+        navMgr.NavigateTo($"/UploadImages/{ItemId}/edit");
+    }
+
+    private async void HandleRemoveImage()
+    {
+        Console.WriteLine("Deleting image...");
+        Image image = images[imageIndex];
+        await ImageService.DeleteImageById((int)image.Id);
+        Console.WriteLine("Delete Successful");
+        images = await ImageService.GetImagesByItemId(item.Id);
+        StateHasChanged();
+    }
             
     private async void HandleRemoveItem()
     {
-        Console.WriteLine("Editing item...");
+        Console.WriteLine("Deleting item...");
         try
         {
             await ItemService.DeleteItemById(ItemId);

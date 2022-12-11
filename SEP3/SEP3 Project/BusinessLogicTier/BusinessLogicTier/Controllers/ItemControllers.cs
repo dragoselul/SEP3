@@ -1,4 +1,5 @@
-﻿using Application.Logic;
+﻿using System.Text.Json;
+using Application.Logic;
 using Application.LogicInterfaces;
 using Domain.DTOs;
 using Domain.Models;
@@ -77,11 +78,12 @@ public class ItemController : ControllerBase
     }
 
 
-    [HttpPatch]
+    [HttpPatch("{id:int}")]
     public async Task<ActionResult> UpdateAsync([FromBody] ItemUpdateDto dto)
     {
         try
         {
+            Console.WriteLine(JsonSerializer.Serialize(dto));
             await itemLogic.UpdateAsync(dto);
             return Ok();
         }
@@ -93,7 +95,6 @@ public class ItemController : ControllerBase
     }
     
     [HttpDelete("{id:int}")]
-
     public async Task<ActionResult> DeleteItemAsync([FromRoute] int id)
     {
         try
