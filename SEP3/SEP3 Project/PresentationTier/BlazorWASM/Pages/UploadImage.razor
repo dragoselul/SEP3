@@ -73,6 +73,15 @@
 				ItemId = itemId
 			});
 		}
-		NavigationManager.NavigateTo(key.Equals("edit") ? $"EditItem/{itemId}" : "/Marketplace/1");
+
+		if (key != null && key.Equals("edit"))
+		{
+			NavigationManager.NavigateTo($"EditItem/{itemId}");
+		}
+		else
+		{
+			NavigationManager.NavigateTo($"/Marketplace/1");
+		}
+
 	}
 }
