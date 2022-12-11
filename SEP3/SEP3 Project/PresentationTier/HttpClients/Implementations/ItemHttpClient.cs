@@ -60,9 +60,9 @@ public class ItemHttpClient: IItemService
         return (await Task.FromResult(item))!;
     }
 
-    public async Task<List<Item>> GetItemsByOwner(User user)
+    public async Task<List<Item>> GetItemsByOwner(int userId)
     {
-        HttpResponseMessage response = await Client.GetAsync($"/Item?contactId={user.Id}");
+        HttpResponseMessage response = await Client.GetAsync($"/Item?contactId={userId}");
         string result = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
