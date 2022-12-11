@@ -8,7 +8,55 @@
     &lt;TestId&gt;xUnit::1018DD00-9C9D-476A-906A-CA052CD5468C::net6.0::TestBusinessLogicTier.Tests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f7e2b8e7_002D6414_002D4441_002D80fc_002D87ad774a21b7/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Tests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2eb2f2d0_002D1c20_002D4126_002Dac24_002D7624e4313498/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="EditProfile_ShouldBeAbleToEditUser" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::1018DD00-9C9D-476A-906A-CA052CD5468C::net6.0::TestBusinessLogicTier.Tests.EditProfile_ShouldBeAbleToEditUser&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::1018DD00-9C9D-476A-906A-CA052CD5468C::net6.0::TestBusinessLogicTier.Tests.DeleteUser_UserShouldNotExistAfter&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3c39c4d7_002Dbb32_002D4629_002Dbfcc_002Dcd5b0b85cd81/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CreateUser_GetUser_ShouldCreateAndGetUser #5" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::1018DD00-9C9D-476A-906A-CA052CD5468C::net6.0::TestBusinessLogicTier.Tests.CreateUser_GetUser_ShouldCreateAndGetUser&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=48b93599_002D8626_002D4bc8_002Db12c_002Dc51104e73f5b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CreateItemAndGetItem_ShouldCreateAnItem_ShouldBeAbleToSeeGetTheItem #12" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::1018DD00-9C9D-476A-906A-CA052CD5468C::net6.0::TestBusinessLogicTier.Tests.CreateItemAndGetItem_ShouldCreateAnItem_ShouldBeAbleToSeeGetTheItem&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::1018DD00-9C9D-476A-906A-CA052CD5468C::net6.0::TestBusinessLogicTier.Tests.CreateUser_GetUser_ShouldCreateAndGetUser&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::1018DD00-9C9D-476A-906A-CA052CD5468C::net6.0::TestBusinessLogicTier.Tests.DeleteUser_UserShouldNotExistAfter&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=675aaf59_002Dc60f_002D4723_002Daa86_002D2c6202143847/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CreateUser_GetUser_ShouldCreateAndGetUser #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::1018DD00-9C9D-476A-906A-CA052CD5468C::net6.0::TestBusinessLogicTier.Tests.CreateUser_GetUser_ShouldCreateAndGetUser&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6a0a1ef1_002D3d71_002D4558_002D99da_002D750284f8d55a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CreateUser_GetUser_ShouldCreateAndGetUser #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::1018DD00-9C9D-476A-906A-CA052CD5468C::net6.0::TestBusinessLogicTier.Tests.CreateUser_GetUser_ShouldCreateAndGetUser&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7218b631_002Dabb4_002D444f_002Dae86_002Df9cd4a2eb3e4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Tests #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::1018DD00-9C9D-476A-906A-CA052CD5468C::net6.0::TestBusinessLogicTier.Tests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=73446b2f_002D4e65_002D46e0_002Da64a_002D4a19415a2369/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CreateUser_GetUser_ShouldCreateAndGetUser #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::1018DD00-9C9D-476A-906A-CA052CD5468C::net6.0::TestBusinessLogicTier.Tests.CreateUser_GetUser_ShouldCreateAndGetUser&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=aa3b9d5f_002De7e9_002D4534_002D99a2_002D6b1956485620/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CreateUser_GetUser_ShouldCreateAndGetUser" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::1018DD00-9C9D-476A-906A-CA052CD5468C::net6.0::TestBusinessLogicTier.Tests.CreateUser_GetUser_ShouldCreateAndGetUser&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=eb9a2b08_002D8d53_002D4bd2_002Dbeae_002Dae3cc3be1159/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="EditProfile_ShouldBeAbleToEditUser #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::1018DD00-9C9D-476A-906A-CA052CD5468C::net6.0::TestBusinessLogicTier.Tests.EditProfile_ShouldBeAbleToEditUser&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f7e2b8e7_002D6414_002D4441_002D80fc_002D87ad774a21b7/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Tests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::1018DD00-9C9D-476A-906A-CA052CD5468C::net6.0::TestBusinessLogicTier.Tests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
