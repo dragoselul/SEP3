@@ -63,7 +63,6 @@ public class ImageController : ControllerBase
     }
     
     [HttpDelete("{id:int}")]
-
     public async Task<ActionResult> DeleteImageAsync([FromRoute] int id)
     {
         try

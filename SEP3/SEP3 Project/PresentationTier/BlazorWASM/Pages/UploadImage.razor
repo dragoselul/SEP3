@@ -1,4 +1,4 @@
-@page "/UploadImages/{itemId:long?}"
+@page "/UploadImages/{itemId:long?}/{key?}"
 @using HttpClients.ClientInterfaces
 @using Domain.DTOs
 @using Domain.Models
@@ -36,6 +36,9 @@
 
 	[Parameter]
 	public long itemId { get; set; }
+	
+	[Parameter]
+	public string key { get; set; }
 
 	List<Image> filesBase64 = new();
 	string message = "Insert all the pictures for your item";
@@ -70,6 +73,6 @@
 				ItemId = itemId
 			});
 		}
-		NavigationManager.NavigateTo("/Marketplace/1");
+		NavigationManager.NavigateTo(key.Equals("edit") ? $"EditItem/{itemId}" : "/Marketplace/1");
 	}
 }

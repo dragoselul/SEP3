@@ -56,13 +56,15 @@ public class ItemLogic : IItemLogic
         Item updated = new()
         {
             Id = existing.Id,
-            Name = existing.Name,
-            Description = existing.Description,
-            ContactFirstName = existing.ContactFirstName,
             OwnerId = existing.OwnerId,
-            Pricing = existing.Pricing,
+            Name = dto.Name ?? existing.Name,
+            Description = dto.Description ?? existing.Description,
+            Pricing = dto.Pricing ?? existing.Pricing,
+            IsSold = dto.IsSold ?? existing.IsSold,
+            Category = dto.Category ?? existing.Category,
+            ContactFirstName = existing.ContactFirstName,
             ContactLastName = existing.ContactLastName,
-            IsSold = existing.IsSold
+            Currency = dto.Currency ?? existing.Currency
         };
 
         ValidateItem(updated);
