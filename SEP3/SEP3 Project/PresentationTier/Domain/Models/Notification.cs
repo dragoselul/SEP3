@@ -1,5 +1,3 @@
-namespace Domain.Models;
-
 public class Notification
 {
     public long Id { get; init; } 

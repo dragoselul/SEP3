@@ -1,7 +1,5 @@
-using Domain.DTOs;
-using Domain.Models;
 
-namespace HttpClients.ClientInterfaces;
+using Domain.Models;
 
 public interface INotificationService
 {

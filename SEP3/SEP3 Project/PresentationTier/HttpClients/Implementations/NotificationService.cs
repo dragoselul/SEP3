@@ -1,8 +1,5 @@
 using Domain.Models;
-using HttpClients.ClientInterfaces;
 using Newtonsoft.Json;
-
-namespace HttpClients.Implementations;
 
 public class NotificationService : INotificationService
 {
