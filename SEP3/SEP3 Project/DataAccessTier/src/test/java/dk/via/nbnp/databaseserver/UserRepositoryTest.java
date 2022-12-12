@@ -1,5 +1,4 @@
 package dk.via.nbnp.databaseserver;
-
 import dk.via.nbnp.databaseserver.domain.User;
 import dk.via.nbnp.databaseserver.repositories.UserRepository;
 import org.assertj.core.api.Assertions;
@@ -12,16 +11,17 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 import java.util.Optional;
-
 @RunWith(SpringRunner.class)
 @ContextConfiguration(locations = {"classpath:application-context.xml"})
 @DataJpaTest
 @EnableAutoConfiguration
+@ActiveProfiles
 public class UserRepositoryTest {
 
     @Autowired
@@ -29,14 +29,13 @@ public class UserRepositoryTest {
 
     // JUnit test for saving a user
     @Test
-
     @Rollback(value = false)
     public void saveUserTest(){
 
-        User user = new User
-                ("Johan" , "Straus", "johan@gmail.com", "qwerty123", "45757686", false);
+        User user = new User ("Johan" , "Straus", "johan@gmail.com", "qwerty123", "45757686", false);
         //Mockito.when(userRepository.save(user)).thenReturn(user);
         user = userRepository.save(user);
+        //Assertions.assertThat(user.getId()).isGreaterThan(0);
         Assertions.assertThat(user.getId()).isGreaterThan(0);
     }
 
@@ -86,5 +85,4 @@ public class UserRepositoryTest {
 
         Assertions.assertThat(user1).isNull();
     }
-
 }
