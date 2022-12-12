@@ -1,19 +1,27 @@
 package dk.via.nbnp.databaseserver;
+
 import dk.via.nbnp.databaseserver.domain.User;
 import dk.via.nbnp.databaseserver.repositories.UserRepository;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 import java.util.Optional;
 
-@TestPropertySource(locations = "/application.properties")
+@RunWith(SpringRunner.class)
+@ContextConfiguration(locations = {"classpath:application-context.xml"})
 @DataJpaTest
+@EnableAutoConfiguration
 public class UserRepositoryTest {
 
     @Autowired
@@ -21,13 +29,14 @@ public class UserRepositoryTest {
 
     // JUnit test for saving a user
     @Test
+
     @Rollback(value = false)
     public void saveUserTest(){
+
         User user = new User
                 ("Johan" , "Straus", "johan@gmail.com", "qwerty123", "45757686", false);
-
-        userRepository.save(user);
-
+        //Mockito.when(userRepository.save(user)).thenReturn(user);
+        user = userRepository.save(user);
         Assertions.assertThat(user.getId()).isGreaterThan(0);
     }
 
