@@ -22,6 +22,7 @@ builder.Services.AddScoped<IItemService, ItemHttpClient>();
 builder.Services.AddScoped<IImageService, ImageHttpClient>();
 builder.Services.AddScoped<IConversationService, ConversationHttpClient>();
 builder.Services.AddScoped<IMessageService, MessageHttpClient>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddSyncfusionBlazor();
 AuthorizationPolicies.AddPolicies(builder.Services);
 builder.Services.AddScoped(
