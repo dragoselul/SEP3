@@ -1,4 +1,5 @@
 using Domain.Models;
+using HttpClients.ClientInterfaces;
 using Newtonsoft.Json;
 
 public class NotificationService : INotificationService
