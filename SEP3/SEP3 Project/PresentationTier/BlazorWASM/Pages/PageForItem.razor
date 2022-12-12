@@ -75,6 +75,15 @@ else
                                         <span class="oi oi-person" aria-hidden="true">&nbsp &nbsp</span><b>@itemOwner.firstName @itemOwner.lastName, says:</b> @item.Description
                                     </p>
                                     <h1 class="border-2 bg-success text-white">Price: @item.Pricing @item.Currency</h1>
+                                    <h4 class="border-2">Phone number: @itemOwner.phoneNumber</h4>
+                                    @if (!item.IsSold)
+                                    {
+                                        <h4 class="border-2 bg-success text-white">Status: Available</h4>
+                                    }
+                                    else
+                                    {
+                                        <h4 class="border-2 bg-danger text-white">Status: Sold</h4>
+                                    }
                                 </div>
                             </div>
                         </div>
