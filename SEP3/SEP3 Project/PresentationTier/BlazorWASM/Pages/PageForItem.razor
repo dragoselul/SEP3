@@ -127,6 +127,7 @@ else
     {
         ConversationCreationDto dto = new ConversationCreationDto(userId, itemOwner.Id, itemId);
         Conversation service = await ConversationService.Create(dto);
+        
         navMgr.NavigateTo("/messages");
     }
 
