@@ -1,0 +1,79 @@
+@page "/OwnedItems"
+
+@using HttpClients.ClientInterfaces
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Authorization
+@using Domain.DTOs
+@using Domain.Models
+@using System.Security.Claims
+@using Newtonsoft.Json
+@using Syncfusion.Blazor.Navigations
+@using Syncfusion.Blazor.Buttons
+@using JsonSerializer = System.Text.Json.JsonSerializer
+@inject NavigationManager navMgr
+@inject IItemService ItemService
+@inject IUserService UserService
+@inject IImageService ImageService
+
+<CascadingAuthenticationState>
+    <AuthorizeView Context="Auth">
+        <Authorized>
+
+            @if (items == null)
+                {
+                    <h5 style="color: white">Loading...</h5>
+                }
+            else
+                {
+                    <div class="container">
+                        @foreach (var item in items)
+                        {
+                                
+                            <label class="col-offset-2 col-4" style="color:white">@item.Name</label>
+                            <button class="col-4 btn btn-primary" onclick="@(()=>HandleButtonClick(item.Id))">Edit item</button>
+                        }
+                    </div>
+                }
+                    
+        </Authorized>
+        <NotAuthorized>
+            <h3>You are not allowed to edit items without an account!</h3>
+        </NotAuthorized>
+    </AuthorizeView>
+</CascadingAuthenticationState>
+
+@code {
+    
+    [Parameter] 
+    public int ItemId { get; set; }
+
+    [CascadingParameter]
+    private Task<AuthenticationState> AuthState { get; set; } = null!;
+
+    private string? name;
+    private int userId;
+    private List<Item> items;
+
+    protected override async Task OnInitializedAsync()
+    {
+        AuthenticationState authState = await AuthState;
+        ClaimsPrincipal userClaim = authState.User;
+        name = userClaim.Identity.Name;
+        IEnumerable<User> users = await UserService.GetUsers(name.Split(' ')[0], name.Split(' ')[1]);
+        if (users is null && users.Count() != 1)
+            throw new Exception();
+        List<User> user = new List<User>(users);
+        userId = user[0].Id;
+        
+        items = await ItemService.GetItemsByOwner(userId);
+        
+       }
+
+    private void HandleButtonClick(int itemId)
+    {
+        navMgr.NavigateTo($"/EditItem/{itemId}");
+    }
+
+}
+
+}
