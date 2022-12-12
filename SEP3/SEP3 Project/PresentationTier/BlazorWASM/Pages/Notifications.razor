@@ -1,0 +1,63 @@
+@page "/Notifications"
+@using HttpClients.ClientInterfaces
+@using Microsoft.AspNetCore.Components.Authorization
+@using System.Security.Claims
+@using Domain.Models
+@using HttpClients.Implementations
+@inject INotificationService notificationService;
+@inject IConversationService ConversationService
+@inject IMessageService MessageService
+@inject IUserService UserService
+
+<CascadingAuthenticationState>
+    <Authorized>
+        <h1 class="text-white">
+            Hey, these are all the notifications for our user!
+        </h1>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p class="text-white">
+                        blablabla
+                    </p>
+                    <hr style="color: white">
+                </div>
+            </div>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <h3>You are not allowed to edit items without an account!</h3>
+    </NotAuthorized>
+</CascadingAuthenticationState>
+
+@code {
+    
+    [CascadingParameter]
+    private Task<AuthenticationState> AuthState { get; set; } = null!;
+    
+    private string? name;
+    private int userId;
+    public User itemOwner;
+    public Item item;
+    
+    private List<Notification> notifications;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        AuthenticationState authState = await AuthState;
+        ClaimsPrincipal userClaim = authState.User;
+        name = userClaim.Identity.Name;
+        IEnumerable<User> users = await UserService.GetUsers(name?.Split(' ')[0], name?.Split(' ')[1]);
+        if (users is null && users.Count() != 1)
+            throw new Exception();
+        List<User> user = new List<User>(users);
+        userId = user[0].Id;
+        
+        itemOwner = await UserService.GetUserById(userId);
+
+        notifications = await notificationService.GetNotificationsByUserId(userId);
+
+        Console.WriteLine(notifications.Count);
+    }
+}

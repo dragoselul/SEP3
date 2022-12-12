@@ -19,7 +19,7 @@
                         
             @if (_conversations is null)
                 {
-                    <h5 style="color: white">Loading...</h5>
+                    <h5 style="color: white">No conversations yet!</h5>
                 }
             else
             {
@@ -40,10 +40,21 @@
                             <div class="row">
                                 
                                 
-
+                        
                                 @foreach (var conversation in _conversations)
                                 {
-                                    <Contact Name="@(conversation.Item.Name)" ConversationId="@conversation.Id" OnOpenConversation="@HandleOpenConversation"/>
+                                    string temp = "";
+                                    //string temp = conversation.Item.Name + " ";
+                                    //temp += conversation.Buyer.Id == userId ? conversation.Seller.firstName  + " " + conversation.Seller.lastName : conversation.Buyer.firstName  + " " + conversation.Buyer.lastName;
+                                    if (conversation.Buyer.Id == userId)
+                                    {
+                                        temp = conversation.Item.Name + " " + conversation.Seller.firstName  + " " + conversation.Seller.lastName;
+                                    }
+                                    else
+                                    {
+                                        temp = conversation.Item.Name + " " + conversation.Buyer.firstName  + " " + conversation.Buyer.lastName;
+                                    }
+                                    <Contact Name=@temp ConversationId="@conversation.Id" OnOpenConversation="@HandleOpenConversation"/>
                                 }
 
 
@@ -73,12 +84,13 @@
 
     private string? name;
     private int userId;
+    public User itemOwner;
+    public Item item;
     //private List<Image> images;
     //private int imageIndex;
 
     protected override async Task OnInitializedAsync()
     {
-        
         AuthenticationState authState = await AuthState;
         ClaimsPrincipal userClaim = authState.User;
         name = userClaim.Identity.Name;
@@ -87,6 +99,8 @@
             throw new Exception();
         List<User> user = new List<User>(users);
         userId = user[0].Id;
+        
+        itemOwner = await UserService.GetUserById(userId);
 
         _conversations = await ConversationService.GetByUserId(userId);
         currentConversation = _conversations[0];

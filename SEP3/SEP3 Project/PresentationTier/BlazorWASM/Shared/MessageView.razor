@@ -13,7 +13,7 @@
     </div>
     <!--Send button/TextArea-->
     <div class="">
-        <EditForm Model="@MessageCreationDto" OnValidSubmit="@HandleSubmit">
+        <EditForm class="d-flex position-absolute bottom-0 start-0 message-typer" Model="@MessageCreationDto" OnValidSubmit="@HandleSubmit">
             <DataAnnotationsValidator />
             <ValidationSummary />
         

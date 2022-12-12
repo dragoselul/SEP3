@@ -3,9 +3,14 @@
 @using Syncfusion.Blazor.Navigations
 @using Microsoft.AspNetCore.Components.Authorization
 @using Domain.Models
+@using HttpClients.Implementations
+@using Domain.DTOs
+@using System.Security.Claims
 @inject IItemService ItemService
 @inject IImageService ImageService
+@inject IConversationService ConversationService
 @inject IUserService UserService
+@inject NavigationManager navMgr
 
 @if (item is null)
 {
@@ -43,6 +48,7 @@ else
                                     </p>
                                     <h1 class="border-2 bg-success text-white">Price: @item.Pricing @item.Currency</h1>
                                 </div>
+                                <button class="ms-2 mt-2 btn btn-outline-dark" @onclick="startConvo">Message the seller!</button>
                             </div>
                         </div>
                     </div>
@@ -99,15 +105,39 @@ else
     [Parameter]
     public int itemId { get; set; }
 
+    private string? name;
+
     public Item item;
     public User itemOwner;
     public List<Image> images;
+
+    public int userId;
+    
+    [CascadingParameter]
+    private Task<AuthenticationState> AuthState { get; set; } = null!;
 
     protected override async Task OnInitializedAsync()
     {
         item = await ItemService.GetItemById(itemId);
         images = await ImageService.GetImagesByItemId(itemId);
         itemOwner = await UserService.GetUserById(item.OwnerId);
+        
+        AuthenticationState authState = await AuthState;
+        ClaimsPrincipal userClaim = authState.User;
+        name = userClaim.Identity.Name;
+        IEnumerable<User> users = await UserService.GetUsers(name.Split(' ')[0], name.Split(' ')[1]);
+        if (users is null && users.Count() != 1)
+            throw new Exception();
+        List<User> user = new List<User>(users);
+        userId = user[0].Id;
+    }
+
+    public async Task startConvo()
+    {
+        ConversationCreationDto dto = new ConversationCreationDto(userId, itemOwner.Id, itemId);
+        Conversation service = await ConversationService.Create(dto);
+        
+        navMgr.NavigateTo("/messages");
     }
 
 }
