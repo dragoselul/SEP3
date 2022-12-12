@@ -88,23 +88,32 @@ public class Tests
         });
         //Getting
         List<Item> items = new();
-        
-        var call = ClientItem.getItems(new SearchItemDTO() { Name = "Stuff",Description = "Stuff",Id = 1, Category = "Electronics",
-            MaxPrice = 500,MinPrice = 500,OwnerId = 112,Status = false});
+        AsyncServerStreamingCall<gRPCClient.Item> call = ClientItem.getItems(new SearchItemDTO()
+        {
+            Id = 0,
+            OwnerId = 0,
+            Name = "",
+            Description = "",
+            MinPrice = double.MinValue,
+            MaxPrice = Double.MaxValue,
+            Status = false
+        });
         await foreach (var response in call.ResponseStream.ReadAllAsync())
-        { 
-            Item? toSend = new()
+        {
+            Item? item = new()
             {
                 Id = (int)response.Id,
                 Category = response.Category,
-                Pricing = response.Price,
-                OwnerId = (int)response.Owner.Id,
+                ContactFirstName = response.Owner.FirstName,
+                ContactLastName = response.Owner.LastName,
                 Currency = response.Currency,
                 Description = response.Description,
                 IsSold = response.Status,
-                Name = response.Name
+                Name = response.Name,
+                OwnerId = (int)response.Owner.Id,
+                Pricing = response.Price
             };
-            items.Add(toSend);
+            items.Add(item);
         }
         
         //Assert
@@ -252,5 +261,105 @@ public class Tests
         }
         //Assert
         Assert.NotEqual("Drug", name);
+    }
+
+    [Fact]
+    public async Task EditItem()
+    {
+        //For this test create an item with id 1
+        //Arrange
+        GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:6565");
+        ItemService.ItemServiceClient? ClientItem = new ItemService.ItemServiceClient(channel);
+        
+        //Act
+        //Editing
+        await ClientItem.updateItemAsync(new UpdateItemDTO()
+        {
+            Name = "NotStuff",
+            Category = "Electronics",
+            Price = 500,
+            Currency = "Euro",
+            Description = "Stuff",
+            Status = false,
+            Id = 1,
+            OwnerId = 152
+        });
+        //Getting
+        gRPCClient.Item? item  = ClientItem.getItemByIdAsync(new SearchItemDTO
+            {
+                Id = 1,
+                OwnerId = 152,
+                Name = "NotStuff",
+                Description = "Stuff",
+                MinPrice = 500,
+                MaxPrice = 500,
+                Status = false
+            })
+            .ResponseAsync.Result;
+        //Assert
+        Assert.Equal("NotStuff",item.Name);
+    }
+
+    [Fact]
+    public async Task DeleteItem()
+    {
+        //For this test to work the id variable in the //Arrange has to be changed to an existing item id
+        //Arrange
+        GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:6565");
+        ItemService.ItemServiceClient? ClientItem = new ItemService.ItemServiceClient(channel);
+        int id = 2;
+        //Act
+        //Deleting
+        await ClientItem.deleteItemAsync(new SearchItemDTO
+        {
+            Id = id,
+            OwnerId = 152,
+            Name = "NotStuff",
+            Description = "Stuff",
+            Category = "Electronics",
+            MinPrice = 500,
+            MaxPrice = 500,
+            Status = false
+        });
+        //Getting
+        List<Item> items = new();
+        AsyncServerStreamingCall<gRPCClient.Item> call = ClientItem.getItems(new SearchItemDTO()
+        {
+            Id = 0,
+            OwnerId = 0,
+            Name = "",
+            Description = "",
+            MinPrice = double.MinValue,
+            MaxPrice = Double.MaxValue,
+            Status = false
+        });
+        await foreach (var response in call.ResponseStream.ReadAllAsync())
+        {
+            Item? item = new()
+            {
+                Id = (int)response.Id,
+                Category = response.Category,
+                ContactFirstName = response.Owner.FirstName,
+                ContactLastName = response.Owner.LastName,
+                Currency = response.Currency,
+                Description = response.Description,
+                IsSold = response.Status,
+                Name = response.Name,
+                OwnerId = (int)response.Owner.Id,
+                Pricing = response.Price
+            };
+            items.Add(item);
+        }
+
+        int temp = 0;
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i].Id == id)
+            {
+                temp = 1;
+            }
+        }
+        //Assert
+        Assert.Null(temp);
     }
 }
