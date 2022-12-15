@@ -62,7 +62,7 @@ public class UserHttpClient : IUserService
 
             dto.Password = builder.ToString();
         }
-        HttpResponseMessage response = await client.PostAsJsonAsync("/Auth/register", dto);
+        HttpResponseMessage response = await client.PostAsJsonAsync("/Auth/login", dto);
         string result = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
@@ -148,5 +148,16 @@ public class UserHttpClient : IUserService
             PropertyNameCaseInsensitive = true
         })!;
         return user;
+    }
+
+    public async Task DeleteUserById(int userId)
+    {
+        HttpResponseMessage response = await client.DeleteAsync($"Users/{userId}");
+        string result = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(result);
+        }
+        await Task.CompletedTask;
     }
 }

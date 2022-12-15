@@ -136,9 +136,9 @@
                                         <div class="item__position">
                                             @foreach (var image in images)
                                             {
-                                                if (image.ItemId == items[i].Id)
+                                                if (image.ItemId == filteredItems[i].Id)
                                                 {
-                                                    <img src="data:@image.contentType;base64,@image.base64data" alt="@items[i].Name" class="item__image item__image--hue">
+                                                    <img src="data:@image.contentType;base64,@image.base64data" alt="@filteredItems[i].Name" class="item__image item__image--hue">
                                                     break;
                                                 }
                                             }
